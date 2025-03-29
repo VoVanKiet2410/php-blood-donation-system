@@ -1,0 +1,225 @@
+[29-Mar-2025 05:18:31 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 3
+[29-Mar-2025 05:18:31 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 4
+[29-Mar-2025 05:18:31 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 5
+[29-Mar-2025 05:18:31 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 6
+[29-Mar-2025 05:18:31 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 7
+[29-Mar-2025 05:18:31 Europe/Berlin] PHP Warning:  session_save_path(): Session save path cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 14
+[29-Mar-2025 05:18:31 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 3
+[29-Mar-2025 05:18:31 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 4
+[29-Mar-2025 05:18:31 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 5
+[29-Mar-2025 05:18:31 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 6
+[29-Mar-2025 05:18:31 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 7
+[29-Mar-2025 05:18:31 Europe/Berlin] PHP Warning:  session_save_path(): Session save path cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 14
+[29-Mar-2025 05:18:45 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 3
+[29-Mar-2025 05:18:45 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 4
+[29-Mar-2025 05:18:45 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 5
+[29-Mar-2025 05:18:45 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 6
+[29-Mar-2025 05:18:45 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 7
+[29-Mar-2025 05:18:45 Europe/Berlin] PHP Warning:  session_save_path(): Session save path cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 14
+[29-Mar-2025 05:18:45 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 3
+[29-Mar-2025 05:18:45 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 4
+[29-Mar-2025 05:18:45 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 5
+[29-Mar-2025 05:18:45 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 6
+[29-Mar-2025 05:18:45 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 7
+[29-Mar-2025 05:18:45 Europe/Berlin] PHP Warning:  session_save_path(): Session save path cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 14
+[29-Mar-2025 05:19:29 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 3
+[29-Mar-2025 05:19:29 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 4
+[29-Mar-2025 05:19:29 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 5
+[29-Mar-2025 05:19:29 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 6
+[29-Mar-2025 05:19:29 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 7
+[29-Mar-2025 05:19:29 Europe/Berlin] PHP Warning:  session_save_path(): Session save path cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 14
+[29-Mar-2025 05:19:29 Europe/Berlin] PHP Warning:  require_once(../../config/database.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\php-blood-donation-system\app\views\users\index.php on line 4
+[29-Mar-2025 05:19:29 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required '../../config/database.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\php-blood-donation-system\app\views\users\index.php:4
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\app\controllers\UserController.php(39): require_once()
+#1 C:\xampp\htdocs\php-blood-donation-system\public\index.php(63): App\Controllers\UserController->dashboard()
+#2 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\app\views\users\index.php on line 4
+[29-Mar-2025 05:20:06 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 3
+[29-Mar-2025 05:20:06 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 4
+[29-Mar-2025 05:20:06 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 5
+[29-Mar-2025 05:20:06 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 6
+[29-Mar-2025 05:20:06 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 7
+[29-Mar-2025 05:20:06 Europe/Berlin] PHP Warning:  session_save_path(): Session save path cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 14
+[29-Mar-2025 05:20:06 Europe/Berlin] PHP Warning:  require_once(../../config/database.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\php-blood-donation-system\app\views\users\index.php on line 4
+[29-Mar-2025 05:20:06 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required '../../config/database.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\php-blood-donation-system\app\views\users\index.php:4
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\app\controllers\UserController.php(39): require_once()
+#1 C:\xampp\htdocs\php-blood-donation-system\public\index.php(63): App\Controllers\UserController->dashboard()
+#2 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\app\views\users\index.php on line 4
+[29-Mar-2025 05:20:54 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 3
+[29-Mar-2025 05:20:54 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 4
+[29-Mar-2025 05:20:54 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 5
+[29-Mar-2025 05:20:54 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 6
+[29-Mar-2025 05:20:54 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 7
+[29-Mar-2025 05:20:54 Europe/Berlin] PHP Warning:  session_save_path(): Session save path cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 14
+[29-Mar-2025 05:20:58 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 3
+[29-Mar-2025 05:20:58 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 4
+[29-Mar-2025 05:20:58 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 5
+[29-Mar-2025 05:20:58 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 6
+[29-Mar-2025 05:20:58 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 7
+[29-Mar-2025 05:20:58 Europe/Berlin] PHP Warning:  session_save_path(): Session save path cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 14
+[29-Mar-2025 05:20:58 Europe/Berlin] PHP Warning:  require_once(../../config/database.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\php-blood-donation-system\app\views\users\index.php on line 4
+[29-Mar-2025 05:20:58 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required '../../config/database.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\php-blood-donation-system\app\views\users\index.php:4
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\app\controllers\UserController.php(39): require_once()
+#1 C:\xampp\htdocs\php-blood-donation-system\app\controllers\UserController.php(21): App\Controllers\UserController->dashboard()
+#2 C:\xampp\htdocs\php-blood-donation-system\public\index.php(65): App\Controllers\UserController->index()
+#3 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\app\views\users\index.php on line 4
+[29-Mar-2025 05:21:00 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 3
+[29-Mar-2025 05:21:00 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 4
+[29-Mar-2025 05:21:00 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 5
+[29-Mar-2025 05:21:00 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 6
+[29-Mar-2025 05:21:00 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 7
+[29-Mar-2025 05:21:00 Europe/Berlin] PHP Warning:  session_save_path(): Session save path cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 14
+[29-Mar-2025 05:21:02 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 3
+[29-Mar-2025 05:21:02 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 4
+[29-Mar-2025 05:21:02 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 5
+[29-Mar-2025 05:21:02 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 6
+[29-Mar-2025 05:21:02 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 7
+[29-Mar-2025 05:21:02 Europe/Berlin] PHP Warning:  session_save_path(): Session save path cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 14
+[29-Mar-2025 05:21:02 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "App\Models\Event" not found in C:\xampp\htdocs\php-blood-donation-system\app\controllers\EventController.php:14
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\public\index.php(101): App\Controllers\EventController->index()
+#1 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\app\controllers\EventController.php on line 14
+[29-Mar-2025 05:21:03 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 3
+[29-Mar-2025 05:21:03 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 4
+[29-Mar-2025 05:21:03 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 5
+[29-Mar-2025 05:21:03 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 6
+[29-Mar-2025 05:21:03 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 7
+[29-Mar-2025 05:21:03 Europe/Berlin] PHP Warning:  session_save_path(): Session save path cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 14
+[29-Mar-2025 05:21:04 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 3
+[29-Mar-2025 05:21:04 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 4
+[29-Mar-2025 05:21:04 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 5
+[29-Mar-2025 05:21:04 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 6
+[29-Mar-2025 05:21:04 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 7
+[29-Mar-2025 05:21:04 Europe/Berlin] PHP Warning:  session_save_path(): Session save path cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 14
+[29-Mar-2025 05:21:04 Europe/Berlin] PHP Warning:  require_once(../../config/database.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\php-blood-donation-system\app\views\users\index.php on line 4
+[29-Mar-2025 05:21:04 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required '../../config/database.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\php-blood-donation-system\app\views\users\index.php:4
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\app\controllers\UserController.php(39): require_once()
+#1 C:\xampp\htdocs\php-blood-donation-system\app\controllers\UserController.php(21): App\Controllers\UserController->dashboard()
+#2 C:\xampp\htdocs\php-blood-donation-system\public\index.php(65): App\Controllers\UserController->index()
+#3 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\app\views\users\index.php on line 4
+[29-Mar-2025 05:21:05 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 3
+[29-Mar-2025 05:21:05 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 4
+[29-Mar-2025 05:21:05 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 5
+[29-Mar-2025 05:21:05 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 6
+[29-Mar-2025 05:21:05 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 7
+[29-Mar-2025 05:21:05 Europe/Berlin] PHP Warning:  session_save_path(): Session save path cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 14
+[29-Mar-2025 05:21:21 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 3
+[29-Mar-2025 05:21:21 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 4
+[29-Mar-2025 05:21:21 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 5
+[29-Mar-2025 05:21:21 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 6
+[29-Mar-2025 05:21:21 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 7
+[29-Mar-2025 05:21:21 Europe/Berlin] PHP Warning:  session_save_path(): Session save path cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 14
+[29-Mar-2025 05:21:21 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 3
+[29-Mar-2025 05:21:21 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 4
+[29-Mar-2025 05:21:21 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 5
+[29-Mar-2025 05:21:21 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 6
+[29-Mar-2025 05:21:21 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 7
+[29-Mar-2025 05:21:21 Europe/Berlin] PHP Warning:  session_save_path(): Session save path cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 14
+[29-Mar-2025 05:21:34 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 3
+[29-Mar-2025 05:21:34 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 4
+[29-Mar-2025 05:21:34 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 5
+[29-Mar-2025 05:21:34 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 6
+[29-Mar-2025 05:21:34 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 7
+[29-Mar-2025 05:21:34 Europe/Berlin] PHP Warning:  session_save_path(): Session save path cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 14
+[29-Mar-2025 05:21:34 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 3
+[29-Mar-2025 05:21:34 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 4
+[29-Mar-2025 05:21:34 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 5
+[29-Mar-2025 05:21:34 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 6
+[29-Mar-2025 05:21:34 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 7
+[29-Mar-2025 05:21:34 Europe/Berlin] PHP Warning:  session_save_path(): Session save path cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 14
+[29-Mar-2025 05:21:44 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 3
+[29-Mar-2025 05:21:44 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 4
+[29-Mar-2025 05:21:44 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 5
+[29-Mar-2025 05:21:44 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 6
+[29-Mar-2025 05:21:44 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 7
+[29-Mar-2025 05:21:44 Europe/Berlin] PHP Warning:  session_save_path(): Session save path cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 14
+[29-Mar-2025 05:21:44 Europe/Berlin] PHP Warning:  require_once(../../config/database.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\php-blood-donation-system\app\views\users\index.php on line 4
+[29-Mar-2025 05:21:44 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required '../../config/database.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\php-blood-donation-system\app\views\users\index.php:4
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\app\controllers\UserController.php(39): require_once()
+#1 C:\xampp\htdocs\php-blood-donation-system\app\controllers\UserController.php(21): App\Controllers\UserController->dashboard()
+#2 C:\xampp\htdocs\php-blood-donation-system\public\index.php(65): App\Controllers\UserController->index()
+#3 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\app\views\users\index.php on line 4
+[29-Mar-2025 05:22:11 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 3
+[29-Mar-2025 05:22:11 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 4
+[29-Mar-2025 05:22:11 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 5
+[29-Mar-2025 05:22:11 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 6
+[29-Mar-2025 05:22:11 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 7
+[29-Mar-2025 05:22:11 Europe/Berlin] PHP Warning:  session_save_path(): Session save path cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 14
+[29-Mar-2025 05:22:11 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 3
+[29-Mar-2025 05:22:11 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 4
+[29-Mar-2025 05:22:11 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 5
+[29-Mar-2025 05:22:11 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 6
+[29-Mar-2025 05:22:11 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 7
+[29-Mar-2025 05:22:11 Europe/Berlin] PHP Warning:  session_save_path(): Session save path cannot be changed when a session is active in C:\xampp\htdocs\php-blood-donation-system\config\session.php on line 14
+[29-Mar-2025 06:53:26 Europe/Berlin] PHP Warning:  mysqli::__construct(): (HY000/2002): No connection could be made because the target machine actively refused it in C:\xampp\htdocs\php-blood-donation-system\config\database.php on line 12
+[29-Mar-2025 07:15:54 Europe/Berlin] PHP Warning:  mysqli::__construct(): (HY000/2002): No connection could be made because the target machine actively refused it in C:\xampp\htdocs\php-blood-donation-system\config\database.php on line 12
+[29-Mar-2025 07:16:08 Europe/Berlin] PHP Warning:  mysqli::__construct(): (HY000/2002): No connection could be made because the target machine actively refused it in C:\xampp\htdocs\php-blood-donation-system\config\database.php on line 12
+[29-Mar-2025 07:16:25 Europe/Berlin] PHP Warning:  mysqli::__construct(): (HY000/2002): No connection could be made because the target machine actively refused it in C:\xampp\htdocs\php-blood-donation-system\config\database.php on line 12
+[29-Mar-2025 07:46:29 Europe/Berlin] PHP Warning:  mysqli::__construct(): (HY000/2002): No connection could be made because the target machine actively refused it in C:\xampp\htdocs\php-blood-donation-system\config\database.php on line 12
+[29-Mar-2025 08:10:28 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "App\Config\Database" not found in C:\xampp\htdocs\php-blood-donation-system\app\controllers\PasswordResetController.php:16
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\public\index.php(134): App\Controllers\PasswordResetController->__construct(Object(mysqli))
+#1 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\app\controllers\PasswordResetController.php on line 16
+[29-Mar-2025 08:21:25 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "App\Config\Database" not found in C:\xampp\htdocs\php-blood-donation-system\app\controllers\PasswordResetController.php:16
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\public\index.php(134): App\Controllers\PasswordResetController->__construct(Object(mysqli))
+#1 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\app\controllers\PasswordResetController.php on line 16
+[29-Mar-2025 08:23:43 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "App\Config\Database" not found in C:\xampp\htdocs\php-blood-donation-system\app\controllers\PasswordResetController.php:17
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\public\index.php(134): App\Controllers\PasswordResetController->__construct(Object(mysqli))
+#1 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\app\controllers\PasswordResetController.php on line 17
+[29-Mar-2025 08:23:48 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "App\Config\Database" not found in C:\xampp\htdocs\php-blood-donation-system\app\controllers\PasswordResetController.php:17
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\public\index.php(134): App\Controllers\PasswordResetController->__construct(Object(mysqli))
+#1 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\app\controllers\PasswordResetController.php on line 17
+[29-Mar-2025 08:33:01 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "App\Config\Database" not found in C:\xampp\htdocs\php-blood-donation-system\app\controllers\PasswordResetController.php:16
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\public\index.php(134): App\Controllers\PasswordResetController->__construct(Object(mysqli))
+#1 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\app\controllers\PasswordResetController.php on line 16
+[29-Mar-2025 08:38:03 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\xampp\htdocs\php-blood-donation-system\app\controllers\PasswordResetController.php:107
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\app\controllers\PasswordResetController.php(28): App\Controllers\PasswordResetController->requestPasswordReset('tankiet28072003...')
+#1 C:\xampp\htdocs\php-blood-donation-system\public\index.php(136): App\Controllers\PasswordResetController->request()
+#2 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\app\controllers\PasswordResetController.php on line 107
+[29-Mar-2025 08:44:02 Europe/Berlin] PHP Warning:  mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() in C:\xampp\htdocs\php-blood-donation-system\app\controllers\PasswordResetController.php on line 162
+[29-Mar-2025 08:47:10 Europe/Berlin] PHP Parse error:  syntax error, unexpected identifier "se", expecting "function" or "const" in C:\xampp\htdocs\php-blood-donation-system\app\controllers\PasswordResetController.php on line 11
+[29-Mar-2025 08:47:11 Europe/Berlin] PHP Parse error:  syntax error, unexpected identifier "se", expecting "function" or "const" in C:\xampp\htdocs\php-blood-donation-system\app\controllers\PasswordResetController.php on line 11
+[29-Mar-2025 08:47:13 Europe/Berlin] PHP Parse error:  syntax error, unexpected identifier "se", expecting "function" or "const" in C:\xampp\htdocs\php-blood-donation-system\app\controllers\PasswordResetController.php on line 11
+[29-Mar-2025 08:47:26 Europe/Berlin] PHP Parse error:  syntax error, unexpected identifier "se", expecting "function" or "const" in C:\xampp\htdocs\php-blood-donation-system\app\controllers\PasswordResetController.php on line 11
+[29-Mar-2025 08:47:27 Europe/Berlin] PHP Parse error:  syntax error, unexpected identifier "se", expecting "function" or "const" in C:\xampp\htdocs\php-blood-donation-system\app\controllers\PasswordResetController.php on line 11
+[29-Mar-2025 08:47:27 Europe/Berlin] PHP Parse error:  syntax error, unexpected identifier "se", expecting "function" or "const" in C:\xampp\htdocs\php-blood-donation-system\app\controllers\PasswordResetController.php on line 11
+[29-Mar-2025 08:47:28 Europe/Berlin] PHP Parse error:  syntax error, unexpected identifier "se", expecting "function" or "const" in C:\xampp\htdocs\php-blood-donation-system\app\controllers\PasswordResetController.php on line 11
+[29-Mar-2025 08:47:28 Europe/Berlin] PHP Parse error:  syntax error, unexpected identifier "se", expecting "function" or "const" in C:\xampp\htdocs\php-blood-donation-system\app\controllers\PasswordResetController.php on line 11
+[29-Mar-2025 08:49:46 Europe/Berlin] PHP Warning:  mail(): SMTP server response: 530-5.7.0 Must issue a STARTTLS command first. For more information, go to
+530-5.7.0  https://support.google.com/a/answer/3221692 and review RFC 3207
+530 5.7.0 specifications. 98e67ed59e1d1-3039e10af2csm5518385a91.21 - gsmtp in C:\xampp\htdocs\php-blood-donation-system\app\controllers\PasswordResetController.php on line 169
+[29-Mar-2025 08:51:49 Europe/Berlin] PHP Parse error:  syntax error, unexpected token "use" in C:\xampp\htdocs\php-blood-donation-system\app\controllers\PasswordResetController.php on line 16
+[29-Mar-2025 08:51:50 Europe/Berlin] PHP Parse error:  syntax error, unexpected token "use" in C:\xampp\htdocs\php-blood-donation-system\app\controllers\PasswordResetController.php on line 16
+[29-Mar-2025 08:51:51 Europe/Berlin] PHP Parse error:  syntax error, unexpected token "use" in C:\xampp\htdocs\php-blood-donation-system\app\controllers\PasswordResetController.php on line 16
+[29-Mar-2025 08:51:51 Europe/Berlin] PHP Parse error:  syntax error, unexpected token "use" in C:\xampp\htdocs\php-blood-donation-system\app\controllers\PasswordResetController.php on line 16
+[29-Mar-2025 08:51:52 Europe/Berlin] PHP Parse error:  syntax error, unexpected token "use" in C:\xampp\htdocs\php-blood-donation-system\app\controllers\PasswordResetController.php on line 16
+[29-Mar-2025 08:52:04 Europe/Berlin] PHP Parse error:  syntax error, unexpected token "use" in C:\xampp\htdocs\php-blood-donation-system\app\controllers\PasswordResetController.php on line 16
+[29-Mar-2025 08:55:22 Europe/Berlin] PHP Warning:  require_once(../../config/database.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\php-blood-donation-system\app\views\users\index.php on line 4
+[29-Mar-2025 08:55:22 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required '../../config/database.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\php-blood-donation-system\app\views\users\index.php:4
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\app\controllers\UserController.php(39): require_once()
+#1 C:\xampp\htdocs\php-blood-donation-system\app\controllers\UserController.php(21): App\Controllers\UserController->dashboard()
+#2 C:\xampp\htdocs\php-blood-donation-system\public\index.php(66): App\Controllers\UserController->index()
+#3 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\app\views\users\index.php on line 4
