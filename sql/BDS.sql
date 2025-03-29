@@ -18,8 +18,8 @@ CREATE TABLE user_info (
     address TEXT
 );
 
--- Bảng Users
-CREATE TABLE users (
+-- Bảng user
+CREATE TABLE user (
     cccd VARCHAR(12) PRIMARY KEY,
     password VARCHAR(255) NOT NULL,
     phone VARCHAR(15),
@@ -64,7 +64,7 @@ CREATE TABLE appointments (
     next_donation_eligible_date DATE,
     status ENUM('PENDING', 'CONFIRMED', 'CANCELED', 'COMPLETED') DEFAULT 'PENDING',
     FOREIGN KEY (event_id) REFERENCES events(id),
-    FOREIGN KEY (user_cccd) REFERENCES users(cccd)
+    FOREIGN KEY (user_cccd) REFERENCES user(cccd)
 );
 
 -- Bảng Healthcheck
@@ -88,7 +88,7 @@ CREATE TABLE blood_donation_histories (
     donation_type VARCHAR(50),
     reaction_after_donation VARCHAR(100),
     appointment_id INT,
-    FOREIGN KEY (user_cccd) REFERENCES users(cccd),
+    FOREIGN KEY (user_cccd) REFERENCES user(cccd),
     FOREIGN KEY (appointment_id) REFERENCES appointments(id)
 );
 
@@ -109,5 +109,5 @@ CREATE TABLE password_reset_tokens (
     user_cccd VARCHAR(12),
     token VARCHAR(255) NOT NULL,
     expiry_date DATETIME,
-    FOREIGN KEY (user_cccd) REFERENCES users(cccd)
+    FOREIGN KEY (user_cccd) REFERENCES user(cccd)
 );

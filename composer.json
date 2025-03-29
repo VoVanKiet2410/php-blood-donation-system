@@ -1,9 +1,10 @@
 {
-    "name": "blood-donation-system",
-    "description": "A PHP project for managing a blood donation system.",
+    "name": "bloodsystem/php-blood-donation-system",
+    "description": "Blood Donation System",
     "type": "project",
     "require": {
-        "php": "^7.4 || ^8.0",
+        "php": ">=7.4",
+        "phpmailer/phpmailer": "^6.8",
         "slim/slim": "^4.0",
         "slim/psr7": "^1.0",
         "illuminate/database": "^8.0",
