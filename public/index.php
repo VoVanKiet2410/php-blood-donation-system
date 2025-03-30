@@ -148,4 +148,3 @@ try {
     error_log("Error in controller: " . $e->getMessage());
     echo "An error occurred. Please check the error log for details.";
 }
-?>

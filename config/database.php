@@ -2,23 +2,48 @@
 // Load environment variables
 require_once __DIR__ . '/env.php';
 
-$host = getenv('DB_HOST') ?: 'localhost';
-$db_name = getenv('DB_DATABASE') ?: 'giotmauvang';
-$username = getenv('DB_USERNAME') ?: 'root';
-$password = getenv('DB_PASSWORD') ?: '';
-$port = getenv('DB_PORT') ?: 3306;
+class Database
+{
+    private static $instance = null;
+    private static $connection = null;
 
-try {
-    $mysqli = new mysqli($host, $username, $password, $db_name, $port);
+    private function __construct()
+    {
+        $host = 'localhost';
+        $username = 'root';
+        $password = '';
+        $database = 'giotmauvang';
 
-    if ($mysqli->connect_error) {
-        throw new Exception("Connection failed: " . $mysqli->connect_error);
+        self::$connection = new mysqli($host, $username, $password, $database);
+
+        if (self::$connection->connect_error) {
+            die("Connection failed: " . self::$connection->connect_error);
+        }
+
+        self::$connection->set_charset('utf8mb4');
     }
-    
-    // Set character set
-    $mysqli->set_charset('utf8mb4');
-    
-} catch (Exception $e) {
-    die("Database connection error: " . $e->getMessage());
+
+    public static function getInstance()
+    {
+        if (self::$instance === null) {
+            self::$instance = new self();
+        }
+        return self::$instance;
+    }
+
+    public static function getConnection()
+    {
+        if (self::$connection === null) {
+            self::getInstance();
+        }
+        return self::$connection;
+    }
 }
-?>
+
+// Tạo kết nối global
+$mysqli = Database::getConnection();
+
+// Kiểm tra kết nối
+if (!$mysqli) {
+    die("Connection failed: Unable to establish database connection");
+}

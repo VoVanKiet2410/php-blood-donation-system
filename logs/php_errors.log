@@ -223,3 +223,176 @@ Stack trace:
 #2 C:\xampp\htdocs\php-blood-donation-system\public\index.php(66): App\Controllers\UserController->index()
 #3 {main}
   thrown in C:\xampp\htdocs\php-blood-donation-system\app\views\users\index.php on line 4
+[30-Mar-2025 06:21:10 Europe/Berlin] PHP Warning:  require_once(../../config/database.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\php-blood-donation-system\app\views\users\index.php on line 4
+[30-Mar-2025 06:21:10 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required '../../config/database.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\php-blood-donation-system\app\views\users\index.php:4
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\app\controllers\UserController.php(39): require_once()
+#1 C:\xampp\htdocs\php-blood-donation-system\public\index.php(64): App\Controllers\UserController->dashboard()
+#2 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\app\views\users\index.php on line 4
+[30-Mar-2025 06:23:40 Europe/Berlin] PHP Warning:  require_once(../../config/database.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\php-blood-donation-system\app\views\users\index.php on line 6
+[30-Mar-2025 06:23:40 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required '../../config/database.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\php-blood-donation-system\app\views\users\index.php:6
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\app\controllers\UserController.php(39): require_once()
+#1 C:\xampp\htdocs\php-blood-donation-system\public\index.php(64): App\Controllers\UserController->dashboard()
+#2 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\app\views\users\index.php on line 6
+[30-Mar-2025 06:23:41 Europe/Berlin] PHP Warning:  require_once(../../config/database.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\php-blood-donation-system\app\views\users\index.php on line 6
+[30-Mar-2025 06:23:41 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required '../../config/database.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\php-blood-donation-system\app\views\users\index.php:6
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\app\controllers\UserController.php(39): require_once()
+#1 C:\xampp\htdocs\php-blood-donation-system\public\index.php(64): App\Controllers\UserController->dashboard()
+#2 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\app\views\users\index.php on line 6
+[30-Mar-2025 06:25:26 Europe/Berlin] PHP Warning:  require_once(../../config/database.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\php-blood-donation-system\app\views\users\index.php on line 6
+[30-Mar-2025 06:25:26 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required '../../config/database.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\php-blood-donation-system\app\views\users\index.php:6
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\app\controllers\UserController.php(39): require_once()
+#1 C:\xampp\htdocs\php-blood-donation-system\public\index.php(64): App\Controllers\UserController->dashboard()
+#2 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\app\views\users\index.php on line 6
+[30-Mar-2025 06:25:28 Europe/Berlin] PHP Warning:  require_once(../../config/database.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\php-blood-donation-system\app\views\users\index.php on line 6
+[30-Mar-2025 06:25:28 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required '../../config/database.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\php-blood-donation-system\app\views\users\index.php:6
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\app\controllers\UserController.php(39): require_once()
+#1 C:\xampp\htdocs\php-blood-donation-system\public\index.php(64): App\Controllers\UserController->dashboard()
+#2 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\app\views\users\index.php on line 6
+[30-Mar-2025 06:26:14 Europe/Berlin] PHP Warning:  require_once(../../config/database.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\php-blood-donation-system\app\views\users\index.php on line 6
+[30-Mar-2025 06:26:14 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required '../../config/database.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\php-blood-donation-system\app\views\users\index.php:6
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\app\controllers\UserController.php(39): require_once()
+#1 C:\xampp\htdocs\php-blood-donation-system\public\index.php(64): App\Controllers\UserController->dashboard()
+#2 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\app\views\users\index.php on line 6
+[30-Mar-2025 06:26:56 Europe/Berlin] PHP Warning:  require_once(../../config/database.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\php-blood-donation-system\app\views\users\index.php on line 4
+[30-Mar-2025 06:26:56 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required '../../config/database.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\php-blood-donation-system\app\views\users\index.php:4
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\app\controllers\UserController.php(39): require_once()
+#1 C:\xampp\htdocs\php-blood-donation-system\public\index.php(64): App\Controllers\UserController->dashboard()
+#2 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\app\views\users\index.php on line 4
+[30-Mar-2025 06:29:24 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "UserController" not found in C:\xampp\htdocs\php-blood-donation-system\app\views\users\index.php:7
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\app\controllers\UserController.php(39): require_once()
+#1 C:\xampp\htdocs\php-blood-donation-system\public\index.php(64): App\Controllers\UserController->dashboard()
+#2 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\app\views\users\index.php on line 7
+[30-Mar-2025 06:35:11 Europe/Berlin] PHP Warning:  Undefined variable $mysqli in C:\xampp\htdocs\php-blood-donation-system\app\views\users\index.php on line 8
+[30-Mar-2025 06:35:11 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in C:\xampp\htdocs\php-blood-donation-system\app\controllers\UserController.php:30
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\app\controllers\UserController.php(21): App\Controllers\UserController->dashboard()
+#1 C:\xampp\htdocs\php-blood-donation-system\app\views\users\index.php(9): App\Controllers\UserController->index()
+#2 C:\xampp\htdocs\php-blood-donation-system\app\controllers\UserController.php(39): require_once('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\php-blood-donation-system\public\index.php(64): App\Controllers\UserController->dashboard()
+#4 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\app\controllers\UserController.php on line 30
+[30-Mar-2025 06:35:14 Europe/Berlin] PHP Warning:  Undefined variable $mysqli in C:\xampp\htdocs\php-blood-donation-system\app\views\users\index.php on line 8
+[30-Mar-2025 06:35:14 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in C:\xampp\htdocs\php-blood-donation-system\app\controllers\UserController.php:30
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\app\controllers\UserController.php(21): App\Controllers\UserController->dashboard()
+#1 C:\xampp\htdocs\php-blood-donation-system\app\views\users\index.php(9): App\Controllers\UserController->index()
+#2 C:\xampp\htdocs\php-blood-donation-system\app\controllers\UserController.php(39): require_once('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\php-blood-donation-system\public\index.php(64): App\Controllers\UserController->dashboard()
+#4 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\app\controllers\UserController.php on line 30
+[30-Mar-2025 06:35:15 Europe/Berlin] PHP Warning:  Undefined variable $mysqli in C:\xampp\htdocs\php-blood-donation-system\app\views\users\index.php on line 8
+[30-Mar-2025 06:35:15 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in C:\xampp\htdocs\php-blood-donation-system\app\controllers\UserController.php:30
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\app\controllers\UserController.php(21): App\Controllers\UserController->dashboard()
+#1 C:\xampp\htdocs\php-blood-donation-system\app\views\users\index.php(9): App\Controllers\UserController->index()
+#2 C:\xampp\htdocs\php-blood-donation-system\app\controllers\UserController.php(39): require_once('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\php-blood-donation-system\public\index.php(64): App\Controllers\UserController->dashboard()
+#4 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\app\controllers\UserController.php on line 30
+[30-Mar-2025 06:35:17 Europe/Berlin] PHP Warning:  Undefined variable $mysqli in C:\xampp\htdocs\php-blood-donation-system\app\views\users\index.php on line 8
+[30-Mar-2025 06:35:17 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in C:\xampp\htdocs\php-blood-donation-system\app\controllers\UserController.php:30
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\app\controllers\UserController.php(21): App\Controllers\UserController->dashboard()
+#1 C:\xampp\htdocs\php-blood-donation-system\app\views\users\index.php(9): App\Controllers\UserController->index()
+#2 C:\xampp\htdocs\php-blood-donation-system\app\controllers\UserController.php(39): require_once('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\php-blood-donation-system\public\index.php(64): App\Controllers\UserController->dashboard()
+#4 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\app\controllers\UserController.php on line 30
+[30-Mar-2025 06:35:26 Europe/Berlin] PHP Warning:  Undefined variable $mysqli in C:\xampp\htdocs\php-blood-donation-system\app\views\users\index.php on line 8
+[30-Mar-2025 06:35:26 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in C:\xampp\htdocs\php-blood-donation-system\app\controllers\UserController.php:30
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\app\controllers\UserController.php(21): App\Controllers\UserController->dashboard()
+#1 C:\xampp\htdocs\php-blood-donation-system\app\views\users\index.php(9): App\Controllers\UserController->index()
+#2 C:\xampp\htdocs\php-blood-donation-system\app\controllers\UserController.php(39): require_once('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\php-blood-donation-system\public\index.php(64): App\Controllers\UserController->dashboard()
+#4 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\app\controllers\UserController.php on line 30
+[30-Mar-2025 06:35:30 Europe/Berlin] PHP Warning:  Undefined variable $mysqli in C:\xampp\htdocs\php-blood-donation-system\app\views\users\index.php on line 8
+[30-Mar-2025 06:35:30 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in C:\xampp\htdocs\php-blood-donation-system\app\controllers\UserController.php:30
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\app\controllers\UserController.php(21): App\Controllers\UserController->dashboard()
+#1 C:\xampp\htdocs\php-blood-donation-system\app\views\users\index.php(9): App\Controllers\UserController->index()
+#2 C:\xampp\htdocs\php-blood-donation-system\app\controllers\UserController.php(39): require_once('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\php-blood-donation-system\public\index.php(64): App\Controllers\UserController->dashboard()
+#4 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\app\controllers\UserController.php on line 30
+[30-Mar-2025 06:35:32 Europe/Berlin] PHP Warning:  Undefined variable $mysqli in C:\xampp\htdocs\php-blood-donation-system\app\views\users\index.php on line 8
+[30-Mar-2025 06:35:32 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in C:\xampp\htdocs\php-blood-donation-system\app\controllers\UserController.php:30
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\app\controllers\UserController.php(21): App\Controllers\UserController->dashboard()
+#1 C:\xampp\htdocs\php-blood-donation-system\app\views\users\index.php(9): App\Controllers\UserController->index()
+#2 C:\xampp\htdocs\php-blood-donation-system\app\controllers\UserController.php(39): require_once('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\php-blood-donation-system\public\index.php(64): App\Controllers\UserController->dashboard()
+#4 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\app\controllers\UserController.php on line 30
+[30-Mar-2025 06:36:21 Europe/Berlin] PHP Warning:  Undefined variable $mysqli in C:\xampp\htdocs\php-blood-donation-system\app\views\users\index.php on line 8
+[30-Mar-2025 06:36:21 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in C:\xampp\htdocs\php-blood-donation-system\app\controllers\UserController.php:30
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\app\controllers\UserController.php(21): App\Controllers\UserController->dashboard()
+#1 C:\xampp\htdocs\php-blood-donation-system\app\views\users\index.php(9): App\Controllers\UserController->index()
+#2 C:\xampp\htdocs\php-blood-donation-system\app\controllers\UserController.php(39): require_once('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\php-blood-donation-system\public\index.php(64): App\Controllers\UserController->dashboard()
+#4 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\app\controllers\UserController.php on line 30
+[30-Mar-2025 06:40:13 Europe/Berlin] PHP Warning:  Undefined variable $mysqli in C:\xampp\htdocs\php-blood-donation-system\app\views\users\index.php on line 8
+[30-Mar-2025 06:40:13 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in C:\xampp\htdocs\php-blood-donation-system\app\controllers\UserController.php:30
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\app\controllers\UserController.php(21): App\Controllers\UserController->dashboard()
+#1 C:\xampp\htdocs\php-blood-donation-system\app\views\users\index.php(9): App\Controllers\UserController->index()
+#2 C:\xampp\htdocs\php-blood-donation-system\app\controllers\UserController.php(39): require_once('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\php-blood-donation-system\public\index.php(64): App\Controllers\UserController->dashboard()
+#4 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\app\controllers\UserController.php on line 30
+[30-Mar-2025 06:40:15 Europe/Berlin] PHP Warning:  Undefined variable $mysqli in C:\xampp\htdocs\php-blood-donation-system\app\views\users\index.php on line 8
+[30-Mar-2025 06:40:15 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in C:\xampp\htdocs\php-blood-donation-system\app\controllers\UserController.php:30
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\app\controllers\UserController.php(21): App\Controllers\UserController->dashboard()
+#1 C:\xampp\htdocs\php-blood-donation-system\app\views\users\index.php(9): App\Controllers\UserController->index()
+#2 C:\xampp\htdocs\php-blood-donation-system\app\controllers\UserController.php(39): require_once('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\php-blood-donation-system\public\index.php(64): App\Controllers\UserController->dashboard()
+#4 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\app\controllers\UserController.php on line 30
+[30-Mar-2025 06:40:15 Europe/Berlin] PHP Warning:  Undefined variable $mysqli in C:\xampp\htdocs\php-blood-donation-system\app\views\users\index.php on line 8
+[30-Mar-2025 06:40:15 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in C:\xampp\htdocs\php-blood-donation-system\app\controllers\UserController.php:30
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\app\controllers\UserController.php(21): App\Controllers\UserController->dashboard()
+#1 C:\xampp\htdocs\php-blood-donation-system\app\views\users\index.php(9): App\Controllers\UserController->index()
+#2 C:\xampp\htdocs\php-blood-donation-system\app\controllers\UserController.php(39): require_once('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\php-blood-donation-system\public\index.php(64): App\Controllers\UserController->dashboard()
+#4 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\app\controllers\UserController.php on line 30
+[30-Mar-2025 06:40:18 Europe/Berlin] PHP Warning:  Undefined variable $mysqli in C:\xampp\htdocs\php-blood-donation-system\app\views\users\index.php on line 8
+[30-Mar-2025 06:40:18 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in C:\xampp\htdocs\php-blood-donation-system\app\controllers\UserController.php:30
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\app\controllers\UserController.php(21): App\Controllers\UserController->dashboard()
+#1 C:\xampp\htdocs\php-blood-donation-system\app\views\users\index.php(9): App\Controllers\UserController->index()
+#2 C:\xampp\htdocs\php-blood-donation-system\app\controllers\UserController.php(39): require_once('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\php-blood-donation-system\public\index.php(64): App\Controllers\UserController->dashboard()
+#4 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\app\controllers\UserController.php on line 30
+[30-Mar-2025 06:42:37 Europe/Berlin] PHP Warning:  Undefined variable $mysqli in C:\xampp\htdocs\php-blood-donation-system\app\views\users\index.php on line 17
+[30-Mar-2025 06:42:37 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in C:\xampp\htdocs\php-blood-donation-system\app\controllers\UserController.php:30
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\app\views\users\index.php(20): App\Controllers\UserController->dashboard()
+#1 C:\xampp\htdocs\php-blood-donation-system\app\controllers\UserController.php(43): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\php-blood-donation-system\public\index.php(64): App\Controllers\UserController->dashboard()
+#3 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\app\controllers\UserController.php on line 30
+[30-Mar-2025 06:44:49 Europe/Berlin] PHP Warning:  Undefined variable $mysqli in C:\xampp\htdocs\php-blood-donation-system\app\views\users\index.php on line 16
+[30-Mar-2025 06:44:49 Europe/Berlin] Error in controller: Database connection not provided

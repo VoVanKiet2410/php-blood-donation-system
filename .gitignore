@@ -45,3 +45,5 @@ Thumbs.db
 
 # Testing files
 /coverage/
+
+/logs/php_errors.log

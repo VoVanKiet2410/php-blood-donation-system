@@ -12,6 +12,9 @@ class UserController
 
     public function __construct($mysqli)
     {
+        if (!$mysqli) {
+            throw new \Exception("Database connection not provided");
+        }
         $this->mysqli = $mysqli;
     }
 
@@ -24,18 +27,22 @@ class UserController
     public function dashboard()
     {
         AuthController::authorize();
-        
-        // Fetch user info
+
         $userCccd = $_SESSION['user_id'];
         $stmt = $this->mysqli->prepare("SELECT u.cccd, u.email, u.phone, ui.full_name, ui.address, ui.dob, ui.sex 
                                       FROM user u 
                                       LEFT JOIN user_info ui ON u.user_info_id = ui.id
                                       WHERE u.cccd = ?");
+        if (!$stmt) {
+            die("Error preparing statement: " . $this->mysqli->error);
+        }
+
         $stmt->bind_param("s", $userCccd);
         $stmt->execute();
         $result = $stmt->get_result();
         $user = $result->fetch_assoc();
-        
+
+        // Include view file instead of returning data
         require_once '../app/views/users/index.php';
     }
 
@@ -101,4 +108,8 @@ class UserController
         return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
 }
-?>
+
+// Thêm vào cuối file database.php
+if (!$mysqli) {
+    die("Connection failed: Unable to establish database connection");
+}
