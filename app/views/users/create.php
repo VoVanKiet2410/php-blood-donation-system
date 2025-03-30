@@ -1,59 +1,55 @@
-<?php
-// File: /blood-donation-system/blood-donation-system/app/views/users/create.php
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create User</title>
-    <link rel="stylesheet" href="/css/styles.css">
+    <title>Create User - Blood Donation System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>/css/styles.css">
 </head>
+
 <body>
-    <div class="container">
-        <h1>Create New User</h1>
-        <form action="/users/store" method="POST">
-            <div class="form-group">
-                <label for="username">CCCD (Username):</label>
-                <input type="text" id="username" name="username" required>
+    <div class="container py-5">
+        <div class="card shadow">
+            <div class="card-header">
+                <h3>Create New User</h3>
             </div>
-            <div class="form-group">
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required>
+            <div class="card-body">
+                <!-- Sửa action của form -->
+                <form action="<?= BASE_URL ?>/index.php?controller=User&action=store" method="POST">
+                    <div class="mb-3">
+                        <label for="username" class="form-label">CCCD:</label>
+                        <input type="text" class="form-control" id="username" name="username" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password:</label>
+                        <input type="password" class="form-control" id="password" name="password" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="phone" class="form-label">Phone:</label>
+                        <input type="tel" class="form-control" id="phone" name="phone" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email:</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="role_id" class="form-label">Role:</label>
+                        <select class="form-select" id="role_id" name="role_id" required>
+                            <?php foreach ($roles as $role): ?>
+                                <option value="<?= $role['id'] ?>"><?= htmlspecialchars($role['name']) ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Create User</button>
+                    <a href="<?= BASE_URL ?>/index.php?controller=User&action=list" class="btn btn-secondary">Cancel</a>
+                </form>
             </div>
-            <div class="form-group">
-                <label for="phone">Phone:</label>
-                <input type="text" id="phone" name="phone" required>
-            </div>
-            <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-            <div class="form-group">
-                <label for="fullName">Full Name:</label>
-                <input type="text" id="fullName" name="fullName" required>
-            </div>
-            <div class="form-group">
-                <label for="dob">Date of Birth:</label>
-                <input type="date" id="dob" name="dob" required>
-            </div>
-            <div class="form-group">
-                <label for="sex">Sex:</label>
-                <select id="sex" name="sex" required>
-                    <option value="Male">Male</option>
-                    <option value="Female">Female</option>
-                    <option value="Other">Other</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="address">Address:</label>
-                <input type="text" id="address" name="address" required>
-            </div>
-            <button type="submit">Create User</button>
-        </form>
-        <a href="/users/index">Back to User List</a>
+        </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

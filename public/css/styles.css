@@ -54,7 +54,8 @@ footer {
     border-collapse: collapse;
 }
 
-.table th, .table td {
+.table th,
+.table td {
     border: 1px solid #dddddd;
     text-align: left;
     padding: 8px;
@@ -63,6 +64,10 @@ footer {
 .table th {
     background-color: #35424a;
     color: white;
+}
+
+.table-responsive {
+    overflow-x: auto;
 }
 
 .button {
@@ -75,4 +80,14 @@ footer {
 
 .button:hover {
     background-color: #e8491d;
+}
+
+.btn-sm {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+    margin: 0 2px;
+}
+
+.actions {
+    white-space: nowrap;
 }

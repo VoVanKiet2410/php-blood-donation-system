@@ -46,6 +46,7 @@ use App\Controllers\PasswordResetController;
 
 $controller = isset($_GET['controller']) ? $_GET['controller'] : 'Auth';
 $action = isset($_GET['action']) ? $_GET['action'] : 'login';
+$id = isset($_GET['id']) ? $_GET['id'] : null;
 
 try {
     switch ($controller) {
@@ -60,10 +61,17 @@ try {
 
         case 'User':
             $userController = new UserController($mysqli);
-            if (method_exists($userController, $action)) {
-                $userController->$action();
+            if ($action === 'edit' || $action === 'delete' || $action === 'update') {
+                if ($id === null) {
+                    throw new Exception('ID is required');
+                }
+                $userController->$action($id);
             } else {
-                $userController->index();
+                if (method_exists($userController, $action)) {
+                    $userController->$action();
+                } else {
+                    $userController->index();
+                }
             }
             break;
 
@@ -144,7 +152,7 @@ try {
             $authController->login();
             break;
     }
-} catch (\Exception $e) {
-    error_log("Error in controller: " . $e->getMessage());
-    echo "An error occurred. Please check the error log for details.";
+} catch (Exception $e) {
+    // Handle error
+    die("Error: " . $e->getMessage());
 }
