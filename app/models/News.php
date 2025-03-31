@@ -9,12 +9,12 @@ class News extends Model
     protected $table = 'news';
 
     protected $fillable = [
-        'title',
-        'content',
         'author',
-        'imageUrl',
+        'content',
+        'image_url',
         'timestamp',
+        'title'
     ];
 
-    public $timestamps = false; // Disable automatic timestamps if not needed
+    public $timestamps = false;
 }

@@ -1,12 +1,12 @@
 <?php
 
 class User {
-    private $username;
+    private $cccd;
+    private $email;
     private $password;
     private $phone;
-    private $email;
-    private $userInfo;
-    private $role;
+    private $role_id;
+    private $user_info_id;
     private $appointments = [];
     private $bloodDonationHistories = [];
 

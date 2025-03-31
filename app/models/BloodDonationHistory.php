@@ -6,26 +6,27 @@ use Illuminate\Database\Eloquent\Model;
 
 class BloodDonationHistory extends Model
 {
-    protected $table = 'blood_donation_histories';
+    protected $table = 'blood_donation_history';
 
     protected $fillable = [
-        'donation_date_time',
         'blood_amount',
+        'donation_date_time',
         'donation_location',
-        'notes',
         'donation_type',
+        'next_donation_eligible_date',
+        'notes',
         'reaction_after_donation',
-        'user_id',
         'appointment_id',
+        'user_id'
     ];
 
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id', 'cccd');
     }
 
     public function appointment()
     {
-        return $this->belongsTo(Appointment::class);
+        return $this->belongsTo(Appointment::class, 'appointment_id');
     }
 }
