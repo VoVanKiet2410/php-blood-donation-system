@@ -4,6 +4,8 @@
 // Assuming you have a BloodInventoryController that fetches the blood inventory data
 // and passes it to this view.
 
+use App\Controllers\BloodInventoryController;
+
 require_once '../../config/database.php'; // Include database connection
 require_once '../../app/controllers/BloodInventoryController.php'; // Include the controller
 
