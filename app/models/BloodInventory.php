@@ -10,14 +10,14 @@ class BloodInventory extends Model
 
     protected $fillable = [
         'blood_type',
-        'quantity',
-        'last_updated',
         'expiration_date',
-        'appointment_id',
+        'last_updated',
+        'quantity',
+        'appointment_id'
     ];
 
     public function appointment()
     {
-        return $this->belongsTo(Appointment::class);
+        return $this->belongsTo(Appointment::class, 'appointment_id');
     }
 }

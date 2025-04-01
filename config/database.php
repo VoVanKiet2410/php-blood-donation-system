@@ -1,49 +1,59 @@
 <?php
+
+use Illuminate\Database\Capsule\Manager as Capsule;
+
 // Load environment variables
 require_once __DIR__ . '/env.php';
+require_once '../vendor/autoload.php';
 
-class Database
-{
-    private static $instance = null;
-    private static $connection = null;
+$host = getenv('DB_HOST') ?: 'localhost';
+$db_name = getenv('DB_DATABASE') ?: 'giotmauvang';
+$username = getenv('DB_USERNAME') ?: 'root';
+$password = getenv('DB_PASSWORD') ?: '';
+$port = getenv('DB_PORT') ?: 3306;
 
-    private function __construct()
-    {
-        $host = 'localhost';
-        $username = 'root';
-        $password = '';
-        $database = 'giotmauvang';
+try {
+    $mysqli = new mysqli($host, $username, $password, $db_name, $port);
 
-        self::$connection = new mysqli($host, $username, $password, $database);
-
-        if (self::$connection->connect_error) {
-            die("Connection failed: " . self::$connection->connect_error);
-        }
-
-        self::$connection->set_charset('utf8mb4');
+    if ($mysqli->connect_error) {
+        throw new Exception("Connection failed: " . $mysqli->connect_error);
     }
 
-    public static function getInstance()
-    {
-        if (self::$instance === null) {
-            self::$instance = new self();
-        }
-        return self::$instance;
-    }
+    // Debugging: Confirm connection
+    error_log("Database connection successful: {$host}, {$db_name}");
 
-    public static function getConnection()
-    {
-        if (self::$connection === null) {
-            self::getInstance();
-        }
-        return self::$connection;
-    }
+    // Set character set
+    $mysqli->set_charset('utf8mb4');
+    
+} catch (Exception $e) {
+    die("Database connection error: " . $e->getMessage());
 }
 
-// Tạo kết nối global
-$mysqli = Database::getConnection();
+// More detailed debugging for Capsule connection
+try {
+    $capsule = new Capsule;
 
-// Kiểm tra kết nối
-if (!$mysqli) {
-    die("Connection failed: Unable to establish database connection");
+    $capsule->addConnection([
+        'driver'    => 'mysql',
+        'host'      => $host,
+        'database'  => $db_name,
+        'username'  => $username,
+        'password'  => $password,
+        'charset'   => 'utf8mb4',
+        'collation' => 'utf8mb4_unicode_ci',
+        'prefix'    => '',
+        'port'      => $port,
+    ]);
+
+    $capsule->setAsGlobal();
+    $capsule->bootEloquent();
+
+    // Verify Eloquent connection
+    $pdo = $capsule->getConnection()->getPdo();
+    error_log("Eloquent connection established successfully");
+    
+} catch (\Exception $e) {
+    error_log("Eloquent connection error: " . $e->getMessage());
+    die("Database connection error for Eloquent: " . $e->getMessage());
 }
+?>
