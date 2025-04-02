@@ -648,11 +648,11 @@ function renderSidebarLink($route, $label, $current_page, $icon) {
         <!-- Main Content -->
         <main class="app-content">
             <?php 
-        if (is_callable($content)) {
-            $content();
-        } else {
-            include_once $content;
-        }
+            if (is_callable($content)) {
+                $content($data ?? []);
+            } else {
+                include_once $content;
+            }
         ?>
         </main>
 

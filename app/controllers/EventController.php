@@ -30,13 +30,18 @@ class EventController
             
             // Fetch events using Eloquent
             $events = Event::all(); 
+            // foreach ($events as $event) {
+            //     echo '<pre>';
+            //     print_r($event->toArray());
+            //     echo '</pre>';
+            // }
             error_log("Fetched events successfully: " . json_encode($events));
             
             // Create a global variable for events that can be accessed in the view
             // Make sure $events is always an array even if the query returns null
             global $events;
             $events = $events ?? [];
-            
+            $data = ['events' => $events];
             require_once '../app/views/admin/EventBloodDonation/EventBloodDonationList.php';
         } catch (\Exception $e) {
             echo '<h3>Error in EventController@adminIndex</h3>';
