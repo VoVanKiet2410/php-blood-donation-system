@@ -396,3 +396,501 @@ Stack trace:
   thrown in C:\xampp\htdocs\php-blood-donation-system\app\controllers\UserController.php on line 30
 [30-Mar-2025 06:44:49 Europe/Berlin] PHP Warning:  Undefined variable $mysqli in C:\xampp\htdocs\php-blood-donation-system\app\views\users\index.php on line 16
 [30-Mar-2025 06:44:49 Europe/Berlin] Error in controller: Database connection not provided
+[30-Mar-2025 07:06:09 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "App\Models\Event" not found in C:\xampp\htdocs\php-blood-donation-system\app\controllers\EventController.php:14
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\public\index.php(100): App\Controllers\EventController->index()
+#1 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\app\controllers\EventController.php on line 14
+[30-Mar-2025 07:06:54 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "App\Models\Event" not found in C:\xampp\htdocs\php-blood-donation-system\app\controllers\EventController.php:14
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\public\index.php(100): App\Controllers\EventController->index()
+#1 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\app\controllers\EventController.php on line 14
+[30-Mar-2025 07:06:57 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "App\Models\Event" not found in C:\xampp\htdocs\php-blood-donation-system\app\controllers\EventController.php:14
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\public\index.php(100): App\Controllers\EventController->index()
+#1 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\app\controllers\EventController.php on line 14
+[30-Mar-2025 07:06:58 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "App\Models\Event" not found in C:\xampp\htdocs\php-blood-donation-system\app\controllers\EventController.php:14
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\public\index.php(100): App\Controllers\EventController->index()
+#1 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\app\controllers\EventController.php on line 14
+[30-Mar-2025 07:07:24 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "App\Models\Event" not found in C:\xampp\htdocs\php-blood-donation-system\app\controllers\EventController.php:14
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\public\index.php(100): App\Controllers\EventController->index()
+#1 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\app\controllers\EventController.php on line 14
+[30-Mar-2025 07:08:31 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "App\Models\Event" not found in C:\xampp\htdocs\php-blood-donation-system\app\controllers\EventController.php:14
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\public\index.php(100): App\Controllers\EventController->index()
+#1 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\app\controllers\EventController.php on line 14
+[30-Mar-2025 07:11:08 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "App\Config\Database" not found in C:\xampp\htdocs\php-blood-donation-system\app\controllers\DonationUnitController.php:15
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\public\index.php(89): App\Controllers\DonationUnitController->__construct(Object(mysqli))
+#1 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\app\controllers\DonationUnitController.php on line 15
+[30-Mar-2025 07:13:43 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "App\Config\mysqli" not found in C:\xampp\htdocs\php-blood-donation-system\config\database.php:18
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\config\database.php(30): App\Config\Database->__construct()
+#1 C:\xampp\htdocs\php-blood-donation-system\config\database.php(38): App\Config\Database::getInstance()
+#2 C:\xampp\htdocs\php-blood-donation-system\config\database.php(45): App\Config\Database::getConnection()
+#3 C:\xampp\htdocs\php-blood-donation-system\public\index.php(24): require_once('C:\\xampp\\htdocs...')
+#4 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\config\database.php on line 18
+[30-Mar-2025 07:15:12 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "App\Config\mysqli" not found in C:\xampp\htdocs\php-blood-donation-system\config\database.php:18
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\config\database.php(30): App\Config\Database->__construct()
+#1 C:\xampp\htdocs\php-blood-donation-system\config\database.php(38): App\Config\Database::getInstance()
+#2 C:\xampp\htdocs\php-blood-donation-system\config\database.php(45): App\Config\Database::getConnection()
+#3 C:\xampp\htdocs\php-blood-donation-system\public\index.php(24): require_once('C:\\xampp\\htdocs...')
+#4 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\config\database.php on line 18
+[30-Mar-2025 07:15:13 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "App\Config\mysqli" not found in C:\xampp\htdocs\php-blood-donation-system\config\database.php:18
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\config\database.php(30): App\Config\Database->__construct()
+#1 C:\xampp\htdocs\php-blood-donation-system\config\database.php(38): App\Config\Database::getInstance()
+#2 C:\xampp\htdocs\php-blood-donation-system\config\database.php(45): App\Config\Database::getConnection()
+#3 C:\xampp\htdocs\php-blood-donation-system\public\index.php(24): require_once('C:\\xampp\\htdocs...')
+#4 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\config\database.php on line 18
+[30-Mar-2025 07:15:14 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "App\Config\mysqli" not found in C:\xampp\htdocs\php-blood-donation-system\config\database.php:18
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\config\database.php(30): App\Config\Database->__construct()
+#1 C:\xampp\htdocs\php-blood-donation-system\config\database.php(38): App\Config\Database::getInstance()
+#2 C:\xampp\htdocs\php-blood-donation-system\config\database.php(45): App\Config\Database::getConnection()
+#3 C:\xampp\htdocs\php-blood-donation-system\public\index.php(24): require_once('C:\\xampp\\htdocs...')
+#4 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\config\database.php on line 18
+[30-Mar-2025 07:15:15 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "App\Config\mysqli" not found in C:\xampp\htdocs\php-blood-donation-system\config\database.php:18
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\config\database.php(30): App\Config\Database->__construct()
+#1 C:\xampp\htdocs\php-blood-donation-system\config\database.php(38): App\Config\Database::getInstance()
+#2 C:\xampp\htdocs\php-blood-donation-system\config\database.php(45): App\Config\Database::getConnection()
+#3 C:\xampp\htdocs\php-blood-donation-system\public\index.php(24): require_once('C:\\xampp\\htdocs...')
+#4 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\config\database.php on line 18
+[30-Mar-2025 07:16:47 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "App\Models\DonationUnit" not found in C:\xampp\htdocs\php-blood-donation-system\app\controllers\DonationUnitController.php:20
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\public\index.php(91): App\Controllers\DonationUnitController->index()
+#1 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\app\controllers\DonationUnitController.php on line 20
+[30-Mar-2025 07:22:54 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Eloquent\Model" not found in C:\xampp\htdocs\php-blood-donation-system\app\models\DonationUnit.php:7
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\vendor\composer\ClassLoader.php(576): include()
+#1 C:\xampp\htdocs\php-blood-donation-system\vendor\composer\ClassLoader.php(427): Composer\Autoload\{closure}('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\php-blood-donation-system\app\controllers\DonationUnitController.php(20): Composer\Autoload\ClassLoader->loadClass('App\\Models\\Dona...')
+#3 C:\xampp\htdocs\php-blood-donation-system\public\index.php(92): App\Controllers\DonationUnitController->index()
+#4 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\app\models\DonationUnit.php on line 7
+[30-Mar-2025 07:25:27 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: stripos(): Argument #1 ($haystack) must be of type string, mysqli given in C:\xampp\htdocs\php-blood-donation-system\vendor\illuminate\database\Grammar.php:93
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\vendor\illuminate\database\Grammar.php(93): stripos(Object(mysqli), ' as ')
+#1 [internal function]: Illuminate\Database\Grammar->wrap(Object(mysqli))
+#2 C:\xampp\htdocs\php-blood-donation-system\vendor\illuminate\database\Grammar.php(198): array_map(Object(Closure), Array)
+#3 C:\xampp\htdocs\php-blood-donation-system\vendor\illuminate\database\Query\Grammars\Grammar.php(167): Illuminate\Database\Grammar->columnize(Array)
+#4 C:\xampp\htdocs\php-blood-donation-system\vendor\illuminate\database\Query\Grammars\Grammar.php(115): Illuminate\Database\Query\Grammars\Grammar->compileColumns(Object(Illuminate\Database\Query\Builder), Array)
+#5 C:\xampp\htdocs\php-blood-donation-system\vendor\illuminate\database\Query\Grammars\Grammar.php(89): Illuminate\Database\Query\Grammars\Grammar->compileComponents(Object(Illuminate\Database\Query\Builder))
+#6 C:\xampp\htdocs\php-blood-donation-system\vendor\illuminate\database\Query\Builder.php(2990): Illuminate\Database\Query\Grammars\Grammar->compileSelect(Object(Illuminate\Database\Query\Builder))
+#7 C:\xampp\htdocs\php-blood-donation-system\vendor\illuminate\database\Query\Builder.php(3108): Illuminate\Database\Query\Builder->toSql()
+#8 C:\xampp\htdocs\php-blood-donation-system\vendor\illuminate\database\Query\Builder.php(3092): Illuminate\Database\Query\Builder->runSelect()
+#9 C:\xampp\htdocs\php-blood-donation-system\vendor\illuminate\database\Query\Builder.php(3679): Illuminate\Database\Query\Builder->Illuminate\Database\Query\{closure}()
+#10 C:\xampp\htdocs\php-blood-donation-system\vendor\illuminate\database\Query\Builder.php(3091): Illuminate\Database\Query\Builder->onceWithColumns(Array, Object(Closure))
+#11 C:\xampp\htdocs\php-blood-donation-system\vendor\illuminate\database\Eloquent\Builder.php(810): Illuminate\Database\Query\Builder->get(Array)
+#12 C:\xampp\htdocs\php-blood-donation-system\vendor\illuminate\database\Eloquent\Builder.php(792): Illuminate\Database\Eloquent\Builder->getModels(Array)
+#13 C:\xampp\htdocs\php-blood-donation-system\vendor\illuminate\database\Eloquent\Model.php(695): Illuminate\Database\Eloquent\Builder->get(Array)
+#14 C:\xampp\htdocs\php-blood-donation-system\app\controllers\DonationUnitController.php(20): Illuminate\Database\Eloquent\Model::all(Object(mysqli))
+#15 C:\xampp\htdocs\php-blood-donation-system\public\index.php(110): App\Controllers\DonationUnitController->index()
+#16 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\vendor\illuminate\database\Grammar.php on line 93
+[30-Mar-2025 07:26:48 Europe/Berlin] Error in controller: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'giotmauvang.donation_units' doesn't exist (Connection: default, SQL: select * from `donation_units`)
+[30-Mar-2025 07:29:53 Europe/Berlin] PHP Warning:  require_once(../../config/database.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\index.php on line 7
+[30-Mar-2025 07:29:53 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required '../../config/database.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\index.php:7
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\app\controllers\DonationUnitController.php(21): require_once()
+#1 C:\xampp\htdocs\php-blood-donation-system\public\index.php(110): App\Controllers\DonationUnitController->index()
+#2 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\index.php on line 7
+[30-Mar-2025 07:31:55 Europe/Berlin] PHP Warning:  require_once(/../../config/database.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\index.php on line 7
+[30-Mar-2025 07:31:55 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required '/../../config/database.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\index.php:7
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\app\controllers\DonationUnitController.php(21): require_once()
+#1 C:\xampp\htdocs\php-blood-donation-system\public\index.php(110): App\Controllers\DonationUnitController->index()
+#2 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\index.php on line 7
+[30-Mar-2025 07:32:09 Europe/Berlin] PHP Warning:  require_once(/../../../config/database.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\index.php on line 7
+[30-Mar-2025 07:32:09 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required '/../../../config/database.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\index.php:7
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\app\controllers\DonationUnitController.php(21): require_once()
+#1 C:\xampp\htdocs\php-blood-donation-system\public\index.php(110): App\Controllers\DonationUnitController->index()
+#2 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\index.php on line 7
+[30-Mar-2025 07:32:09 Europe/Berlin] PHP Warning:  require_once(/../../../config/database.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\index.php on line 7
+[30-Mar-2025 07:32:09 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required '/../../../config/database.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\index.php:7
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\app\controllers\DonationUnitController.php(21): require_once()
+#1 C:\xampp\htdocs\php-blood-donation-system\public\index.php(110): App\Controllers\DonationUnitController->index()
+#2 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\index.php on line 7
+[30-Mar-2025 07:32:34 Europe/Berlin] PHP Warning:  require_once(/../../../app/controllers/DonationUnitController.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\index.php on line 9
+[30-Mar-2025 07:32:34 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required '/../../../app/controllers/DonationUnitController.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\index.php:9
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\app\controllers\DonationUnitController.php(21): require_once()
+#1 C:\xampp\htdocs\php-blood-donation-system\public\index.php(110): App\Controllers\DonationUnitController->index()
+#2 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\index.php on line 9
+[30-Mar-2025 07:33:15 Europe/Berlin] PHP Warning:  require_once(/../../app/controllers/DonationUnitController.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\index.php on line 9
+[30-Mar-2025 07:33:15 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required '/../../app/controllers/DonationUnitController.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\index.php:9
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\app\controllers\DonationUnitController.php(21): require_once()
+#1 C:\xampp\htdocs\php-blood-donation-system\public\index.php(110): App\Controllers\DonationUnitController->index()
+#2 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\index.php on line 9
+[30-Mar-2025 07:33:17 Europe/Berlin] PHP Warning:  require_once(/../../app/controllers/DonationUnitController.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\index.php on line 9
+[30-Mar-2025 07:33:17 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required '/../../app/controllers/DonationUnitController.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\index.php:9
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\app\controllers\DonationUnitController.php(21): require_once()
+#1 C:\xampp\htdocs\php-blood-donation-system\public\index.php(110): App\Controllers\DonationUnitController->index()
+#2 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\index.php on line 9
+[30-Mar-2025 08:01:50 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "DonationUnitController" not found in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\index.php:11
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\app\controllers\DonationUnitController.php(21): require_once()
+#1 C:\xampp\htdocs\php-blood-donation-system\public\index.php(110): App\Controllers\DonationUnitController->index()
+#2 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\index.php on line 11
+[30-Mar-2025 08:01:52 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "DonationUnitController" not found in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\index.php:11
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\app\controllers\DonationUnitController.php(21): require_once()
+#1 C:\xampp\htdocs\php-blood-donation-system\public\index.php(110): App\Controllers\DonationUnitController->index()
+#2 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\index.php on line 11
+[30-Mar-2025 08:03:35 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "Database" not found in C:\xampp\htdocs\php-blood-donation-system\app\views\users\index.php:16
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\app\controllers\UserController.php(46): require_once()
+#1 C:\xampp\htdocs\php-blood-donation-system\public\index.php(83): App\Controllers\UserController->dashboard()
+#2 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\app\views\users\index.php on line 16
+[30-Mar-2025 08:21:10 Europe/Berlin] Error in controller: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'giotmauvang.events' doesn't exist (Connection: default, SQL: select * from `events`)
+[30-Mar-2025 08:58:15 Europe/Berlin] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function App\Controllers\DonationUnitController::store(), 0 passed in C:\xampp\htdocs\php-blood-donation-system\public\index.php on line 110 and exactly 1 expected in C:\xampp\htdocs\php-blood-donation-system\app\controllers\DonationUnitController.php:29
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\public\index.php(110): App\Controllers\DonationUnitController->store()
+#1 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\app\controllers\DonationUnitController.php on line 29
+[30-Mar-2025 09:09:48 Europe/Berlin] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function App\Controllers\DonationUnitController::store(), 0 passed in C:\xampp\htdocs\php-blood-donation-system\public\index.php on line 110 and exactly 1 expected in C:\xampp\htdocs\php-blood-donation-system\app\controllers\DonationUnitController.php:29
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\public\index.php(110): App\Controllers\DonationUnitController->store()
+#1 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\app\controllers\DonationUnitController.php on line 29
+[30-Mar-2025 09:19:14 Europe/Berlin] Error in controller: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'unitPhotoUrl' in 'field list' (Connection: default, SQL: insert into `donation_unit` (`name`, `location`, `phone`, `email`, `unitPhotoUrl`, `updated_at`, `created_at`) values (A, A, 0848110357, vokiet888@gmail.com, , 2025-03-30 09:19:14, 2025-03-30 09:19:14))
+[30-Mar-2025 09:20:59 Europe/Berlin] Error in controller: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'updated_at' in 'field list' (Connection: default, SQL: insert into `donation_unit` (`name`, `location`, `phone`, `email`, `updated_at`, `created_at`) values (A, A, 0848110357, vokiet888@gmail.com, 2025-03-30 09:20:59, 2025-03-30 09:20:59))
+[30-Mar-2025 09:22:30 Europe/Berlin] Error in controller: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'updated_at' in 'field list' (Connection: default, SQL: insert into `donation_unit` (`name`, `location`, `phone`, `email`, `updated_at`, `created_at`) values (A, A, 0848110357, vokiet888@gmail.com, 2025-03-30 09:22:30, 2025-03-30 09:22:30))
+[30-Mar-2025 10:06:23 Europe/Berlin] PHP Fatal error:  Uncaught Error: Access to undeclared static property App\Config\Database::$capsule in C:\xampp\htdocs\php-blood-donation-system\config\database.php:46
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\config\database.php(69): App\Config\Database::getConnection()
+#1 C:\xampp\htdocs\php-blood-donation-system\public\index.php(24): require_once('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\config\database.php on line 46
+[30-Mar-2025 10:07:23 Europe/Berlin] PHP Fatal error:  Uncaught Error: Access to undeclared static property App\Config\Database::$capsule in C:\xampp\htdocs\php-blood-donation-system\config\database.php:47
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\config\database.php(70): App\Config\Database::getConnection()
+#1 C:\xampp\htdocs\php-blood-donation-system\public\index.php(24): require_once('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\config\database.php on line 47
+[30-Mar-2025 10:13:04 Europe/Berlin] PHP Fatal error:  Namespace declaration statement has to be the very first statement or after any declare call in the script in C:\xampp\htdocs\php-blood-donation-system\config\database.php on line 2
+[30-Mar-2025 10:13:42 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Capsule\Manager" not found in C:\xampp\htdocs\php-blood-donation-system\config\database.php:104
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\config\database.php(126): App\Config\Database::getConnection()
+#1 C:\xampp\htdocs\php-blood-donation-system\public\index.php(24): require_once('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\config\database.php on line 104
+[30-Mar-2025 10:14:21 Europe/Berlin] PHP Fatal error:  Namespace declaration statement has to be the very first statement or after any declare call in the script in C:\xampp\htdocs\php-blood-donation-system\config\database.php on line 76
+[30-Mar-2025 10:15:17 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Capsule\Manager" not found in C:\xampp\htdocs\php-blood-donation-system\config\database.php:102
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\config\database.php(124): App\Config\Database::getConnection()
+#1 C:\xampp\htdocs\php-blood-donation-system\public\index.php(24): require_once('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\config\database.php on line 102
+[30-Mar-2025 10:15:45 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Capsule\Manager" not found in C:\xampp\htdocs\php-blood-donation-system\config\database.php:102
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\config\database.php(124): App\Config\Database::getConnection()
+#1 C:\xampp\htdocs\php-blood-donation-system\public\index.php(24): require_once('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\config\database.php on line 102
+[30-Mar-2025 10:15:47 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Capsule\Manager" not found in C:\xampp\htdocs\php-blood-donation-system\config\database.php:102
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\config\database.php(124): App\Config\Database::getConnection()
+#1 C:\xampp\htdocs\php-blood-donation-system\public\index.php(24): require_once('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\config\database.php on line 102
+[30-Mar-2025 10:16:14 Europe/Berlin] PHP Warning:  Undefined variable $mysqli in C:\xampp\htdocs\php-blood-donation-system\app\controllers\UserController.php on line 113
+[30-Mar-2025 10:19:27 Europe/Berlin] PHP Warning:  Undefined variable $mysqli in C:\xampp\htdocs\php-blood-donation-system\app\controllers\UserController.php on line 113
+[30-Mar-2025 10:19:50 Europe/Berlin] PHP Warning:  Undefined variable $mysqli in C:\xampp\htdocs\php-blood-donation-system\app\controllers\UserController.php on line 113
+[30-Mar-2025 10:24:19 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function isEmpty() on null in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\index.php:64
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\app\controllers\DonationUnitController.php(27): require_once()
+#1 C:\xampp\htdocs\php-blood-donation-system\public\index.php(110): App\Controllers\DonationUnitController->index()
+#2 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\index.php on line 64
+[30-Mar-2025 10:36:46 Europe/Berlin] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function App\Controllers\DonationUnitController::edit(), 0 passed in C:\xampp\htdocs\php-blood-donation-system\public\index.php on line 110 and exactly 1 expected in C:\xampp\htdocs\php-blood-donation-system\app\controllers\DonationUnitController.php:72
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\public\index.php(110): App\Controllers\DonationUnitController->edit()
+#1 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\app\controllers\DonationUnitController.php on line 72
+[30-Mar-2025 10:37:45 Europe/Berlin] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function App\Controllers\DonationUnitController::edit(), 0 passed in C:\xampp\htdocs\php-blood-donation-system\public\index.php on line 110 and exactly 1 expected in C:\xampp\htdocs\php-blood-donation-system\app\controllers\DonationUnitController.php:72
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\public\index.php(110): App\Controllers\DonationUnitController->edit()
+#1 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\app\controllers\DonationUnitController.php on line 72
+[30-Mar-2025 10:37:47 Europe/Berlin] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function App\Controllers\DonationUnitController::edit(), 0 passed in C:\xampp\htdocs\php-blood-donation-system\public\index.php on line 110 and exactly 1 expected in C:\xampp\htdocs\php-blood-donation-system\app\controllers\DonationUnitController.php:72
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\public\index.php(110): App\Controllers\DonationUnitController->edit()
+#1 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\app\controllers\DonationUnitController.php on line 72
+[30-Mar-2025 10:38:34 Europe/Berlin] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function App\Controllers\DonationUnitController::edit(), 0 passed in C:\xampp\htdocs\php-blood-donation-system\public\index.php on line 110 and exactly 1 expected in C:\xampp\htdocs\php-blood-donation-system\app\controllers\DonationUnitController.php:72
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\public\index.php(110): App\Controllers\DonationUnitController->edit()
+#1 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\app\controllers\DonationUnitController.php on line 72
+[30-Mar-2025 10:38:35 Europe/Berlin] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function App\Controllers\DonationUnitController::edit(), 0 passed in C:\xampp\htdocs\php-blood-donation-system\public\index.php on line 110 and exactly 1 expected in C:\xampp\htdocs\php-blood-donation-system\app\controllers\DonationUnitController.php:72
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\public\index.php(110): App\Controllers\DonationUnitController->edit()
+#1 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\app\controllers\DonationUnitController.php on line 72
+[30-Mar-2025 10:38:35 Europe/Berlin] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function App\Controllers\DonationUnitController::edit(), 0 passed in C:\xampp\htdocs\php-blood-donation-system\public\index.php on line 110 and exactly 1 expected in C:\xampp\htdocs\php-blood-donation-system\app\controllers\DonationUnitController.php:72
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\public\index.php(110): App\Controllers\DonationUnitController->edit()
+#1 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\app\controllers\DonationUnitController.php on line 72
+[30-Mar-2025 10:38:35 Europe/Berlin] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function App\Controllers\DonationUnitController::edit(), 0 passed in C:\xampp\htdocs\php-blood-donation-system\public\index.php on line 110 and exactly 1 expected in C:\xampp\htdocs\php-blood-donation-system\app\controllers\DonationUnitController.php:72
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\public\index.php(110): App\Controllers\DonationUnitController->edit()
+#1 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\app\controllers\DonationUnitController.php on line 72
+[30-Mar-2025 10:39:50 Europe/Berlin] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\edit.php on line 37
+[30-Mar-2025 10:40:06 Europe/Berlin] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function App\Controllers\DonationUnitController::update(), 1 passed in C:\xampp\htdocs\php-blood-donation-system\public\index.php on line 120 and exactly 2 expected in C:\xampp\htdocs\php-blood-donation-system\app\controllers\DonationUnitController.php:87
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\public\index.php(120): App\Controllers\DonationUnitController->update('1')
+#1 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\app\controllers\DonationUnitController.php on line 87
+[30-Mar-2025 10:41:01 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: stripos(): Argument #1 ($haystack) must be of type string, mysqli given in C:\xampp\htdocs\php-blood-donation-system\vendor\illuminate\database\Grammar.php:93
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\vendor\illuminate\database\Grammar.php(93): stripos(Object(mysqli), ' as ')
+#1 [internal function]: Illuminate\Database\Grammar->wrap(Object(mysqli))
+#2 C:\xampp\htdocs\php-blood-donation-system\vendor\illuminate\database\Grammar.php(198): array_map(Object(Closure), Array)
+#3 C:\xampp\htdocs\php-blood-donation-system\vendor\illuminate\database\Query\Grammars\Grammar.php(167): Illuminate\Database\Grammar->columnize(Array)
+#4 C:\xampp\htdocs\php-blood-donation-system\vendor\illuminate\database\Query\Grammars\Grammar.php(115): Illuminate\Database\Query\Grammars\Grammar->compileColumns(Object(Illuminate\Database\Query\Builder), Array)
+#5 C:\xampp\htdocs\php-blood-donation-system\vendor\illuminate\database\Query\Grammars\Grammar.php(89): Illuminate\Database\Query\Grammars\Grammar->compileComponents(Object(Illuminate\Database\Query\Builder))
+#6 C:\xampp\htdocs\php-blood-donation-system\vendor\illuminate\database\Query\Builder.php(2990): Illuminate\Database\Query\Grammars\Grammar->compileSelect(Object(Illuminate\Database\Query\Builder))
+#7 C:\xampp\htdocs\php-blood-donation-system\vendor\illuminate\database\Query\Builder.php(3108): Illuminate\Database\Query\Builder->toSql()
+#8 C:\xampp\htdocs\php-blood-donation-system\vendor\illuminate\database\Query\Builder.php(3092): Illuminate\Database\Query\Builder->runSelect()
+#9 C:\xampp\htdocs\php-blood-donation-system\vendor\illuminate\database\Query\Builder.php(3679): Illuminate\Database\Query\Builder->Illuminate\Database\Query\{closure}()
+#10 C:\xampp\htdocs\php-blood-donation-system\vendor\illuminate\database\Query\Builder.php(3091): Illuminate\Database\Query\Builder->onceWithColumns(Array, Object(Closure))
+#11 C:\xampp\htdocs\php-blood-donation-system\vendor\illuminate\database\Eloquent\Builder.php(810): Illuminate\Database\Query\Builder->get(Object(mysqli))
+#12 C:\xampp\htdocs\php-blood-donation-system\vendor\illuminate\database\Eloquent\Builder.php(792): Illuminate\Database\Eloquent\Builder->getModels(Object(mysqli))
+#13 C:\xampp\htdocs\php-blood-donation-system\vendor\illuminate\database\Concerns\BuildsQueries.php(366): Illuminate\Database\Eloquent\Builder->get(Object(mysqli))
+#14 C:\xampp\htdocs\php-blood-donation-system\vendor\illuminate\database\Eloquent\Builder.php(476): Illuminate\Database\Eloquent\Builder->first(Object(mysqli))
+#15 C:\xampp\htdocs\php-blood-donation-system\vendor\illuminate\support\Traits\ForwardsCalls.php(23): Illuminate\Database\Eloquent\Builder->find('1', Object(mysqli))
+#16 C:\xampp\htdocs\php-blood-donation-system\vendor\illuminate\database\Eloquent\Model.php(2392): Illuminate\Database\Eloquent\Model->forwardCallTo(Object(Illuminate\Database\Eloquent\Builder), 'find', Array)
+#17 C:\xampp\htdocs\php-blood-donation-system\vendor\illuminate\database\Eloquent\Model.php(2408): Illuminate\Database\Eloquent\Model->__call('find', Array)
+#18 C:\xampp\htdocs\php-blood-donation-system\app\controllers\DonationUnitController.php(89): Illuminate\Database\Eloquent\Model::__callStatic('find', Array)
+#19 C:\xampp\htdocs\php-blood-donation-system\public\index.php(122): App\Controllers\DonationUnitController->update('1', Array)
+#20 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\vendor\illuminate\database\Grammar.php on line 93
+[30-Mar-2025 10:41:03 Europe/Berlin] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\edit.php on line 37
+[30-Mar-2025 10:41:05 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: stripos(): Argument #1 ($haystack) must be of type string, mysqli given in C:\xampp\htdocs\php-blood-donation-system\vendor\illuminate\database\Grammar.php:93
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\vendor\illuminate\database\Grammar.php(93): stripos(Object(mysqli), ' as ')
+#1 [internal function]: Illuminate\Database\Grammar->wrap(Object(mysqli))
+#2 C:\xampp\htdocs\php-blood-donation-system\vendor\illuminate\database\Grammar.php(198): array_map(Object(Closure), Array)
+#3 C:\xampp\htdocs\php-blood-donation-system\vendor\illuminate\database\Query\Grammars\Grammar.php(167): Illuminate\Database\Grammar->columnize(Array)
+#4 C:\xampp\htdocs\php-blood-donation-system\vendor\illuminate\database\Query\Grammars\Grammar.php(115): Illuminate\Database\Query\Grammars\Grammar->compileColumns(Object(Illuminate\Database\Query\Builder), Array)
+#5 C:\xampp\htdocs\php-blood-donation-system\vendor\illuminate\database\Query\Grammars\Grammar.php(89): Illuminate\Database\Query\Grammars\Grammar->compileComponents(Object(Illuminate\Database\Query\Builder))
+#6 C:\xampp\htdocs\php-blood-donation-system\vendor\illuminate\database\Query\Builder.php(2990): Illuminate\Database\Query\Grammars\Grammar->compileSelect(Object(Illuminate\Database\Query\Builder))
+#7 C:\xampp\htdocs\php-blood-donation-system\vendor\illuminate\database\Query\Builder.php(3108): Illuminate\Database\Query\Builder->toSql()
+#8 C:\xampp\htdocs\php-blood-donation-system\vendor\illuminate\database\Query\Builder.php(3092): Illuminate\Database\Query\Builder->runSelect()
+#9 C:\xampp\htdocs\php-blood-donation-system\vendor\illuminate\database\Query\Builder.php(3679): Illuminate\Database\Query\Builder->Illuminate\Database\Query\{closure}()
+#10 C:\xampp\htdocs\php-blood-donation-system\vendor\illuminate\database\Query\Builder.php(3091): Illuminate\Database\Query\Builder->onceWithColumns(Array, Object(Closure))
+#11 C:\xampp\htdocs\php-blood-donation-system\vendor\illuminate\database\Eloquent\Builder.php(810): Illuminate\Database\Query\Builder->get(Object(mysqli))
+#12 C:\xampp\htdocs\php-blood-donation-system\vendor\illuminate\database\Eloquent\Builder.php(792): Illuminate\Database\Eloquent\Builder->getModels(Object(mysqli))
+#13 C:\xampp\htdocs\php-blood-donation-system\vendor\illuminate\database\Concerns\BuildsQueries.php(366): Illuminate\Database\Eloquent\Builder->get(Object(mysqli))
+#14 C:\xampp\htdocs\php-blood-donation-system\vendor\illuminate\database\Eloquent\Builder.php(476): Illuminate\Database\Eloquent\Builder->first(Object(mysqli))
+#15 C:\xampp\htdocs\php-blood-donation-system\vendor\illuminate\support\Traits\ForwardsCalls.php(23): Illuminate\Database\Eloquent\Builder->find('1', Object(mysqli))
+#16 C:\xampp\htdocs\php-blood-donation-system\vendor\illuminate\database\Eloquent\Model.php(2392): Illuminate\Database\Eloquent\Model->forwardCallTo(Object(Illuminate\Database\Eloquent\Builder), 'find', Array)
+#17 C:\xampp\htdocs\php-blood-donation-system\vendor\illuminate\database\Eloquent\Model.php(2408): Illuminate\Database\Eloquent\Model->__call('find', Array)
+#18 C:\xampp\htdocs\php-blood-donation-system\app\controllers\DonationUnitController.php(89): Illuminate\Database\Eloquent\Model::__callStatic('find', Array)
+#19 C:\xampp\htdocs\php-blood-donation-system\public\index.php(122): App\Controllers\DonationUnitController->update('1', Array)
+#20 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\vendor\illuminate\database\Grammar.php on line 93
+[30-Mar-2025 10:42:00 Europe/Berlin] Error in controller: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'from `donation_unit` where `donation_unit`.`id` = ? limit 1' at line 1 (Connection: default, SQL: select  from `donation_unit` where `donation_unit`.`id` = 1 limit 1)
+[30-Mar-2025 10:42:44 Europe/Berlin] Error in controller: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'from `donation_unit` where `donation_unit`.`id` = ? limit 1' at line 1 (Connection: default, SQL: select  from `donation_unit` where `donation_unit`.`id` = 1 limit 1)
+[30-Mar-2025 10:45:52 Europe/Berlin] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function App\Controllers\DonationUnitController::__construct(), 0 passed in C:\xampp\htdocs\php-blood-donation-system\public\index.php on line 116 and exactly 1 expected in C:\xampp\htdocs\php-blood-donation-system\app\controllers\DonationUnitController.php:13
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\public\index.php(116): App\Controllers\DonationUnitController->__construct()
+#1 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\app\controllers\DonationUnitController.php on line 13
+[30-Mar-2025 10:45:53 Europe/Berlin] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function App\Controllers\DonationUnitController::__construct(), 0 passed in C:\xampp\htdocs\php-blood-donation-system\public\index.php on line 116 and exactly 1 expected in C:\xampp\htdocs\php-blood-donation-system\app\controllers\DonationUnitController.php:13
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\public\index.php(116): App\Controllers\DonationUnitController->__construct()
+#1 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\app\controllers\DonationUnitController.php on line 13
+[30-Mar-2025 10:47:02 Europe/Berlin] Error in controller: Table 'giotmauvang.donation_units' doesn't exist
+[30-Mar-2025 10:47:59 Europe/Berlin] PHP Warning:  Attempt to read property "id" on array in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\index.php on line 47
+[30-Mar-2025 10:47:59 Europe/Berlin] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\index.php on line 47
+[30-Mar-2025 10:47:59 Europe/Berlin] PHP Warning:  Attempt to read property "name" on array in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\index.php on line 48
+[30-Mar-2025 10:47:59 Europe/Berlin] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\index.php on line 48
+[30-Mar-2025 10:47:59 Europe/Berlin] PHP Warning:  Attempt to read property "location" on array in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\index.php on line 49
+[30-Mar-2025 10:47:59 Europe/Berlin] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\index.php on line 49
+[30-Mar-2025 10:47:59 Europe/Berlin] PHP Warning:  Attempt to read property "phone" on array in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\index.php on line 50
+[30-Mar-2025 10:47:59 Europe/Berlin] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\index.php on line 50
+[30-Mar-2025 10:47:59 Europe/Berlin] PHP Warning:  Attempt to read property "email" on array in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\index.php on line 51
+[30-Mar-2025 10:47:59 Europe/Berlin] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\index.php on line 51
+[30-Mar-2025 10:47:59 Europe/Berlin] PHP Warning:  Attempt to read property "id" on array in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\index.php on line 53
+[30-Mar-2025 10:47:59 Europe/Berlin] PHP Warning:  Attempt to read property "id" on array in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\index.php on line 54
+[30-Mar-2025 10:47:59 Europe/Berlin] PHP Warning:  Attempt to read property "id" on array in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\index.php on line 47
+[30-Mar-2025 10:47:59 Europe/Berlin] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\index.php on line 47
+[30-Mar-2025 10:47:59 Europe/Berlin] PHP Warning:  Attempt to read property "name" on array in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\index.php on line 48
+[30-Mar-2025 10:47:59 Europe/Berlin] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\index.php on line 48
+[30-Mar-2025 10:47:59 Europe/Berlin] PHP Warning:  Attempt to read property "location" on array in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\index.php on line 49
+[30-Mar-2025 10:47:59 Europe/Berlin] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\index.php on line 49
+[30-Mar-2025 10:47:59 Europe/Berlin] PHP Warning:  Attempt to read property "phone" on array in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\index.php on line 50
+[30-Mar-2025 10:47:59 Europe/Berlin] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\index.php on line 50
+[30-Mar-2025 10:47:59 Europe/Berlin] PHP Warning:  Attempt to read property "email" on array in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\index.php on line 51
+[30-Mar-2025 10:47:59 Europe/Berlin] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\index.php on line 51
+[30-Mar-2025 10:47:59 Europe/Berlin] PHP Warning:  Attempt to read property "id" on array in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\index.php on line 53
+[30-Mar-2025 10:47:59 Europe/Berlin] PHP Warning:  Attempt to read property "id" on array in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\index.php on line 54
+[30-Mar-2025 10:47:59 Europe/Berlin] PHP Warning:  Attempt to read property "id" on array in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\index.php on line 47
+[30-Mar-2025 10:47:59 Europe/Berlin] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\index.php on line 47
+[30-Mar-2025 10:47:59 Europe/Berlin] PHP Warning:  Attempt to read property "name" on array in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\index.php on line 48
+[30-Mar-2025 10:47:59 Europe/Berlin] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\index.php on line 48
+[30-Mar-2025 10:47:59 Europe/Berlin] PHP Warning:  Attempt to read property "location" on array in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\index.php on line 49
+[30-Mar-2025 10:47:59 Europe/Berlin] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\index.php on line 49
+[30-Mar-2025 10:47:59 Europe/Berlin] PHP Warning:  Attempt to read property "phone" on array in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\index.php on line 50
+[30-Mar-2025 10:47:59 Europe/Berlin] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\index.php on line 50
+[30-Mar-2025 10:47:59 Europe/Berlin] PHP Warning:  Attempt to read property "email" on array in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\index.php on line 51
+[30-Mar-2025 10:47:59 Europe/Berlin] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\index.php on line 51
+[30-Mar-2025 10:47:59 Europe/Berlin] PHP Warning:  Attempt to read property "id" on array in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\index.php on line 53
+[30-Mar-2025 10:47:59 Europe/Berlin] PHP Warning:  Attempt to read property "id" on array in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\index.php on line 54
+[30-Mar-2025 10:47:59 Europe/Berlin] PHP Warning:  Attempt to read property "id" on array in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\index.php on line 47
+[30-Mar-2025 10:47:59 Europe/Berlin] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\index.php on line 47
+[30-Mar-2025 10:47:59 Europe/Berlin] PHP Warning:  Attempt to read property "name" on array in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\index.php on line 48
+[30-Mar-2025 10:47:59 Europe/Berlin] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\index.php on line 48
+[30-Mar-2025 10:47:59 Europe/Berlin] PHP Warning:  Attempt to read property "location" on array in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\index.php on line 49
+[30-Mar-2025 10:47:59 Europe/Berlin] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\index.php on line 49
+[30-Mar-2025 10:47:59 Europe/Berlin] PHP Warning:  Attempt to read property "phone" on array in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\index.php on line 50
+[30-Mar-2025 10:47:59 Europe/Berlin] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\index.php on line 50
+[30-Mar-2025 10:47:59 Europe/Berlin] PHP Warning:  Attempt to read property "email" on array in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\index.php on line 51
+[30-Mar-2025 10:47:59 Europe/Berlin] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\index.php on line 51
+[30-Mar-2025 10:47:59 Europe/Berlin] PHP Warning:  Attempt to read property "id" on array in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\index.php on line 53
+[30-Mar-2025 10:47:59 Europe/Berlin] PHP Warning:  Attempt to read property "id" on array in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\index.php on line 54
+[30-Mar-2025 10:47:59 Europe/Berlin] PHP Warning:  Attempt to read property "id" on array in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\index.php on line 47
+[30-Mar-2025 10:47:59 Europe/Berlin] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\index.php on line 47
+[30-Mar-2025 10:47:59 Europe/Berlin] PHP Warning:  Attempt to read property "name" on array in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\index.php on line 48
+[30-Mar-2025 10:47:59 Europe/Berlin] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\index.php on line 48
+[30-Mar-2025 10:47:59 Europe/Berlin] PHP Warning:  Attempt to read property "location" on array in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\index.php on line 49
+[30-Mar-2025 10:47:59 Europe/Berlin] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\index.php on line 49
+[30-Mar-2025 10:47:59 Europe/Berlin] PHP Warning:  Attempt to read property "phone" on array in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\index.php on line 50
+[30-Mar-2025 10:47:59 Europe/Berlin] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\index.php on line 50
+[30-Mar-2025 10:47:59 Europe/Berlin] PHP Warning:  Attempt to read property "email" on array in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\index.php on line 51
+[30-Mar-2025 10:47:59 Europe/Berlin] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\index.php on line 51
+[30-Mar-2025 10:47:59 Europe/Berlin] PHP Warning:  Attempt to read property "id" on array in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\index.php on line 53
+[30-Mar-2025 10:47:59 Europe/Berlin] PHP Warning:  Attempt to read property "id" on array in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\index.php on line 54
+[30-Mar-2025 10:50:07 Europe/Berlin] Error in controller: Table 'giotmauvang.donation_units' doesn't exist
+[30-Mar-2025 10:53:14 Europe/Berlin] PHP Warning:  Attempt to read property "id" on array in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\edit.php on line 18
+[30-Mar-2025 10:53:14 Europe/Berlin] PHP Warning:  Attempt to read property "name" on array in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\edit.php on line 21
+[30-Mar-2025 10:53:14 Europe/Berlin] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\edit.php on line 21
+[30-Mar-2025 10:53:14 Europe/Berlin] PHP Warning:  Attempt to read property "location" on array in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\edit.php on line 25
+[30-Mar-2025 10:53:14 Europe/Berlin] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\edit.php on line 25
+[30-Mar-2025 10:53:14 Europe/Berlin] PHP Warning:  Attempt to read property "phone" on array in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\edit.php on line 29
+[30-Mar-2025 10:53:14 Europe/Berlin] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\edit.php on line 29
+[30-Mar-2025 10:53:14 Europe/Berlin] PHP Warning:  Attempt to read property "email" on array in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\edit.php on line 33
+[30-Mar-2025 10:53:14 Europe/Berlin] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\edit.php on line 33
+[30-Mar-2025 10:53:14 Europe/Berlin] PHP Warning:  Attempt to read property "unitPhotoUrl" on array in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\edit.php on line 37
+[30-Mar-2025 10:53:14 Europe/Berlin] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\edit.php on line 37
+[30-Mar-2025 10:53:14 Europe/Berlin] PHP Warning:  Attempt to read property "id" on array in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\edit.php on line 54
+[30-Mar-2025 10:53:14 Europe/Berlin] PHP Warning:  Attempt to read property "name" on array in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\edit.php on line 56
+[30-Mar-2025 10:53:14 Europe/Berlin] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\edit.php on line 56
+[30-Mar-2025 10:53:14 Europe/Berlin] PHP Warning:  Attempt to read property "location" on array in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\edit.php on line 59
+[30-Mar-2025 10:53:14 Europe/Berlin] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\edit.php on line 59
+[30-Mar-2025 10:53:14 Europe/Berlin] PHP Warning:  Attempt to read property "phone" on array in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\edit.php on line 62
+[30-Mar-2025 10:53:14 Europe/Berlin] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\edit.php on line 62
+[30-Mar-2025 10:53:14 Europe/Berlin] PHP Warning:  Attempt to read property "email" on array in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\edit.php on line 65
+[30-Mar-2025 10:53:14 Europe/Berlin] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\edit.php on line 65
+[30-Mar-2025 10:54:24 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$unitPhotoUrl in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\edit.php on line 37
+[30-Mar-2025 10:54:24 Europe/Berlin] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\edit.php on line 37
+[30-Mar-2025 10:54:35 Europe/Berlin] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function App\Controllers\DonationUnitController::update(), 1 passed in C:\xampp\htdocs\php-blood-donation-system\public\index.php on line 119 and exactly 2 expected in C:\xampp\htdocs\php-blood-donation-system\app\controllers\DonationUnitController.php:114
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\public\index.php(119): App\Controllers\DonationUnitController->update('1')
+#1 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\app\controllers\DonationUnitController.php on line 114
+[30-Mar-2025 10:57:04 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: stripos(): Argument #1 ($haystack) must be of type string, mysqli given in C:\xampp\htdocs\php-blood-donation-system\vendor\illuminate\database\Grammar.php:93
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\vendor\illuminate\database\Grammar.php(93): stripos(Object(mysqli), ' as ')
+#1 [internal function]: Illuminate\Database\Grammar->wrap(Object(mysqli))
+#2 C:\xampp\htdocs\php-blood-donation-system\vendor\illuminate\database\Grammar.php(198): array_map(Object(Closure), Array)
+#3 C:\xampp\htdocs\php-blood-donation-system\vendor\illuminate\database\Query\Grammars\Grammar.php(167): Illuminate\Database\Grammar->columnize(Array)
+#4 C:\xampp\htdocs\php-blood-donation-system\vendor\illuminate\database\Query\Grammars\Grammar.php(115): Illuminate\Database\Query\Grammars\Grammar->compileColumns(Object(Illuminate\Database\Query\Builder), Array)
+#5 C:\xampp\htdocs\php-blood-donation-system\vendor\illuminate\database\Query\Grammars\Grammar.php(89): Illuminate\Database\Query\Grammars\Grammar->compileComponents(Object(Illuminate\Database\Query\Builder))
+#6 C:\xampp\htdocs\php-blood-donation-system\vendor\illuminate\database\Query\Builder.php(2990): Illuminate\Database\Query\Grammars\Grammar->compileSelect(Object(Illuminate\Database\Query\Builder))
+#7 C:\xampp\htdocs\php-blood-donation-system\vendor\illuminate\database\Query\Builder.php(3108): Illuminate\Database\Query\Builder->toSql()
+#8 C:\xampp\htdocs\php-blood-donation-system\vendor\illuminate\database\Query\Builder.php(3092): Illuminate\Database\Query\Builder->runSelect()
+#9 C:\xampp\htdocs\php-blood-donation-system\vendor\illuminate\database\Query\Builder.php(3679): Illuminate\Database\Query\Builder->Illuminate\Database\Query\{closure}()
+#10 C:\xampp\htdocs\php-blood-donation-system\vendor\illuminate\database\Query\Builder.php(3091): Illuminate\Database\Query\Builder->onceWithColumns(Array, Object(Closure))
+#11 C:\xampp\htdocs\php-blood-donation-system\vendor\illuminate\database\Eloquent\Builder.php(810): Illuminate\Database\Query\Builder->get(Object(mysqli))
+#12 C:\xampp\htdocs\php-blood-donation-system\vendor\illuminate\database\Eloquent\Builder.php(792): Illuminate\Database\Eloquent\Builder->getModels(Object(mysqli))
+#13 C:\xampp\htdocs\php-blood-donation-system\vendor\illuminate\database\Concerns\BuildsQueries.php(366): Illuminate\Database\Eloquent\Builder->get(Object(mysqli))
+#14 C:\xampp\htdocs\php-blood-donation-system\vendor\illuminate\database\Eloquent\Builder.php(476): Illuminate\Database\Eloquent\Builder->first(Object(mysqli))
+#15 C:\xampp\htdocs\php-blood-donation-system\vendor\illuminate\support\Traits\ForwardsCalls.php(23): Illuminate\Database\Eloquent\Builder->find('7', Object(mysqli))
+#16 C:\xampp\htdocs\php-blood-donation-system\vendor\illuminate\database\Eloquent\Model.php(2392): Illuminate\Database\Eloquent\Model->forwardCallTo(Object(Illuminate\Database\Eloquent\Builder), 'find', Array)
+#17 C:\xampp\htdocs\php-blood-donation-system\vendor\illuminate\database\Eloquent\Model.php(2408): Illuminate\Database\Eloquent\Model->__call('find', Array)
+#18 C:\xampp\htdocs\php-blood-donation-system\app\controllers\DonationUnitController.php(138): Illuminate\Database\Eloquent\Model::__callStatic('find', Array)
+#19 C:\xampp\htdocs\php-blood-donation-system\public\index.php(125): App\Controllers\DonationUnitController->delete('7')
+#20 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\vendor\illuminate\database\Grammar.php on line 93
+[31-Mar-2025 04:33:19 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$unitPhotoUrl in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\edit.php on line 37
+[31-Mar-2025 04:33:19 Europe/Berlin] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\edit.php on line 37
+[31-Mar-2025 09:04:39 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$unitPhotoUrl in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\edit.php on line 37
+[31-Mar-2025 09:04:39 Europe/Berlin] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\edit.php on line 37
+[31-Mar-2025 09:04:41 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$unitPhotoUrl in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\edit.php on line 37
+[31-Mar-2025 09:04:41 Europe/Berlin] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\edit.php on line 37
+[31-Mar-2025 09:04:45 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$unitPhotoUrl in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\edit.php on line 37
+[31-Mar-2025 09:04:45 Europe/Berlin] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\edit.php on line 37
+[31-Mar-2025 09:07:42 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$unitPhotoUrl in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\edit.php on line 37
+[31-Mar-2025 09:07:42 Europe/Berlin] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\edit.php on line 37
+[31-Mar-2025 09:16:11 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$unitPhotoUrl in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\edit.php on line 37
+[31-Mar-2025 09:16:11 Europe/Berlin] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\edit.php on line 37
+[31-Mar-2025 09:25:19 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$unitPhotoUrl in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\edit.php on line 37
+[31-Mar-2025 09:25:19 Europe/Berlin] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\edit.php on line 37
+[31-Mar-2025 09:29:35 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$unitPhotoUrl in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\edit.php on line 37
+[31-Mar-2025 09:29:35 Europe/Berlin] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\edit.php on line 37
+[31-Mar-2025 09:38:22 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$unitPhotoUrl in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\edit.php on line 37
+[31-Mar-2025 09:38:22 Europe/Berlin] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\edit.php on line 37
+[31-Mar-2025 10:19:55 Europe/Berlin] Error in controller: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'giotmauvang.events' doesn't exist (Connection: default, SQL: select * from `events`)
+[31-Mar-2025 10:48:23 Europe/Berlin] PHP Warning:  Undefined variable $user_role in C:\xampp\htdocs\php-blood-donation-system\app\controllers\AuthController.php on line 75
+[31-Mar-2025 10:48:43 Europe/Berlin] PHP Warning:  Undefined variable $user_role in C:\xampp\htdocs\php-blood-donation-system\app\controllers\AuthController.php on line 75
+[31-Mar-2025 11:03:36 Europe/Berlin] Error in controller: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'giotmauvang.events' doesn't exist (Connection: default, SQL: select * from `events`)
+[31-Mar-2025 11:03:41 Europe/Berlin] Error in controller: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'giotmauvang.events' doesn't exist (Connection: default, SQL: select * from `events`)
+[02-Apr-2025 03:12:07 Europe/Berlin] PHP Parse error:  Unmatched '}' in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\index.php on line 233
+[02-Apr-2025 03:12:35 Europe/Berlin] PHP Parse error:  Unmatched '}' in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\index.php on line 234
+[02-Apr-2025 03:13:09 Europe/Berlin] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function App\Controllers\DonationUnitController::{closure}(), 0 passed in C:\xampp\htdocs\php-blood-donation-system\app\views\layouts\AdminLayout\AdminLayout.php on line 652 and exactly 1 expected in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\index.php:171
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\app\views\layouts\AdminLayout\AdminLayout.php(652): App\Controllers\DonationUnitController->{closure}()
+#1 C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\index.php(217): include_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\php-blood-donation-system\app\controllers\admin\BloodDonationUnits\DonationUnitController.php(37): require_once('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\php-blood-donation-system\public\index.php(124): App\Controllers\DonationUnitController->index()
+#4 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\index.php on line 171
+[02-Apr-2025 03:15:55 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: Illegal offset type in C:\xampp\htdocs\php-blood-donation-system\app\controllers\admin\BloodDonationUnits\DonationUnitController.php:36
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\public\index.php(124): App\Controllers\DonationUnitController->index()
+#1 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\app\controllers\admin\BloodDonationUnits\DonationUnitController.php on line 36
+[02-Apr-2025 03:23:26 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: Illegal offset type in C:\xampp\htdocs\php-blood-donation-system\app\controllers\admin\BloodDonationUnits\DonationUnitController.php:36
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\public\index.php(124): App\Controllers\DonationUnitController->index()
+#1 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\app\controllers\admin\BloodDonationUnits\DonationUnitController.php on line 36
+[02-Apr-2025 03:45:48 Europe/Berlin] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\index.php on line 204
+[02-Apr-2025 03:46:07 Europe/Berlin] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\index.php on line 204
+[02-Apr-2025 03:47:31 Europe/Berlin] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\index.php on line 204

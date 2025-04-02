@@ -30,12 +30,31 @@ require_once '../app/controllers/AuthController.php';
 require_once '../app/controllers/UserController.php';
 require_once '../app/controllers/AppointmentController.php';
 require_once '../app/controllers/BloodInventoryController.php';
-require_once '../app/controllers/DonationUnitController.php';
+require_once '../app/controllers/admin/BloodDonationUnits/DonationUnitController.php';
 require_once '../app/controllers/EventController.php';
 require_once '../app/controllers/FaqController.php';
 require_once '../app/controllers/HealthcheckController.php';
 require_once '../app/controllers/NewsController.php';
 require_once '../app/controllers/PasswordResetController.php';
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use Illuminate\Database\Capsule\Manager as Capsule;
+
+$capsule = new Capsule;
+
+$capsule->addConnection([
+    'driver'    => 'mysql',
+    'host'      => '127.0.0.1',
+    'database'  => 'giotmauvang',
+    'username'  => 'root',
+    'password'  => '',
+    'charset'   => 'utf8',
+    'collation' => 'utf8_unicode_ci',
+    'prefix'    => '',
+]);
+
+$capsule->setAsGlobal();
+$capsule->bootEloquent();
 
 use App\Controllers\AuthController;
 use App\Controllers\UserController;
@@ -52,16 +71,112 @@ $controller = isset($_GET['controller']) ? $_GET['controller'] : 'Auth';
 $action = isset($_GET['action']) ? $_GET['action'] : 'login';
 
 try {
-    $controllerClass = "App\\Controllers\\{$controller}Controller";
-    if (class_exists($controllerClass)) {
-        $controllerInstance = new $controllerClass($mysqli);
-        if (method_exists($controllerInstance, $action)) {
-            $controllerInstance->$action();
-        } else {
-            throw new Exception("Action '{$action}' not found in {$controllerClass}");
-        }
-    } else {
-        throw new Exception("Controller '{$controller}' not found");
+    switch ($controller) {
+        case 'Auth':
+            $authController = new AuthController($mysqli);
+            if (method_exists($authController, $action)) {
+                $authController->$action();
+            } else {
+                $authController->login();
+            }
+            break;
+
+        case 'User':
+            $userController = new UserController($mysqli);
+            if (method_exists($userController, $action)) {
+                $userController->$action();
+            } else {
+                $userController->index();
+            }
+            break;
+
+        case 'Appointment':
+            $appointmentController = new AppointmentController($mysqli);
+            if (method_exists($appointmentController, $action)) {
+                $appointmentController->$action();
+            } else {
+                $appointmentController->index();
+            }
+            break;
+
+        case 'BloodInventory':
+            $bloodInventoryController = new BloodInventoryController($mysqli);
+            if (method_exists($bloodInventoryController, $action)) {
+                $bloodInventoryController->$action();
+            } else {
+                $bloodInventoryController->index();
+            }
+            break;
+
+        case 'DonationUnit':
+            $donationUnitController = new DonationUnitController($mysqli);
+            if (method_exists($donationUnitController, $action)) {
+                // Kiểm tra nếu action yêu cầu tham số id
+                if (isset($_GET['id'])) {
+                    if ($_SERVER['REQUEST_METHOD'] === 'POST' && $action === 'update') {
+                        // Truyền cả id và dữ liệu từ $_POST cho phương thức update
+                        $donationUnitController->$action($_GET['id'], $_POST);
+                    } else {
+                        // Truyền id cho các action khác
+                        $donationUnitController->$action($_GET['id']);
+                    }
+                } else {
+                    $donationUnitController->$action(); // Gọi action không có tham số
+                }
+            } else {
+                $donationUnitController->index();
+            }
+            break;
+
+        case 'Event':
+            $eventController = new EventController($mysqli);
+            if (method_exists($eventController, $action)) {
+                $eventController->$action();
+            } else {
+                $eventController->index();
+            }
+            break;
+
+        case 'Faq':
+            $faqController = new FaqController($mysqli);
+            if (method_exists($faqController, $action)) {
+                $faqController->$action();
+            } else {
+                $faqController->index();
+            }
+            break;
+
+        case 'Healthcheck':
+            $healthcheckController = new HealthcheckController($mysqli);
+            if (method_exists($healthcheckController, $action)) {
+                $healthcheckController->$action();
+            } else {
+                $healthcheckController->index();
+            }
+            break;
+
+        case 'News':
+            $newsController = new NewsController($mysqli);
+            if (method_exists($newsController, $action)) {
+                $newsController->$action();
+            } else {
+                $newsController->index();
+            }
+            break;
+
+        case 'PasswordReset':
+            $passwordResetController = new PasswordResetController($mysqli);
+            if (method_exists($passwordResetController, $action)) {
+                $passwordResetController->$action();
+            } else {
+                $passwordResetController->request();
+            }
+            break;
+
+        default:
+            $authController = new AuthController($mysqli);
+            $authController->login();
+            break;
     }
 } catch (\Exception $e) {
     error_log("Error in controller: " . $e->getMessage());

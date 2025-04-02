@@ -1,35 +1,38 @@
 <?php
+namespace App\Config;
 
 use Illuminate\Database\Capsule\Manager as Capsule;
+use mysqli;
 
 // Load environment variables
 require_once __DIR__ . '/env.php';
 require_once '../vendor/autoload.php';
 
+// Lấy thông tin kết nối từ biến môi trường hoặc sử dụng giá trị mặc định
 $host = getenv('DB_HOST') ?: 'localhost';
 $db_name = getenv('DB_DATABASE') ?: 'giotmauvang';
 $username = getenv('DB_USERNAME') ?: 'root';
 $password = getenv('DB_PASSWORD') ?: '';
 $port = getenv('DB_PORT') ?: 3306;
 
+// Kết nối MySQLi
 try {
     $mysqli = new mysqli($host, $username, $password, $db_name, $port);
 
     if ($mysqli->connect_error) {
-        throw new Exception("Connection failed: " . $mysqli->connect_error);
+        throw new \Exception("MySQLi connection failed: " . $mysqli->connect_error);
     }
 
-    // Debugging: Confirm connection
-    error_log("Database connection successful: {$host}, {$db_name}");
-
-    // Set character set
+    // Đặt charset cho kết nối
     $mysqli->set_charset('utf8mb4');
-    
-} catch (Exception $e) {
-    die("Database connection error: " . $e->getMessage());
+
+    // Debugging: Xác nhận kết nối thành công
+    error_log("MySQLi connection successful: {$host}, {$db_name}");
+} catch (\Exception $e) {
+    die("Database connection error (MySQLi): " . $e->getMessage());
 }
 
-// More detailed debugging for Capsule connection
+// Kết nối Eloquent ORM (Capsule)
 try {
     $capsule = new Capsule;
 
@@ -48,12 +51,10 @@ try {
     $capsule->setAsGlobal();
     $capsule->bootEloquent();
 
-    // Verify Eloquent connection
+    // Debugging: Xác nhận kết nối Eloquent thành công
     $pdo = $capsule->getConnection()->getPdo();
     error_log("Eloquent connection established successfully");
-    
 } catch (\Exception $e) {
     error_log("Eloquent connection error: " . $e->getMessage());
-    die("Database connection error for Eloquent: " . $e->getMessage());
+    die("Database connection error (Eloquent): " . $e->getMessage());
 }
-?>
