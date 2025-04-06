@@ -1,5 +1,7 @@
 <?php
-$content = function () use ($donationUnits) {
+// Define the content function that will be used in the layout
+$content = function () {
+    global $donationUnits;
 ?>
 <div class="container-fluid px-0">
     <!-- Page Header with gradient background -->
