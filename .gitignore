@@ -47,7 +47,8 @@ Thumbs.db
 /coverage/
 
 # Logs
-/logs/php_errors.log
+/logs/
+php_errors.log
 
 #Temp
 /temp/*

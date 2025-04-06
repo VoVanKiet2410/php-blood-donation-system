@@ -25,7 +25,6 @@ require_once '../config/session.php';
 // Define base URL to use across the application
 define('BASE_URL', '/php-blood-donation-system/public');
 
-require_once '../config/database.php';
 require_once '../app/controllers/AuthController.php';
 require_once '../app/controllers/UserController.php';
 require_once '../app/controllers/AppointmentController.php';
@@ -36,25 +35,6 @@ require_once '../app/controllers/FaqController.php';
 require_once '../app/controllers/HealthcheckController.php';
 require_once '../app/controllers/NewsController.php';
 require_once '../app/controllers/PasswordResetController.php';
-require_once __DIR__ . '/../vendor/autoload.php';
-
-use Illuminate\Database\Capsule\Manager as Capsule;
-
-$capsule = new Capsule;
-
-$capsule->addConnection([
-    'driver'    => 'mysql',
-    'host'      => '127.0.0.1',
-    'database'  => 'giotmauvang',
-    'username'  => 'root',
-    'password'  => '',
-    'charset'   => 'utf8',
-    'collation' => 'utf8_unicode_ci',
-    'prefix'    => '',
-]);
-
-$capsule->setAsGlobal();
-$capsule->bootEloquent();
 
 use App\Controllers\AuthController;
 use App\Controllers\UserController;
@@ -183,4 +163,3 @@ try {
     http_response_code(500);
     echo "An error occurred. Please check the error log for details.";
 }
-?>
