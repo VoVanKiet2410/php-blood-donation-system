@@ -45,3 +45,12 @@ Thumbs.db
 
 # Testing files
 /coverage/
+
+# Temporary files
+/temp/
+
+# Log files
+/logs/
+php_errors.log
+
+# 

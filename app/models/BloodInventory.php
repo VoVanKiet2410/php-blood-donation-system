@@ -8,6 +8,8 @@ class BloodInventory extends Model
 {
     protected $table = 'blood_inventory';
 
+    public $timestamps = false;
+
     protected $fillable = [
         'blood_type',
         'expiration_date',
