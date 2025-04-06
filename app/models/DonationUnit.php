@@ -7,16 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 class DonationUnit extends Model
 {
     protected $table = 'donation_unit';
-    
+
     public $timestamps = false;
-    
+
     protected $fillable = [
         'name',
-        'address',
+        'location',
         'phone',
         'email',
         'description',
-        'photo_url'
+        'unit_photo_url'
     ];
 
     /**

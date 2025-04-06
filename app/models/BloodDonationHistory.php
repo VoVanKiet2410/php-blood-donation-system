@@ -8,6 +8,8 @@ class BloodDonationHistory extends Model
 {
     protected $table = 'blood_donation_history';
 
+    public $timestamps = false;
+
     protected $fillable = [
         'blood_amount',
         'donation_date_time',
