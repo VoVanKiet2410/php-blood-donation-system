@@ -35,6 +35,9 @@ require_once '../app/controllers/FaqController.php';
 require_once '../app/controllers/HealthcheckController.php';
 require_once '../app/controllers/NewsController.php';
 require_once '../app/controllers/PasswordResetController.php';
+require_once '../app/controllers/BloodDonationHistoryController.php';
+require_once '../app/controllers/NewsAdmin.php';
+require_once '../app/controllers/FAQAdmin.php';
 
 use App\Controllers\AuthController;
 use App\Controllers\UserController;
@@ -46,6 +49,9 @@ use App\Controllers\FaqController;
 use App\Controllers\HealthcheckController;
 use App\Controllers\NewsController;
 use App\Controllers\PasswordResetController;
+use App\Controllers\BloodDonationHistoryController;
+use App\Controllers\NewsAdmin;
+use App\Controllers\FAQAdmin;
 
 $controller = isset($_GET['controller']) ? $_GET['controller'] : 'Auth';
 $action = isset($_GET['action']) ? $_GET['action'] : 'login';
@@ -152,6 +158,53 @@ try {
                 $newsController->$action();
             } else {
                 $newsController->index();
+            }
+            break;
+
+        case 'BloodDonationHistory':
+            $bloodDonationHistoryController = new BloodDonationHistoryController($mysqli);
+            if (method_exists($bloodDonationHistoryController, $action)) {
+                if (isset($_GET['id']) && in_array($action, ['view'])) {
+                    $bloodDonationHistoryController->$action($_GET['id']);
+                } else {
+                    $bloodDonationHistoryController->$action();
+                }
+            } else {
+                $bloodDonationHistoryController->index();
+            }
+            break;
+
+        case 'NewsAdmin':
+            $newsAdminController = new NewsAdmin($mysqli);
+            if (method_exists($newsAdminController, $action)) {
+                if (isset($_GET['id']) && in_array($action, ['edit', 'update', 'delete', 'view'])) {
+                    if ($_SERVER['REQUEST_METHOD'] === 'POST' && $action === 'update') {
+                        $newsAdminController->$action($_GET['id']);
+                    } else {
+                        $newsAdminController->$action($_GET['id']);
+                    }
+                } else {
+                    $newsAdminController->$action();
+                }
+            } else {
+                $newsAdminController->index();
+            }
+            break;
+
+        case 'FAQAdmin':
+            $faqAdminController = new FAQAdmin($mysqli);
+            if (method_exists($faqAdminController, $action)) {
+                if (isset($_GET['id']) && in_array($action, ['edit', 'update', 'delete', 'view'])) {
+                    if ($_SERVER['REQUEST_METHOD'] === 'POST' && $action === 'update') {
+                        $faqAdminController->$action($_GET['id']);
+                    } else {
+                        $faqAdminController->$action($_GET['id']);
+                    }
+                } else {
+                    $faqAdminController->$action();
+                }
+            } else {
+                $faqAdminController->index();
             }
             break;
 

@@ -3,13 +3,47 @@
 namespace App\Controllers;
 
 use App\Models\Faq;
+use Exception;
 
 class FaqController
 {
     public function index()
     {
-        $faqs = Faq::all();
-        require_once '../app/views/faqs/index.php';
+        try {
+            // Use Eloquent to fetch all FAQs
+            $faqs = Faq::orderBy('id', 'asc')->get();
+            
+            // Pass data to the view
+            $data = [
+                'faqs' => $faqs
+            ];
+            extract($data);
+            
+            require_once '../app/views/faqs/index.php';
+        } catch (Exception $e) {
+            error_log('Error in FaqController@index: ' . $e->getMessage());
+            echo '<div class="alert alert-danger">Error loading FAQ data: ' . $e->getMessage() . '</div>';
+        }
+    }
+
+    // Add a client-specific view method (though using the same logic for now)
+    public function clientIndex()
+    {
+        try {
+            // Use Eloquent to fetch all FAQs
+            $faqs = Faq::orderBy('id', 'asc')->get();
+            
+            // Pass data to the view
+            $data = [
+                'faqs' => $faqs
+            ];
+            extract($data);
+            
+            require_once '../app/views/faqs/client_index.php';
+        } catch (Exception $e) {
+            error_log('Error in FaqController@clientIndex: ' . $e->getMessage());
+            echo '<div class="alert alert-danger">Error loading FAQ data: ' . $e->getMessage() . '</div>';
+        }
     }
 
     public function create()
@@ -57,6 +91,7 @@ class FaqController
     {
         $faq = Faq::find($id);
         $faq->delete();
+
         header('Location: /faqs');
     }
 }
