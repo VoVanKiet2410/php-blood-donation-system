@@ -894,3 +894,59 @@ Stack trace:
 [02-Apr-2025 03:45:48 Europe/Berlin] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\index.php on line 204
 [02-Apr-2025 03:46:07 Europe/Berlin] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\index.php on line 204
 [02-Apr-2025 03:47:31 Europe/Berlin] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\php-blood-donation-system\app\views\donation_units\index.php on line 204
+[06-Apr-2025 13:17:34 Europe/Berlin] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function App\Controllers\AppointmentController::update(), 0 passed in C:\xampp\htdocs\php-blood-donation-system\public\index.php on line 96 and exactly 2 expected in C:\xampp\htdocs\php-blood-donation-system\app\controllers\AppointmentController.php:51
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\public\index.php(96): App\Controllers\AppointmentController->update()
+#1 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\app\controllers\AppointmentController.php on line 51
+[06-Apr-2025 13:17:36 Europe/Berlin] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function App\Controllers\AppointmentController::edit(), 0 passed in C:\xampp\htdocs\php-blood-donation-system\public\index.php on line 96 and exactly 1 expected in C:\xampp\htdocs\php-blood-donation-system\app\controllers\AppointmentController.php:43
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\public\index.php(96): App\Controllers\AppointmentController->edit()
+#1 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\app\controllers\AppointmentController.php on line 43
+[06-Apr-2025 13:17:41 Europe/Berlin] PHP Warning:  require_once(../../config/database.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\php-blood-donation-system\app\views\blood_inventory\index.php on line 9
+[06-Apr-2025 13:17:41 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required '../../config/database.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\php-blood-donation-system\app\views\blood_inventory\index.php:9
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\app\controllers\BloodInventoryController.php(14): require_once()
+#1 C:\xampp\htdocs\php-blood-donation-system\public\index.php(107): App\Controllers\BloodInventoryController->index()
+#2 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\app\views\blood_inventory\index.php on line 9
+[06-Apr-2025 13:23:34 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "App\Models\User" not found in C:\xampp\htdocs\php-blood-donation-system\app\controllers\AppointmentController.php:22
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\public\index.php(96): App\Controllers\AppointmentController->create()
+#1 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\app\controllers\AppointmentController.php on line 22
+[06-Apr-2025 13:23:37 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "App\Models\User" not found in C:\xampp\htdocs\php-blood-donation-system\app\controllers\AppointmentController.php:22
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\public\index.php(96): App\Controllers\AppointmentController->create()
+#1 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\app\controllers\AppointmentController.php on line 22
+[06-Apr-2025 13:25:50 Europe/Berlin] PHP Warning:  require_once(../app/controllers/AppointmentController.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\php-blood-donation-system\public\index.php on line 31
+[06-Apr-2025 13:25:50 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required '../app/controllers/AppointmentController.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\php-blood-donation-system\public\index.php:31
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\public\index.php on line 31
+[06-Apr-2025 13:26:31 Europe/Berlin] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function App\Controllers\Admin\AppointmentController::edit(), 0 passed in C:\xampp\htdocs\php-blood-donation-system\public\index.php on line 96 and exactly 1 expected in C:\xampp\htdocs\php-blood-donation-system\app\controllers\admin\AppointmentController.php:87
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\public\index.php(96): App\Controllers\Admin\AppointmentController->edit()
+#1 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\app\controllers\admin\AppointmentController.php on line 87
+[06-Apr-2025 13:28:24 Europe/Berlin] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function App\Controllers\Admin\AppointmentController::edit(), 0 passed in C:\xampp\htdocs\php-blood-donation-system\public\index.php on line 96 and exactly 1 expected in C:\xampp\htdocs\php-blood-donation-system\app\controllers\admin\AppointmentController.php:87
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\public\index.php(96): App\Controllers\Admin\AppointmentController->edit()
+#1 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\app\controllers\admin\AppointmentController.php on line 87
+[06-Apr-2025 13:34:10 Europe/Berlin] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function App\Controllers\Admin\AppointmentController::edit(), 0 passed in C:\xampp\htdocs\php-blood-donation-system\public\index.php on line 96 and exactly 1 expected in C:\xampp\htdocs\php-blood-donation-system\app\controllers\admin\AppointmentController.php:110
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\public\index.php(96): App\Controllers\Admin\AppointmentController->edit()
+#1 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\app\controllers\admin\AppointmentController.php on line 110
+[06-Apr-2025 13:40:47 Europe/Berlin] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function App\Controllers\Admin\AppointmentController::edit(), 0 passed in C:\xampp\htdocs\php-blood-donation-system\public\index.php on line 96 and exactly 1 expected in C:\xampp\htdocs\php-blood-donation-system\app\controllers\admin\AppointmentController.php:111
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\public\index.php(96): App\Controllers\Admin\AppointmentController->edit()
+#1 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\app\controllers\admin\AppointmentController.php on line 111
+[06-Apr-2025 13:44:16 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$bloodAmount in C:\xampp\htdocs\php-blood-donation-system\app\views\appointments\edit.php on line 66
+[06-Apr-2025 13:44:16 Europe/Berlin] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\php-blood-donation-system\app\views\appointments\edit.php on line 66
+[06-Apr-2025 13:44:21 Europe/Berlin] Error in controller: Unknown column 'bloodAmount' in 'field list'
+[06-Apr-2025 13:48:58 Europe/Berlin] Error in controller: Unknown column 'donation_unit_id' in 'field list'

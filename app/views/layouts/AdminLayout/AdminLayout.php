@@ -622,6 +622,13 @@ function renderSidebarLink($route, $label, $current_page, $icon) {
                     </a>
                 </div>
                 <div class="menu-item">
+                    <a href="index.php?controller=Appointment&action=index"
+                        class="menu-link <?= strpos($current_page, 'appointment') !== false ? 'active' : '' ?>">
+                        <i class="menu-icon fas fa-calendar-check"></i>
+                        <span>Lịch hẹn hiến máu</span>
+                    </a>
+                </div>
+                <div class="menu-item">
                     <a href="<?= USER_ROUTE ?>"
                         class="menu-link <?= strpos($current_page, 'users') !== false ? 'active' : '' ?>">
                         <i class="menu-icon fas fa-users"></i>
