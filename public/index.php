@@ -27,7 +27,7 @@ define('BASE_URL', '/php-blood-donation-system/public');
 
 require_once '../app/controllers/AuthController.php';
 require_once '../app/controllers/UserController.php';
-require_once '../app/controllers/AppointmentController.php';
+require_once '../app/controllers/admin/AppointmentController.php';
 require_once '../app/controllers/BloodInventoryController.php';
 require_once '../app/controllers/admin/BloodDonationUnits/DonationUnitController.php';
 require_once '../app/controllers/EventController.php';
@@ -38,7 +38,7 @@ require_once '../app/controllers/PasswordResetController.php';
 
 use App\Controllers\AuthController;
 use App\Controllers\UserController;
-use App\Controllers\AppointmentController;
+use App\Controllers\Admin\AppointmentController;
 use App\Controllers\BloodInventoryController;
 use App\Controllers\DonationUnitController;
 use App\Controllers\EventController;
@@ -73,7 +73,18 @@ try {
         case 'Appointment':
             $appointmentController = new AppointmentController($mysqli);
             if (method_exists($appointmentController, $action)) {
-                $appointmentController->$action();
+                // Kiểm tra nếu action yêu cầu tham số id
+                if (isset($_GET['id']) && in_array($action, ['edit', 'update', 'delete'])) {
+                    if ($_SERVER['REQUEST_METHOD'] === 'POST' && $action === 'update') {
+                        // Truyền cả id và dữ liệu từ $_POST cho phương thức update
+                        $appointmentController->$action($_GET['id']);
+                    } else {
+                        // Truyền id cho các action khác
+                        $appointmentController->$action($_GET['id']);
+                    }
+                } else {
+                    $appointmentController->$action(); // Gọi action không có tham số
+                }
             } else {
                 $appointmentController->index();
             }
