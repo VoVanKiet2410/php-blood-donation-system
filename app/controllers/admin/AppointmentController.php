@@ -59,9 +59,9 @@ class AppointmentController
             }
             
             // In ra thông tin debug cho trạng thái đầu tiên để kiểm tra
-            if (count($appointments) === 0) {
-                echo "<div class='alert alert-info'>Giá trị trạng thái đầu tiên: '$status' (Kiểu: " . gettype($status) . ")</div>";
-            }
+            // if (count($appointments) === 0) {
+            //     echo "<div class='alert alert-info'>Giá trị trạng thái đầu tiên: '$status' (Kiểu: " . gettype($status) . ")</div>";
+            // }
             
             $appointments[] = (object) $row;
         }

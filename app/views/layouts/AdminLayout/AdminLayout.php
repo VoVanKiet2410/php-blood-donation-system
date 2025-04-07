@@ -20,10 +20,11 @@ if (!isset($_SESSION['username']) || $_SESSION['user_role'] !== 'ADMIN') {
 
 // Get current page for menu highlighting
 $current_page = $_SERVER['REQUEST_URI'];
+$current_controller = '';
 
-function renderSidebarLink($route, $label, $current_page, $icon) {
-    $activeClass = strpos($current_page, $route) !== false ? 'active bg-primary' : '';
-    echo "<li class='nav-item'><a href='{$route}' class='nav-link text-white {$activeClass}'><i class='{$icon} me-2'></i>{$label}</a></li>";
+// Extract controller from URL for better menu highlighting
+if (preg_match('/controller=([^&]+)/', $current_page, $matches)) {
+    $current_controller = strtolower($matches[1]);
 }
 ?>
 
@@ -179,6 +180,8 @@ function renderSidebarLink($route, $label, $current_page, $icon) {
             border-radius: var(--border-radius);
             transition: all var(--transition-speed);
             text-decoration: none;
+            position: relative;
+            overflow: hidden;
         }
 
         .menu-link:hover {
@@ -191,6 +194,16 @@ function renderSidebarLink($route, $label, $current_page, $icon) {
             background: var(--primary-color);
             font-weight: 500;
             box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .menu-link.active::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: var(--accent-gold);
         }
 
         .menu-icon {
@@ -571,15 +584,46 @@ function renderSidebarLink($route, $label, $current_page, $icon) {
         ::-webkit-scrollbar-thumb:hover {
             background: #a4aabc;
         }
+
+        /* Menu category */
+        .menu-category {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: rgba(255, 255, 255, 0.4);
+            padding: 12px 16px 8px;
+            margin: 8px 0 0;
+        }
+
+        /* Mobile menu toggle */
+        .mobile-menu-toggle {
+            display: none;
+            background: transparent;
+            border: none;
+            color: var(--heading-color);
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: block;
+            }
+        }
         </style>
     </head>
 
     <body>
         <!-- Header -->
         <header class="app-header">
-            <div class="header-brand">
-                <img src="<?= BASE_URL ?>/images/logo-hutech.png" alt="Logo">
-                <span>Quản Lý Hiến Máu</span>
+            <div class="d-flex align-items-center">
+                <button class="mobile-menu-toggle me-3" data-bs-toggle="sidebar">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="header-brand">
+                    <img src="<?= BASE_URL ?>/images/logo-hutech.png" alt="Logo">
+                    <span>Quản Lý Hiến Máu</span>
+                </div>
             </div>
 
             <div class="d-flex align-items-center gap-3">
@@ -608,45 +652,90 @@ function renderSidebarLink($route, $label, $current_page, $icon) {
         <aside class="app-sidebar">
             <nav class="sidebar-menu">
                 <div class="menu-item">
-                    <a href="<?= DASHBOARD_ROUTE ?>"
-                        class="menu-link <?= strpos($current_page, 'dashboard') !== false ? 'active' : '' ?>">
+                    <a href="<?= DASHBOARD_ROUTE ?>" 
+                        class="menu-link <?= (strpos($current_page, 'dashboard') !== false || $current_controller == '') ? 'active' : '' ?>">
                         <i class="menu-icon fas fa-tachometer-alt"></i>
                         <span>Tổng quan</span>
                     </a>
                 </div>
+
+                <div class="menu-category">Quản lý hiến máu</div>
+
                 <div class="menu-item">
-                    <a href="<?= BLOOD_DONATION_HISTORY_ROUTE ?>"
-                        class="menu-link <?= strpos($current_page, 'blood-donation') !== false ? 'active' : '' ?>">
+                    <a href="<?= BLOOD_DONATION_HISTORY_ROUTE ?>" 
+                        class="menu-link <?= (strpos($current_page, 'blood-donation') !== false || $current_controller == 'blooddonationhistory') ? 'active' : '' ?>">
                         <i class="menu-icon fas fa-vial"></i>
                         <span>Kho máu</span>
                     </a>
                 </div>
+                
+                <div class="menu-item">
+                    <a href="index.php?controller=BloodInventory&action=index" 
+                        class="menu-link <?= ($current_controller == 'bloodinventory') ? 'active' : '' ?>">
+                        <i class="menu-icon fas fa-warehouse"></i>
+                        <span>Quản lý máu</span>
+                    </a>
+                </div>
+
                 <div class="menu-item">
                     <a href="index.php?controller=Appointment&action=index"
-                        class="menu-link <?= strpos($current_page, 'appointment') !== false ? 'active' : '' ?>">
+                        class="menu-link <?= ($current_controller == 'appointment') ? 'active' : '' ?>">
                         <i class="menu-icon fas fa-calendar-check"></i>
                         <span>Lịch hẹn hiến máu</span>
                     </a>
                 </div>
+
                 <div class="menu-item">
-                    <a href="<?= USER_ROUTE ?>"
-                        class="menu-link <?= strpos($current_page, 'users') !== false ? 'active' : '' ?>">
-                        <i class="menu-icon fas fa-users"></i>
-                        <span>Người dùng</span>
+                    <a href="index.php?controller=DonationUnit&action=index"
+                        class="menu-link <?= ($current_controller == 'donationunit') ? 'active' : '' ?>">
+                        <i class="menu-icon fas fa-hospital"></i>
+                        <span>Đơn vị hiến máu</span>
                     </a>
                 </div>
+                
                 <div class="menu-item">
-                    <a href="<?= EVENT_BLOOD_DONATION_ROUTE ?>"
-                        class="menu-link <?= strpos($current_page, 'events') !== false ? 'active' : '' ?>">
+                    <a href="index.php?controller=Event&action=index" 
+                        class="menu-link <?= ($current_controller == 'event') ? 'active' : '' ?>">
                         <i class="menu-icon fas fa-calendar-day"></i>
                         <span>Sự kiện hiến máu</span>
                     </a>
                 </div>
+
+                <div class="menu-category">Kiểm tra</div>
+                
                 <div class="menu-item">
-                    <a href="<?= HEALTH_CHECK_ROUTE ?>"
-                        class="menu-link <?= strpos($current_page, 'healthcheck') !== false ? 'active' : '' ?>">
+                    <a href="<?= HEALTH_CHECK_ROUTE ?>" 
+                        class="menu-link <?= (strpos($current_page, 'healthcheck') !== false || $current_controller == 'healthcheck') ? 'active' : '' ?>">
                         <i class="menu-icon fas fa-heartbeat"></i>
                         <span>Kiểm tra sức khỏe</span>
+                    </a>
+                </div>
+
+                <div class="menu-category">Nội dung</div>
+                
+                <div class="menu-item">
+                    <a href="index.php?controller=NewsAdmin&action=index" 
+                        class="menu-link <?= ($current_controller == 'newsadmin') ? 'active' : '' ?>">
+                        <i class="menu-icon fas fa-newspaper"></i>
+                        <span>Tin tức</span>
+                    </a>
+                </div>
+                
+                <div class="menu-item">
+                    <a href="index.php?controller=FAQAdmin&action=index" 
+                        class="menu-link <?= ($current_controller == 'faqadmin') ? 'active' : '' ?>">
+                        <i class="menu-icon fas fa-question-circle"></i>
+                        <span>FAQ</span>
+                    </a>
+                </div>
+
+                <div class="menu-category">Hệ thống</div>
+                
+                <div class="menu-item">
+                    <a href="<?= USER_ROUTE ?>" 
+                        class="menu-link <?= (strpos($current_page, 'users') !== false || $current_controller == 'user') ? 'active' : '' ?>">
+                        <i class="menu-icon fas fa-users"></i>
+                        <span>Người dùng</span>
                     </a>
                 </div>
             </nav>
@@ -660,7 +749,7 @@ function renderSidebarLink($route, $label, $current_page, $icon) {
             } else {
                 include_once $content;
             }
-        ?>
+            ?>
         </main>
 
         <!-- Bootstrap JS -->
