@@ -654,9 +654,9 @@ function renderSidebarLink($route, $label, $current_page, $icon) {
 
         <!-- Main Content -->
         <main class="app-content">
-        <?php 
+            <?php 
             if (is_callable($content)) {
-                $content($data ?? []); // Truyền biến $data (hoặc mảng rỗng nếu không có)
+                $content($data ?? []);
             } else {
                 include_once $content;
             }

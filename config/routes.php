@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Constants for all routes in the application
  * This avoids hardcoding routes in multiple files and makes route changes easier
@@ -35,4 +36,3 @@ define('NEWS_ROUTE', BASE_URL . '/public/index.php?controller=News&action=index'
 define('CONTACT_ROUTE', BASE_URL . '/public/index.php?controller=Contact&action=index');
 define('PROFILE_ROUTE', BASE_URL . '/public/index.php?controller=User&action=profile');
 define('SETTINGS_ROUTE', BASE_URL . '/public/index.php?controller=User&action=settings');
-?>

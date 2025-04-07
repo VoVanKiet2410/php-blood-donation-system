@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Event extends Model
 {
     protected $table = 'event';
-    
+
     public $timestamps = false;
 
     /**
@@ -17,7 +17,7 @@ class Event extends Model
         'current_registrations',
         'event_date',
         'event_end_time',
-        'event_start_time', 
+        'event_start_time',
         'max_registrations',
         'name',
         'status',

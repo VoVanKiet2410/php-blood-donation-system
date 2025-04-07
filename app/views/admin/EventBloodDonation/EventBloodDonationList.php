@@ -4,17 +4,23 @@ global $events;
 // Ensure events is always an array
 $events = $events ?? [];
 
+// Debug the events data to verify it contains content
+// Uncomment this line if you need to debug: error_log("Events in view: " . json_encode($events));
+
+// Properly pass $events to the content closure
 $content = function () use ($events) {
 ?>
 <div class="container-fluid px-0">
     <!-- Page Header with gradient background -->
-    <div class="ant-page-header mb-4 rounded" style="background: linear-gradient(120deg, var(--accent-purple), var(--accent-violet)); padding: 24px; color: white;">
+    <div class="ant-page-header mb-4 rounded"
+        style="background: linear-gradient(120deg, var(--accent-purple), var(--accent-violet)); padding: 24px; color: white;">
         <div class="d-flex justify-content-between align-items-center">
             <div>
                 <h4 class="mb-0 text-white">Quản lý Sự kiện Hiến máu</h4>
                 <p class="mb-0 mt-1 text-white opacity-75">Danh sách và quản lý các sự kiện hiến máu</p>
             </div>
-            <a href="<?= EVENT_BLOOD_DONATION_ADD_ROUTE ?>" class="ant-btn" style="background: white; color: var(--accent-purple); border: none; font-weight: 500;">
+            <a href="<?= EVENT_BLOOD_DONATION_ADD_ROUTE ?>" class="ant-btn"
+                style="background: white; color: var(--accent-purple); border: none; font-weight: 500;">
                 <i class="fas fa-plus me-2"></i>Thêm mới
             </a>
         </div>
@@ -28,7 +34,8 @@ $content = function () use ($events) {
                 <div class="row">
                     <div class="col-md-6 mb-3 mb-md-0">
                         <div class="d-flex align-items-center">
-                            <span class="me-3 text-nowrap" style="color: var(--accent-purple); font-weight: 500;">Trạng thái:</span>
+                            <span class="me-3 text-nowrap" style="color: var(--accent-purple); font-weight: 500;">Trạng
+                                thái:</span>
                             <div class="d-flex">
                                 <label class="custom-radio me-2">
                                     <input type="radio" name="status-filter" value="all" checked>
@@ -55,7 +62,7 @@ $content = function () use ($events) {
                     </div>
                 </div>
             </div>
-            
+
             <!-- Table -->
             <div class="table-responsive">
                 <table class="ant-table table table-hover">
@@ -71,88 +78,92 @@ $content = function () use ($events) {
                         </tr>
                     </thead>
                     <tbody>
-                        <?php if(count($events) > 0): ?>
-                            <?php foreach($events as $event): ?>
-                                <tr class="hover-effect">
-                                    <td><span class="badge rounded-pill bg-primary"><?= $event->id ?></span></td>
-                                    <td>
-                                        <div style="max-width: 300px;">
-                                            <div class="fw-medium"><?= htmlspecialchars($event->name) ?></div>
-                                            <small class="text-muted">Đơn vị: <?= $event->donationUnit ? htmlspecialchars($event->donationUnit->name) : 'N/A' ?></small>
-                                        </div>
-                                    </td>
-                                    <td><?= date('d/m/Y', strtotime($event->event_date)) ?></td>
-                                    <td>
-                                        <i class="far fa-clock text-primary me-1"></i>
-                                        <?= date('H:i', strtotime($event->event_start_time)) ?> - 
-                                        <?= date('H:i', strtotime($event->event_end_time)) ?>
-                                    </td>
-                                    <td>
-                                        <div class="d-flex align-items-center">
-                                            <div class="me-2">
-                                                <span class="fw-medium"><?= $event->current_registrations ?? 0 ?>/<?= $event->max_registrations ?></span>
-                                            </div>
-                                            <div style="flex-grow: 1; max-width: 60px;">
-                                                <?php 
-                                                $percentage = $event->max_registrations > 0 
-                                                    ? ($event->current_registrations / $event->max_registrations) * 100 
-                                                    : 0;
-                                                $bgClass = $percentage >= 80 
-                                                    ? 'bg-gradient-danger' 
-                                                    : 'bg-gradient-success';
-                                                ?>
-                                                <div class="progress" style="height: 6px;">
-                                                    <div class="progress-bar <?= $bgClass ?>" 
-                                                         style="width: <?= $percentage ?>%"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <?php if($event->status == 1): ?>
-                                            <span class="status-badge status-active">
-                                                <i class="fas fa-circle"></i> Đang diễn ra
-                                            </span>
-                                        <?php else: ?>
-                                            <span class="status-badge status-inactive">
-                                                <i class="fas fa-circle"></i> Kết thúc
-                                            </span>
-                                        <?php endif; ?>
-                                    </td>
-                                    <td>
-                                        <div class="d-flex justify-content-end">
-                                            <a href="?controller=Event&action=adminEdit&id=<?= $event->id ?>" class="action-btn edit-btn me-1" title="Chỉnh sửa">
-                                                <i class="fas fa-edit"></i>
-                                            </a>
-                                            <button type="button" class="action-btn delete-btn me-1" title="Xóa" onclick="confirmDelete(<?= $event->id ?>)">
-                                                <i class="fas fa-trash-alt"></i>
-                                            </button>
-                                            <a href="#" class="action-btn view-btn" title="Xem chi tiết">
-                                                <i class="fas fa-eye"></i>
-                                            </a>
-                                        </div>
-                                    </td>
-                                </tr>
-                            <?php endforeach; ?>
-                        <?php else: ?>
-                            <tr>
-                                <td colspan="7" class="text-center py-5">
-                                    <div class="empty-state">
-                                        <i class="fas fa-calendar-times empty-state-icon"></i>
-                                        <p>Không có sự kiện nào để hiển thị</p>
-                                        <a href="<?= EVENT_BLOOD_DONATION_ADD_ROUTE ?>" class="btn btn-primary btn-sm">
-                                            <i class="fas fa-plus me-1"></i> Thêm sự kiện mới
-                                        </a>
+                        <?php if (isset($events) && count($events) > 0): ?>
+                        <?php foreach ($events as $event): ?>
+                        <tr class="hover-effect">
+                            <td><span class="badge rounded-pill bg-primary"><?= $event['id'] ?></span></td>
+                            <td>
+                                <div style="max-width: 300px;">
+                                    <div class="fw-medium"><?= htmlspecialchars($event['name']) ?></div>
+                                    <small class="text-muted">Đơn vị:
+                                        <?= isset($event['donation_unit']) ? htmlspecialchars($event['donation_unit']['name']) : 'N/A' ?></small>
+                                </div>
+                            </td>
+                            <td><?= date('d/m/Y', strtotime($event['event_date'])) ?></td>
+                            <td>
+                                <i class="far fa-clock text-primary me-1"></i>
+                                <?= date('H:i', strtotime($event['event_start_time'])) ?> -
+                                <?= date('H:i', strtotime($event['event_end_time'])) ?>
+                            </td>
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <div class="me-2">
+                                        <span
+                                            class="fw-medium"><?= $event['current_registrations'] ?? 0 ?>/<?= $event['max_registrations'] ?></span>
                                     </div>
-                                </td>
-                            </tr>
+                                    <div style="flex-grow: 1; max-width: 60px;">
+                                        <?php
+                                                    $percentage = $event['max_registrations'] > 0
+                                                        ? ($event['current_registrations'] / $event['max_registrations']) * 100
+                                                        : 0;
+                                                    $bgClass = $percentage >= 80
+                                                        ? 'bg-gradient-danger'
+                                                        : 'bg-gradient-success';
+                                                    ?>
+                                        <div class="progress" style="height: 6px;">
+                                            <div class="progress-bar <?= $bgClass ?>"
+                                                style="width: <?= $percentage ?>%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <?php if ($event['status'] == 1): ?>
+                                <span class="status-badge status-active">
+                                    <i class="fas fa-circle"></i> Đang diễn ra
+                                </span>
+                                <?php else: ?>
+                                <span class="status-badge status-inactive">
+                                    <i class="fas fa-circle"></i> Kết thúc
+                                </span>
+                                <?php endif; ?>
+                            </td>
+                            <td>
+                                <div class="d-flex justify-content-end">
+                                    <a href="?controller=Event&action=adminEdit&id=<?= $event['id'] ?>"
+                                        class="action-btn edit-btn me-1" title="Chỉnh sửa">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                    <button type="button" class="action-btn delete-btn me-1" title="Xóa"
+                                        onclick="confirmDelete(<?= $event['id'] ?>)">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                    <a href="#" class="action-btn view-btn" title="Xem chi tiết">
+                                        <i class="fas fa-eye"></i>
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                        <?php endforeach; ?>
+                        <?php else: ?>
+                        <tr>
+                            <td colspan="7" class="text-center py-5">
+                                <div class="empty-state">
+                                    <i class="fas fa-calendar-times empty-state-icon"></i>
+                                    <p>Không có sự kiện nào để hiển thị</p>
+                                    <a href="<?= EVENT_BLOOD_DONATION_ADD_ROUTE ?>" class="btn btn-primary btn-sm">
+                                        <i class="fas fa-plus me-1"></i> Thêm sự kiện mới
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
                         <?php endif; ?>
                     </tbody>
                 </table>
             </div>
 
             <!-- Pagination -->
-            <?php if(count($events) > 0): ?>
+            <?php if (isset($events) && count($events) > 0): ?>
             <div class="p-4 d-flex justify-content-between align-items-center">
                 <div class="text-muted">
                     Hiển thị <?= count($events) ?> sự kiện
@@ -250,6 +261,7 @@ $content = function () use ($events) {
 
 .status-badge i {
     font-size: 8px;
+    margin-right: 5px;
 }
 
 .status-active {
@@ -292,7 +304,7 @@ $content = function () use ($events) {
 
 .action-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Progress bar gradients */
@@ -373,21 +385,26 @@ document.addEventListener('DOMContentLoaded', function() {
     // Filter functionality
     const statusRadios = document.querySelectorAll('input[name="status-filter"]');
     const tableRows = document.querySelectorAll('.ant-table tbody tr');
-    
+
     statusRadios.forEach(radio => {
         radio.addEventListener('change', function() {
             const value = this.value;
-            
+
             tableRows.forEach(row => {
-                const statusCell = row.querySelector('td:nth-child(5)');
+                if (row.querySelector('td[colspan="7"]'))
+                    return; // Skip empty state row
+
+                const statusCell = row.querySelector('td:nth-child(6)');
                 if (!statusCell) return;
-                
+
                 if (value === 'all') {
                     row.style.display = '';
                 } else if (value === 'active') {
-                    row.style.display = statusCell.textContent.trim().includes('Hoạt động') ? '' : 'none';
+                    row.style.display = statusCell.textContent.trim().includes(
+                        'Đang diễn ra') ? '' : 'none';
                 } else if (value === 'inactive') {
-                    row.style.display = statusCell.textContent.trim().includes('Không hoạt động') ? '' : 'none';
+                    row.style.display = statusCell.textContent.trim().includes(
+                        'Kết thúc') ? '' : 'none';
                 }
             });
         });
@@ -397,8 +414,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const searchInput = document.querySelector('.search-form input');
     searchInput.addEventListener('input', function() {
         const searchTerm = this.value.toLowerCase();
-        
+
         tableRows.forEach(row => {
+            if (row.querySelector('td[colspan="7"]')) return; // Skip empty state row
+
             const text = row.textContent.toLowerCase();
             row.style.display = text.includes(searchTerm) ? '' : 'none';
         });

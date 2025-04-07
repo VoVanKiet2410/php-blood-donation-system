@@ -15,9 +15,13 @@ class EventController
     public function adminIndex()
     {
         try {
+            // Enable error reporting for debugging
+            error_reporting(E_ALL);
+            ini_set('display_errors', 1);
+
             // More detailed error debugging
             error_log("EventController@adminIndex: Attempting to fetch events");
-            
+
             // Try a simple query first to verify connection
             try {
                 global $capsule;
@@ -27,24 +31,37 @@ class EventController
                 error_log("Database connection test failed: " . $connEx->getMessage());
                 throw new \Exception("Database connection failed: " . $connEx->getMessage(), 0, $connEx);
             }
-            
-            // Fetch events using Eloquent
-            $events = Event::all(); 
-            error_log("Fetched events successfully: " . json_encode($events));
-            
-            // Create a global variable for events that can be accessed in the view
-            // Make sure $events is always an array even if the query returns null
+
+            // Initialize events as an empty array first
             global $events;
-            $events = $events ?? [];
-            
+            $events = [];
+
+            // Fetch events using Eloquent with the donation unit relationship
+            $eventsCollection = Event::with('donationUnit')->get();
+
+            // Log the raw collection data for debugging
+            error_log("Raw events collection: " . count($eventsCollection) . " items found");
+
+            if ($eventsCollection->count() > 0) {
+                // Convert Eloquent collection to a plain PHP array that the view can process
+                $events = $eventsCollection->toArray();
+                error_log("Converted events to array: " . json_encode(array_slice($events, 0, 2)) . "...");
+            } else {
+                error_log("No events found in collection, using empty array");
+            }
+
+            // Log the data being passed to the view
+            error_log("Passing " . count($events) . " events to view");
+
+            // Using require_once to ensure the view is included
             require_once '../app/views/admin/EventBloodDonation/EventBloodDonationList.php';
         } catch (\Exception $e) {
+            error_log("Exception in EventController@adminIndex: " . $e->getMessage() . "\n" . $e->getTraceAsString());
+
             echo '<h3>Error in EventController@adminIndex</h3>';
             echo '<p><strong>Message:</strong> ' . $e->getMessage() . '</p>';
             echo '<p><strong>File:</strong> ' . $e->getFile() . '</p>';
             echo '<p><strong>Line:</strong> ' . $e->getLine() . '</p>';
-            // Log the full exception for debugging
-            error_log("Exception in EventController@adminIndex: " . $e->getMessage() . "\n" . $e->getTraceAsString());
         }
     }
 
@@ -52,6 +69,19 @@ class EventController
     {
         try {
             $donationUnits = DonationUnit::all();
+            // Create a global variable for donationUnits that can be accessed in the view
+            global $donationUnits;
+            // Initialize with default values
+            $donationUnits = [];
+
+            try {
+                $donationUnits = DonationUnit::all();
+            } catch (Exception $e) {
+                echo '<h3>Error in EventController@adminCreate</h3>';
+                echo '<p><strong>Message:</strong> ' . $e->getMessage() . '</p>';
+                return;
+            }
+
             require_once '../app/views/admin/EventBloodDonation/EventBloodDonationCreate.php';
         } catch (Exception $e) {
             echo '<h3>Error in EventController@adminCreate</h3>';
@@ -64,14 +94,16 @@ class EventController
         try {
             // Get POST data
             $data = $_POST;
-            
+
             // Validate required fields
-            if (empty($data['name']) || empty($data['eventDate']) || 
-                empty($data['eventStartTime']) || empty($data['eventEndTime']) || 
-                empty($data['maxRegistrations']) || empty($data['donationUnit_id'])) {
+            if (
+                empty($data['name']) || empty($data['eventDate']) ||
+                empty($data['eventStartTime']) || empty($data['eventEndTime']) ||
+                empty($data['maxRegistrations']) || empty($data['donationUnitId'])
+            ) {
                 throw new Exception("All fields are required");
             }
-            
+
             $event = new Event();
             $event->name = $data['name'];
             $event->event_date = $data['eventDate'];
@@ -79,7 +111,7 @@ class EventController
             $event->event_end_time = $data['eventEndTime'];
             $event->max_registrations = $data['maxRegistrations'];
             $event->current_registrations = 0; // Initialize current registrations
-            $event->donation_unit_id = $data['donationUnit_id'];
+            $event->donation_unit_id = $data['donationUnitId'];
             // Use integer for status: 1 for active, 0 for inactive
             $event->status = isset($data['status']) ? (int)$data['status'] : 1;
             $event->save();
@@ -94,11 +126,44 @@ class EventController
         }
     }
 
-    public function adminEdit($id)
+    public function adminEdit($id = null)
     {
         try {
-            $event = Event::find($id);
-            $donationUnits = DonationUnit::all();
+            // Get ID from GET parameter if not provided as function argument
+            if ($id === null && isset($_GET['id'])) {
+                $id = $_GET['id'];
+            }
+
+            if (!$id) {
+                throw new Exception("No event ID provided");
+            }
+
+            global $event;
+            global $donationUnits;
+
+            // Initialize with default values
+            $event = null;
+            $donationUnits = [];
+
+            try {
+                $event = Event::find($id);
+                if (!$event) {
+                    throw new Exception("Event not found with ID: $id");
+                }
+            } catch (Exception $e) {
+                echo '<h3>Error in EventController@adminEdit</h3>';
+                echo '<p><strong>Message:</strong> ' . $e->getMessage() . '</p>';
+                return;
+            }
+
+            try {
+                $donationUnits = DonationUnit::all();
+            } catch (Exception $e) {
+                echo '<h3>Error in EventController@adminEdit</h3>';
+                echo '<p><strong>Message:</strong> ' . $e->getMessage() . '</p>';
+                return;
+            }
+
             require_once '../app/views/admin/EventBloodDonation/EventBloodDonationEdit.php';
         } catch (Exception $e) {
             echo '<h3>Error in EventController@adminEdit</h3>';
@@ -106,11 +171,22 @@ class EventController
         }
     }
 
-    public function adminDelete($id)
+    public function adminDelete($id = null)
     {
         try {
+            // Get ID from GET parameter if not provided as function argument
+            if ($id === null && isset($_GET['id'])) {
+                $id = $_GET['id'];
+            }
+
+            if (!$id) {
+                throw new Exception("No event ID provided for deletion");
+            }
+
             $event = Event::find($id);
-            $event->delete();
+            if ($event) {
+                $event->delete();
+            }
             header('Location: ' . EVENT_BLOOD_DONATION_ROUTE);
         } catch (Exception $e) {
             echo '<h3>Error in EventController@adminDelete</h3>';
@@ -131,25 +207,27 @@ class EventController
             }
 
             $data = $_POST;
-            
+
             // Validate required fields
-            if (empty($data['name']) || empty($data['eventDate']) || 
-                empty($data['eventStartTime']) || empty($data['eventEndTime']) || 
-                empty($data['maxRegistrations']) || empty($data['donationUnit_id'])) {
+            if (
+                empty($data['name']) || empty($data['eventDate']) ||
+                empty($data['eventStartTime']) || empty($data['eventEndTime']) ||
+                empty($data['maxRegistrations']) || empty($data['donationUnitId'])
+            ) {
                 throw new Exception("All fields are required");
             }
-            
+
             $event = Event::find($id);
             if (!$event) {
                 throw new Exception("Event not found");
             }
-            
+
             $event->name = $data['name'];
             $event->event_date = $data['eventDate'];
             $event->event_start_time = $data['eventStartTime'];
             $event->event_end_time = $data['eventEndTime'];
             $event->max_registrations = $data['maxRegistrations'];
-            $event->donation_unit_id = $data['donationUnit_id'];
+            $event->donation_unit_id = $data['donationUnitId'];
             // Use integer for status: 1 for active, 0 for inactive
             $event->status = isset($data['status']) ? (int)$data['status'] : $event->status;
             $event->save();
@@ -173,44 +251,44 @@ class EventController
             $startDate = $_GET['startDate'] ?? null;
             $endDate = $_GET['endDate'] ?? null;
             $unitId = $_GET['unitId'] ?? null;
-            
+
             // Get donation units for the filter dropdown
             $donationUnits = DonationUnit::all();
-            
+
             // Start building the query
             $query = Event::query()->where('status', 1); // Only active events
-            
+
             // Apply date range filter if provided
             if ($startDate && $endDate) {
                 $query->where('event_date', '>=', $startDate)
-                      ->where('event_date', '<=', $endDate);
+                    ->where('event_date', '<=', $endDate);
             }
-            
+
             // Apply unit filter if provided
             if ($unitId) {
                 $query->where('donation_unit_id', $unitId);
             }
-            
+
             // Eager load the donation unit relationship
             $events = $query->with('donationUnit')->get();
-            
+
             // Get pagination parameters
             $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
             $itemsPerPage = 5;
             $totalEvents = count($events);
             $totalPages = ceil($totalEvents / $itemsPerPage);
-            
+
             // Adjust page if out of bounds
             if ($page < 1) $page = 1;
             if ($page > $totalPages && $totalPages > 0) $page = $totalPages;
-            
+
             // Calculate start and end index for current page
             $startIndex = ($page - 1) * $itemsPerPage;
             $currentEvents = array_slice($events->toArray(), $startIndex, $itemsPerPage);
-            
+
             // Set the content to be included in the layout
             $content = '../app/views/events/index.php';
-            
+
             // Include the client layout
             require_once '../app/views/layouts/ClientLayout/ClientLayout.php';
         } catch (Exception $e) {
@@ -219,7 +297,7 @@ class EventController
             error_log("Exception in EventController@clientIndex: " . $e->getMessage());
         }
     }
-    
+
     /**
      * Book an appointment for an event
      */
@@ -232,32 +310,32 @@ class EventController
             header('Location: ' . LOGIN_ROUTE);
             exit;
         }
-        
+
         try {
             if (!$eventId && isset($_GET['id'])) {
                 $eventId = $_GET['id'];
             }
-            
+
             if (!$eventId) {
                 throw new Exception("No event ID provided");
             }
-            
+
             $event = Event::with('donationUnit')->find($eventId);
-            
+
             if (!$event) {
                 throw new Exception("Event not found");
             }
-            
+
             // Check if event is full
             if ($event->current_registrations >= $event->max_registrations) {
                 $_SESSION['error_message'] = "This event is fully booked.";
                 header('Location: ' . BASE_URL . '/public/index.php?controller=Event&action=clientIndex');
                 exit;
             }
-            
+
             // Store event in session for the booking form
             $_SESSION['booking_event_id'] = $eventId;
-            
+
             // Redirect to appointment booking form
             header('Location: ' . BASE_URL . '/public/index.php?controller=Appointment&action=create');
             exit;

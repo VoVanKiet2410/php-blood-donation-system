@@ -8,6 +8,8 @@ class Healthcheck extends Model
 {
     protected $table = 'healthcheck';
 
+    public $timestamps = false;
+
     protected $fillable = [
         'health_metrics',
         'notes',
