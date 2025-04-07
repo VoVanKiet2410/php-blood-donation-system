@@ -8,20 +8,48 @@ use App\Config\Database;
 
 class UserController
 {
-    private $db;
+    private $mysqli;
 
-    public function __construct()
+    public function __construct($mysqli)
     {
-        $this->db = Database::getConnection();
+        if (!$mysqli) {
+            throw new \Exception("Database connection not provided");
+        }
+        $this->mysqli = $mysqli;
     }
 
     public function index()
     {
-        $query = "SELECT * FROM users";
-        $stmt = $this->db->prepare($query);
+        AuthController::authorize();
+        $this->dashboard();
+    }
+
+    public function dashboard()
+    {
+        AuthController::authorize();
+
+        $userCccd = $_SESSION['user_id'];
+        $stmt = $this->mysqli->prepare("SELECT u.cccd, u.email, u.phone, ui.full_name, ui.address, ui.dob, ui.sex 
+                                      FROM user u 
+                                      LEFT JOIN user_info ui ON u.user_info_id = ui.id
+                                      WHERE u.cccd = ?");
+        if (!$stmt) {
+            die("Error preparing statement: " . $this->mysqli->error);
+        }
+
+        $stmt->bind_param("s", $userCccd);
         $stmt->execute();
-        $users = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+        $result = $stmt->get_result();
+        $user = $result->fetch_assoc();
+
+        // Include view file instead of returning data
         require_once '../app/views/users/index.php';
+    }
+
+    public function adminDashboard()
+    {
+        AuthController::authorize(['ADMIN']);
+        require_once '../app/views/users/admin_dashboard.php';
     }
 
     public function create()
@@ -32,7 +60,7 @@ class UserController
 
     public function store($data)
     {
-        $query = "INSERT INTO users (CCCD, password, phone, email, role_id) VALUES (:username, :password, :phone, :email, :role_id)";
+        $query = "INSERT INTO user (CCCD, password, phone, email, role_id) VALUES (:username, :password, :phone, :email, :role_id)";
         $stmt = $this->db->prepare($query);
         $stmt->bindParam(':username', $data['username']);
         $stmt->bindParam(':password', password_hash($data['password'], PASSWORD_DEFAULT));
@@ -48,7 +76,7 @@ class UserController
 
     public function edit($id)
     {
-        $query = "SELECT * FROM users WHERE CCCD = :id";
+        $query = "SELECT * FROM user WHERE CCCD = :id";
         $stmt = $this->db->prepare($query);
         $stmt->bindParam(':id', $id);
         $stmt->execute();
@@ -59,7 +87,7 @@ class UserController
 
     public function update($data)
     {
-        $query = "UPDATE users SET phone = :phone, email = :email, role_id = :role_id WHERE CCCD = :username";
+        $query = "UPDATE user SET phone = :phone, email = :email, role_id = :role_id WHERE CCCD = :username";
         $stmt = $this->db->prepare($query);
         $stmt->bindParam(':username', $data['username']);
         $stmt->bindParam(':phone', $data['phone']);
@@ -79,4 +107,9 @@ class UserController
         $stmt->execute();
         return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
+}
+
+// Thêm vào cuối file database.php
+if (!$mysqli) {
+    die("Connection failed: Unable to establish database connection");
 }

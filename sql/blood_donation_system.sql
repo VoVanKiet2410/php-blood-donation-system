@@ -10,8 +10,8 @@ CREATE TABLE IF NOT EXISTS roles (
     description TEXT
 );
 
--- Table for Users
-CREATE TABLE IF NOT EXISTS users (
+-- Table for user
+CREATE TABLE IF NOT EXISTS user (
     CCCD VARCHAR(12) PRIMARY KEY,
     password VARCHAR(255) NOT NULL,
     phone VARCHAR(15),
@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS blood_donation_history (
     reaction_after_donation VARCHAR(255),
     user_id VARCHAR(12),
     appointment_id BIGINT,
-    FOREIGN KEY (user_id) REFERENCES users(CCCD),
+    FOREIGN KEY (user_id) REFERENCES user(CCCD),
     FOREIGN KEY (appointment_id) REFERENCES appointments(id)
 );
 
@@ -57,7 +57,7 @@ CREATE TABLE IF NOT EXISTS appointments (
     next_donation_eligible_date DATETIME,
     status ENUM('PENDING', 'CONFIRMED', 'CANCELED', 'COMPLETED'),
     FOREIGN KEY (event_id) REFERENCES events(id),
-    FOREIGN KEY (user_cccd) REFERENCES users(CCCD),
+    FOREIGN KEY (user_cccd) REFERENCES user(CCCD),
     FOREIGN KEY (healthcheck_id) REFERENCES healthchecks(id),
     FOREIGN KEY (blood_donation_history_id) REFERENCES blood_donation_history(id),
     FOREIGN KEY (blood_inventory_id) REFERENCES blood_inventory(id)

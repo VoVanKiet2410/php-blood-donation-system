@@ -45,3 +45,13 @@ Thumbs.db
 
 # Testing files
 /coverage/
+
+# Logs
+/logs/
+php_errors.log
+
+#Temp
+/temp/*
+# Session files
+/temp/sessions/*
+!temp/sessions/.gitkeep

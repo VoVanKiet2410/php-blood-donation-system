@@ -1,101 +1,75 @@
 <?php
 
-class User {
-    private $username;
-    private $password;
-    private $phone;
-    private $email;
-    private $userInfo;
-    private $role;
-    private $appointments = [];
-    private $bloodDonationHistories = [];
+namespace App\Models;
 
-    public function __construct($username, $password, $phone, $email, $userInfo, $role) {
-        $this->username = $username;
-        $this->password = $password;
-        $this->phone = $phone;
-        $this->email = $email;
-        $this->userInfo = $userInfo;
-        $this->role = $role;
+use Illuminate\Database\Eloquent\Model;
+
+class User extends Model
+{
+    protected $table = 'user';
+    protected $primaryKey = 'cccd';
+    public $incrementing = false;
+    protected $keyType = 'string';
+    public $timestamps = false;
+
+    protected $fillable = [
+        'cccd',
+        'email',
+        'password',
+        'phone',
+        'role_id',
+        'user_info_id',
+    ];
+
+    // Define relationships
+    public function role()
+    {
+        return $this->belongsTo(Role::class, 'role_id');
     }
 
-    public function getUsername() {
-        return $this->username;
+    public function userInfo()
+    {
+        return $this->belongsTo(UserInfo::class, 'user_info_id');
     }
 
-    public function setUsername($username) {
-        $this->username = $username;
+    public function appointments()
+    {
+        return $this->hasMany(Appointment::class, 'user_cccd', 'cccd');
     }
 
-    public function getPassword() {
-        return $this->password;
+    public function bloodDonationHistories()
+    {
+        return $this->hasMany(BloodDonationHistory::class, 'user_id', 'cccd');
     }
 
-    public function setPassword($password) {
-        $this->password = $password;
+    public function passwordResetToken()
+    {
+        return $this->hasOne(PasswordResetToken::class, 'user_cccd', 'cccd');
     }
 
-    public function getPhone() {
-        return $this->phone;
+    // Helper methods
+    public function getFullName()
+    {
+        return $this->userInfo ? $this->userInfo->full_name : null;
     }
 
-    public function setPhone($phone) {
-        $this->phone = $phone;
+    public function getDob()
+    {
+        return $this->userInfo ? $this->userInfo->dob : null;
     }
 
-    public function getEmail() {
-        return $this->email;
+    public function getAddress()
+    {
+        return $this->userInfo ? $this->userInfo->address : null;
     }
 
-    public function setEmail($email) {
-        $this->email = $email;
+    public function getSex()
+    {
+        return $this->userInfo ? $this->userInfo->sex : null;
     }
 
-    public function getUserInfo() {
-        return $this->userInfo;
-    }
-
-    public function setUserInfo($userInfo) {
-        $this->userInfo = $userInfo;
-    }
-
-    public function getRole() {
-        return $this->role;
-    }
-
-    public function setRole($role) {
-        $this->role = $role;
-    }
-
-    public function getAppointments() {
-        return $this->appointments;
-    }
-
-    public function addAppointment($appointment) {
-        $this->appointments[] = $appointment;
-    }
-
-    public function getBloodDonationHistories() {
-        return $this->bloodDonationHistories;
-    }
-
-    public function addBloodDonationHistory($bloodDonationHistory) {
-        $this->bloodDonationHistories[] = $bloodDonationHistory;
-    }
-
-    public function getAuthorities() {
-        return [$this->role];
-    }
-
-    public function isCredentialsNonExpired() {
-        return true;
-    }
-
-    public function isAccountNonLocked() {
-        return true;
-    }
-
-    public function isEnabled() {
-        return true;
+    public function isAdmin()
+    {
+        return $this->role_id == 2; // 2 is ADMIN in the database
     }
 }

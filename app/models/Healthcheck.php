@@ -6,18 +6,20 @@ use Illuminate\Database\Eloquent\Model;
 
 class Healthcheck extends Model
 {
-    protected $table = 'healthchecks';
+    protected $table = 'healthcheck';
+
+    public $timestamps = false;
 
     protected $fillable = [
         'health_metrics',
         'notes',
-        'appointment_id',
-        'result'
+        'result',
+        'appointment_id'
     ];
 
     public function appointment()
     {
-        return $this->belongsTo(Appointment::class);
+        return $this->belongsTo(Appointment::class, 'appointment_id');
     }
 
     public function isValidHealthCheck()
