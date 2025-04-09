@@ -9,7 +9,7 @@ $content = function ($data = []) {
         'events' => 8,
         'donation_units' => 16
     ];
-    
+
     $bloodTypeDistribution = [
         'A+' => 35,
         'A-' => 6,
@@ -17,17 +17,17 @@ $content = function ($data = []) {
         'B-' => 4,
         'AB+' => 7,
         'AB-' => 2,
-        'O+' => 38, 
+        'O+' => 38,
         'O-' => 7
     ];
-    
+
     $recentDonations = [
         ['id' => 124, 'donor' => 'Nguyen Van A', 'date' => '2023-04-05', 'blood_type' => 'A+', 'amount' => 350],
         ['id' => 123, 'donor' => 'Tran Thi B', 'date' => '2023-04-04', 'blood_type' => 'O+', 'amount' => 400],
         ['id' => 122, 'donor' => 'Le Van C', 'date' => '2023-04-03', 'blood_type' => 'B-', 'amount' => 300],
         ['id' => 121, 'donor' => 'Pham Thi D', 'date' => '2023-04-02', 'blood_type' => 'AB+', 'amount' => 350],
     ];
-    
+
     $upcomingEvents = [
         ['id' => 14, 'name' => 'Hiến máu nhân đạo tại HUTECH', 'date' => '2023-04-15', 'location' => 'Đại học HUTECH', 'registered' => 28],
         ['id' => 15, 'name' => 'Hiến máu cứu người 2023', 'date' => '2023-04-25', 'location' => 'Công viên Lê Văn Tám', 'registered' => 45]
@@ -60,9 +60,11 @@ $content = function ($data = []) {
                         <div>
                             <h6 class="text-muted">Tổng người dùng</h6>
                             <h3 class="fw-bold mb-0"><?php echo number_format($stats['users']); ?></h3>
-                            <small class="text-success"><i class="fas fa-caret-up me-1"></i>12% so với tháng trước</small>
+                            <small class="text-success"><i class="fas fa-caret-up me-1"></i>12% so với tháng
+                                trước</small>
                         </div>
-                        <div class="stats-icon" style="background-color: var(--primary-light); color: var(--primary-color);">
+                        <div class="stats-icon"
+                            style="background-color: var(--primary-light); color: var(--primary-color);">
                             <i class="fas fa-users"></i>
                         </div>
                     </div>
@@ -77,9 +79,11 @@ $content = function ($data = []) {
                         <div>
                             <h6 class="text-muted">Máu khả dụng</h6>
                             <h3 class="fw-bold mb-0"><?php echo number_format($stats['blood_units']); ?> đơn vị</h3>
-                            <small class="text-success"><i class="fas fa-caret-up me-1"></i>5% so với tháng trước</small>
+                            <small class="text-success"><i class="fas fa-caret-up me-1"></i>5% so với tháng
+                                trước</small>
                         </div>
-                        <div class="stats-icon" style="background-color: var(--success-light); color: var(--success-color);">
+                        <div class="stats-icon"
+                            style="background-color: var(--success-light); color: var(--success-color);">
                             <i class="fas fa-vial"></i>
                         </div>
                     </div>
@@ -94,7 +98,8 @@ $content = function ($data = []) {
                         <div>
                             <h6 class="text-muted">Lịch hẹn hiến máu</h6>
                             <h3 class="fw-bold mb-0"><?php echo number_format($stats['appointments']); ?></h3>
-                            <small class="text-info"><i class="fas fa-calendar-check me-1"></i>28 lịch hẹn tuần này</small>
+                            <small class="text-info"><i class="fas fa-calendar-check me-1"></i>28 lịch hẹn tuần
+                                này</small>
                         </div>
                         <div class="stats-icon" style="background-color: var(--info-light); color: var(--info-color);">
                             <i class="fas fa-calendar-alt"></i>
@@ -197,7 +202,8 @@ $content = function ($data = []) {
                     </div>
                 </div>
                 <div class="card-footer border-top p-2 text-center">
-                    <a href="index.php?controller=BloodDonationHistory&action=adminIndex" class="btn btn-link text-primary">Xem tất cả</a>
+                    <a href="index.php?controller=BloodDonationHistory&action=adminIndex"
+                        class="btn btn-link text-primary">Xem tất cả</a>
                 </div>
             </div>
         </div>
@@ -229,7 +235,10 @@ $content = function ($data = []) {
                                     <td><?php echo htmlspecialchars($event['location']); ?></td>
                                     <td>
                                         <div class="progress" style="width: 80px;">
-                                            <div class="progress-bar bg-success" role="progressbar" style="width: <?php echo min(100, $event['registered']/50*100); ?>%" aria-valuenow="<?php echo $event['registered']; ?>" aria-valuemin="0" aria-valuemax="50"></div>
+                                            <div class="progress-bar bg-success" role="progressbar"
+                                                style="width: <?php echo min(100, $event['registered'] / 50 * 100); ?>%"
+                                                aria-valuenow="<?php echo $event['registered']; ?>" aria-valuemin="0"
+                                                aria-valuemax="50"></div>
                                         </div>
                                         <small class="text-muted"><?php echo $event['registered']; ?>/50</small>
                                     </td>
@@ -240,7 +249,8 @@ $content = function ($data = []) {
                     </div>
                 </div>
                 <div class="card-footer border-top p-2 text-center">
-                    <a href="index.php?controller=Event&action=index" class="btn btn-link text-primary">Xem tất cả</a>
+                    <a href="index.php?controller=Event&action=AdminIndex" class="btn btn-link text-primary">Xem tất
+                        cả</a>
                 </div>
             </div>
         </div>
@@ -257,15 +267,17 @@ $content = function ($data = []) {
                     <div class="row g-4">
                         <div class="col-6 col-md-4 col-lg-2">
                             <a href="index.php?controller=User&action=list" class="quick-access-card">
-                                <div class="quick-access-icon" style="background-color: var(--primary-light); color: var(--primary-color);">
+                                <div class="quick-access-icon"
+                                    style="background-color: var(--primary-light); color: var(--primary-color);">
                                     <i class="fas fa-users"></i>
                                 </div>
                                 <div class="quick-access-title">Quản lý người dùng</div>
                             </a>
                         </div>
                         <div class="col-6 col-md-4 col-lg-2">
-                            <a href="index.php?controller=Event&action=index" class="quick-access-card">
-                                <div class="quick-access-icon" style="background-color: var(--success-light); color: var(--success-color);">
+                            <a href="index.php?controller=Event&action=AdminIndex" class="quick-access-card">
+                                <div class="quick-access-icon"
+                                    style="background-color: var(--success-light); color: var(--success-color);">
                                     <i class="fas fa-calendar-day"></i>
                                 </div>
                                 <div class="quick-access-title">Quản lý sự kiện</div>
@@ -281,7 +293,8 @@ $content = function ($data = []) {
                         </div>
                         <div class="col-6 col-md-4 col-lg-2">
                             <a href="index.php?controller=BloodInventory&action=index" class="quick-access-card">
-                                <div class="quick-access-icon" style="background-color: var(--error-light); color: var(--error-color);">
+                                <div class="quick-access-icon"
+                                    style="background-color: var(--error-light); color: var(--error-color);">
                                     <i class="fas fa-warehouse"></i>
                                 </div>
                                 <div class="quick-access-title">Kho máu</div>
@@ -289,7 +302,8 @@ $content = function ($data = []) {
                         </div>
                         <div class="col-6 col-md-4 col-lg-2">
                             <a href="index.php?controller=Appointment&action=index" class="quick-access-card">
-                                <div class="quick-access-icon" style="background-color: var(--info-light); color: var(--info-color);">
+                                <div class="quick-access-icon"
+                                    style="background-color: var(--info-light); color: var(--info-color);">
                                     <i class="fas fa-calendar-check"></i>
                                 </div>
                                 <div class="quick-access-title">Quản lý lịch hẹn</div>
@@ -360,7 +374,7 @@ $content = function ($data = []) {
 }
 
 /* Override some Bootstrap styles for better alignment */
-.table > :not(:first-child) {
+.table> :not(:first-child) {
     border-top: none;
 }
 </style>
