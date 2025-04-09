@@ -652,7 +652,7 @@ if (preg_match('/controller=([^&]+)/', $current_page, $matches)) {
         <aside class="app-sidebar">
             <nav class="sidebar-menu">
                 <div class="menu-item">
-                    <a href="<?= DASHBOARD_ROUTE ?>" 
+                    <a href="<?= DASHBOARD_ROUTE ?>"
                         class="menu-link <?= (strpos($current_page, 'dashboard') !== false || $current_controller == '') ? 'active' : '' ?>">
                         <i class="menu-icon fas fa-tachometer-alt"></i>
                         <span>Tổng quan</span>
@@ -662,15 +662,15 @@ if (preg_match('/controller=([^&]+)/', $current_page, $matches)) {
                 <div class="menu-category">Quản lý hiến máu</div>
 
                 <div class="menu-item">
-                    <a href="<?= BLOOD_DONATION_HISTORY_ROUTE ?>" 
+                    <a href="<?= BLOOD_DONATION_HISTORY_ROUTE ?>"
                         class="menu-link <?= (strpos($current_page, 'blood-donation') !== false || $current_controller == 'blooddonationhistory') ? 'active' : '' ?>">
                         <i class="menu-icon fas fa-vial"></i>
                         <span>Kho máu</span>
                     </a>
                 </div>
-                
+
                 <div class="menu-item">
-                    <a href="index.php?controller=BloodInventory&action=index" 
+                    <a href="index.php?controller=BloodInventory&action=index"
                         class="menu-link <?= ($current_controller == 'bloodinventory') ? 'active' : '' ?>">
                         <i class="menu-icon fas fa-warehouse"></i>
                         <span>Quản lý máu</span>
@@ -692,9 +692,9 @@ if (preg_match('/controller=([^&]+)/', $current_page, $matches)) {
                         <span>Đơn vị hiến máu</span>
                     </a>
                 </div>
-                
+
                 <div class="menu-item">
-                    <a href="index.php?controller=Event&action=index" 
+                    <a href="index.php?controller=Event&action=AdminIndex"
                         class="menu-link <?= ($current_controller == 'event') ? 'active' : '' ?>">
                         <i class="menu-icon fas fa-calendar-day"></i>
                         <span>Sự kiện hiến máu</span>
@@ -702,9 +702,9 @@ if (preg_match('/controller=([^&]+)/', $current_page, $matches)) {
                 </div>
 
                 <div class="menu-category">Kiểm tra</div>
-                
+
                 <div class="menu-item">
-                    <a href="<?= HEALTH_CHECK_ROUTE ?>" 
+                    <a href="<?= HEALTH_CHECK_ROUTE ?>"
                         class="menu-link <?= (strpos($current_page, 'healthcheck') !== false || $current_controller == 'healthcheck') ? 'active' : '' ?>">
                         <i class="menu-icon fas fa-heartbeat"></i>
                         <span>Kiểm tra sức khỏe</span>
@@ -712,17 +712,17 @@ if (preg_match('/controller=([^&]+)/', $current_page, $matches)) {
                 </div>
 
                 <div class="menu-category">Nội dung</div>
-                
+
                 <div class="menu-item">
-                    <a href="index.php?controller=NewsAdmin&action=index" 
+                    <a href="index.php?controller=NewsAdmin&action=index"
                         class="menu-link <?= ($current_controller == 'newsadmin') ? 'active' : '' ?>">
                         <i class="menu-icon fas fa-newspaper"></i>
                         <span>Tin tức</span>
                     </a>
                 </div>
-                
+
                 <div class="menu-item">
-                    <a href="index.php?controller=FAQAdmin&action=index" 
+                    <a href="index.php?controller=FAQAdmin&action=index"
                         class="menu-link <?= ($current_controller == 'faqadmin') ? 'active' : '' ?>">
                         <i class="menu-icon fas fa-question-circle"></i>
                         <span>FAQ</span>
@@ -730,9 +730,9 @@ if (preg_match('/controller=([^&]+)/', $current_page, $matches)) {
                 </div>
 
                 <div class="menu-category">Hệ thống</div>
-                
+
                 <div class="menu-item">
-                    <a href="<?= USER_ROUTE ?>" 
+                    <a href="<?= USER_ROUTE ?>"
                         class="menu-link <?= (strpos($current_page, 'users') !== false || $current_controller == 'user') ? 'active' : '' ?>">
                         <i class="menu-icon fas fa-users"></i>
                         <span>Người dùng</span>
@@ -743,13 +743,13 @@ if (preg_match('/controller=([^&]+)/', $current_page, $matches)) {
 
         <!-- Main Content -->
         <main class="app-content">
-            <?php 
-            if (is_callable($content)) {
-                $content($data ?? []);
-            } else {
-                include_once $content;
-            }
-            ?>
+            <?php
+        if (is_callable($content)) {
+            $content($data ?? []);
+        } else {
+            include_once $content;
+        }
+        ?>
         </main>
 
         <!-- Bootstrap JS -->
