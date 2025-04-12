@@ -8,14 +8,14 @@ use App\Config\Database;
 
 class UserController
 {
-    private $mysqli;
+    private $db;
 
-    public function __construct($mysqli)
+    public function __construct($db)
     {
-        if (!$mysqli) {
+        if (!$db) {
             throw new \Exception("Database connection not provided");
         }
-        $this->mysqli = $mysqli;
+        $this->db = $db;
     }
 
     public function index()
@@ -29,19 +29,19 @@ class UserController
         AuthController::authorize();
 
         $userCccd = $_SESSION['user_id'];
-        $stmt = $this->mysqli->prepare("SELECT u.cccd, u.email, u.phone, ui.full_name, ui.address, ui.dob, ui.sex 
+        $stmt = $this->db->prepare("SELECT u.cccd, u.email, u.phone, ui.full_name, ui.address, ui.dob, ui.sex 
                                       FROM user u 
                                       LEFT JOIN user_info ui ON u.user_info_id = ui.id
                                       WHERE u.cccd = ?");
         if (!$stmt) {
-            die("Error preparing statement: " . $this->mysqli->error);
+            die("Error preparing statement: " . $this->db->error);
         }
 
         $stmt->bind_param("s", $userCccd);
         $stmt->execute();
         $result = $stmt->get_result();
         $user = $result->fetch_assoc();
-
+        $data = ['user' => $user];
         // Include view file instead of returning data
         require_once '../app/views/users/index.php';
     }
@@ -107,9 +107,4 @@ class UserController
         $stmt->execute();
         return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
-}
-
-// Thêm vào cuối file database.php
-if (!$mysqli) {
-    die("Connection failed: Unable to establish database connection");
 }

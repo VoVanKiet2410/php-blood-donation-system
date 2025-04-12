@@ -27,6 +27,7 @@ define('BASE_URL', '/php-blood-donation-system/public');
 
 require_once '../app/controllers/AuthController.php';
 require_once '../app/controllers/UserController.php';
+require_once '../app/controllers/AppointmentController.php';
 require_once '../app/controllers/admin/AppointmentController.php';
 require_once '../app/controllers/BloodInventoryController.php';
 require_once '../app/controllers/admin/BloodDonationUnits/DonationUnitController.php';
@@ -41,7 +42,8 @@ require_once '../app/controllers/FAQAdmin.php';
 
 use App\Controllers\AuthController;
 use App\Controllers\UserController;
-use App\Controllers\Admin\AppointmentController;
+use App\Controllers\AppointmentController;
+use App\Controllers\Admin\AppointmentController as AdminAppointmentController;
 use App\Controllers\BloodInventoryController;
 use App\Controllers\DonationUnitController;
 use App\Controllers\EventController;
@@ -77,22 +79,69 @@ try {
             break;
 
         case 'Appointment':
-            $appointmentController = new AppointmentController($mysqli);
-            if (method_exists($appointmentController, $action)) {
-                // Kiểm tra nếu action yêu cầu tham số id
-                if (isset($_GET['id']) && in_array($action, ['edit', 'update', 'delete'])) {
-                    if ($_SERVER['REQUEST_METHOD'] === 'POST' && $action === 'update') {
-                        // Truyền cả id và dữ liệu từ $_POST cho phương thức update
-                        $appointmentController->$action($_GET['id']);
+            // Determine which controller to use and map actions properly
+            $isAdminAction = strpos($action, 'admin') === 0;
+            $clientAction = null;
+
+            // Map client-specific actions to their method names in the client controller
+            $clientActionMap = [
+                'create' => 'clientCreate',
+                'store' => 'clientStore',
+                'clientCreate' => 'clientCreate',
+                'clientStore' => 'clientStore',
+                'userAppointments' => 'userAppointments'
+            ];
+
+            if ($isAdminAction) {
+                // Use Admin controller for admin actions
+                $appointmentController = new AdminAppointmentController($mysqli);
+            } else {
+                // Use Client controller for client actions
+                $appointmentController = new AppointmentController($mysqli);
+
+                // Map the client action if needed
+                if (isset($clientActionMap[$action])) {
+                    $clientAction = $clientActionMap[$action];
+                }
+            }
+
+            // Decide which method to call
+            $methodToCall = $action;
+            if (!$isAdminAction && $clientAction) {
+                $methodToCall = $clientAction;
+            }
+
+            if (method_exists($appointmentController, $methodToCall)) {
+                // Check if the action requires an ID parameter
+                if (isset($_GET['id']) && in_array($methodToCall, ['edit', 'update', 'delete', 'adminEdit', 'adminUpdate', 'adminDelete'])) {
+                    if ($_SERVER['REQUEST_METHOD'] === 'POST' && in_array($methodToCall, ['update', 'adminUpdate'])) {
+                        // Pass ID for update methods
+                        $appointmentController->$methodToCall($_GET['id']);
                     } else {
-                        // Truyền id cho các action khác
-                        $appointmentController->$action($_GET['id']);
+                        // Pass ID for other methods
+                        $appointmentController->$methodToCall($_GET['id']);
                     }
                 } else {
-                    $appointmentController->$action(); // Gọi action không có tham số
+                    // Call the method without parameters
+                    $appointmentController->$methodToCall();
                 }
             } else {
-                $appointmentController->index();
+                // Default fallback action
+                if ($isAdminAction) {
+                    // Redirect to default admin action
+                    if (method_exists($appointmentController, 'adminIndex')) {
+                        $appointmentController->adminIndex();
+                    } else {
+                        echo "Không tìm thấy hành động mặc định cho Admin Appointment Controller";
+                    }
+                } else {
+                    // Redirect to default client action
+                    if (method_exists($appointmentController, 'clientCreate')) {
+                        $appointmentController->clientCreate();
+                    } else {
+                        echo "Không tìm thấy hành động mặc định cho Client Appointment Controller";
+                    }
+                }
             }
             break;
 
@@ -130,7 +179,7 @@ try {
             if (method_exists($eventController, $action)) {
                 $eventController->$action();
             } else {
-                $eventController->index();
+                $eventController->Clientindex();
             }
             break;
 
