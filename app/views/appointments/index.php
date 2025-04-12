@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -344,9 +345,9 @@
 </head>
 <?php
 
-$content = function($data) {
+$content = function ($data) {
     $appointments = $data['appointments'] ?? [];
-    ?>
+?>
     <div class="container-fluid px-0">
         <!-- Page Header with gradient background -->
         <div class="ant-page-header mb-4 rounded"
@@ -364,7 +365,8 @@ $content = function($data) {
         </div>
 
         <!-- Main Content Card -->
-        <div class="ant-card" style="border-top: 3px solid var(--accent-purple); box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+        <div class="ant-card"
+            style="border-top: 3px solid var(--accent-purple); box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
             <div class="ant-card-body p-0">
                 <!-- Filter and Search -->
                 <div class="p-4 border-bottom" style="background: linear-gradient(to right, #f9f9ff, #f0f7ff);">
@@ -376,27 +378,34 @@ $content = function($data) {
                                 </span>
                                 <div class="d-flex">
                                     <div class="custom-control custom-radio custom-control-inline me-3">
-                                        <input type="radio" id="all-appointments" name="status-filter" value="all" class="custom-control-input" checked>
+                                        <input type="radio" id="all-appointments" name="status-filter" value="all"
+                                            class="custom-control-input" checked>
                                         <label class="custom-control-label" for="all-appointments">Tất cả</label>
                                     </div>
                                     <div class="custom-control custom-radio custom-control-inline me-3">
-                                        <input type="radio" id="pending-appointments" name="status-filter" value="pending" class="custom-control-input">
+                                        <input type="radio" id="pending-appointments" name="status-filter"
+                                            value="pending" class="custom-control-input">
                                         <label class="custom-control-label" for="pending-appointments">Đang chờ</label>
                                     </div>
                                     <div class="custom-control custom-radio custom-control-inline me-3">
-                                        <input type="radio" id="confirmed-appointments" name="status-filter" value="confirmed" class="custom-control-input">
-                                        <label class="custom-control-label" for="confirmed-appointments">Đã xác nhận</label>
+                                        <input type="radio" id="confirmed-appointments" name="status-filter"
+                                            value="confirmed" class="custom-control-input">
+                                        <label class="custom-control-label" for="confirmed-appointments">Đã xác
+                                            nhận</label>
                                     </div>
                                     <div class="custom-control custom-radio custom-control-inline">
-                                        <input type="radio" id="completed-appointments" name="status-filter" value="completed" class="custom-control-input">
-                                        <label class="custom-control-label" for="completed-appointments">Đã hoàn thành</label>
+                                        <input type="radio" id="completed-appointments" name="status-filter"
+                                            value="completed" class="custom-control-input">
+                                        <label class="custom-control-label" for="completed-appointments">Đã hoàn
+                                            thành</label>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="search-form ms-auto">
-                                <input type="text" id="appointmentSearch" class="form-control custom-input" placeholder="Tìm kiếm lịch hẹn...">
+                                <input type="text" id="appointmentSearch" class="form-control custom-input"
+                                    placeholder="Tìm kiếm lịch hẹn...">
                                 <button type="button" class="search-form-button">
                                     <i class="fas fa-search"></i>
                                 </button>
@@ -425,7 +434,8 @@ $content = function($data) {
                                         <div class="empty-state">
                                             <i class="fas fa-calendar-times empty-state-icon"></i>
                                             <p>Không có lịch hẹn nào.</p>
-                                            <a href="index.php?controller=Appointment&action=create" class="btn btn-primary btn-sm">
+                                            <a href="index.php?controller=Appointment&action=create"
+                                                class="btn btn-primary btn-sm">
                                                 <i class="fas fa-plus me-1"></i> Thêm lịch hẹn mới
                                             </a>
                                         </div>
@@ -434,11 +444,14 @@ $content = function($data) {
                             <?php else: ?>
                                 <?php foreach ($appointments as $appointment): ?>
                                     <tr class="hover-effect">
-                                        <td><span class="badge rounded-pill bg-primary"><?php echo htmlspecialchars($appointment->appointment_id); ?></span></td>
+                                        <td><span
+                                                class="badge rounded-pill bg-primary"><?php echo htmlspecialchars($appointment->appointment_id); ?></span>
+                                        </td>
                                         <td>
                                             <div class="d-flex align-items-center">
                                                 <i class="fas fa-user me-2 text-primary"></i>
-                                                <div class="fw-medium"><?php echo htmlspecialchars($appointment->user_name); ?></div>
+                                                <div class="fw-medium"><?php echo htmlspecialchars($appointment->user_name); ?>
+                                                </div>
                                             </div>
                                         </td>
                                         <td>
@@ -457,8 +470,8 @@ $content = function($data) {
                                             <?php
                                             $statusClass = '';
                                             $statusText = '';
-                                            
-                                            switch($appointment->status_text) {
+
+                                            switch ($appointment->status_text) {
                                                 case 'Đang chờ':
                                                     $statusClass = 'status-pending';
                                                     $statusText = 'Đang chờ';
@@ -486,10 +499,12 @@ $content = function($data) {
                                         </td>
                                         <td>
                                             <div class="d-flex justify-content-end">
-                                                <a href="index.php?controller=Appointment&action=edit&id=<?php echo $appointment->appointment_id; ?>" class="action-btn edit-btn me-1" title="Chỉnh sửa">
+                                                <a href="index.php?controller=Appointment&action=edit&id=<?php echo $appointment->appointment_id; ?>"
+                                                    class="action-btn edit-btn me-1" title="Chỉnh sửa">
                                                     <i class="fas fa-edit"></i>
                                                 </a>
-                                                <button type="button" class="action-btn delete-btn" title="Xóa" onclick="confirmDelete(<?php echo $appointment->appointment_id; ?>)">
+                                                <button type="button" class="action-btn delete-btn" title="Xóa"
+                                                    onclick="confirmDelete(<?php echo $appointment->appointment_id; ?>)">
                                                     <i class="fas fa-trash-alt"></i>
                                                 </button>
                                             </div>
@@ -503,79 +518,82 @@ $content = function($data) {
 
                 <!-- Pagination -->
                 <?php if (!empty($appointments) && count($appointments) > 10): ?>
-                <div class="p-4 d-flex justify-content-between align-items-center">
-                    <div class="text-muted">
-                        Hiển thị <?= count($appointments) ?> lịch hẹn
+                    <div class="p-4 d-flex justify-content-between align-items-center">
+                        <div class="text-muted">
+                            Hiển thị <?= count($appointments) ?> lịch hẹn
+                        </div>
+                        <nav>
+                            <ul class="pagination mb-0">
+                                <li class="page-item disabled"><a class="page-link" href="#">Trước</a></li>
+                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item"><a class="page-link" href="#">Sau</a></li>
+                            </ul>
+                        </nav>
                     </div>
-                    <nav>
-                        <ul class="pagination mb-0">
-                            <li class="page-item disabled"><a class="page-link" href="#">Trước</a></li>
-                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item"><a class="page-link" href="#">Sau</a></li>
-                        </ul>
-                    </nav>
-                </div>
                 <?php endif; ?>
             </div>
         </div>
     </div>
 
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    // Filter functionality
-    const statusRadios = document.querySelectorAll('input[name="status-filter"]');
-    const tableRows = document.querySelectorAll('.ant-table tbody tr');
-
-    statusRadios.forEach(radio => {
-        radio.addEventListener('change', function() {
-            const value = this.value;
-            
-            tableRows.forEach(row => {
-                if (row.querySelector('td[colspan="6"]'))
-                    return; // Skip empty state row
-                    
-                const statusCell = row.querySelector('td:nth-child(5)');
-                if (!statusCell) return;
-                
-                if (value === 'all') {
-                    row.style.display = '';
-                } else if (value === 'pending') {
-                    row.style.display = statusCell.textContent.trim().includes('Đang chờ') ? '' : 'none';
-                } else if (value === 'confirmed') {
-                    row.style.display = statusCell.textContent.trim().includes('Đã xác nhận') ? '' : 'none';
-                } else if (value === 'completed') {
-                    row.style.display = statusCell.textContent.trim().includes('Đã hoàn thành') ? '' : 'none';
-                }
-            });
-        });
-    });
-    
-    // Search functionality
-    const searchInput = document.getElementById('appointmentSearch');
-    if (searchInput) {
-        searchInput.addEventListener('input', function() {
-            const searchTerm = this.value.toLowerCase();
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Filter functionality
+            const statusRadios = document.querySelectorAll('input[name="status-filter"]');
             const tableRows = document.querySelectorAll('.ant-table tbody tr');
-            
-            tableRows.forEach(row => {
-                if (row.querySelector('td[colspan="6"]')) return; // Skip empty state row
-                
-                const text = row.textContent.toLowerCase();
-                row.style.display = text.includes(searchTerm) ? '' : 'none';
-            });
-        });
-    }
-});
 
-// Delete confirmation
-function confirmDelete(id) {
-    if (confirm('Bạn có chắc chắn muốn xóa lịch hẹn này?')) {
-        window.location.href = `index.php?controller=Appointment&action=delete&id=${id}`;
-    }
-}
-</script>
+            statusRadios.forEach(radio => {
+                radio.addEventListener('change', function() {
+                    const value = this.value;
+
+                    tableRows.forEach(row => {
+                        if (row.querySelector('td[colspan="6"]'))
+                            return; // Skip empty state row
+
+                        const statusCell = row.querySelector('td:nth-child(5)');
+                        if (!statusCell) return;
+
+                        if (value === 'all') {
+                            row.style.display = '';
+                        } else if (value === 'pending') {
+                            row.style.display = statusCell.textContent.trim().includes(
+                                'Đang chờ') ? '' : 'none';
+                        } else if (value === 'confirmed') {
+                            row.style.display = statusCell.textContent.trim().includes(
+                                'Đã xác nhận') ? '' : 'none';
+                        } else if (value === 'completed') {
+                            row.style.display = statusCell.textContent.trim().includes(
+                                'Đã hoàn thành') ? '' : 'none';
+                        }
+                    });
+                });
+            });
+
+            // Search functionality
+            const searchInput = document.getElementById('appointmentSearch');
+            if (searchInput) {
+                searchInput.addEventListener('input', function() {
+                    const searchTerm = this.value.toLowerCase();
+                    const tableRows = document.querySelectorAll('.ant-table tbody tr');
+
+                    tableRows.forEach(row => {
+                        if (row.querySelector('td[colspan="6"]')) return; // Skip empty state row
+
+                        const text = row.textContent.toLowerCase();
+                        row.style.display = text.includes(searchTerm) ? '' : 'none';
+                    });
+                });
+            }
+        });
+
+        // Delete confirmation
+        function confirmDelete(id) {
+            if (confirm('Bạn có chắc chắn muốn xóa lịch hẹn này?')) {
+                window.location.href = `index.php?controller=Appointment&action=delete&id=${id}`;
+            }
+        }
+    </script>
 
 <?php
 }; // End of content function

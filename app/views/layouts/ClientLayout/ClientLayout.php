@@ -13,27 +13,31 @@ if (!defined('BASE_URL')) {
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Hệ thống hiến máu - Giọt máu vàng</title>
-        <!-- Bootstrap 5 CSS -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-        <!-- Font Awesome -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-        <!-- Google Font -->
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Open+Sans:wght@300;400;600;700&display=swap"
-            rel="stylesheet">
-        <!-- AOS - Animate on scroll -->
-        <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-        <!-- Custom CSS -->
-        <link rel="stylesheet" href="<?= BASE_URL ?>/css/styles.css">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hệ thống hiến máu - Giọt máu vàng</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Font -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Open+Sans:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+    <!-- AOS - Animate on scroll -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="<?= BASE_URL ?>/css/styles.css">
 
-        <style>
+    <style>
         :root {
-            --primary-color: #e53e3e;
-            --primary-hover: #c53030;
-            --primary-light: #fed7d7;
+            --primary-color: #1a365d;
+            /* Changed from red to dark blue */
+            --primary-hover: #2c5282;
+            /* Darker blue for hover */
+            --primary-light: #bee3f8;
+            /* Light blue */
             --secondary-color: #3182ce;
             --secondary-hover: #2b6cb0;
             --accent-color: #f6ad55;
@@ -63,7 +67,7 @@ if (!defined('BASE_URL')) {
         }
 
         .navbar-dark {
-            background: linear-gradient(135deg, var(--primary-color), var(--danger)) !important;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)) !important;
         }
 
         .navbar-dark .navbar-nav .nav-link {
@@ -106,10 +110,12 @@ if (!defined('BASE_URL')) {
                 opacity: 0.6;
                 transform: translateX(-50%) scale(0.95);
             }
+
             50% {
                 opacity: 1;
                 transform: translateX(-50%) scale(1.05);
             }
+
             100% {
                 opacity: 0.6;
                 transform: translateX(-50%) scale(0.95);
@@ -282,48 +288,49 @@ if (!defined('BASE_URL')) {
                 opacity: 0;
                 transform: translateY(10px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
-        </style>
-    </head>
+    </style>
+</head>
 
-    <body>
-        <?php include_once 'ClientHeader.php'; ?>
+<body>
+    <?php include_once 'ClientHeader.php'; ?>
 
-        <main>
-            <?php include_once $content; ?>
-        </main>
+    <main>
+        <?php include_once $content; ?>
+    </main>
 
-        <?php include_once 'ClientFooter.php'; ?>
+    <?php include_once 'ClientFooter.php'; ?>
 
-        <!-- Bootstrap 5 JS Bundle with Popper -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- AOS - Animate on scroll -->
-        <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-        <script>
-            AOS.init({
-                duration: 800,
-                easing: 'ease-out-cubic',
-                once: true
-            });
+    <!-- Bootstrap 5 JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS - Animate on scroll -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            easing: 'ease-out-cubic',
+            once: true
+        });
 
-            // Add shadow to navbar on scroll
-            document.addEventListener('DOMContentLoaded', () => {
-                const navbar = document.querySelector('.navbar');
-                if (navbar) {
-                    window.addEventListener('scroll', () => {
-                        if (window.scrollY > 50) {
-                            navbar.style.boxShadow = '0 4px 10px rgba(0, 0, 0, 0.1)';
-                        } else {
-                            navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.05)';
-                        }
-                    });
-                }
-            });
-        </script>
-    </body>
+        // Add shadow to navbar on scroll
+        document.addEventListener('DOMContentLoaded', () => {
+            const navbar = document.querySelector('.navbar');
+            if (navbar) {
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 50) {
+                        navbar.style.boxShadow = '0 4px 10px rgba(0, 0, 0, 0.1)';
+                    } else {
+                        navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.05)';
+                    }
+                });
+            }
+        });
+    </script>
+</body>
 
 </html>

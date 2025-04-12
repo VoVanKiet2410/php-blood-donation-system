@@ -8,6 +8,17 @@ use Exception;
 
 class BloodInventoryController
 {
+    private $db;
+
+    public function __construct($db)
+    {
+        $this->db = $db;
+    }
+    public function __destruct()
+    {
+        $this->db = null;
+    }
+
     public function index()
     {
         $bloodInventories = BloodInventory::all();

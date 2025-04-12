@@ -11,7 +11,13 @@ class NewsController
     public function index()
     {
         $news = News::all();
-        require_once '../app/views/news/index.php';
+        require_once '../app/views/news/client_index.php';
+    }
+
+    public function clientIndex()
+    {
+        $news = News::all();
+        require_once '../app/views/news/client_index.php';
     }
 
     public function create()

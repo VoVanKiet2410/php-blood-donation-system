@@ -40,10 +40,13 @@ class UserController
         $stmt->bind_param("s", $userCccd);
         $stmt->execute();
         $result = $stmt->get_result();
-        $user = $result->fetch_assoc();
-        $data = ['user' => $user];
-        // Include view file instead of returning data
-        require_once '../app/views/users/index.php';
+        $user = $result->fetch_object();
+
+        // Define the content path for the ClientLayout
+        $content = '../app/views/home/index.php';
+
+        // Include the ClientLayout which will use the $content variable
+        require_once '../app/views/layouts/ClientLayout/ClientLayout.php';
     }
 
     public function adminDashboard()
