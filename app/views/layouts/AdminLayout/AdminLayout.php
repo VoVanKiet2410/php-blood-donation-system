@@ -31,22 +31,22 @@ if (preg_match('/controller=([^&]+)/', $current_page, $matches)) {
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Admin Dashboard - Blood Donation System</title>
-        <!-- Bootstrap 5 CSS -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-        <!-- Font Awesome -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-        <!-- Google Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
-            rel="stylesheet">
-        <!-- Ant Design CSS -->
-        <link href="https://cdn.jsdelivr.net/npm/antd@5.8.4/dist/reset.min.css" rel="stylesheet">
-        <!-- Custom CSS -->
-        <link rel="stylesheet" href="<?= BASE_URL ?>/css/admin.css">
-        <style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Blood Donation System</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- Ant Design CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/antd@5.8.4/dist/reset.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="<?= BASE_URL ?>/css/admin.css">
+    <style>
         :root {
             /* Base color palette - soft and professional */
             --primary-color: #4a6cf7;
@@ -610,152 +610,152 @@ if (preg_match('/controller=([^&]+)/', $current_page, $matches)) {
                 display: block;
             }
         }
-        </style>
-    </head>
+    </style>
+</head>
 
-    <body>
-        <!-- Header -->
-        <header class="app-header">
-            <div class="d-flex align-items-center">
-                <button class="mobile-menu-toggle me-3" data-bs-toggle="sidebar">
-                    <i class="fas fa-bars"></i>
-                </button>
-                <div class="header-brand">
-                    <img src="<?= BASE_URL ?>/images/logo-hutech.png" alt="Logo">
-                    <span>Quản Lý Hiến Máu</span>
-                </div>
+<body>
+    <!-- Header -->
+    <header class="app-header">
+        <div class="d-flex align-items-center">
+            <button class="mobile-menu-toggle me-3" data-bs-toggle="sidebar">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="header-brand">
+                <img src="<?= BASE_URL ?>/images/logo-hutech.png" alt="Logo">
+                <span>Quản Lý Hiến Máu</span>
             </div>
+        </div>
 
-            <div class="d-flex align-items-center gap-3">
-                <div class="user-menu dropdown">
-                    <div class="d-flex align-items-center" data-bs-toggle="dropdown">
-                        <div class="user-avatar"><?= substr($_SESSION['username'] ?? 'A', 0, 1) ?></div>
-                        <div class="user-info ms-2">
-                            <div class="user-name"><?= $_SESSION['username'] ?? 'Admin' ?></div>
-                            <div class="user-role">Administrator</div>
-                        </div>
+        <div class="d-flex align-items-center gap-3">
+            <div class="user-menu dropdown">
+                <div class="d-flex align-items-center" data-bs-toggle="dropdown">
+                    <div class="user-avatar"><?= substr($_SESSION['username'] ?? 'A', 0, 1) ?></div>
+                    <div class="user-info ms-2">
+                        <div class="user-name"><?= $_SESSION['username'] ?? 'Admin' ?></div>
+                        <div class="user-role">Administrator</div>
                     </div>
-                    <ul class="dropdown-menu dropdown-menu-end shadow-sm border-0">
-                        <li><a class="dropdown-item" href="#"><i class="fas fa-user me-2"></i>Thông tin cá nhân</a></li>
-                        <li><a class="dropdown-item" href="#"><i class="fas fa-cog me-2"></i>Cài đặt</a></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="<?= LOGOUT_ROUTE ?>"><i
-                                    class="fas fa-sign-out-alt me-2"></i>Đăng xuất</a></li>
-                    </ul>
                 </div>
+                <ul class="dropdown-menu dropdown-menu-end shadow-sm border-0">
+                    <li><a class="dropdown-item" href="#"><i class="fas fa-user me-2"></i>Thông tin cá nhân</a></li>
+                    <li><a class="dropdown-item" href="#"><i class="fas fa-cog me-2"></i>Cài đặt</a></li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item" href="<?= LOGOUT_ROUTE ?>"><i
+                                class="fas fa-sign-out-alt me-2"></i>Đăng xuất</a></li>
+                </ul>
             </div>
-        </header>
+        </div>
+    </header>
 
-        <!-- Sidebar -->
-        <aside class="app-sidebar">
-            <nav class="sidebar-menu">
-                <div class="menu-item">
-                    <a href="<?= DASHBOARD_ROUTE ?>" 
-                        class="menu-link <?= (strpos($current_page, 'dashboard') !== false || $current_controller == '') ? 'active' : '' ?>">
-                        <i class="menu-icon fas fa-tachometer-alt"></i>
-                        <span>Tổng quan</span>
-                    </a>
-                </div>
+    <!-- Sidebar -->
+    <aside class="app-sidebar">
+        <nav class="sidebar-menu">
+            <div class="menu-item">
+                <a href="<?= DASHBOARD_ROUTE ?>"
+                    class="menu-link <?= (strpos($current_page, 'dashboard') !== false || $current_controller == '') ? 'active' : '' ?>">
+                    <i class="menu-icon fas fa-tachometer-alt"></i>
+                    <span>Tổng quan</span>
+                </a>
+            </div>
 
-                <div class="menu-category">Quản lý hiến máu</div>
+            <div class="menu-category">Quản lý hiến máu</div>
 
-                <div class="menu-item">
-                    <a href="<?= BLOOD_DONATION_HISTORY_ROUTE ?>" 
-                        class="menu-link <?= (strpos($current_page, 'blood-donation') !== false || $current_controller == 'blooddonationhistory') ? 'active' : '' ?>">
-                        <i class="menu-icon fas fa-vial"></i>
-                        <span>Kho máu</span>
-                    </a>
-                </div>
-                
-                <div class="menu-item">
-                    <a href="index.php?controller=BloodInventory&action=index" 
-                        class="menu-link <?= ($current_controller == 'bloodinventory') ? 'active' : '' ?>">
-                        <i class="menu-icon fas fa-warehouse"></i>
-                        <span>Quản lý máu</span>
-                    </a>
-                </div>
+            <div class="menu-item">
+                <a href="<?= BLOOD_DONATION_HISTORY_ROUTE ?>"
+                    class="menu-link <?= (strpos($current_page, 'blood-donation') !== false || $current_controller == 'blooddonationhistory') ? 'active' : '' ?>">
+                    <i class="menu-icon fas fa-vial"></i>
+                    <span>Kho máu</span>
+                </a>
+            </div>
 
-                <div class="menu-item">
-                    <a href="index.php?controller=Appointment&action=index"
-                        class="menu-link <?= ($current_controller == 'appointment') ? 'active' : '' ?>">
-                        <i class="menu-icon fas fa-calendar-check"></i>
-                        <span>Lịch hẹn hiến máu</span>
-                    </a>
-                </div>
+            <div class="menu-item">
+                <a href="index.php?controller=BloodInventory&action=index"
+                    class="menu-link <?= ($current_controller == 'bloodinventory') ? 'active' : '' ?>">
+                    <i class="menu-icon fas fa-warehouse"></i>
+                    <span>Quản lý máu</span>
+                </a>
+            </div>
 
-                <div class="menu-item">
-                    <a href="index.php?controller=DonationUnit&action=index"
-                        class="menu-link <?= ($current_controller == 'donationunit') ? 'active' : '' ?>">
-                        <i class="menu-icon fas fa-hospital"></i>
-                        <span>Đơn vị hiến máu</span>
-                    </a>
-                </div>
-                
-                <div class="menu-item">
-                    <a href="index.php?controller=Event&action=index" 
-                        class="menu-link <?= ($current_controller == 'event') ? 'active' : '' ?>">
-                        <i class="menu-icon fas fa-calendar-day"></i>
-                        <span>Sự kiện hiến máu</span>
-                    </a>
-                </div>
+            <div class="menu-item">
+                <a href="index.php?controller=Appointment&action=AdminIndex"
+                    class="menu-link <?= ($current_controller == 'appointment') ? 'active' : '' ?>">
+                    <i class="menu-icon fas fa-calendar-check"></i>
+                    <span>Lịch hẹn hiến máu</span>
+                </a>
+            </div>
 
-                <div class="menu-category">Kiểm tra</div>
-                
-                <div class="menu-item">
-                    <a href="<?= HEALTH_CHECK_ROUTE ?>" 
-                        class="menu-link <?= (strpos($current_page, 'healthcheck') !== false || $current_controller == 'healthcheck') ? 'active' : '' ?>">
-                        <i class="menu-icon fas fa-heartbeat"></i>
-                        <span>Kiểm tra sức khỏe</span>
-                    </a>
-                </div>
+            <div class="menu-item">
+                <a href="index.php?controller=DonationUnit&action=index"
+                    class="menu-link <?= ($current_controller == 'donationunit') ? 'active' : '' ?>">
+                    <i class="menu-icon fas fa-hospital"></i>
+                    <span>Đơn vị hiến máu</span>
+                </a>
+            </div>
 
-                <div class="menu-category">Nội dung</div>
-                
-                <div class="menu-item">
-                    <a href="index.php?controller=NewsAdmin&action=index" 
-                        class="menu-link <?= ($current_controller == 'newsadmin') ? 'active' : '' ?>">
-                        <i class="menu-icon fas fa-newspaper"></i>
-                        <span>Tin tức</span>
-                    </a>
-                </div>
-                
-                <div class="menu-item">
-                    <a href="index.php?controller=FAQAdmin&action=index" 
-                        class="menu-link <?= ($current_controller == 'faqadmin') ? 'active' : '' ?>">
-                        <i class="menu-icon fas fa-question-circle"></i>
-                        <span>FAQ</span>
-                    </a>
-                </div>
+            <div class="menu-item">
+                <a href="index.php?controller=Event&action=AdminIndex"
+                    class="menu-link <?= ($current_controller == 'event') ? 'active' : '' ?>">
+                    <i class="menu-icon fas fa-calendar-day"></i>
+                    <span>Sự kiện hiến máu</span>
+                </a>
+            </div>
 
-                <div class="menu-category">Hệ thống</div>
-                
-                <div class="menu-item">
-                    <a href="<?= USER_ROUTE ?>" 
-                        class="menu-link <?= (strpos($current_page, 'users') !== false || $current_controller == 'user') ? 'active' : '' ?>">
-                        <i class="menu-icon fas fa-users"></i>
-                        <span>Người dùng</span>
-                    </a>
-                </div>
-            </nav>
-        </aside>
+            <div class="menu-category">Kiểm tra</div>
 
-        <!-- Main Content -->
-        <main class="app-content">
-            <?php 
-            if (is_callable($content)) {
-                $content($data ?? []);
-            } else {
-                include_once $content;
-            }
-            ?>
-        </main>
+            <div class="menu-item">
+                <a href="<?= HEALTH_CHECK_ROUTE ?>"
+                    class="menu-link <?= (strpos($current_page, 'healthcheck') !== false || $current_controller == 'healthcheck') ? 'active' : '' ?>">
+                    <i class="menu-icon fas fa-heartbeat"></i>
+                    <span>Kiểm tra sức khỏe</span>
+                </a>
+            </div>
 
-        <!-- Bootstrap JS -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Ant Design JS - Not using the full JS library just for styling -->
-        <script>
+            <div class="menu-category">Nội dung</div>
+
+            <div class="menu-item">
+                <a href="index.php?controller=NewsAdmin&action=index"
+                    class="menu-link <?= ($current_controller == 'newsadmin') ? 'active' : '' ?>">
+                    <i class="menu-icon fas fa-newspaper"></i>
+                    <span>Tin tức</span>
+                </a>
+            </div>
+
+            <div class="menu-item">
+                <a href="index.php?controller=FAQAdmin&action=index"
+                    class="menu-link <?= ($current_controller == 'faqadmin') ? 'active' : '' ?>">
+                    <i class="menu-icon fas fa-question-circle"></i>
+                    <span>FAQ</span>
+                </a>
+            </div>
+
+            <div class="menu-category">Hệ thống</div>
+
+            <div class="menu-item">
+                <a href="<?= USER_ROUTE ?>"
+                    class="menu-link <?= (strpos($current_page, 'users') !== false || $current_controller == 'user') ? 'active' : '' ?>">
+                    <i class="menu-icon fas fa-users"></i>
+                    <span>Người dùng</span>
+                </a>
+            </div>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="app-content">
+        <?php
+        if (is_callable($content)) {
+            $content($data ?? []);
+        } else {
+            include_once $content;
+        }
+        ?>
+    </main>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Ant Design JS - Not using the full JS library just for styling -->
+    <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Mobile sidebar toggle
             const sidebarToggle = document.querySelector('[data-bs-toggle="sidebar"]');
@@ -777,7 +777,7 @@ if (preg_match('/controller=([^&]+)/', $current_page, $matches)) {
                 }
             });
         });
-        </script>
-    </body>
+    </script>
+</body>
 
 </html>

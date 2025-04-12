@@ -299,6 +299,170 @@ class EventController
     }
 
     /**
+     * Show pre-screening questionnaire before booking appointment
+     */
+    public function preScreening($eventId = null)
+    {
+        try {
+            // Global variable for event
+            global $event;
+            // Get ID from GET parameter if not provided as function argument
+            if ($eventId === null && isset($_GET['id'])) {
+                $eventId = $_GET['id'];
+            }
+
+            if (!$eventId) {
+                throw new Exception("No event ID provided");
+            }
+
+            // Check if user is logged in
+            if (!isset($_SESSION['user_id'])) {
+                // Redirect to login page with return URL
+                $_SESSION['redirect_after_login'] = BASE_URL . '/public/index.php?controller=Event&action=preScreening&id=' . $eventId;
+                header('Location: ' . LOGIN_ROUTE);
+                exit;
+            }
+
+            $event = Event::with('donationUnit')->find($eventId);
+
+            if (!$event) {
+                throw new Exception("Event not found");
+            }
+
+            // Check if event is full
+            if ($event->current_registrations >= $event->max_registrations) {
+                $_SESSION['error_message'] = "This event is fully booked.";
+                header('Location: ' . BASE_URL . '/public/index.php?controller=Event&action=clientIndex');
+                exit;
+            }
+
+            // Pass event data to view
+            $data = [
+                'event' => $event->toArray(),
+                'validationErrors' => $_SESSION['validation_errors'] ?? [],
+                'oldAnswers' => $_SESSION['old_answers'] ?? [],
+            ];
+
+            // Clear validation errors and old answers after showing them once
+            unset($_SESSION['validation_errors']);
+            unset($_SESSION['old_answers']);
+
+            // Display pre-screening page
+            $content = '../app/views/events/pre_screening.php';
+            require_once '../app/views/layouts/ClientLayout/ClientLayout.php';
+        } catch (Exception $e) {
+            echo '<h3>Error in EventController@preScreening</h3>';
+            echo '<p><strong>Message:</strong> ' . $e->getMessage() . '</p>';
+            error_log("Exception in EventController@preScreening: " . $e->getMessage());
+        }
+    }
+
+    /**
+     * Validate pre-screening answers and proceed to appointment booking
+     */
+    public function validatePreScreening()
+    {
+        try {
+            // Get event ID from the form submission
+            $eventId = $_POST['event_id'] ?? null;
+
+            if (!$eventId) {
+                throw new Exception("No event ID provided");
+            }
+
+            // Check if user is logged in
+            if (!isset($_SESSION['user_id'])) {
+                // Redirect to login page with return URL
+                $_SESSION['redirect_after_login'] = BASE_URL . '/public/index.php?controller=Event&action=validatePreScreening&id=' . $eventId;
+                header('Location: ' . LOGIN_ROUTE);
+                exit;
+            }
+
+            // Validate form submission
+            $validationErrors = [];
+
+            // Store form data for redisplay if there are errors
+            $_SESSION['old_answers'] = $_POST;
+
+            // Required fields
+            $requiredFields = [
+                'age_requirement' => 'Vui lòng xác nhận độ tuổi của bạn',
+                'weight_requirement' => 'Vui lòng xác nhận cân nặng của bạn',
+                'feeling_well' => 'Vui lòng xác nhận tình trạng sức khỏe của bạn',
+                'donated_before' => 'Vui lòng xác nhận lịch sử hiến máu của bạn',
+                'medication' => 'Vui lòng xác nhận về việc sử dụng thuốc',
+                'confirmation' => 'Bạn phải đồng ý với điều khoản và điều kiện'
+            ];
+
+            foreach ($requiredFields as $field => $errorMessage) {
+                if (!isset($_POST[$field]) || empty($_POST[$field])) {
+                    $validationErrors[] = $errorMessage;
+                }
+            }
+
+            // Validate answers against requirements
+            if (isset($_POST['age_requirement']) && $_POST['age_requirement'] === 'no') {
+                $validationErrors[] = 'Bạn phải đủ 18 tuổi để hiến máu';
+            }
+
+            if (isset($_POST['weight_requirement']) && $_POST['weight_requirement'] === 'no') {
+                $validationErrors[] = 'Bạn phải nặng ít nhất 50kg để hiến máu';
+            }
+
+            if (isset($_POST['feeling_well']) && $_POST['feeling_well'] === 'no') {
+                $validationErrors[] = 'Bạn phải đủ sức khỏe để hiến máu';
+            }
+
+            if (isset($_POST['recent_fever']) && $_POST['recent_fever'] === 'yes') {
+                $validationErrors[] = 'Người đang cảm, cúm hoặc sốt không đủ điều kiện hiến máu';
+            }
+
+            if (isset($_POST['surgery_or_tattoo']) && $_POST['surgery_or_tattoo'] === 'yes') {
+                $validationErrors[] = 'Người đã phẫu thuật hoặc xăm hình trong 6 tháng qua không đủ điều kiện hiến máu';
+            }
+
+            if (isset($_POST['pregnant_or_nursing']) && $_POST['pregnant_or_nursing'] === 'yes') {
+                $validationErrors[] = 'Phụ nữ mang thai hoặc đang cho con bú không đủ điều kiện hiến máu';
+            }
+
+            // Validate last donation date if provided
+            if (
+                isset($_POST['previous_donation']) && $_POST['previous_donation'] === 'yes' &&
+                isset($_POST['last_donation_date']) && !empty($_POST['last_donation_date'])
+            ) {
+
+                $lastDonationDate = new \DateTime($_POST['last_donation_date']);
+                $now = new \DateTime();
+                $interval = $now->diff($lastDonationDate);
+                $monthsDiff = $interval->m + ($interval->y * 12);
+
+                if ($monthsDiff < 3) {
+                    $validationErrors[] = 'Bạn cần chờ ít nhất 3 tháng giữa các lần hiến máu';
+                }
+            }
+
+            // If there are errors, redirect back to the form
+            if (!empty($validationErrors)) {
+                $_SESSION['validation_errors'] = $validationErrors;
+                header('Location: ' . BASE_URL . '/public/index.php?controller=Event&action=preScreening&id=' . $eventId);
+                exit;
+            }
+
+            // If all validation passes, store event ID in session and redirect to appointment creation
+            $_SESSION['booking_event_id'] = $eventId;
+            $_SESSION['passed_pre_screening'] = true;
+
+            // Redirect to appointment booking form
+            header('Location: ' . BASE_URL . '/public/index.php?controller=Appointment&action=clientCreate');
+            exit;
+        } catch (Exception $e) {
+            echo '<h3>Error in EventController@validatePreScreening</h3>';
+            echo '<p><strong>Message:</strong> ' . $e->getMessage() . '</p>';
+            error_log("Exception in EventController@validatePreScreening: " . $e->getMessage());
+        }
+    }
+
+    /**
      * Book an appointment for an event
      */
     public function bookAppointment($eventId = null)
@@ -333,11 +497,8 @@ class EventController
                 exit;
             }
 
-            // Store event in session for the booking form
-            $_SESSION['booking_event_id'] = $eventId;
-
-            // Redirect to appointment booking form
-            header('Location: ' . BASE_URL . '/public/index.php?controller=Appointment&action=create');
+            // Redirect to pre-screening questionnaire
+            header('Location: ' . BASE_URL . '/public/index.php?controller=Event&action=preScreening&id=' . $eventId);
             exit;
         } catch (Exception $e) {
             echo '<h3>Error in EventController@bookAppointment</h3>';
