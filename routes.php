@@ -147,6 +147,16 @@ $routes = [
     ]
 ];
 
+// User management routes
+$routes['UserAdmin'] = [
+    'index' => 'UserAdminController@index',
+    'create' => 'UserAdminController@create',
+    'store' => 'UserAdminController@store',
+    'edit' => 'UserAdminController@edit',
+    'update' => 'UserAdminController@update',
+    'delete' => 'UserAdminController@delete'
+];
+
 // Route handling logic
 $requestMethod = $_SERVER['REQUEST_METHOD'];
 $requestUri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);

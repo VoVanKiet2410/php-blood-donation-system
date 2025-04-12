@@ -217,6 +217,19 @@ try {
             }
             break;
 
+        case 'UserAdmin':
+            $userAdminController = new \App\Controllers\UserAdminController($mysqli);
+            if (method_exists($userAdminController, $action)) {
+                if (isset($_GET['cccd']) && in_array($action, ['edit', 'update', 'delete'])) {
+                    $userAdminController->$action($_GET['cccd']);
+                } else {
+                    $userAdminController->$action();
+                }
+            } else {
+                $userAdminController->index();
+            }
+            break;
+
         default:
             $authController = new AuthController($mysqli);
             $authController->login();

@@ -1,10 +1,7 @@
 <?php
-// File: /blood-donation-system/blood-donation-system/app/views/users/index.php
 use App\Controllers\UserController;
 use App\Controllers\AuthController;
 use App\Config\Database;
-// require_once __DIR__ . '/../../../config/database.php';// Require database connection first
-
 
 // Check if user is logged in
 AuthController::authorize();
@@ -18,60 +15,48 @@ $userController = new UserController(Database::getConnection());
 // Lấy thông tin user
 $user = $userController->dashboard();
 
+$content = function () use ($users) {
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Dashboard</title>
-    <link rel="stylesheet" href="<?= BASE_URL ?>/css/styles.css">
-</head>
-
-<body>
-    <div class="container">
-        <h1>Welcome to Your Dashboard</h1>
-
-        <div class="user-info">
-            <h2>Your Information</h2>
-            <!-- Hiển thị thông tin người dùng -->
-            <p><strong>CCCD:</strong> <?= htmlspecialchars($user_id) ?></p>
-            <p><strong>Email:</strong> <?= htmlspecialchars($user['email'] ?? 'Not provided') ?></p>
-            <p><strong>Phone:</strong> <?= htmlspecialchars($user['phone'] ?? 'Not provided') ?></p>
-
-            <?php if (isset($user['full_name'])): ?>
-                <p><strong>Full Name:</strong> <?= htmlspecialchars($user['full_name']) ?></p>
-            <?php endif; ?>
-
-            <?php if (isset($user['address'])): ?>
-                <p><strong>Address:</strong> <?= htmlspecialchars($user['address']) ?></p>
-            <?php endif; ?>
-
-            <?php if (isset($user['dob'])): ?>
-                <p><strong>Date of Birth:</strong> <?= htmlspecialchars($user['dob']) ?></p>
-            <?php endif; ?>
-
-            <?php if (isset($user['sex'])): ?>
-                <p><strong>Gender:</strong> <?= htmlspecialchars($user['sex']) ?></p>
-            <?php endif; ?>
-        </div>
-
-        <div class="actions">
-            <h2>Available Actions</h2>
-            <ul>
-                <li><a href="<?= BASE_URL ?>/index.php?controller=Event&action=index">View Blood Donation Events</a></li>
-                <li><a href="<?= BASE_URL ?>/index.php?controller=Appointment&action=index">My Appointments</a></li>
-                <li><a href="<?= BASE_URL ?>/index.php?controller=Faq&action=index">FAQs</a></li>
-                <li><a href="<?= BASE_URL ?>/index.php?controller=News&action=index">News</a></li>
-            </ul>
-        </div>
-
-        <div class="logout">
-            <a href="<?= BASE_URL ?>/index.php?controller=Auth&action=logout" class="button">Logout</a>
+<div class="container-fluid">
+    <div class="ant-page-header mb-4 rounded">
+        <div class="d-flex justify-content-between align-items-center">
+            <div>
+                <h4 class="mb-0">Quản lý người dùng</h4>
+                <p class="mb-0 mt-1 text-muted">Danh sách người dùng</p>
+            </div>
+            <div>
+                <a href="/users/create" class="btn btn-success">
+                    <i class="fas fa-plus me-2"></i>Thêm người dùng mới
+                </a>
+            </div>
         </div>
     </div>
-</body>
-
-</html>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Họ và tên</th>
+                <th>Email</th>
+                <th>Số điện thoại</th>
+                <th>Vai trò</th>
+                <th>Hành động</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($users as $user): ?>
+                <tr>
+                    <td><?= htmlspecialchars($user['full_name']) ?></td>
+                    <td><?= htmlspecialchars($user['email']) ?></td>
+                    <td><?= htmlspecialchars($user['phone']) ?></td>
+                    <td><?= htmlspecialchars($user['role']) ?></td>
+                    <td>
+                        <a href="/users/edit/<?= $user['id'] ?>" class="btn btn-primary btn-sm">Chỉnh sửa</a>
+                        <a href="/users/delete/<?= $user['id'] ?>" class="btn btn-danger btn-sm">Xóa</a>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+</div>
+<?php
+};
+include_once '../../layouts/AdminLayout/AdminLayout.php';
