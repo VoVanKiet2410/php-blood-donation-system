@@ -27,7 +27,7 @@ if (!defined('BASE_URL')) {
         <!-- AOS - Animate on scroll -->
         <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
         <!-- Custom CSS -->
-        <link rel="stylesheet" href="<?= BASE_URL ?>/css/styles.css">
+        <link rel="stylesheet" href="<?= BASE_URL ?>/public/css/styles.css">
 
         <style>
         :root {
@@ -294,7 +294,16 @@ if (!defined('BASE_URL')) {
         <?php include_once 'ClientHeader.php'; ?>
 
         <main>
-            <?php include_once $content; ?>
+            <?php 
+            // Check if content is a closure/function and execute it, otherwise include it as a file
+            if (isset($content) && is_callable($content)) {
+                $content();
+            } else if (isset($content) && is_string($content)) {
+                include_once $content;
+            } else {
+                echo '<div class="container py-5"><div class="alert alert-danger">Content not found</div></div>';
+            }
+            ?>
         </main>
 
         <?php include_once 'ClientFooter.php'; ?>
