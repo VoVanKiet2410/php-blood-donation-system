@@ -738,6 +738,14 @@ if (preg_match('/controller=([^&]+)/', $current_page, $matches)) {
                     <span>Người dùng</span>
                 </a>
             </div>
+
+            <div class="menu-item">
+                <a href="index.php?controller=UserAdmin&action=index" 
+                    class="menu-link <?= ($current_controller == 'useradmin') ? 'active' : '' ?>">
+                    <i class="menu-icon fas fa-users"></i>
+                    <span>Quản lý người dùng</span>
+                </a>
+            </div>
         </nav>
     </aside>
 

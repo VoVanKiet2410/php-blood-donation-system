@@ -1,48 +1,39 @@
 <?php
 $content = function () {
 ?>
-<div class="container">
-    <h1>Create New User</h1>
+<div class="container-fluid">
+    <div class="ant-page-header mb-4 rounded">
+        <div class="d-flex justify-content-between align-items-center">
+            <div>
+                <h4 class="mb-0">Thêm người dùng mới</h4>
+                <p class="mb-0 mt-1 text-muted">Tạo tài khoản người dùng mới</p>
+            </div>
+        </div>
+    </div>
     <form action="<?= BASE_URL ?>/index.php?controller=User&action=store" method="POST">
         <div class="form-group">
-            <label for="username">CCCD (Username):</label>
-            <input type="text" id="username" name="username" required>
+            <label for="fullName">Họ và tên:</label>
+            <input type="text" id="fullName" name="fullName" class="form-control" required>
         </div>
         <div class="form-group">
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
+            <label for="dob">Ngày sinh:</label>
+            <input type="date" id="dob" name="dob" class="form-control" required>
         </div>
         <div class="form-group">
-            <label for="phone">Phone:</label>
-            <input type="text" id="phone" name="phone" required>
-        </div>
-        <div class="form-group">
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-        </div>
-        <div class="form-group">
-            <label for="fullName">Full Name:</label>
-            <input type="text" id="fullName" name="fullName" required>
-        </div>
-        <div class="form-group">
-            <label for="dob">Date of Birth:</label>
-            <input type="date" id="dob" name="dob" required>
-        </div>
-        <div class="form-group">
-            <label for="sex">Sex:</label>
-            <select id="sex" name="sex" required>
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-                <option value="Other">Other</option>
+            <label for="sex">Giới tính:</label>
+            <select id="sex" name="sex" class="form-control" required>
+                <option value="Male">Nam</option>
+                <option value="Female">Nữ</option>
+                <option value="Other">Khác</option>
             </select>
         </div>
         <div class="form-group">
-            <label for="address">Address:</label>
-            <input type="text" id="address" name="address" required>
+            <label for="address">Địa chỉ:</label>
+            <input type="text" id="address" name="address" class="form-control" required>
         </div>
-        <button type="submit">Create User</button>
+        <button type="submit" class="btn btn-primary">Tạo người dùng</button>
     </form>
-    <a href="<?= BASE_URL ?>/index.php?controller=User&action=index">Back to User List</a>
+    <a href="<?= BASE_URL ?>/index.php?controller=User&action=index" class="btn btn-secondary mt-3">Quay lại danh sách người dùng</a>
 </div>
 <?php
 };

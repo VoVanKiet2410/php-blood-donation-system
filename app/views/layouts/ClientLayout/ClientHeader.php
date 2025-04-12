@@ -21,17 +21,54 @@ function renderNavLink($route, $label, $current_url) {
     // Improved active detection logic
     $isActive = false;
     
-    // Exact match for home page
-    if ($route == HOME_ROUTE && ($current_url == $route || $current_url == '/php-blood-donation-system/' || $current_url == '/php-blood-donation-system/index.php')) {
+    // Extract controller and action from the route
+    $routeController = '';
+    $routeAction = '';
+    
+    if (strpos($route, 'controller=') !== false) {
+        preg_match('/controller=([^&]+)/', $route, $controllerMatches);
+        if (!empty($controllerMatches[1])) {
+            $routeController = strtolower($controllerMatches[1]);
+        }
+        
+        preg_match('/action=([^&]+)/', $route, $actionMatches);
+        if (!empty($actionMatches[1])) {
+            $routeAction = strtolower($actionMatches[1]);
+        }
+    }
+    
+    // Extract controller and action from current URL
+    $currentController = '';
+    $currentAction = '';
+    
+    if (strpos($current_url, 'controller=') !== false) {
+        preg_match('/controller=([^&]+)/', $current_url, $currentControllerMatches);
+        if (!empty($currentControllerMatches[1])) {
+            $currentController = strtolower($currentControllerMatches[1]);
+        }
+        
+        preg_match('/action=([^&]+)/', $current_url, $currentActionMatches);
+        if (!empty($currentActionMatches[1])) {
+            $currentAction = strtolower($currentActionMatches[1]);
+        }
+    }
+    
+    // Check for exact match
+    if ($route == $current_url) {
         $isActive = true;
     } 
-    // Match controller pattern for other pages
-    else if (strpos($route, 'controller=') !== false && strpos($current_url, $route) !== false) {
+    // Check for home route special case
+    else if ($route == HOME_ROUTE && ($current_url == BASE_URL || $current_url == BASE_URL . '/' || $current_url == BASE_URL . '/index.php')) {
         $isActive = true;
     }
-    // Match for static routes
-    else if ($route != HOME_ROUTE && strpos($current_url, $route) !== false) {
-        $isActive = true;
+    // Check for controller match
+    else if (!empty($routeController) && !empty($currentController) && $routeController == $currentController) {
+        // For FAQ and News, we need to check more precisely
+        if (($routeController == 'faq' || $routeController == 'news') && !empty($routeAction) && !empty($currentAction)) {
+            $isActive = ($routeAction == $currentAction);
+        } else {
+            $isActive = true;
+        }
     }
     
     $activeClass = $isActive ? 'active' : '';
@@ -55,7 +92,7 @@ $currentLang = 'vn'; // Default to Vietnamese
             </div>
             <div class="col-md-4 text-center logo-container">
                 <a href="<?= HOME_ROUTE ?>" class="d-block">
-                    <img src="<?= BASE_URL ?>/images/logo-hutech.png" alt="Logo" class="img-fluid">
+                    <img src="<?= BASE_URL ?>/public/images/logo-hutech.png" alt="Logo" class="img-fluid">
                 </a>
             </div>
             <div class="col-md-4 text-end">
