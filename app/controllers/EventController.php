@@ -262,6 +262,10 @@ class EventController
             if ($startDate && $endDate) {
                 $query->where('event_date', '>=', $startDate)
                     ->where('event_date', '<=', $endDate);
+            } else {
+                // By default, only show current and future events
+                $today = date('Y-m-d');
+                $query->where('event_date', '>=', $today);
             }
 
             // Apply unit filter if provided
@@ -269,8 +273,50 @@ class EventController
                 $query->where('donation_unit_id', $unitId);
             }
 
+            // Order by event date, so nearest events appear first
+            $query->orderBy('event_date', 'asc')
+                ->orderBy('event_start_time', 'asc');
+
             // Eager load the donation unit relationship
             $events = $query->with('donationUnit')->get();
+
+            // Create a separate array for event states to avoid modifying the Event object directly
+            // This avoids DB compatibility issues while still enabling display of event statuses
+            $eventStates = [];
+            $now = new \DateTime();
+            $today = $now->format('Y-m-d');
+            $currentTime = $now->format('H:i:s');
+
+            foreach ($events as $event) {
+                $eventId = $event->id;
+                $eventStates[$eventId] = [
+                    'is_full' => ($event->current_registrations >= $event->max_registrations),
+                    'slots_left' => $event->max_registrations - $event->current_registrations,
+                    'progress_percent' => ($event->max_registrations > 0)
+                        ? min(round(($event->current_registrations / $event->max_registrations) * 100), 100)
+                        : 0
+                ];
+
+                // Check if event date has passed
+                if ($event->event_date < $today) {
+                    $eventStates[$eventId]['is_past'] = true;
+                    $eventStates[$eventId]['is_today'] = false;
+                    $eventStates[$eventId]['is_ongoing'] = false;
+                }
+                // If it's today, check if the current time has passed the event end time
+                elseif ($event->event_date == $today) {
+                    $eventStates[$eventId]['is_past'] = ($currentTime > $event->event_end_time);
+                    $eventStates[$eventId]['is_today'] = true;
+                    $eventStates[$eventId]['is_ongoing'] = ($currentTime >= $event->event_start_time && $currentTime <= $event->event_end_time);
+                } else {
+                    $eventStates[$eventId]['is_past'] = false;
+                    $eventStates[$eventId]['is_today'] = false;
+                    $eventStates[$eventId]['is_ongoing'] = false;
+                }
+
+                // Determine if users can register for this event
+                $eventStates[$eventId]['can_register'] = !$eventStates[$eventId]['is_full'] && !$eventStates[$eventId]['is_past'];
+            }
 
             // Get pagination parameters
             $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
@@ -299,25 +345,55 @@ class EventController
     }
 
     /**
-     * Book an appointment for an event
+     * Show pre-screening questionnaire before booking appointment
      */
-    public function bookAppointment($eventId = null)
+    public function preScreening($eventId = null)
     {
-        // Check if user is logged in
-        if (!isset($_SESSION['user_id'])) {
-            // Redirect to login page with return URL
-            $_SESSION['redirect_after_login'] = BASE_URL . '/public/index.php?controller=Event&action=bookAppointment&id=' . $eventId;
-            header('Location: ' . LOGIN_ROUTE);
-            exit;
-        }
-
         try {
-            if (!$eventId && isset($_GET['id'])) {
+            // Global variable for event
+            global $event;
+            // Get ID from GET parameter if not provided as function argument
+            if ($eventId === null && isset($_GET['id'])) {
                 $eventId = $_GET['id'];
             }
 
             if (!$eventId) {
                 throw new Exception("No event ID provided");
+            }
+
+            // Check if user is logged in
+            if (!isset($_SESSION['user_id'])) {
+                // Redirect to login page with return URL
+                $_SESSION['redirect_after_login'] = BASE_URL . '/index.php?controller=Event&action=preScreening&id=' . $eventId;
+                header('Location: ' . LOGIN_ROUTE);
+                exit;
+            }
+
+            // Kiểm tra ràng buộc đặt lịch hiến máu cho user
+            $userId = $_SESSION['user_id'];
+            $user = \App\Models\User::find($userId);
+            if ($user) {
+                $activeAppointment = \App\Models\Appointment::where('user_cccd', $user->cccd)
+                    ->whereIn('status', [0, 1])
+                    ->first();
+                $lastCompleted = \App\Models\Appointment::where('user_cccd', $user->cccd)
+                    ->where('status', 3)
+                    ->orderBy('appointment_date_time', 'desc')
+                    ->first();
+                if ($activeAppointment) {
+                    $_SESSION['error_message'] = "Bạn chỉ có thể đặt một lịch hẹn hiến máu tại một thời điểm. Vui lòng hủy hoặc hoàn thành lịch hẹn hiện tại trước khi đặt lịch mới.";
+                    header('Location: ' . BASE_URL . '/index.php?controller=Appointment&action=userAppointments');
+                    exit;
+                }
+                // Nếu có lịch hoàn thành và chưa đủ thời gian chờ thì không cho phép đặt mới
+                if ($lastCompleted && $lastCompleted->next_donation_eligible_date) {
+                    $now = date('Y-m-d');
+                    if ($now < $lastCompleted->next_donation_eligible_date) {
+                        $_SESSION['error_message'] = "Bạn cần chờ đến ngày " . date('d/m/Y', strtotime($lastCompleted->next_donation_eligible_date)) . " mới có thể đặt lịch hiến máu tiếp theo.";
+                        header('Location: ' . BASE_URL . '/index.php?controller=Appointment&action=userAppointments');
+                        exit;
+                    }
+                }
             }
 
             $event = Event::with('donationUnit')->find($eventId);
@@ -329,15 +405,234 @@ class EventController
             // Check if event is full
             if ($event->current_registrations >= $event->max_registrations) {
                 $_SESSION['error_message'] = "This event is fully booked.";
-                header('Location: ' . BASE_URL . '/public/index.php?controller=Event&action=clientIndex');
+                header('Location: ' . BASE_URL . '/index.php?controller=Event&action=clientIndex');
                 exit;
             }
 
-            // Store event in session for the booking form
+            // Pass event data to view
+            $data = [
+                'event' => $event->toArray(),
+                'validationErrors' => $_SESSION['validation_errors'] ?? [],
+                'oldAnswers' => $_SESSION['old_answers'] ?? [],
+            ];
+
+            // Clear validation errors and old answers after showing them once
+            unset($_SESSION['validation_errors']);
+            unset($_SESSION['old_answers']);
+
+            // Display pre-screening page
+            $content = '../app/views/events/pre_screening.php';
+            require_once '../app/views/layouts/ClientLayout/ClientLayout.php';
+        } catch (Exception $e) {
+            echo '<h3>Error in EventController@preScreening</h3>';
+            echo '<p><strong>Message:</strong> ' . $e->getMessage() . '</p>';
+            error_log("Exception in EventController@preScreening: " . $e->getMessage());
+        }
+    }
+
+    /**
+     * Validate pre-screening answers and proceed to appointment booking
+     */
+    public function validatePreScreening()
+    {
+        try {
+            // Get event ID from the form submission
+            $eventId = $_POST['event_id'] ?? null;
+
+            if (!$eventId) {
+                throw new Exception("No event ID provided");
+            }
+
+            // Check if user is logged in
+            if (!isset($_SESSION['user_id'])) {
+                // Redirect to login page with return URL
+                $_SESSION['redirect_after_login'] = BASE_URL . '/index.php?controller=Event&action=validatePreScreening&id=' . $eventId;
+                header('Location: ' . LOGIN_ROUTE);
+                exit;
+            }
+
+            // Kiểm tra ràng buộc đặt lịch hiến máu cho user
+            $userId = $_SESSION['user_id'];
+            $user = \App\Models\User::find($userId);
+            if ($user) {
+                $activeAppointment = \App\Models\Appointment::where('user_cccd', $user->cccd)
+                    ->whereIn('status', [0, 1])
+                    ->first();
+                $lastCompleted = \App\Models\Appointment::where('user_cccd', $user->cccd)
+                    ->where('status', 3) // Đúng: chỉ lấy lịch hoàn thành (status = 3)
+                    ->orderBy('appointment_date_time', 'desc')
+                    ->first();
+                if ($activeAppointment) {
+                    $_SESSION['error_message'] = "Bạn chỉ có thể đặt một lịch hẹn hiến máu tại một thời điểm. Vui lòng hủy hoặc hoàn thành lịch hẹn hiện tại trước khi đặt lịch mới.";
+                    header('Location: ' . BASE_URL . '/index.php?controller=Appointment&action=userAppointments');
+                    exit;
+                }
+                // Nếu có lịch hoàn thành và chưa đủ thời gian chờ thì không cho phép đặt mới
+                if ($lastCompleted && $lastCompleted->next_donation_eligible_date) {
+                    $now = date('Y-m-d');
+                    if ($now < $lastCompleted->next_donation_eligible_date) {
+                        $_SESSION['error_message'] = "Bạn cần chờ đến ngày " . date('d/m/Y', strtotime($lastCompleted->next_donation_eligible_date)) . " mới có thể đặt lịch hiến máu tiếp theo.";
+                        header('Location: ' . BASE_URL . '/index.php?controller=Appointment&action=userAppointments');
+                        exit;
+                    }
+
+                    //log for debugging
+                    error_log("User ID: " . $user->cccd);
+                    error_log("Last completed appointment date: " . $lastCompleted->appointment_date_time);
+                    error_log("Next donation eligible date: " . $lastCompleted->next_donation_eligible_date);
+                    error_log("Current date: " . $now);
+                    error_log("Eligible for next donation: " . ($now < $lastCompleted->next_donation_eligible_date ? "No" : "Yes"));
+                }
+            }
+
+            // Validate form submission
+            $validationErrors = [];
+
+            // Store form data for redisplay if there are errors
+            $_SESSION['old_answers'] = $_POST;
+
+            // Required fields
+            $requiredFields = [
+                'age_requirement' => 'Vui lòng xác nhận độ tuổi của bạn',
+                'weight_requirement' => 'Vui lòng xác nhận cân nặng của bạn',
+                'feeling_well' => 'Vui lòng xác nhận tình trạng sức khỏe của bạn',
+                'donated_before' => 'Vui lòng xác nhận lịch sử hiến máu của bạn',
+                'medication' => 'Vui lòng xác nhận về việc sử dụng thuốc',
+                'confirmation' => 'Bạn phải đồng ý với điều khoản và điều kiện'
+            ];
+
+            foreach ($requiredFields as $field => $errorMessage) {
+                if (!isset($_POST[$field]) || empty($_POST[$field])) {
+                    $validationErrors[] = $errorMessage;
+                }
+            }
+
+            // Validate answers against requirements
+            if (isset($_POST['age_requirement']) && $_POST['age_requirement'] === 'no') {
+                $validationErrors[] = 'Bạn phải đủ 18 tuổi để hiến máu';
+            }
+
+            if (isset($_POST['weight_requirement']) && $_POST['weight_requirement'] === 'no') {
+                $validationErrors[] = 'Bạn phải nặng ít nhất 50kg để hiến máu';
+            }
+
+            if (isset($_POST['feeling_well']) && $_POST['feeling_well'] === 'no') {
+                $validationErrors[] = 'Bạn phải đủ sức khỏe để hiến máu';
+            }
+
+            if (isset($_POST['recent_fever']) && $_POST['recent_fever'] === 'yes') {
+                $validationErrors[] = 'Người đang cảm, cúm hoặc sốt không đủ điều kiện hiến máu';
+            }
+
+            if (isset($_POST['surgery_or_tattoo']) && $_POST['surgery_or_tattoo'] === 'yes') {
+                $validationErrors[] = 'Người đã phẫu thuật hoặc xăm hình trong 6 tháng qua không đủ điều kiện hiến máu';
+            }
+
+            if (isset($_POST['pregnant_or_nursing']) && $_POST['pregnant_or_nursing'] === 'yes') {
+                $validationErrors[] = 'Phụ nữ mang thai hoặc đang cho con bú không đủ điều kiện hiến máu';
+            }
+
+            // Validate last donation date if provided
+            if (
+                isset($_POST['previous_donation']) && $_POST['previous_donation'] === 'yes' &&
+                isset($_POST['last_donation_date']) && !empty($_POST['last_donation_date'])
+            ) {
+
+                $lastDonationDate = new \DateTime($_POST['last_donation_date']);
+                $now = new \DateTime();
+                $interval = $now->diff($lastDonationDate);
+                $monthsDiff = $interval->m + ($interval->y * 12);
+
+                if ($monthsDiff < 3) {
+                    $validationErrors[] = 'Bạn cần chờ ít nhất 3 tháng giữa các lần hiến máu';
+                }
+            }
+
+            // If there are errors, redirect back to the form
+            if (!empty($validationErrors)) {
+                $_SESSION['validation_errors'] = $validationErrors;
+                header('Location: ' . BASE_URL . '/index.php?controller=Event&action=preScreening&id=' . $eventId);
+                exit;
+            }
+
+            // If all validation passes, store event ID in session and redirect to appointment creation
             $_SESSION['booking_event_id'] = $eventId;
+            $_SESSION['passed_pre_screening'] = true;
 
             // Redirect to appointment booking form
-            header('Location: ' . BASE_URL . '/public/index.php?controller=Appointment&action=create');
+            header('Location: ' . BASE_URL . '/index.php?controller=Appointment&action=clientCreate');
+            exit;
+        } catch (Exception $e) {
+            echo '<h3>Error in EventController@validatePreScreening</h3>';
+            echo '<p><strong>Message:</strong> ' . $e->getMessage() . '</p>';
+            error_log("Exception in EventController@validatePreScreening: " . $e->getMessage());
+        }
+    }
+
+    /**
+     * Book an appointment for an event
+     */
+    public function bookAppointment($eventId = null)
+    {
+        // Check if user is logged in
+        if (!isset($_SESSION['user_id'])) {
+            // Redirect to login page with return URL
+            $_SESSION['redirect_after_login'] = BASE_URL . '/index.php?controller=Event&action=bookAppointment&id=' . $eventId;
+            header('Location: ' . LOGIN_ROUTE);
+            exit();
+        }
+
+        try {
+            if (!$eventId && isset($_GET['id'])) {
+                $eventId = $_GET['id'];
+            }
+
+            if (!$eventId) {
+                throw new Exception("No event ID provided");
+            }
+
+            // Kiểm tra ràng buộc đặt lịch hiến máu cho user
+            $userId = $_SESSION['user_id'];
+            $user = \App\Models\User::find($userId);
+            if ($user) {
+                $activeAppointment = \App\Models\Appointment::where('user_cccd', $user->cccd)
+                    ->whereIn('status', [0, 1])
+                    ->first();
+                $lastCompleted = \App\Models\Appointment::where('user_cccd', $user->cccd)
+                    ->where('status', 3) // Đúng: chỉ lấy lịch hoàn thành (status = 3)
+                    ->orderBy('appointment_date_time', 'desc')
+                    ->first();
+                if ($activeAppointment) {
+                    $_SESSION['error_message'] = "Bạn chỉ có thể đặt một lịch hẹn hiến máu tại một thời điểm. Vui lòng hủy hoặc hoàn thành lịch hẹn hiện tại trước khi đặt lịch mới.";
+                    header('Location: ' . BASE_URL . '/index.php?controller=Appointment&action=userAppointments');
+                    exit;
+                }
+                // Nếu có lịch hoàn thành và chưa đủ thời gian chờ thì không cho phép đặt mới
+                if ($lastCompleted && $lastCompleted->next_donation_eligible_date) {
+                    $now = date('Y-m-d');
+                    if ($now < $lastCompleted->next_donation_eligible_date) {
+                        $_SESSION['error_message'] = "Bạn cần chờ đến ngày " . date('d/m/Y', strtotime($lastCompleted->next_donation_eligible_date)) . " mới có thể đặt lịch hiến máu tiếp theo.";
+                        header('Location: ' . BASE_URL . '/index.php?controller=Appointment&action=userAppointments');
+                        exit;
+                    }
+                }
+            }
+
+            $event = Event::with('donationUnit')->find($eventId);
+
+            if (!$event) {
+                throw new Exception("Event not found");
+            }
+
+            // Check if event is full
+            if ($event->current_registrations >= $event->max_registrations) {
+                $_SESSION['error_message'] = "This event is fully booked.";
+                header('Location: ' . BASE_URL . '/index.php?controller=Event&action=clientIndex');
+                exit;
+            }
+
+            // Redirect to pre-screening questionnaire
+            header('Location: ' . BASE_URL . '/index.php?controller=Event&action=preScreening&id=' . $eventId);
             exit;
         } catch (Exception $e) {
             echo '<h3>Error in EventController@bookAppointment</h3>';

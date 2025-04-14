@@ -8,33 +8,27 @@ use App\Config\Database;
 
 class UserController
 {
-    private $mysqli;
+    private $db;
 
-    public function __construct($mysqli)
+    public function __construct($db)
     {
-        if (!$mysqli) {
+        if (!$db) {
             throw new \Exception("Database connection not provided");
         }
-        $this->mysqli = $mysqli;
+        $this->db = $db;
     }
 
-    public function index()
-    {
-        AuthController::authorize();
-        $this->dashboard();
-    }
-
-    public function dashboard()
+    public function profile()
     {
         AuthController::authorize();
 
         $userCccd = $_SESSION['user_id'];
-        $stmt = $this->mysqli->prepare("SELECT u.cccd, u.email, u.phone, ui.full_name, ui.address, ui.dob, ui.sex 
+        $stmt = $this->db->prepare("SELECT u.cccd, u.email, u.phone, ui.full_name, ui.address, ui.dob, ui.sex 
                                       FROM user u 
                                       LEFT JOIN user_info ui ON u.user_info_id = ui.id
                                       WHERE u.cccd = ?");
         if (!$stmt) {
-            die("Error preparing statement: " . $this->mysqli->error);
+            die("Error preparing statement: " . $this->db->error);
         }
 
         $stmt->bind_param("s", $userCccd);
@@ -42,8 +36,25 @@ class UserController
         $result = $stmt->get_result();
         $user = $result->fetch_assoc();
 
-        // Include view file instead of returning data
-        require_once '../app/views/users/index.php';
+        // Set user data for the view
+        $data = ['user' => $user];
+
+        // Determine which layout to use based on user role
+        if (isset($_SESSION['user_role']) && $_SESSION['user_role'] === 'ADMIN') {
+            // For admin users, make the data available to the view
+            $content = function ($data) {
+                extract($data);
+                require_once '../app/views/users/index_content.php';
+            };
+            require_once '../app/views/layouts/AdminLayout/AdminLayout.php';
+        } else {
+            // For regular users, use the client layout
+            $content = function () use ($data) {
+                extract($data);
+                require_once '../app/views/users/index_content.php';
+            };
+            require_once '../app/views/layouts/ClientLayout/ClientLayout.php';
+        }
     }
 
     public function adminDashboard()
@@ -107,9 +118,4 @@ class UserController
         $stmt->execute();
         return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
-}
-
-// Thêm vào cuối file database.php
-if (!$mysqli) {
-    die("Connection failed: Unable to establish database connection");
 }

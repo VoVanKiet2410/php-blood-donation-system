@@ -147,85 +147,314 @@ $content = function ($data) {
     $donationUnit = $data['donationUnit'] ?? null;
 
     if (!$donationUnit) {
-        echo '<div class="alert alert-danger text-center">Donation Unit not found.</div>';
+        echo '<div class="alert alert-danger text-center">Không tìm thấy đơn vị hiến máu.</div>';
         return;
     }
     ?>
-    <div class="container mt-5 mb-5">
-        <h1 class="text-center page-title">Edit Donation Unit</h1>
-        
-        <div class="row justify-content-center">
-            <div class="col-md-8 col-lg-6">
-                <div class="edit-banner mb-4">
-                    <div class="d-flex align-items-center">
-                        <i class="bi bi-info-circle-fill me-3 fs-4" style="color: var(--primary-blue);"></i>
-                        <div>
-                            <h6 class="mb-0 fw-bold">You are editing</h6>
-                            <p class="mb-0"><?php echo htmlspecialchars($donationUnit->name); ?></p>
-                        </div>
-                    </div>
+    <div class="container-fluid px-0">
+        <!-- Page Header with gradient background -->
+        <div class="ant-page-header mb-4 rounded" 
+            style="background: linear-gradient(120deg, var(--accent-purple), var(--accent-pink)); padding: 24px; color: white;">
+            <div class="d-flex align-items-center">
+                <a href="index.php?controller=DonationUnit&action=index" class="text-decoration-none text-white me-2">
+                    <i class="fas fa-arrow-left"></i>
+                </a>
+                <div>
+                    <h4 class="mb-0 text-white">Cập Nhật Đơn Vị Hiến Máu</h4>
+                    <p class="mb-0 mt-1 text-white opacity-75">Chỉnh sửa thông tin đơn vị #<?php echo $donationUnit->id; ?></p>
                 </div>
-                
-                <div class="card">
-                    <div class="card-header text-center">
-                        <i class="bi bi-pencil-square me-2 blood-accent"></i>
-                        Update Donation Unit Information
-                    </div>
-                    <div class="card-body p-4">
-                        <form action="index.php?controller=DonationUnit&action=update&id=<?php echo $donationUnit->id; ?>" method="POST">
-                            <div class="mb-4">
-                                <label for="name" class="form-label">
-                                    <i class="bi bi-hospital me-2"></i>Unit Name
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-8">
+                <!-- Form Card with top border accent -->
+                <div class="ant-card" style="border-top: 3px solid var(--accent-purple); box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+                    <div class="ant-card-body">
+                        <form action="index.php?controller=DonationUnit&action=update&id=<?php echo $donationUnit->id; ?>" method="POST" class="needs-validation" novalidate>
+                            <!-- Unit Name -->
+                            <div class="ant-form-item mb-4">
+                                <label for="name" class="ant-form-label" style="color: var(--accent-purple); font-weight: 600;">
+                                    <i class="fas fa-hospital me-2"></i>Tên Đơn Vị <span class="text-danger">*</span>
                                 </label>
-                                <input type="text" id="name" name="name" value="<?php echo htmlspecialchars($donationUnit->name); ?>" class="form-control" required>
+                                <input type="text" id="name" name="name" class="form-control custom-input" value="<?php echo htmlspecialchars($donationUnit->name); ?>" required>
+                                <div class="invalid-feedback">Vui lòng nhập tên đơn vị hiến máu.</div>
                             </div>
-                            
-                            <div class="mb-4">
-                                <label for="location" class="form-label">
-                                    <i class="bi bi-geo-alt me-2"></i>Location
+
+                            <!-- Location -->
+                            <div class="ant-form-item mb-4">
+                                <label for="location" class="ant-form-label" style="color: var(--accent-purple); font-weight: 600;">
+                                    <i class="fas fa-map-marker-alt me-2"></i>Địa Điểm <span class="text-danger">*</span>
                                 </label>
-                                <input type="text" id="location" name="location" value="<?php echo htmlspecialchars($donationUnit->location); ?>" class="form-control" required>
+                                <textarea id="location" name="location" class="form-control custom-input" rows="3" required><?php echo htmlspecialchars($donationUnit->location); ?></textarea>
+                                <div class="invalid-feedback">Vui lòng nhập địa điểm đơn vị hiến máu.</div>
                             </div>
-                            
-                            <div class="mb-4">
-                                <label for="phone" class="form-label">
-                                    <i class="bi bi-telephone me-2"></i>Phone Number
-                                </label>
-                                <div class="input-group">
-                                    <span class="input-group-text"><i class="bi bi-phone"></i></span>
-                                    <input type="text" id="phone" name="phone" value="<?php echo htmlspecialchars($donationUnit->phone); ?>" class="form-control" required>
+
+                            <div class="row">
+                                <!-- Phone -->
+                                <div class="col-md-6">
+                                    <div class="ant-form-item mb-4">
+                                        <label for="phone" class="ant-form-label" style="color: var(--accent-purple); font-weight: 600;">
+                                            <i class="fas fa-phone-alt me-2"></i>Số Điện Thoại <span class="text-danger">*</span>
+                                        </label>
+                                        <div class="input-group">
+                                            <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                                            <input type="tel" id="phone" name="phone" class="form-control custom-input" value="<?php echo htmlspecialchars($donationUnit->phone); ?>" required>
+                                        </div>
+                                        <div class="invalid-feedback">Vui lòng nhập số điện thoại hợp lệ.</div>
+                                    </div>
+                                </div>
+
+                                <!-- Email -->
+                                <div class="col-md-6">
+                                    <div class="ant-form-item mb-4">
+                                        <label for="email" class="ant-form-label" style="color: var(--accent-purple); font-weight: 600;">
+                                            <i class="fas fa-envelope me-2"></i>Email <span class="text-danger">*</span>
+                                        </label>
+                                        <div class="input-group">
+                                            <span class="input-group-text"><i class="fas fa-at"></i></span>
+                                            <input type="email" id="email" name="email" class="form-control custom-input" value="<?php echo htmlspecialchars($donationUnit->email); ?>" required>
+                                        </div>
+                                        <div class="invalid-feedback">Vui lòng nhập email hợp lệ.</div>
+                                    </div>
                                 </div>
                             </div>
-                            
-                            <div class="mb-4">
-                                <label for="email" class="form-label">
-                                    <i class="bi bi-envelope me-2"></i>Email Address
-                                </label>
-                                <div class="input-group">
-                                    <span class="input-group-text"><i class="bi bi-at"></i></span>
-                                    <input type="email" id="email" name="email" value="<?php echo htmlspecialchars($donationUnit->email); ?>" class="form-control" required>
+
+                            <!-- Form Actions with gradient buttons -->
+                            <div class="d-flex justify-content-between border-top pt-4 mt-4">
+                                <a href="index.php?controller=DonationUnit&action=index" class="btn-custom btn-custom-default">
+                                    <i class="fas fa-arrow-left me-2"></i>Quay lại
+                                </a>
+                                <div>
+                                    <button type="submit" class="btn-custom btn-custom-primary">
+                                        <i class="fas fa-save me-2"></i>Lưu thay đổi
+                                    </button>
                                 </div>
-                            </div>
-                            
-                            <div class="d-grid gap-2 mt-4">
-                                <button type="submit" class="btn btn-primary">
-                                    <i class="bi bi-save2 me-2"></i>Update Donation Unit
-                                </button>
                             </div>
                         </form>
                     </div>
                 </div>
-                
-                <div class="text-center mt-4">
-                    <a href="index.php?controller=DonationUnit&action=index" class="btn btn-outline-secondary">
-                        <i class="bi bi-arrow-left me-2"></i>Back to Donation Units
-                    </a>
+            </div>
+            
+            <!-- Information Card -->
+            <div class="col-lg-4">
+                <!-- Donation Unit Details Card -->
+                <div class="ant-card hover-shadow mb-4">
+                    <div class="ant-card-head" style="background: linear-gradient(to right, #f7f5ff, #f0e6ff);">
+                        <div class="ant-card-head-title" style="color: var(--accent-purple);">
+                            <i class="fas fa-info-circle me-2"></i>Thông tin đơn vị
+                        </div>
+                    </div>
+                    <div class="ant-card-body">
+                        <!-- Donation Unit ID -->
+                        <div class="info-item d-flex justify-content-between mb-3 pb-3 border-bottom">
+                            <span class="text-muted">ID:</span>
+                            <span class="fw-medium">#<?php echo $donationUnit->id; ?></span>
+                        </div>
+
+                        <!-- Name -->
+                        <div class="info-item d-flex justify-content-between mb-3 pb-3 border-bottom">
+                            <span class="text-muted">Tên đơn vị:</span>
+                            <span class="fw-medium"><?php echo htmlspecialchars($donationUnit->name); ?></span>
+                        </div>
+
+                        <!-- Created At -->
+                        <div class="info-item d-flex justify-content-between">
+                            <span class="text-muted">Ngày tạo:</span>
+                            <span class="fw-medium">
+                                <?php echo isset($donationUnit->created_at) ? date('d/m/Y H:i', strtotime($donationUnit->created_at)) : 'N/A'; ?>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Help Card -->
+                <div class="ant-card" style="border: none; border-radius: 15px; background: linear-gradient(145deg, #f7f5ff, #f0e6ff); box-shadow: 0 10px 20px rgba(142, 68, 173, 0.1);">
+                    <div class="ant-card-head" style="background: transparent; border-bottom: none;">
+                        <div class="ant-card-head-title" style="color: var(--accent-purple);">
+                            <i class="fas fa-lightbulb me-2"></i>Lưu ý khi chỉnh sửa
+                        </div>
+                    </div>
+                    <div class="ant-card-body">
+                        <div class="help-item mb-4 pb-3 border-bottom" style="border-color: rgba(142, 68, 173, 0.2) !important;">
+                            <div class="help-icon mb-2">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <p class="text-muted small mb-0">
+                                Đảm bảo số điện thoại liên hệ của đơn vị hiến máu được cập nhật chính xác để người dùng có thể liên hệ khi cần thiết.
+                            </p>
+                        </div>
+                        <div class="help-item">
+                            <div class="help-icon mb-2">
+                                <i class="fas fa-map-marked-alt"></i>
+                            </div>
+                            <p class="text-muted small mb-0">
+                                Địa chỉ đơn vị hiến máu nên được cung cấp chi tiết để người dùng có thể dễ dàng tìm đến địa điểm.
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <?php
-};
 
-// Include layout
+<style>
+:root {
+    --accent-purple: #8e44ad;
+    --accent-pink: #e84393;
+}
+
+/* Form elements styling */
+.ant-form-label {
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.custom-input {
+    border-radius: 10px;
+    border-color: #e2e8f0;
+    padding: 10px 15px;
+    transition: all 0.3s ease;
+}
+
+.custom-input:hover {
+    border-color: var(--accent-purple);
+    box-shadow: 0 2px 4px rgba(142, 68, 173, 0.1);
+}
+
+.custom-input:focus {
+    border-color: var(--accent-purple);
+    box-shadow: 0 0 0 3px rgba(142, 68, 173, 0.15);
+}
+
+.input-group-text {
+    background-color: #f7f5ff;
+    border-color: #e2e8f0;
+    color: var(--accent-purple);
+}
+
+/* Custom button styles */
+.btn-custom {
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.btn-custom-primary {
+    background: linear-gradient(120deg, var(--accent-purple), var(--accent-pink));
+    border: none;
+    color: white;
+    box-shadow: 0 4px 10px rgba(142, 68, 173, 0.3);
+}
+
+.btn-custom-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(142, 68, 173, 0.4);
+}
+
+.btn-custom-default {
+    background: white;
+    border: 1px solid #e2e8f0;
+    color: var(--text-color);
+}
+
+.btn-custom-default:hover {
+    border-color: var(--accent-purple);
+    color: var(--accent-purple);
+    background-color: #f8faff;
+    transform: translateY(-2px);
+}
+
+/* Card hover effect */
+.hover-shadow {
+    transition: all 0.3s ease;
+}
+
+.hover-shadow:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* Help icon styles */
+.help-icon {
+    width: 32px;
+    height: 32px;
+    background: linear-gradient(120deg, var(--accent-purple), var(--accent-pink));
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Hover effect for help items */
+.help-item {
+    transition: all 0.3s ease;
+}
+
+.help-item:hover {
+    transform: translateX(5px);
+}
+
+/* Animation for validation */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+.shake-animation {
+    animation: shake 0.5s ease-in-out;
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    'use strict';
+    
+    const form = document.querySelector('.needs-validation');
+    
+    // Form validation with enhanced UI feedback
+    form.addEventListener('submit', function(event) {
+        if (!form.checkValidity()) {
+            event.preventDefault();
+            event.stopPropagation();
+            
+            // Add shake animation to invalid fields
+            const invalidFields = form.querySelectorAll(':invalid');
+            invalidFields.forEach(field => {
+                field.classList.add('shake-animation');
+                setTimeout(() => field.classList.remove('shake-animation'), 1000);
+            });
+        }
+        
+        form.classList.add('was-validated');
+    }, false);
+    
+    // Form change warning
+    const originalForm = form.innerHTML;
+    let formChanged = false;
+
+    form.addEventListener('input', function() {
+        formChanged = true;
+    });
+
+    window.addEventListener('beforeunload', function(e) {
+        if (formChanged) {
+            e.returnValue = 'Bạn có thông tin chưa lưu. Bạn có chắc chắn muốn rời đi?';
+            return e.returnValue;
+        }
+    });
+});
+</script>
+
+<?php
+}; // End of content function
+
+// Include the admin layout
 include_once __DIR__ . '/../layouts/AdminLayout/AdminLayout.php';
+?>

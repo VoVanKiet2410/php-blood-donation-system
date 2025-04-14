@@ -27,6 +27,7 @@ define('BASE_URL', '/php-blood-donation-system/public');
 
 require_once '../app/controllers/AuthController.php';
 require_once '../app/controllers/UserController.php';
+require_once '../app/controllers/AppointmentController.php';
 require_once '../app/controllers/admin/AppointmentController.php';
 require_once '../app/controllers/BloodInventoryController.php';
 require_once '../app/controllers/admin/BloodDonationUnits/DonationUnitController.php';
@@ -35,10 +36,14 @@ require_once '../app/controllers/FaqController.php';
 require_once '../app/controllers/HealthcheckController.php';
 require_once '../app/controllers/NewsController.php';
 require_once '../app/controllers/PasswordResetController.php';
+require_once '../app/controllers/BloodDonationHistoryController.php';
+require_once '../app/controllers/NewsAdmin.php';
+require_once '../app/controllers/FAQAdmin.php';
 
 use App\Controllers\AuthController;
 use App\Controllers\UserController;
-use App\Controllers\Admin\AppointmentController;
+use App\Controllers\AppointmentController;
+use App\Controllers\Admin\AppointmentController as AdminAppointmentController;
 use App\Controllers\BloodInventoryController;
 use App\Controllers\DonationUnitController;
 use App\Controllers\EventController;
@@ -46,12 +51,24 @@ use App\Controllers\FaqController;
 use App\Controllers\HealthcheckController;
 use App\Controllers\NewsController;
 use App\Controllers\PasswordResetController;
+use App\Controllers\BloodDonationHistoryController;
+use App\Controllers\NewsAdmin;
+use App\Controllers\FAQAdmin;
+use App\Controllers\HomeController;
 
 $controller = isset($_GET['controller']) ? $_GET['controller'] : 'Auth';
 $action = isset($_GET['action']) ? $_GET['action'] : 'login';
 
 try {
     switch ($controller) {
+        case 'Home':
+            $homeController = new HomeController($mysqli);
+            if (method_exists($homeController, $action)) {
+                $homeController->$action();
+            } else {
+                $homeController->index();
+            }
+            break;
         case 'Auth':
             $authController = new AuthController($mysqli);
             if (method_exists($authController, $action)) {
@@ -71,22 +88,76 @@ try {
             break;
 
         case 'Appointment':
-            $appointmentController = new AppointmentController($mysqli);
-            if (method_exists($appointmentController, $action)) {
-                // Kiểm tra nếu action yêu cầu tham số id
-                if (isset($_GET['id']) && in_array($action, ['edit', 'update', 'delete'])) {
-                    if ($_SERVER['REQUEST_METHOD'] === 'POST' && $action === 'update') {
-                        // Truyền cả id và dữ liệu từ $_POST cho phương thức update
-                        $appointmentController->$action($_GET['id']);
-                    } else {
-                        // Truyền id cho các action khác
-                        $appointmentController->$action($_GET['id']);
-                    }
+            // Check if the action is specifically for admin
+            $isAdminAction = in_array($action, ['AdminIndex', 'admin', 'index', 'create', 'edit', 'update', 'delete', 'store']);
+
+            // Handle special case for AdminIndex which should map to index in admin controller
+            if ($action == 'AdminIndex') {
+                $action = 'index';
+            }
+
+            // Map client-specific actions to their method names in the client controller
+            $clientActionMap = [
+                'create' => 'clientCreate',
+                'store' => 'clientStore',
+                'clientCreate' => 'clientCreate',
+                'clientStore' => 'clientStore',
+                'userAppointments' => 'userAppointments',
+                'viewAppointment' => 'viewAppointment',
+                'cancelAppointment' => 'cancelAppointment',
+            ];
+
+            // Determine if user is admin based on session
+            $isUserAdmin = isset($_SESSION['user_role']) && $_SESSION['user_role'] === 'ADMIN';
+
+            // For admin actions, ensure the user is an admin
+            if ($isAdminAction) {
+                if ($isUserAdmin) {
+                    // Use Admin controller for admin users
+                    $appointmentController = new AdminAppointmentController($mysqli);
+                    $methodToCall = $action;
                 } else {
-                    $appointmentController->$action(); // Gọi action không có tham số
+                    // Redirect non-admin users to client page
+                    header('Location: ' . BASE_URL . '/index.php?controller=Appointment&action=clientIndex');
+                    exit;
                 }
             } else {
-                $appointmentController->index();
+                // Use Client controller for client actions
+                $appointmentController = new AppointmentController($mysqli);
+
+                // Map the client action if needed
+                $methodToCall = isset($clientActionMap[$action]) ? $clientActionMap[$action] : $action;
+            }
+
+            if (method_exists($appointmentController, $methodToCall)) {
+                // Check if the action requires an ID parameter
+                if (isset($_GET['id']) && in_array($methodToCall, ['edit', 'update', 'delete', 'adminEdit', 'adminUpdate', 'adminDelete'])) {
+                    if ($_SERVER['REQUEST_METHOD'] === 'POST' && in_array($methodToCall, ['update', 'adminUpdate'])) {
+                        // Pass ID for update methods
+                        $appointmentController->$methodToCall($_GET['id']);
+                    } else {
+                        // Pass ID for other methods
+                        $appointmentController->$methodToCall($_GET['id']);
+                    }
+                } else {
+                    // Call the method without parameters
+                    $appointmentController->$methodToCall();
+                }
+            } else {
+                // Default fallback action based on controller type
+                if ($appointmentController instanceof AdminAppointmentController) {
+                    if (method_exists($appointmentController, 'index')) {
+                        $appointmentController->index();
+                    } else {
+                        echo "Không tìm thấy hành động mặc định cho Admin Appointment Controller";
+                    }
+                } else {
+                    if (method_exists($appointmentController, 'clientCreate')) {
+                        $appointmentController->clientCreate();
+                    } else {
+                        echo "Không tìm thấy hành động mặc định cho Client Appointment Controller";
+                    }
+                }
             }
             break;
 
@@ -124,7 +195,7 @@ try {
             if (method_exists($eventController, $action)) {
                 $eventController->$action();
             } else {
-                $eventController->index();
+                $eventController->Clientindex();
             }
             break;
 
@@ -142,7 +213,7 @@ try {
             if (method_exists($healthcheckController, $action)) {
                 $healthcheckController->$action();
             } else {
-                $healthcheckController->index();
+                $healthcheckController->adminIndex();
             }
             break;
 
@@ -155,12 +226,72 @@ try {
             }
             break;
 
+        case 'BloodDonationHistory':
+            $bloodDonationHistoryController = new BloodDonationHistoryController($mysqli);
+            if (method_exists($bloodDonationHistoryController, $action)) {
+                if (isset($_GET['id']) && in_array($action, ['view'])) {
+                    $bloodDonationHistoryController->$action($_GET['id']);
+                } else {
+                    $bloodDonationHistoryController->$action();
+                }
+            } else {
+                $bloodDonationHistoryController->index();
+            }
+            break;
+
+        case 'NewsAdmin':
+            $newsAdminController = new NewsAdmin($mysqli);
+            if (method_exists($newsAdminController, $action)) {
+                if (isset($_GET['id']) && in_array($action, ['edit', 'update', 'delete', 'view'])) {
+                    if ($_SERVER['REQUEST_METHOD'] === 'POST' && $action === 'update') {
+                        $newsAdminController->$action($_GET['id']);
+                    } else {
+                        $newsAdminController->$action($_GET['id']);
+                    }
+                } else {
+                    $newsAdminController->$action();
+                }
+            } else {
+                $newsAdminController->index();
+            }
+            break;
+
+        case 'FAQAdmin':
+            $faqAdminController = new FAQAdmin($mysqli);
+            if (method_exists($faqAdminController, $action)) {
+                if (isset($_GET['id']) && in_array($action, ['edit', 'update', 'delete', 'view'])) {
+                    if ($_SERVER['REQUEST_METHOD'] === 'POST' && $action === 'update') {
+                        $faqAdminController->$action($_GET['id']);
+                    } else {
+                        $faqAdminController->$action($_GET['id']);
+                    }
+                } else {
+                    $faqAdminController->$action();
+                }
+            } else {
+                $faqAdminController->index();
+            }
+            break;
+
         case 'PasswordReset':
             $passwordResetController = new PasswordResetController($mysqli);
             if (method_exists($passwordResetController, $action)) {
                 $passwordResetController->$action();
             } else {
                 $passwordResetController->request();
+            }
+            break;
+
+        case 'UserAdmin':
+            $userAdminController = new \App\Controllers\UserAdminController($mysqli);
+            if (method_exists($userAdminController, $action)) {
+                if (isset($_GET['cccd']) && in_array($action, ['edit', 'update', 'delete'])) {
+                    $userAdminController->$action($_GET['cccd']);
+                } else {
+                    $userAdminController->$action();
+                }
+            } else {
+                $userAdminController->index();
             }
             break;
 
