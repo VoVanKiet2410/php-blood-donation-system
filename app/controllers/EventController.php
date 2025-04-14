@@ -262,6 +262,10 @@ class EventController
             if ($startDate && $endDate) {
                 $query->where('event_date', '>=', $startDate)
                     ->where('event_date', '<=', $endDate);
+            } else {
+                // By default, only show current and future events
+                $today = date('Y-m-d');
+                $query->where('event_date', '>=', $today);
             }
 
             // Apply unit filter if provided
@@ -269,8 +273,50 @@ class EventController
                 $query->where('donation_unit_id', $unitId);
             }
 
+            // Order by event date, so nearest events appear first
+            $query->orderBy('event_date', 'asc')
+                ->orderBy('event_start_time', 'asc');
+
             // Eager load the donation unit relationship
             $events = $query->with('donationUnit')->get();
+
+            // Create a separate array for event states to avoid modifying the Event object directly
+            // This avoids DB compatibility issues while still enabling display of event statuses
+            $eventStates = [];
+            $now = new \DateTime();
+            $today = $now->format('Y-m-d');
+            $currentTime = $now->format('H:i:s');
+
+            foreach ($events as $event) {
+                $eventId = $event->id;
+                $eventStates[$eventId] = [
+                    'is_full' => ($event->current_registrations >= $event->max_registrations),
+                    'slots_left' => $event->max_registrations - $event->current_registrations,
+                    'progress_percent' => ($event->max_registrations > 0)
+                        ? min(round(($event->current_registrations / $event->max_registrations) * 100), 100)
+                        : 0
+                ];
+
+                // Check if event date has passed
+                if ($event->event_date < $today) {
+                    $eventStates[$eventId]['is_past'] = true;
+                    $eventStates[$eventId]['is_today'] = false;
+                    $eventStates[$eventId]['is_ongoing'] = false;
+                }
+                // If it's today, check if the current time has passed the event end time
+                elseif ($event->event_date == $today) {
+                    $eventStates[$eventId]['is_past'] = ($currentTime > $event->event_end_time);
+                    $eventStates[$eventId]['is_today'] = true;
+                    $eventStates[$eventId]['is_ongoing'] = ($currentTime >= $event->event_start_time && $currentTime <= $event->event_end_time);
+                } else {
+                    $eventStates[$eventId]['is_past'] = false;
+                    $eventStates[$eventId]['is_today'] = false;
+                    $eventStates[$eventId]['is_ongoing'] = false;
+                }
+
+                // Determine if users can register for this event
+                $eventStates[$eventId]['can_register'] = !$eventStates[$eventId]['is_full'] && !$eventStates[$eventId]['is_past'];
+            }
 
             // Get pagination parameters
             $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
@@ -318,7 +364,7 @@ class EventController
             // Check if user is logged in
             if (!isset($_SESSION['user_id'])) {
                 // Redirect to login page with return URL
-                $_SESSION['redirect_after_login'] = BASE_URL . '/public/index.php?controller=Event&action=preScreening&id=' . $eventId;
+                $_SESSION['redirect_after_login'] = BASE_URL . '/index.php?controller=Event&action=preScreening&id=' . $eventId;
                 header('Location: ' . LOGIN_ROUTE);
                 exit;
             }
@@ -332,7 +378,7 @@ class EventController
             // Check if event is full
             if ($event->current_registrations >= $event->max_registrations) {
                 $_SESSION['error_message'] = "This event is fully booked.";
-                header('Location: ' . BASE_URL . '/public/index.php?controller=Event&action=clientIndex');
+                header('Location: ' . BASE_URL . '/index.php?controller=Event&action=clientIndex');
                 exit;
             }
 
@@ -373,7 +419,7 @@ class EventController
             // Check if user is logged in
             if (!isset($_SESSION['user_id'])) {
                 // Redirect to login page with return URL
-                $_SESSION['redirect_after_login'] = BASE_URL . '/public/index.php?controller=Event&action=validatePreScreening&id=' . $eventId;
+                $_SESSION['redirect_after_login'] = BASE_URL . '/index.php?controller=Event&action=validatePreScreening&id=' . $eventId;
                 header('Location: ' . LOGIN_ROUTE);
                 exit;
             }
@@ -444,7 +490,7 @@ class EventController
             // If there are errors, redirect back to the form
             if (!empty($validationErrors)) {
                 $_SESSION['validation_errors'] = $validationErrors;
-                header('Location: ' . BASE_URL . '/public/index.php?controller=Event&action=preScreening&id=' . $eventId);
+                header('Location: ' . BASE_URL . '/index.php?controller=Event&action=preScreening&id=' . $eventId);
                 exit;
             }
 
@@ -453,7 +499,7 @@ class EventController
             $_SESSION['passed_pre_screening'] = true;
 
             // Redirect to appointment booking form
-            header('Location: ' . BASE_URL . '/public/index.php?controller=Appointment&action=clientCreate');
+            header('Location: ' . BASE_URL . '/index.php?controller=Appointment&action=clientCreate');
             exit;
         } catch (Exception $e) {
             echo '<h3>Error in EventController@validatePreScreening</h3>';
@@ -470,7 +516,7 @@ class EventController
         // Check if user is logged in
         if (!isset($_SESSION['user_id'])) {
             // Redirect to login page with return URL
-            $_SESSION['redirect_after_login'] = BASE_URL . '/public/index.php?controller=Event&action=bookAppointment&id=' . $eventId;
+            $_SESSION['redirect_after_login'] = BASE_URL . '/index.php?controller=Event&action=bookAppointment&id=' . $eventId;
             header('Location: ' . LOGIN_ROUTE);
             exit;
         }
@@ -493,12 +539,12 @@ class EventController
             // Check if event is full
             if ($event->current_registrations >= $event->max_registrations) {
                 $_SESSION['error_message'] = "This event is fully booked.";
-                header('Location: ' . BASE_URL . '/public/index.php?controller=Event&action=clientIndex');
+                header('Location: ' . BASE_URL . '/index.php?controller=Event&action=clientIndex');
                 exit;
             }
 
             // Redirect to pre-screening questionnaire
-            header('Location: ' . BASE_URL . '/public/index.php?controller=Event&action=preScreening&id=' . $eventId);
+            header('Location: ' . BASE_URL . '/index.php?controller=Event&action=preScreening&id=' . $eventId);
             exit;
         } catch (Exception $e) {
             echo '<h3>Error in EventController@bookAppointment</h3>';

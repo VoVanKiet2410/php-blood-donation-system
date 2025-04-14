@@ -54,12 +54,21 @@ use App\Controllers\PasswordResetController;
 use App\Controllers\BloodDonationHistoryController;
 use App\Controllers\NewsAdmin;
 use App\Controllers\FAQAdmin;
+use App\Controllers\HomeController;
 
 $controller = isset($_GET['controller']) ? $_GET['controller'] : 'Auth';
 $action = isset($_GET['action']) ? $_GET['action'] : 'login';
 
 try {
     switch ($controller) {
+        case 'Home':
+            $homeController = new HomeController($mysqli);
+            if (method_exists($homeController, $action)) {
+                $homeController->$action();
+            } else {
+                $homeController->index();
+            }
+            break;
         case 'Auth':
             $authController = new AuthController($mysqli);
             if (method_exists($authController, $action)) {
@@ -79,9 +88,13 @@ try {
             break;
 
         case 'Appointment':
-            // Determine which controller to use and map actions properly
-            $isAdminAction = strpos($action, 'admin') === 0;
-            $clientAction = null;
+            // Check if the action is specifically for admin
+            $isAdminAction = in_array($action, ['AdminIndex', 'admin', 'index', 'create', 'edit', 'update', 'delete', 'store']);
+
+            // Handle special case for AdminIndex which should map to index in admin controller
+            if ($action == 'AdminIndex') {
+                $action = 'index';
+            }
 
             // Map client-specific actions to their method names in the client controller
             $clientActionMap = [
@@ -89,26 +102,31 @@ try {
                 'store' => 'clientStore',
                 'clientCreate' => 'clientCreate',
                 'clientStore' => 'clientStore',
-                'userAppointments' => 'userAppointments'
+                'userAppointments' => 'userAppointments',
+                'viewAppointment' => 'viewAppointment',
+                'cancelAppointment' => 'cancelAppointment',
             ];
 
+            // Determine if user is admin based on session
+            $isUserAdmin = isset($_SESSION['user_role']) && $_SESSION['user_role'] === 'ADMIN';
+
+            // For admin actions, ensure the user is an admin
             if ($isAdminAction) {
-                // Use Admin controller for admin actions
-                $appointmentController = new AdminAppointmentController($mysqli);
+                if ($isUserAdmin) {
+                    // Use Admin controller for admin users
+                    $appointmentController = new AdminAppointmentController($mysqli);
+                    $methodToCall = $action;
+                } else {
+                    // Redirect non-admin users to client page
+                    header('Location: ' . BASE_URL . '/index.php?controller=Appointment&action=clientIndex');
+                    exit;
+                }
             } else {
                 // Use Client controller for client actions
                 $appointmentController = new AppointmentController($mysqli);
 
                 // Map the client action if needed
-                if (isset($clientActionMap[$action])) {
-                    $clientAction = $clientActionMap[$action];
-                }
-            }
-
-            // Decide which method to call
-            $methodToCall = $action;
-            if (!$isAdminAction && $clientAction) {
-                $methodToCall = $clientAction;
+                $methodToCall = isset($clientActionMap[$action]) ? $clientActionMap[$action] : $action;
             }
 
             if (method_exists($appointmentController, $methodToCall)) {
@@ -126,16 +144,14 @@ try {
                     $appointmentController->$methodToCall();
                 }
             } else {
-                // Default fallback action
-                if ($isAdminAction) {
-                    // Redirect to default admin action
-                    if (method_exists($appointmentController, 'adminIndex')) {
-                        $appointmentController->adminIndex();
+                // Default fallback action based on controller type
+                if ($appointmentController instanceof AdminAppointmentController) {
+                    if (method_exists($appointmentController, 'index')) {
+                        $appointmentController->index();
                     } else {
                         echo "Không tìm thấy hành động mặc định cho Admin Appointment Controller";
                     }
                 } else {
-                    // Redirect to default client action
                     if (method_exists($appointmentController, 'clientCreate')) {
                         $appointmentController->clientCreate();
                     } else {
@@ -197,7 +213,7 @@ try {
             if (method_exists($healthcheckController, $action)) {
                 $healthcheckController->$action();
             } else {
-                $healthcheckController->index();
+                $healthcheckController->adminIndex();
             }
             break;
 

@@ -25,7 +25,7 @@ class AppointmentController
         // Verify that the user has passed the pre-screening questionnaire
         if (!isset($_SESSION['passed_pre_screening']) || $_SESSION['passed_pre_screening'] !== true) {
             $_SESSION['error_message'] = "Bạn phải hoàn thành câu hỏi sàng lọc trước khi đặt lịch hiến máu.";
-            header('Location: ' . BASE_URL . '/public/index.php?controller=Event&action=clientIndex');
+            header('Location: ' . BASE_URL . '/index.php?controller=Event&action=clientIndex');
             exit;
         }
 
@@ -34,7 +34,7 @@ class AppointmentController
 
         if (!$eventId) {
             $_SESSION['error_message'] = "Không tìm thấy thông tin sự kiện.";
-            header('Location: ' . BASE_URL . '/public/index.php?controller=Event&action=clientIndex');
+            header('Location: ' . BASE_URL . '/index.php?controller=Event&action=clientIndex');
             exit;
         }
 
@@ -49,7 +49,7 @@ class AppointmentController
             // Check if event is full
             if ($event->current_registrations >= $event->max_registrations) {
                 $_SESSION['error_message'] = "Sự kiện đã đủ số lượng đăng ký.";
-                header('Location: ' . BASE_URL . '/public/index.php?controller=Event&action=clientIndex');
+                header('Location: ' . BASE_URL . '/index.php?controller=Event&action=clientIndex');
                 exit;
             }
 
@@ -95,17 +95,15 @@ class AppointmentController
             $_SESSION['error_message'] = "Bạn phải đăng nhập để đặt lịch hiến máu.";
             header('Location: ' . LOGIN_ROUTE);
             exit;
-        }
-
-        // Verify that the user has passed the pre-screening questionnaire
+        }        // Verify that the user has passed the pre-screening questionnaire
         if (!isset($_SESSION['passed_pre_screening']) || $_SESSION['passed_pre_screening'] !== true) {
             $_SESSION['error_message'] = "Bạn phải hoàn thành câu hỏi sàng lọc trước khi đặt lịch hiến máu.";
-            header('Location: ' . BASE_URL . '/public/index.php?controller=Event&action=c\ClientIndex');
+            header('Location: ' . BASE_URL . '/index.php?controller=Event&action=clientIndex');
             exit;
         }
 
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-            header('Location: ' . BASE_URL . '/public/index.php?controller=Event&action=clientIndex');
+            header('Location: ' . BASE_URL . '/index.php?controller=Event&action=clientIndex');
             exit;
         }
 
@@ -170,7 +168,7 @@ class AppointmentController
         if (!empty($errors)) {
             error_log("Validation errors: " . json_encode($errors));
             $_SESSION['appointment_errors'] = $errors;
-            header('Location: ' . BASE_URL . '/public/index.php?controller=Appointment&action=clientCreate');
+            header('Location: ' . BASE_URL . '/index.php?controller=Appointment&action=clientCreate');
             exit;
         }
 
@@ -229,7 +227,7 @@ class AppointmentController
             $_SESSION['success_message'] = "Đặt lịch hiến máu thành công! Chúng tôi sẽ liên hệ với bạn để xác nhận lịch hẹn.";
 
             // Redirect to user dashboard or appointment list
-            header('Location: ' . BASE_URL . '/public/index.php?controller=User&action=dashboard');
+            header('Location: ' . BASE_URL . '/index.php?controller=Home&action=index');
             exit;
         } catch (Exception $e) {
             // Rollback transaction on error
@@ -240,13 +238,14 @@ class AppointmentController
             $errors[] = "Lỗi khi đặt lịch hiến máu: " . $e->getMessage();
             $_SESSION['appointment_errors'] = $errors;
 
-            header('Location: ' . BASE_URL . '/public/index.php?controller=Appointment&action=clientCreate');
+            header('Location: ' . BASE_URL . '/index.php?controller=Appointment&action=clientCreate');
             exit;
         }
     }
-
     /**
      * Show list of appointments for logged in user
+     * If the user has no appointments, prompt them to create one
+     * If they have appointments, show only active ones since users can only donate blood once in a specific timeframe
      */
     public function userAppointments()
     {
@@ -267,15 +266,39 @@ class AppointmentController
 
             $userCccd = $user->cccd;
 
-            // Get user's appointments
-            $appointments = Appointment::with(['event', 'event.donationUnit'])
+            // Get user's active appointments (pending or confirmed)
+            // Focus on appointments with status 0 (pending) or 1 (confirmed)
+            $activeAppointments = Appointment::with(['event', 'event.donationUnit'])
                 ->where('user_cccd', $userCccd)
+                ->whereIn('status', [0, 1]) // Only pending or confirmed appointments
+                ->orderBy('appointment_date_time', 'asc') // Sort by appointment time (ascending)
+                ->get();
+
+            // Get completed appointments (for history)
+            $completedAppointments = Appointment::with(['event', 'event.donationUnit'])
+                ->where('user_cccd', $userCccd)
+                ->where('status', 2) // Completed appointments
                 ->orderBy('appointment_date_time', 'desc')
                 ->get();
+
+            // Get canceled appointments
+            $canceledAppointments = Appointment::with(['event', 'event.donationUnit'])
+                ->where('user_cccd', $userCccd)
+                ->where('status', 3) // Canceled appointments
+                ->orderBy('appointment_date_time', 'desc')
+                ->get();
+
+            // Merge all appointments for display but prioritize active ones
+            $appointments = $activeAppointments->concat($completedAppointments)->concat($canceledAppointments);
+
+            // Check if the user can schedule a new appointment
+            $canScheduleNew = $activeAppointments->isEmpty();
 
             // Prepare data for the view
             $data = [
                 'appointments' => $appointments,
+                'activeAppointments' => $activeAppointments,
+                'canScheduleNew' => $canScheduleNew,
                 'user' => $user
             ];
 
@@ -286,6 +309,200 @@ class AppointmentController
             echo '<h3>Error in AppointmentController@userAppointments</h3>';
             echo '<p><strong>Message:</strong> ' . $e->getMessage() . '</p>';
             error_log("Exception in AppointmentController@userAppointments: " . $e->getMessage());
+        }
+    }
+    /**
+     * Show a single appointment in detail as an invitation card
+     */
+    public function viewAppointment()
+    {
+        // Check if user is logged in
+        if (!isset($_SESSION['user_id'])) {
+            $_SESSION['error_message'] = "Bạn phải đăng nhập để xem lịch hẹn hiến máu.";
+            header('Location: ' . LOGIN_ROUTE);
+            exit;
+        }
+
+        // Get appointment ID from URL with multiple fallback methods
+        $appointmentId = null;
+
+        // Method 1: Try direct GET parameter
+        if (isset($_GET['id'])) {
+            $appointmentId = $_GET['id'];
+        }
+        // Method 2: Check if it's in the URI path 
+        else if (isset($_SERVER['REQUEST_URI'])) {
+            $uri = $_SERVER['REQUEST_URI'];
+            if (preg_match('/[&?]id=(\d+)/', $uri, $matches)) {
+                $appointmentId = $matches[1];
+            }
+        }
+
+        // Log appointment ID for debugging
+        error_log("Appointment ID from URL: " . ($appointmentId ?? 'not found'));
+
+        if (!$appointmentId) {
+            // If no appointment ID, check if user has only one appointment and use that
+            try {
+                $userId = $_SESSION['user_id'];
+                $user = User::find($userId);
+
+                if ($user) {
+                    $userCccd = $user->cccd;
+
+                    // Try to get the most recent appointment for this user
+                    $latestAppointment = Appointment::where('user_cccd', $userCccd)
+                        ->orderBy('created_at', 'desc')
+                        ->first();
+
+                    if ($latestAppointment) {
+                        $appointmentId = $latestAppointment->id;
+                        error_log("Using latest appointment ID as fallback: " . $appointmentId);
+                    }
+                }
+            } catch (Exception $e) {
+                error_log("Error in fallback appointment lookup: " . $e->getMessage());
+            }
+
+            // If still no appointment ID, redirect to the list
+            if (!$appointmentId) {
+                $_SESSION['error_message'] = "Không tìm thấy thông tin lịch hẹn.";
+                header('Location: ' . BASE_URL . '/index.php?controller=Appointment&action=userAppointments');
+                exit;
+            }
+        }
+
+        try {
+            // Get user info
+            $userId = $_SESSION['user_id'];
+            $user = User::find($userId);
+
+            //Log user ID for debugging
+            error_log("User ID from session: " . $userId);
+
+            if (!$user) {
+                throw new Exception("Không tìm thấy thông tin người dùng.");
+            }
+
+            $userCccd = $user->cccd;
+
+            // Get appointment details with related data
+            $appointment = Appointment::with(['event', 'event.donationUnit'])
+                ->where('id', $appointmentId)
+                ->where('user_cccd', $userCccd) // Security: ensure appointment belongs to logged-in user
+                ->first();
+
+            if (!$appointment) {
+                //Log error if appointment not found
+                error_log("Appointment not found for ID: " . $appointmentId . " and user CCCD: " . $userCccd);
+                throw new Exception("Không tìm thấy lịch hẹn hoặc bạn không có quyền xem lịch hẹn này.");
+            }
+
+            // Prepare data for the view
+            $data = [
+                'appointment' => $appointment,
+                'user' => $user
+            ];
+
+            // Render the view
+            $content = '../app/views/appointments/appointment_details.php';
+            require_once '../app/views/layouts/ClientLayout/ClientLayout.php';
+        } catch (Exception $e) {
+            $_SESSION['error_message'] = $e->getMessage();
+            header('Location: ' . BASE_URL . '/index.php?controller=Appointment&action=userAppointments');
+            exit;
+        }
+    }
+
+    /**
+     * Cancel an appointment
+     * This method handles appointment cancellation from both user_appointments.php and appointment_details.php
+     */
+    public function cancelAppointment()
+    {
+        // Check if user is logged in
+        if (!isset($_SESSION['user_id'])) {
+            $_SESSION['error_message'] = "Bạn phải đăng nhập để hủy lịch hẹn hiến máu.";
+            header('Location: ' . LOGIN_ROUTE);
+            exit;
+        }
+
+        // Check if it's a POST request
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+            $_SESSION['error_message'] = "Phương thức không được hỗ trợ.";
+            header('Location: ' . BASE_URL . '/index.php?controller=Appointment&action=userAppointments');
+            exit;
+        }
+
+        // Get appointment ID from form submission
+        $appointmentId = $_POST['appointment_id'] ?? null;
+        if (!$appointmentId) {
+            $_SESSION['error_message'] = "Không tìm thấy ID lịch hẹn.";
+            header('Location: ' . BASE_URL . '/index.php?controller=Appointment&action=userAppointments');
+            exit;
+        }
+
+        // Get cancellation reason
+        $cancelReason = $_POST['cancel_reason'] ?? 'other';
+        $otherReason = $_POST['other_reason'] ?? '';
+        $finalReason = ($cancelReason === 'other' && !empty($otherReason)) ? $otherReason : $cancelReason;
+
+        try {
+            // Begin transaction
+            DB::beginTransaction();
+
+            // Get user info
+            $userId = $_SESSION['user_id'];
+            $user = User::find($userId);
+
+            if (!$user) {
+                throw new Exception("Không tìm thấy thông tin người dùng.");
+            }
+
+            $userCccd = $user->cccd;
+
+            // Find the appointment
+            $appointment = Appointment::where('id', $appointmentId)
+                ->where('user_cccd', $userCccd) // Security check to ensure this appointment belongs to the user
+                ->whereIn('status', [0, 1]) // Can only cancel pending (0) or confirmed (1) appointments
+                ->first();
+
+            if (!$appointment) {
+                throw new Exception("Không tìm thấy lịch hẹn hoặc lịch hẹn không thể hủy.");
+            }
+
+            // Get event info before updating appointment
+            $event = Event::find($appointment->event_id);
+            if (!$event) {
+                throw new Exception("Không tìm thấy thông tin sự kiện.");
+            }
+
+            // Update appointment status to canceled (3)
+            $appointment->status = 3; // Canceled status
+            $appointment->cancel_reason = $finalReason;
+            $appointment->save();
+
+            // Decrease event registrations count
+            $event->current_registrations = max(0, $event->current_registrations - 1);
+            $event->save();
+
+            // Commit transaction
+            DB::commit();
+
+            // Set success message
+            $_SESSION['success_message'] = "Lịch hẹn đã được hủy thành công.";
+
+            // Redirect to appointments list
+            header('Location: ' . BASE_URL . '/index.php?controller=Appointment&action=userAppointments');
+            exit;
+        } catch (Exception $e) {
+            // Rollback transaction on error
+            DB::rollBack();
+            error_log("Exception in AppointmentController@cancelAppointment: " . $e->getMessage());
+
+            $_SESSION['error_message'] = "Lỗi khi hủy lịch hẹn: " . $e->getMessage();
+            header('Location: ' . BASE_URL . '/index.php?controller=Appointment&action=userAppointments');
+            exit;
         }
     }
 }

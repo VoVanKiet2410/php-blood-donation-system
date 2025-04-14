@@ -1,49 +1,530 @@
-[12-Apr-2025 10:44:35 Europe/Berlin] PHP Warning:  Array to string conversion in C:\xampp\htdocs\php-blood-donation-system\app\views\events\pre_screening.php on line 29
-[12-Apr-2025 10:44:35 Europe/Berlin] Event: Array
-[12-Apr-2025 10:44:57 Europe/Berlin] Event: {"id":6,"current_registrations":6,"event_date":"2024-12-28","event_end_time":"15:04:00.000000","event_start_time":"07:00:00.000000","max_registrations":200,"name":"Hi\u1ebfn m\u00e1u Hutech Khu R","status":1,"donation_unit_id":3,"donation_unit":{"id":3,"email":"hutech@hutech.edu.vn","location":"Khu C\u00f4ng ngh\u1ec7 cao TP.HCM (SHTP), P. Long Th\u1ea1nh M\u1ef9, TP. Th\u1ee7 \u0110\u1ee9c, TP.HCM","name":"Hutech Khu R","phone":"02854457777","unit_photo_url":"https:\/\/hirot-donation-images.s3.amazonaws.com\/logo-hutech-short.png"}}
-[12-Apr-2025 10:46:31 Europe/Berlin] Event: {"id":6,"current_registrations":6,"event_date":"2024-12-28","event_end_time":"15:04:00.000000","event_start_time":"07:00:00.000000","max_registrations":200,"name":"Hi\u1ebfn m\u00e1u Hutech Khu R","status":1,"donation_unit_id":3,"donation_unit":{"id":3,"email":"hutech@hutech.edu.vn","location":"Khu C\u00f4ng ngh\u1ec7 cao TP.HCM (SHTP), P. Long Th\u1ea1nh M\u1ef9, TP. Th\u1ee7 \u0110\u1ee9c, TP.HCM","name":"Hutech Khu R","phone":"02854457777","unit_photo_url":"https:\/\/hirot-donation-images.s3.amazonaws.com\/logo-hutech-short.png"}}
-[12-Apr-2025 10:46:31 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\php-blood-donation-system\app\views\events\pre_screening.php on line 66
-[12-Apr-2025 10:47:47 Europe/Berlin] Event: {"id":6,"current_registrations":6,"event_date":"2024-12-28","event_end_time":"15:04:00.000000","event_start_time":"07:00:00.000000","max_registrations":200,"name":"Hi\u1ebfn m\u00e1u Hutech Khu R","status":1,"donation_unit_id":3,"donation_unit":{"id":3,"email":"hutech@hutech.edu.vn","location":"Khu C\u00f4ng ngh\u1ec7 cao TP.HCM (SHTP), P. Long Th\u1ea1nh M\u1ef9, TP. Th\u1ee7 \u0110\u1ee9c, TP.HCM","name":"Hutech Khu R","phone":"02854457777","unit_photo_url":"https:\/\/hirot-donation-images.s3.amazonaws.com\/logo-hutech-short.png"}}
-[12-Apr-2025 10:49:22 Europe/Berlin] Event . Donation Unit data only: null
-[12-Apr-2025 10:51:02 Europe/Berlin] Event data: {"id":6,"current_registrations":6,"event_date":"2024-12-28","event_end_time":"15:04:00.000000","event_start_time":"07:00:00.000000","max_registrations":200,"name":"Hi\u1ebfn m\u00e1u Hutech Khu R","status":1,"donation_unit_id":3,"donation_unit":{"id":3,"email":"hutech@hutech.edu.vn","location":"Khu C\u00f4ng ngh\u1ec7 cao TP.HCM (SHTP), P. Long Th\u1ea1nh M\u1ef9, TP. Th\u1ee7 \u0110\u1ee9c, TP.HCM","name":"Hutech Khu R","phone":"02854457777","unit_photo_url":"https:\/\/hirot-donation-images.s3.amazonaws.com\/logo-hutech-short.png"}}
-[12-Apr-2025 10:52:11 Europe/Berlin] Event data: {"id":6,"current_registrations":6,"event_date":"2024-12-28","event_end_time":"15:04:00.000000","event_start_time":"07:00:00.000000","max_registrations":200,"name":"Hi\u1ebfn m\u00e1u Hutech Khu R","status":1,"donation_unit_id":3,"donation_unit":{"id":3,"email":"hutech@hutech.edu.vn","location":"Khu C\u00f4ng ngh\u1ec7 cao TP.HCM (SHTP), P. Long Th\u1ea1nh M\u1ef9, TP. Th\u1ee7 \u0110\u1ee9c, TP.HCM","name":"Hutech Khu R","phone":"02854457777","unit_photo_url":"https:\/\/hirot-donation-images.s3.amazonaws.com\/logo-hutech-short.png"}}
-[12-Apr-2025 10:52:54 Europe/Berlin] Exception in EventController@validatePreScreening: No event ID provided
-[12-Apr-2025 10:54:30 Europe/Berlin] Event data: {"id":6,"current_registrations":6,"event_date":"2024-12-28","event_end_time":"15:04:00.000000","event_start_time":"07:00:00.000000","max_registrations":200,"name":"Hi\u1ebfn m\u00e1u Hutech Khu R","status":1,"donation_unit_id":3,"donation_unit":{"id":3,"email":"hutech@hutech.edu.vn","location":"Khu C\u00f4ng ngh\u1ec7 cao TP.HCM (SHTP), P. Long Th\u1ea1nh M\u1ef9, TP. Th\u1ee7 \u0110\u1ee9c, TP.HCM","name":"Hutech Khu R","phone":"02854457777","unit_photo_url":"https:\/\/hirot-donation-images.s3.amazonaws.com\/logo-hutech-short.png"}}
-[12-Apr-2025 10:55:09 Europe/Berlin] Event data: {"id":6,"current_registrations":6,"event_date":"2024-12-28","event_end_time":"15:04:00.000000","event_start_time":"07:00:00.000000","max_registrations":200,"name":"Hi\u1ebfn m\u00e1u Hutech Khu R","status":1,"donation_unit_id":3,"donation_unit":{"id":3,"email":"hutech@hutech.edu.vn","location":"Khu C\u00f4ng ngh\u1ec7 cao TP.HCM (SHTP), P. Long Th\u1ea1nh M\u1ef9, TP. Th\u1ee7 \u0110\u1ee9c, TP.HCM","name":"Hutech Khu R","phone":"02854457777","unit_photo_url":"https:\/\/hirot-donation-images.s3.amazonaws.com\/logo-hutech-short.png"}}
-[12-Apr-2025 11:03:27 Europe/Berlin] Event data: {"id":6,"current_registrations":6,"event_date":"2024-12-28","event_end_time":"15:04:00.000000","event_start_time":"07:00:00.000000","max_registrations":200,"name":"Hi\u1ebfn m\u00e1u Hutech Khu R","status":1,"donation_unit_id":3,"donation_unit":{"id":3,"email":"hutech@hutech.edu.vn","location":"Khu C\u00f4ng ngh\u1ec7 cao TP.HCM (SHTP), P. Long Th\u1ea1nh M\u1ef9, TP. Th\u1ee7 \u0110\u1ee9c, TP.HCM","name":"Hutech Khu R","phone":"02854457777","unit_photo_url":"https:\/\/hirot-donation-images.s3.amazonaws.com\/logo-hutech-short.png"}}
-[12-Apr-2025 11:04:03 Europe/Berlin] Event data: {"id":6,"current_registrations":6,"event_date":"2024-12-28","event_end_time":"15:04:00.000000","event_start_time":"07:00:00.000000","max_registrations":200,"name":"Hi\u1ebfn m\u00e1u Hutech Khu R","status":1,"donation_unit_id":3,"donation_unit":{"id":3,"email":"hutech@hutech.edu.vn","location":"Khu C\u00f4ng ngh\u1ec7 cao TP.HCM (SHTP), P. Long Th\u1ea1nh M\u1ef9, TP. Th\u1ee7 \u0110\u1ee9c, TP.HCM","name":"Hutech Khu R","phone":"02854457777","unit_photo_url":"https:\/\/hirot-donation-images.s3.amazonaws.com\/logo-hutech-short.png"}}
-[12-Apr-2025 11:12:34 Europe/Berlin] Event data: {"id":6,"current_registrations":6,"event_date":"2024-12-28","event_end_time":"15:04:00.000000","event_start_time":"07:00:00.000000","max_registrations":200,"name":"Hi\u1ebfn m\u00e1u Hutech Khu R","status":1,"donation_unit_id":3,"donation_unit":{"id":3,"email":"hutech@hutech.edu.vn","location":"Khu C\u00f4ng ngh\u1ec7 cao TP.HCM (SHTP), P. Long Th\u1ea1nh M\u1ef9, TP. Th\u1ee7 \u0110\u1ee9c, TP.HCM","name":"Hutech Khu R","phone":"02854457777","unit_photo_url":"https:\/\/hirot-donation-images.s3.amazonaws.com\/logo-hutech-short.png"}}
-[12-Apr-2025 11:13:13 Europe/Berlin] Event data: {"id":6,"current_registrations":6,"event_date":"2024-12-28","event_end_time":"15:04:00.000000","event_start_time":"07:00:00.000000","max_registrations":200,"name":"Hi\u1ebfn m\u00e1u Hutech Khu R","status":1,"donation_unit_id":3,"donation_unit":{"id":3,"email":"hutech@hutech.edu.vn","location":"Khu C\u00f4ng ngh\u1ec7 cao TP.HCM (SHTP), P. Long Th\u1ea1nh M\u1ef9, TP. Th\u1ee7 \u0110\u1ee9c, TP.HCM","name":"Hutech Khu R","phone":"02854457777","unit_photo_url":"https:\/\/hirot-donation-images.s3.amazonaws.com\/logo-hutech-short.png"}}
-[12-Apr-2025 11:16:55 Europe/Berlin] Event data: {"id":6,"current_registrations":6,"event_date":"2024-12-28","event_end_time":"15:04:00.000000","event_start_time":"07:00:00.000000","max_registrations":200,"name":"Hi\u1ebfn m\u00e1u Hutech Khu R","status":1,"donation_unit_id":3,"donation_unit":{"id":3,"email":"hutech@hutech.edu.vn","location":"Khu C\u00f4ng ngh\u1ec7 cao TP.HCM (SHTP), P. Long Th\u1ea1nh M\u1ef9, TP. Th\u1ee7 \u0110\u1ee9c, TP.HCM","name":"Hutech Khu R","phone":"02854457777","unit_photo_url":"https:\/\/hirot-donation-images.s3.amazonaws.com\/logo-hutech-short.png"}}
-[12-Apr-2025 11:17:26 Europe/Berlin] Event data: {"id":6,"current_registrations":6,"event_date":"2024-12-28","event_end_time":"15:04:00.000000","event_start_time":"07:00:00.000000","max_registrations":200,"name":"Hi\u1ebfn m\u00e1u Hutech Khu R","status":1,"donation_unit_id":3,"donation_unit":{"id":3,"email":"hutech@hutech.edu.vn","location":"Khu C\u00f4ng ngh\u1ec7 cao TP.HCM (SHTP), P. Long Th\u1ea1nh M\u1ef9, TP. Th\u1ee7 \u0110\u1ee9c, TP.HCM","name":"Hutech Khu R","phone":"02854457777","unit_photo_url":"https:\/\/hirot-donation-images.s3.amazonaws.com\/logo-hutech-short.png"}}
-[12-Apr-2025 11:25:51 Europe/Berlin] Event data: {"id":6,"current_registrations":6,"event_date":"2024-12-28","event_end_time":"15:04:00.000000","event_start_time":"07:00:00.000000","max_registrations":200,"name":"Hi\u1ebfn m\u00e1u Hutech Khu R","status":1,"donation_unit_id":3,"donation_unit":{"id":3,"email":"hutech@hutech.edu.vn","location":"Khu C\u00f4ng ngh\u1ec7 cao TP.HCM (SHTP), P. Long Th\u1ea1nh M\u1ef9, TP. Th\u1ee7 \u0110\u1ee9c, TP.HCM","name":"Hutech Khu R","phone":"02854457777","unit_photo_url":"https:\/\/hirot-donation-images.s3.amazonaws.com\/logo-hutech-short.png"}}
-[12-Apr-2025 11:26:44 Europe/Berlin] Event data: {"id":15,"current_registrations":0,"event_date":"2024-12-31","event_end_time":"09:30:00.000000","event_start_time":"07:00:00.000000","max_registrations":300,"name":"Hi\u1ebfn m\u00e1u Hutech Khu R","status":1,"donation_unit_id":3,"donation_unit":{"id":3,"email":"hutech@hutech.edu.vn","location":"Khu C\u00f4ng ngh\u1ec7 cao TP.HCM (SHTP), P. Long Th\u1ea1nh M\u1ef9, TP. Th\u1ee7 \u0110\u1ee9c, TP.HCM","name":"Hutech Khu R","phone":"02854457777","unit_photo_url":"https:\/\/hirot-donation-images.s3.amazonaws.com\/logo-hutech-short.png"}}
-[12-Apr-2025 11:27:10 Europe/Berlin] Event data: {"id":15,"current_registrations":0,"event_date":"2024-12-31","event_end_time":"09:30:00.000000","event_start_time":"07:00:00.000000","max_registrations":300,"name":"Hi\u1ebfn m\u00e1u Hutech Khu R","status":1,"donation_unit_id":3,"donation_unit":{"id":3,"email":"hutech@hutech.edu.vn","location":"Khu C\u00f4ng ngh\u1ec7 cao TP.HCM (SHTP), P. Long Th\u1ea1nh M\u1ef9, TP. Th\u1ee7 \u0110\u1ee9c, TP.HCM","name":"Hutech Khu R","phone":"02854457777","unit_photo_url":"https:\/\/hirot-donation-images.s3.amazonaws.com\/logo-hutech-short.png"}}
-[12-Apr-2025 11:27:14 Europe/Berlin] Event data: {"id":16,"current_registrations":1,"event_date":"2024-12-29","event_end_time":"09:02:00.000000","event_start_time":"06:00:00.000000","max_registrations":200,"name":"Hi\u1ebfn m\u00e1u Hutech Khu AB","status":1,"donation_unit_id":4,"donation_unit":{"id":4,"email":"hutech@hutech.edu.vn","location":"375A \u0110i\u1ec7n Bi\u00ean Ph\u1ee7","name":"Hutech Khu AB","phone":"0282248333","unit_photo_url":"https:\/\/hirot-donation-images.s3.amazonaws.com\/logo-hutech-short.png"}}
-[12-Apr-2025 11:36:58 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method App\Controllers\Admin\AppointmentController::index() in C:\xampp\htdocs\php-blood-donation-system\public\index.php:96
+[14-Apr-2025 22:33:13 Europe/Berlin] Blood Inventory Query: SELECT 
+                        blood_type,
+                        (COALESCE(SUM(quantity), 0) / CASE 
+                            WHEN blood_type = 'O' THEN 100  -- O is universal donor, so need more
+                            WHEN blood_type = 'A' THEN 80
+                            WHEN blood_type = 'B' THEN 70
+                            WHEN blood_type = 'AB' THEN 50  -- AB is universal recipient, so need less
+                            ELSE 100
+                        END) * 100 as level_percentage
+                    FROM blood_inventory
+                    WHERE expiration_date > NOW()
+                    GROUP BY blood_type
+[14-Apr-2025 22:33:13 Europe/Berlin] Blood Inventory Results: [{"blood_type":"A-","level_percentage":"250.0000"},{"blood_type":"B+","level_percentage":"999.0000"}]
+[14-Apr-2025 22:33:13 Europe/Berlin] Blood Inventory Levels: {"A":0,"B":0,"O":0,"AB":0}
+[14-Apr-2025 22:33:13 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\xampp\htdocs\php-blood-donation-system\app\controllers\HomeController.php:121
 Stack trace:
-#0 {main}
-  thrown in C:\xampp\htdocs\php-blood-donation-system\public\index.php on line 96
-[12-Apr-2025 11:40:55 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method App\Controllers\Admin\AppointmentController::index() in C:\xampp\htdocs\php-blood-donation-system\public\index.php:96
+#0 C:\xampp\htdocs\php-blood-donation-system\app\controllers\HomeController.php(22): App\Controllers\HomeController->getUpcomingEvents(3)
+#1 C:\xampp\htdocs\php-blood-donation-system\public\index.php(67): App\Controllers\HomeController->index()
+#2 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\app\controllers\HomeController.php on line 121
+[14-Apr-2025 22:34:23 Europe/Berlin] Blood Inventory Query: SELECT 
+                        blood_type,
+                        (COALESCE(SUM(quantity), 0) / CASE 
+                            WHEN blood_type = 'O' THEN 100  -- O is universal donor, so need more
+                            WHEN blood_type = 'A' THEN 80
+                            WHEN blood_type = 'B' THEN 70
+                            WHEN blood_type = 'AB' THEN 50  -- AB is universal recipient, so need less
+                            ELSE 100
+                        END) * 100 as level_percentage
+                    FROM blood_inventory
+                    WHERE expiration_date > NOW()
+                    GROUP BY blood_type
+[14-Apr-2025 22:34:23 Europe/Berlin] Blood Inventory Results: [{"blood_type":"A-","level_percentage":"250.0000"},{"blood_type":"B+","level_percentage":"999.0000"}]
+[14-Apr-2025 22:34:23 Europe/Berlin] Blood Inventory Levels: {"A":0,"B":0,"O":0,"AB":0}
+[14-Apr-2025 22:34:23 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\xampp\htdocs\php-blood-donation-system\app\controllers\HomeController.php:204
 Stack trace:
-#0 {main}
-  thrown in C:\xampp\htdocs\php-blood-donation-system\public\index.php on line 96
-[12-Apr-2025 11:44:17 Europe/Berlin] Event data: {"id":16,"current_registrations":1,"event_date":"2024-12-29","event_end_time":"09:02:00.000000","event_start_time":"06:00:00.000000","max_registrations":200,"name":"Hi\u1ebfn m\u00e1u Hutech Khu AB","status":1,"donation_unit_id":4,"donation_unit":{"id":4,"email":"hutech@hutech.edu.vn","location":"375A \u0110i\u1ec7n Bi\u00ean Ph\u1ee7","name":"Hutech Khu AB","phone":"0282248333","unit_photo_url":"https:\/\/hirot-donation-images.s3.amazonaws.com\/logo-hutech-short.png"}}
-[12-Apr-2025 11:47:30 Europe/Berlin] Event data: {"id":16,"current_registrations":1,"event_date":"2024-12-29","event_end_time":"09:02:00.000000","event_start_time":"06:00:00.000000","max_registrations":200,"name":"Hi\u1ebfn m\u00e1u Hutech Khu AB","status":1,"donation_unit_id":4,"donation_unit":{"id":4,"email":"hutech@hutech.edu.vn","location":"375A \u0110i\u1ec7n Bi\u00ean Ph\u1ee7","name":"Hutech Khu AB","phone":"0282248333","unit_photo_url":"https:\/\/hirot-donation-images.s3.amazonaws.com\/logo-hutech-short.png"}}
-[12-Apr-2025 11:47:34 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method App\Controllers\Admin\AppointmentController::AdminIndex() in C:\xampp\htdocs\php-blood-donation-system\public\index.php:96
+#0 C:\xampp\htdocs\php-blood-donation-system\app\controllers\HomeController.php(26): App\Controllers\HomeController->getFaqs(5)
+#1 C:\xampp\htdocs\php-blood-donation-system\public\index.php(67): App\Controllers\HomeController->index()
+#2 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\app\controllers\HomeController.php on line 204
+[14-Apr-2025 22:36:53 Europe/Berlin] Blood Inventory Query: SELECT 
+                        blood_type,
+                        (COALESCE(SUM(quantity), 0) / CASE 
+                            WHEN blood_type = 'O' THEN 100  -- O is universal donor, so need more
+                            WHEN blood_type = 'A' THEN 80
+                            WHEN blood_type = 'B' THEN 70
+                            WHEN blood_type = 'AB' THEN 50  -- AB is universal recipient, so need less
+                            ELSE 100
+                        END) * 100 as level_percentage
+                    FROM blood_inventory
+                    WHERE expiration_date > NOW()
+                    GROUP BY blood_type
+[14-Apr-2025 22:36:53 Europe/Berlin] Blood Inventory Results: [{"blood_type":"A-","level_percentage":"250.0000"},{"blood_type":"B+","level_percentage":"999.0000"}]
+[14-Apr-2025 22:36:53 Europe/Berlin] Blood Inventory Levels: {"A":0,"B":0,"O":0,"AB":0}
+[14-Apr-2025 22:36:53 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\xampp\htdocs\php-blood-donation-system\app\controllers\HomeController.php:179
 Stack trace:
-#0 {main}
-  thrown in C:\xampp\htdocs\php-blood-donation-system\public\index.php on line 96
-[12-Apr-2025 11:50:24 Europe/Berlin] Event data: {"id":16,"current_registrations":1,"event_date":"2024-12-29","event_end_time":"09:02:00.000000","event_start_time":"06:00:00.000000","max_registrations":200,"name":"Hi\u1ebfn m\u00e1u Hutech Khu AB","status":1,"donation_unit_id":4,"donation_unit":{"id":4,"email":"hutech@hutech.edu.vn","location":"375A \u0110i\u1ec7n Bi\u00ean Ph\u1ee7","name":"Hutech Khu AB","phone":"0282248333","unit_photo_url":"https:\/\/hirot-donation-images.s3.amazonaws.com\/logo-hutech-short.png"}}
-[12-Apr-2025 11:53:05 Europe/Berlin] Event data: {"id":16,"current_registrations":1,"event_date":"2024-12-29","event_end_time":"09:02:00.000000","event_start_time":"06:00:00.000000","max_registrations":200,"name":"Hi\u1ebfn m\u00e1u Hutech Khu AB","status":1,"donation_unit_id":4,"donation_unit":{"id":4,"email":"hutech@hutech.edu.vn","location":"375A \u0110i\u1ec7n Bi\u00ean Ph\u1ee7","name":"Hutech Khu AB","phone":"0282248333","unit_photo_url":"https:\/\/hirot-donation-images.s3.amazonaws.com\/logo-hutech-short.png"}}
-[12-Apr-2025 12:06:46 Europe/Berlin] Event data: {"id":16,"current_registrations":1,"event_date":"2024-12-29","event_end_time":"09:02:00.000000","event_start_time":"06:00:00.000000","max_registrations":200,"name":"Hi\u1ebfn m\u00e1u Hutech Khu AB","status":1,"donation_unit_id":4,"donation_unit":{"id":4,"email":"hutech@hutech.edu.vn","location":"375A \u0110i\u1ec7n Bi\u00ean Ph\u1ee7","name":"Hutech Khu AB","phone":"0282248333","unit_photo_url":"https:\/\/hirot-donation-images.s3.amazonaws.com\/logo-hutech-short.png"}}
-[12-Apr-2025 12:06:50 Europe/Berlin] Event data: {"id":16,"current_registrations":1,"event_date":"2024-12-29","event_end_time":"09:02:00.000000","event_start_time":"06:00:00.000000","max_registrations":200,"name":"Hi\u1ebfn m\u00e1u Hutech Khu AB","status":1,"donation_unit_id":4,"donation_unit":{"id":4,"email":"hutech@hutech.edu.vn","location":"375A \u0110i\u1ec7n Bi\u00ean Ph\u1ee7","name":"Hutech Khu AB","phone":"0282248333","unit_photo_url":"https:\/\/hirot-donation-images.s3.amazonaws.com\/logo-hutech-short.png"}}
-[12-Apr-2025 12:10:53 Europe/Berlin] Event data: {"id":16,"current_registrations":1,"event_date":"2024-12-29","event_end_time":"09:02:00.000000","event_start_time":"06:00:00.000000","max_registrations":200,"name":"Hi\u1ebfn m\u00e1u Hutech Khu AB","status":1,"donation_unit_id":4,"donation_unit":{"id":4,"email":"hutech@hutech.edu.vn","location":"375A \u0110i\u1ec7n Bi\u00ean Ph\u1ee7","name":"Hutech Khu AB","phone":"0282248333","unit_photo_url":"https:\/\/hirot-donation-images.s3.amazonaws.com\/logo-hutech-short.png"}}
-[12-Apr-2025 12:11:39 Europe/Berlin] POST data: {"event_id":"16","appointment_date_time":"2024-12-29T06:13","blood_amount":"350"}
-[12-Apr-2025 12:11:39 Europe/Berlin] Session event ID: 16
-[12-Apr-2025 12:11:39 Europe/Berlin] Event ID used: 16
-[12-Apr-2025 12:11:39 Europe/Berlin] User CCCD: 2282401245
-[12-Apr-2025 12:11:39 Europe/Berlin] About to save appointment: {"user_cccd":"2282401245","event_id":"16","appointment_date_time":"2024-12-29T06:13","blood_amount":"350","status":0}
-[12-Apr-2025 12:11:39 Europe/Berlin] Appointment saved successfully with ID: 9
-[12-Apr-2025 12:11:39 Europe/Berlin] Event registrations updated: 2
-[12-Apr-2025 12:11:39 Europe/Berlin] Transaction committed successfully
+#0 C:\xampp\htdocs\php-blood-donation-system\app\controllers\HomeController.php(26): App\Controllers\HomeController->getFaqs(5)
+#1 C:\xampp\htdocs\php-blood-donation-system\public\index.php(67): App\Controllers\HomeController->index()
+#2 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\app\controllers\HomeController.php on line 179
+[14-Apr-2025 22:36:57 Europe/Berlin] Blood Inventory Query: SELECT 
+                        blood_type,
+                        (COALESCE(SUM(quantity), 0) / CASE 
+                            WHEN blood_type = 'O' THEN 100  -- O is universal donor, so need more
+                            WHEN blood_type = 'A' THEN 80
+                            WHEN blood_type = 'B' THEN 70
+                            WHEN blood_type = 'AB' THEN 50  -- AB is universal recipient, so need less
+                            ELSE 100
+                        END) * 100 as level_percentage
+                    FROM blood_inventory
+                    WHERE expiration_date > NOW()
+                    GROUP BY blood_type
+[14-Apr-2025 22:36:57 Europe/Berlin] Blood Inventory Results: [{"blood_type":"A-","level_percentage":"250.0000"},{"blood_type":"B+","level_percentage":"999.0000"}]
+[14-Apr-2025 22:36:57 Europe/Berlin] Blood Inventory Levels: {"A":0,"B":0,"O":0,"AB":0}
+[14-Apr-2025 22:36:57 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\xampp\htdocs\php-blood-donation-system\app\controllers\HomeController.php:179
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\app\controllers\HomeController.php(26): App\Controllers\HomeController->getFaqs(5)
+#1 C:\xampp\htdocs\php-blood-donation-system\public\index.php(67): App\Controllers\HomeController->index()
+#2 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\app\controllers\HomeController.php on line 179
+[14-Apr-2025 22:38:30 Europe/Berlin] Blood Inventory Query: SELECT 
+                        blood_type,
+                        (COALESCE(SUM(quantity), 0) / CASE 
+                            WHEN blood_type = 'O' THEN 100  -- O is universal donor, so need more
+                            WHEN blood_type = 'A' THEN 80
+                            WHEN blood_type = 'B' THEN 70
+                            WHEN blood_type = 'AB' THEN 50  -- AB is universal recipient, so need less
+                            ELSE 100
+                        END) * 100 as level_percentage
+                    FROM blood_inventory
+                    WHERE expiration_date > NOW()
+                    GROUP BY blood_type
+[14-Apr-2025 22:38:30 Europe/Berlin] Blood Inventory Results: [{"blood_type":"A-","level_percentage":"250.0000"},{"blood_type":"B+","level_percentage":"999.0000"}]
+[14-Apr-2025 22:38:30 Europe/Berlin] Blood Inventory Levels: {"A":0,"B":0,"O":0,"AB":0}
+[14-Apr-2025 22:38:30 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\xampp\htdocs\php-blood-donation-system\app\controllers\HomeController.php:217
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\app\controllers\HomeController.php(28): App\Controllers\HomeController->getDonationStats()
+#1 C:\xampp\htdocs\php-blood-donation-system\public\index.php(67): App\Controllers\HomeController->index()
+#2 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\app\controllers\HomeController.php on line 217
+[14-Apr-2025 22:41:32 Europe/Berlin] Blood Inventory Query: SELECT 
+                        blood_type,
+                        (COALESCE(SUM(quantity), 0) / CASE 
+                            WHEN blood_type = 'O' THEN 100  -- O is universal donor, so need more
+                            WHEN blood_type = 'A' THEN 80
+                            WHEN blood_type = 'B' THEN 70
+                            WHEN blood_type = 'AB' THEN 50  -- AB is universal recipient, so need less
+                            ELSE 100
+                        END) * 100 as level_percentage
+                    FROM blood_inventory
+                    WHERE expiration_date > NOW()
+                    GROUP BY blood_type
+[14-Apr-2025 22:41:32 Europe/Berlin] Blood Inventory Results: [{"blood_type":"A-","level_percentage":"250.0000"},{"blood_type":"B+","level_percentage":"999.0000"}]
+[14-Apr-2025 22:41:32 Europe/Berlin] Blood Inventory Levels: {"A":0,"B":0,"O":0,"AB":0}
+[14-Apr-2025 22:41:32 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\xampp\htdocs\php-blood-donation-system\app\controllers\HomeController.php:226
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\app\controllers\HomeController.php(28): App\Controllers\HomeController->getDonationStats()
+#1 C:\xampp\htdocs\php-blood-donation-system\public\index.php(67): App\Controllers\HomeController->index()
+#2 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\app\controllers\HomeController.php on line 226
+[14-Apr-2025 22:43:59 Europe/Berlin] Blood Inventory Query: SELECT 
+                        blood_type,
+                        (COALESCE(SUM(quantity), 0) / CASE 
+                            WHEN blood_type = 'O' THEN 100  -- O is universal donor, so need more
+                            WHEN blood_type = 'A' THEN 80
+                            WHEN blood_type = 'B' THEN 70
+                            WHEN blood_type = 'AB' THEN 50  -- AB is universal recipient, so need less
+                            ELSE 100
+                        END) * 100 as level_percentage
+                    FROM blood_inventory
+                    WHERE expiration_date > NOW()
+                    GROUP BY blood_type
+[14-Apr-2025 22:43:59 Europe/Berlin] Blood Inventory Results: [{"blood_type":"A-","level_percentage":"250.0000"},{"blood_type":"B+","level_percentage":"999.0000"}]
+[14-Apr-2025 22:43:59 Europe/Berlin] Blood Inventory Levels: {"A":0,"B":0,"O":0,"AB":0}
+[14-Apr-2025 22:43:59 Europe/Berlin] PHP Warning:  require_once(C:\xampp\htdocs\php-blood-donation-system\app\controllers/../../views/layouts/ClientLayout/ClientLayout.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\php-blood-donation-system\app\controllers\HomeController.php on line 44
+[14-Apr-2025 22:43:59 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\xampp\htdocs\php-blood-donation-system\app\controllers/../../views/layouts/ClientLayout/ClientLayout.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\php-blood-donation-system\app\controllers\HomeController.php:44
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\public\index.php(67): App\Controllers\HomeController->index()
+#1 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\app\controllers\HomeController.php on line 44
+[14-Apr-2025 22:44:54 Europe/Berlin] Blood Inventory Query: SELECT 
+                        blood_type,
+                        (COALESCE(SUM(quantity), 0) / CASE 
+                            WHEN blood_type = 'O' THEN 100  -- O is universal donor, so need more
+                            WHEN blood_type = 'A' THEN 80
+                            WHEN blood_type = 'B' THEN 70
+                            WHEN blood_type = 'AB' THEN 50  -- AB is universal recipient, so need less
+                            ELSE 100
+                        END) * 100 as level_percentage
+                    FROM blood_inventory
+                    WHERE expiration_date > NOW()
+                    GROUP BY blood_type
+[14-Apr-2025 22:44:54 Europe/Berlin] Blood Inventory Results: [{"blood_type":"A-","level_percentage":"250.0000"},{"blood_type":"B+","level_percentage":"999.0000"}]
+[14-Apr-2025 22:44:54 Europe/Berlin] Blood Inventory Levels: {"A":0,"B":0,"O":0,"AB":0}
+[14-Apr-2025 22:44:54 Europe/Berlin] PHP Warning:  require(C:\xampp\htdocs\php-blood-donation-system\app\controllers/../../views/home/index.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\php-blood-donation-system\app\controllers\HomeController.php on line 42
+[14-Apr-2025 22:44:54 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\xampp\htdocs\php-blood-donation-system\app\controllers/../../views/home/index.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\php-blood-donation-system\app\controllers\HomeController.php:42
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\app\views\layouts\ClientLayout\ClientLayout.php(339): App\Controllers\HomeController->App\Controllers\{closure}()
+#1 C:\xampp\htdocs\php-blood-donation-system\app\controllers\HomeController.php(44): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\php-blood-donation-system\public\index.php(67): App\Controllers\HomeController->index()
+#3 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\app\controllers\HomeController.php on line 42
+[14-Apr-2025 22:45:43 Europe/Berlin] Blood Inventory Query: SELECT 
+                        blood_type,
+                        (COALESCE(SUM(quantity), 0) / CASE 
+                            WHEN blood_type = 'O' THEN 100  -- O is universal donor, so need more
+                            WHEN blood_type = 'A' THEN 80
+                            WHEN blood_type = 'B' THEN 70
+                            WHEN blood_type = 'AB' THEN 50  -- AB is universal recipient, so need less
+                            ELSE 100
+                        END) * 100 as level_percentage
+                    FROM blood_inventory
+                    WHERE expiration_date > NOW()
+                    GROUP BY blood_type
+[14-Apr-2025 22:45:43 Europe/Berlin] Blood Inventory Results: [{"blood_type":"A-","level_percentage":"250.0000"},{"blood_type":"B+","level_percentage":"999.0000"}]
+[14-Apr-2025 22:45:43 Europe/Berlin] Blood Inventory Levels: {"A":0,"B":0,"O":0,"AB":0}
+[14-Apr-2025 22:45:43 Europe/Berlin] PHP Warning:  Undefined array key "location" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 344
+[14-Apr-2025 22:45:43 Europe/Berlin] PHP Warning:  Undefined array key "description" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 348
+[14-Apr-2025 22:45:43 Europe/Berlin] PHP Warning:  Undefined array key "description" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 348
+[14-Apr-2025 22:45:43 Europe/Berlin] PHP Warning:  Undefined array key "location" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 344
+[14-Apr-2025 22:45:43 Europe/Berlin] PHP Warning:  Undefined array key "description" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 348
+[14-Apr-2025 22:45:43 Europe/Berlin] PHP Warning:  Undefined array key "description" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 348
+[14-Apr-2025 22:45:43 Europe/Berlin] PHP Warning:  Undefined array key "question" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 564
+[14-Apr-2025 22:45:43 Europe/Berlin] PHP Warning:  Undefined array key "answer" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 574
+[14-Apr-2025 22:45:43 Europe/Berlin] PHP Warning:  Undefined array key "question" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 564
+[14-Apr-2025 22:45:43 Europe/Berlin] PHP Warning:  Undefined array key "answer" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 574
+[14-Apr-2025 22:45:43 Europe/Berlin] PHP Warning:  Undefined array key "question" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 564
+[14-Apr-2025 22:45:43 Europe/Berlin] PHP Warning:  Undefined array key "answer" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 574
+[14-Apr-2025 22:45:43 Europe/Berlin] PHP Warning:  Undefined array key "question" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 564
+[14-Apr-2025 22:45:43 Europe/Berlin] PHP Warning:  Undefined array key "answer" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 574
+[14-Apr-2025 22:45:43 Europe/Berlin] PHP Warning:  Undefined array key "question" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 564
+[14-Apr-2025 22:45:43 Europe/Berlin] PHP Warning:  Undefined array key "answer" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 574
+[14-Apr-2025 22:46:27 Europe/Berlin] Blood Inventory Query: SELECT 
+                        blood_type,
+                        (COALESCE(SUM(quantity), 0) / CASE 
+                            WHEN blood_type = 'O' THEN 100  -- O is universal donor, so need more
+                            WHEN blood_type = 'A' THEN 80
+                            WHEN blood_type = 'B' THEN 70
+                            WHEN blood_type = 'AB' THEN 50  -- AB is universal recipient, so need less
+                            ELSE 100
+                        END) * 100 as level_percentage
+                    FROM blood_inventory
+                    WHERE expiration_date > NOW()
+                    GROUP BY blood_type
+[14-Apr-2025 22:46:27 Europe/Berlin] Blood Inventory Results: [{"blood_type":"A-","level_percentage":"250.0000"},{"blood_type":"B+","level_percentage":"999.0000"}]
+[14-Apr-2025 22:46:27 Europe/Berlin] Blood Inventory Levels: {"A":0,"B":0,"O":0,"AB":0}
+[14-Apr-2025 22:46:27 Europe/Berlin] PHP Warning:  Undefined array key "location" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 344
+[14-Apr-2025 22:46:27 Europe/Berlin] PHP Warning:  Undefined array key "description" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 348
+[14-Apr-2025 22:46:27 Europe/Berlin] PHP Warning:  Undefined array key "description" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 348
+[14-Apr-2025 22:46:27 Europe/Berlin] PHP Warning:  Undefined array key "location" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 344
+[14-Apr-2025 22:46:27 Europe/Berlin] PHP Warning:  Undefined array key "description" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 348
+[14-Apr-2025 22:46:27 Europe/Berlin] PHP Warning:  Undefined array key "description" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 348
+[14-Apr-2025 22:46:27 Europe/Berlin] PHP Warning:  Undefined array key "question" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 564
+[14-Apr-2025 22:46:27 Europe/Berlin] PHP Warning:  Undefined array key "answer" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 574
+[14-Apr-2025 22:46:27 Europe/Berlin] PHP Warning:  Undefined array key "question" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 564
+[14-Apr-2025 22:46:27 Europe/Berlin] PHP Warning:  Undefined array key "answer" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 574
+[14-Apr-2025 22:46:27 Europe/Berlin] PHP Warning:  Undefined array key "question" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 564
+[14-Apr-2025 22:46:27 Europe/Berlin] PHP Warning:  Undefined array key "answer" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 574
+[14-Apr-2025 22:46:27 Europe/Berlin] PHP Warning:  Undefined array key "question" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 564
+[14-Apr-2025 22:46:27 Europe/Berlin] PHP Warning:  Undefined array key "answer" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 574
+[14-Apr-2025 22:46:27 Europe/Berlin] PHP Warning:  Undefined array key "question" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 564
+[14-Apr-2025 22:46:27 Europe/Berlin] PHP Warning:  Undefined array key "answer" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 574
+[14-Apr-2025 22:46:35 Europe/Berlin] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function App\Controllers\NewsController::view(), 0 passed in C:\xampp\htdocs\php-blood-donation-system\public\index.php on line 223 and exactly 1 expected in C:\xampp\htdocs\php-blood-donation-system\app\controllers\NewsController.php:188
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\public\index.php(223): App\Controllers\NewsController->view()
+#1 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\app\controllers\NewsController.php on line 188
+[14-Apr-2025 22:47:14 Europe/Berlin] Blood Inventory Query: SELECT 
+                        blood_type,
+                        (COALESCE(SUM(quantity), 0) / CASE 
+                            WHEN blood_type = 'O' THEN 100  -- O is universal donor, so need more
+                            WHEN blood_type = 'A' THEN 80
+                            WHEN blood_type = 'B' THEN 70
+                            WHEN blood_type = 'AB' THEN 50  -- AB is universal recipient, so need less
+                            ELSE 100
+                        END) * 100 as level_percentage
+                    FROM blood_inventory
+                    WHERE expiration_date > NOW()
+                    GROUP BY blood_type
+[14-Apr-2025 22:47:14 Europe/Berlin] Blood Inventory Results: [{"blood_type":"A-","level_percentage":"250.0000"},{"blood_type":"B+","level_percentage":"999.0000"}]
+[14-Apr-2025 22:47:14 Europe/Berlin] Blood Inventory Levels: {"A":0,"B":0,"O":0,"AB":0}
+[14-Apr-2025 22:47:14 Europe/Berlin] PHP Warning:  Undefined array key "location" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 344
+[14-Apr-2025 22:47:14 Europe/Berlin] PHP Warning:  Undefined array key "description" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 348
+[14-Apr-2025 22:47:14 Europe/Berlin] PHP Warning:  Undefined array key "description" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 348
+[14-Apr-2025 22:47:14 Europe/Berlin] PHP Warning:  Undefined array key "location" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 344
+[14-Apr-2025 22:47:14 Europe/Berlin] PHP Warning:  Undefined array key "description" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 348
+[14-Apr-2025 22:47:14 Europe/Berlin] PHP Warning:  Undefined array key "description" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 348
+[14-Apr-2025 22:47:14 Europe/Berlin] PHP Warning:  Undefined array key "question" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 564
+[14-Apr-2025 22:47:14 Europe/Berlin] PHP Warning:  Undefined array key "answer" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 574
+[14-Apr-2025 22:47:14 Europe/Berlin] PHP Warning:  Undefined array key "question" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 564
+[14-Apr-2025 22:47:14 Europe/Berlin] PHP Warning:  Undefined array key "answer" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 574
+[14-Apr-2025 22:47:14 Europe/Berlin] PHP Warning:  Undefined array key "question" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 564
+[14-Apr-2025 22:47:14 Europe/Berlin] PHP Warning:  Undefined array key "answer" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 574
+[14-Apr-2025 22:47:14 Europe/Berlin] PHP Warning:  Undefined array key "question" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 564
+[14-Apr-2025 22:47:14 Europe/Berlin] PHP Warning:  Undefined array key "answer" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 574
+[14-Apr-2025 22:47:14 Europe/Berlin] PHP Warning:  Undefined array key "question" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 564
+[14-Apr-2025 22:47:14 Europe/Berlin] PHP Warning:  Undefined array key "answer" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 574
+[14-Apr-2025 22:49:18 Europe/Berlin] PHP Warning:  Undefined array key "location" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 344
+[14-Apr-2025 22:49:18 Europe/Berlin] PHP Warning:  Undefined array key "description" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 348
+[14-Apr-2025 22:49:18 Europe/Berlin] PHP Warning:  Undefined array key "description" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 348
+[14-Apr-2025 22:49:18 Europe/Berlin] PHP Warning:  Undefined array key "location" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 344
+[14-Apr-2025 22:49:18 Europe/Berlin] PHP Warning:  Undefined array key "description" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 348
+[14-Apr-2025 22:49:18 Europe/Berlin] PHP Warning:  Undefined array key "description" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 348
+[14-Apr-2025 22:49:18 Europe/Berlin] PHP Warning:  Undefined array key "question" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 564
+[14-Apr-2025 22:49:18 Europe/Berlin] PHP Warning:  Undefined array key "answer" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 574
+[14-Apr-2025 22:49:18 Europe/Berlin] PHP Warning:  Undefined array key "question" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 564
+[14-Apr-2025 22:49:18 Europe/Berlin] PHP Warning:  Undefined array key "answer" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 574
+[14-Apr-2025 22:49:18 Europe/Berlin] PHP Warning:  Undefined array key "question" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 564
+[14-Apr-2025 22:49:18 Europe/Berlin] PHP Warning:  Undefined array key "answer" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 574
+[14-Apr-2025 22:49:18 Europe/Berlin] PHP Warning:  Undefined array key "question" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 564
+[14-Apr-2025 22:49:18 Europe/Berlin] PHP Warning:  Undefined array key "answer" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 574
+[14-Apr-2025 22:49:18 Europe/Berlin] PHP Warning:  Undefined array key "question" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 564
+[14-Apr-2025 22:49:18 Europe/Berlin] PHP Warning:  Undefined array key "answer" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 574
+[14-Apr-2025 22:52:52 Europe/Berlin] PHP Warning:  Undefined array key "location" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 273
+[14-Apr-2025 22:52:52 Europe/Berlin] PHP Warning:  Undefined array key "description" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 277
+[14-Apr-2025 22:52:52 Europe/Berlin] PHP Warning:  Undefined array key "description" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 277
+[14-Apr-2025 22:52:52 Europe/Berlin] PHP Warning:  Undefined array key "location" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 273
+[14-Apr-2025 22:52:52 Europe/Berlin] PHP Warning:  Undefined array key "description" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 277
+[14-Apr-2025 22:52:52 Europe/Berlin] PHP Warning:  Undefined array key "description" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 277
+[14-Apr-2025 22:52:52 Europe/Berlin] PHP Warning:  Undefined array key "question" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 493
+[14-Apr-2025 22:52:52 Europe/Berlin] PHP Warning:  Undefined array key "answer" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 503
+[14-Apr-2025 22:52:52 Europe/Berlin] PHP Warning:  Undefined array key "question" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 493
+[14-Apr-2025 22:52:52 Europe/Berlin] PHP Warning:  Undefined array key "answer" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 503
+[14-Apr-2025 22:52:52 Europe/Berlin] PHP Warning:  Undefined array key "question" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 493
+[14-Apr-2025 22:52:52 Europe/Berlin] PHP Warning:  Undefined array key "answer" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 503
+[14-Apr-2025 22:52:52 Europe/Berlin] PHP Warning:  Undefined array key "question" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 493
+[14-Apr-2025 22:52:52 Europe/Berlin] PHP Warning:  Undefined array key "answer" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 503
+[14-Apr-2025 22:52:52 Europe/Berlin] PHP Warning:  Undefined array key "question" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 493
+[14-Apr-2025 22:52:52 Europe/Berlin] PHP Warning:  Undefined array key "answer" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 503
+[14-Apr-2025 22:53:04 Europe/Berlin] PHP Warning:  Undefined array key "location" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 273
+[14-Apr-2025 22:53:04 Europe/Berlin] PHP Warning:  Undefined array key "description" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 277
+[14-Apr-2025 22:53:04 Europe/Berlin] PHP Warning:  Undefined array key "description" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 277
+[14-Apr-2025 22:53:04 Europe/Berlin] PHP Warning:  Undefined array key "location" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 273
+[14-Apr-2025 22:53:04 Europe/Berlin] PHP Warning:  Undefined array key "description" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 277
+[14-Apr-2025 22:53:04 Europe/Berlin] PHP Warning:  Undefined array key "description" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 277
+[14-Apr-2025 22:53:04 Europe/Berlin] PHP Warning:  Undefined array key "question" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 493
+[14-Apr-2025 22:53:04 Europe/Berlin] PHP Warning:  Undefined array key "answer" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 503
+[14-Apr-2025 22:53:04 Europe/Berlin] PHP Warning:  Undefined array key "question" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 493
+[14-Apr-2025 22:53:04 Europe/Berlin] PHP Warning:  Undefined array key "answer" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 503
+[14-Apr-2025 22:53:04 Europe/Berlin] PHP Warning:  Undefined array key "question" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 493
+[14-Apr-2025 22:53:04 Europe/Berlin] PHP Warning:  Undefined array key "answer" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 503
+[14-Apr-2025 22:53:04 Europe/Berlin] PHP Warning:  Undefined array key "question" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 493
+[14-Apr-2025 22:53:04 Europe/Berlin] PHP Warning:  Undefined array key "answer" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 503
+[14-Apr-2025 22:53:04 Europe/Berlin] PHP Warning:  Undefined array key "question" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 493
+[14-Apr-2025 22:53:04 Europe/Berlin] PHP Warning:  Undefined array key "answer" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 503
+[14-Apr-2025 22:55:58 Europe/Berlin] PHP Warning:  Undefined array key "location" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 273
+[14-Apr-2025 22:55:58 Europe/Berlin] PHP Warning:  Undefined array key "description" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 277
+[14-Apr-2025 22:55:58 Europe/Berlin] PHP Warning:  Undefined array key "description" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 277
+[14-Apr-2025 22:55:58 Europe/Berlin] PHP Warning:  Undefined array key "location" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 273
+[14-Apr-2025 22:55:58 Europe/Berlin] PHP Warning:  Undefined array key "description" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 277
+[14-Apr-2025 22:55:58 Europe/Berlin] PHP Warning:  Undefined array key "description" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 277
+[14-Apr-2025 22:55:58 Europe/Berlin] PHP Warning:  Undefined array key "question" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 493
+[14-Apr-2025 22:55:58 Europe/Berlin] PHP Warning:  Undefined array key "answer" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 503
+[14-Apr-2025 22:55:58 Europe/Berlin] PHP Warning:  Undefined array key "question" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 493
+[14-Apr-2025 22:55:58 Europe/Berlin] PHP Warning:  Undefined array key "answer" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 503
+[14-Apr-2025 22:55:58 Europe/Berlin] PHP Warning:  Undefined array key "question" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 493
+[14-Apr-2025 22:55:58 Europe/Berlin] PHP Warning:  Undefined array key "answer" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 503
+[14-Apr-2025 22:55:58 Europe/Berlin] PHP Warning:  Undefined array key "question" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 493
+[14-Apr-2025 22:55:58 Europe/Berlin] PHP Warning:  Undefined array key "answer" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 503
+[14-Apr-2025 22:55:58 Europe/Berlin] PHP Warning:  Undefined array key "question" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 493
+[14-Apr-2025 22:55:58 Europe/Berlin] PHP Warning:  Undefined array key "answer" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 503
+[14-Apr-2025 22:57:57 Europe/Berlin] HealthcheckController@adminIndex: Attempting to fetch healthchecks
+[14-Apr-2025 22:57:57 Europe/Berlin] Database connection test successful
+[14-Apr-2025 22:57:57 Europe/Berlin] Successfully loaded 0 healthchecks with comprehensive data
+[14-Apr-2025 22:57:57 Europe/Berlin] Array
+(
+)
+
+[14-Apr-2025 22:57:59 Europe/Berlin] HealthcheckController@adminCreate: Loading appointments
+[14-Apr-2025 22:57:59 Europe/Berlin] Successfully loaded 0 appointments for health check creation
+[14-Apr-2025 22:57:59 Europe/Berlin] Actually loaded appointments: 2
+[14-Apr-2025 22:57:59 Europe/Berlin] appointments get from controller: []
+[14-Apr-2025 22:57:59 Europe/Berlin] previousHealthData get from controller: []
+[14-Apr-2025 22:57:59 Europe/Berlin] appointments (View): []
+[14-Apr-2025 22:57:59 Europe/Berlin] previousHealthData (View): []
+[14-Apr-2025 22:59:06 Europe/Berlin] PHP Warning:  Undefined array key "description" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 277
+[14-Apr-2025 22:59:06 Europe/Berlin] PHP Warning:  Undefined array key "description" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 277
+[14-Apr-2025 22:59:06 Europe/Berlin] PHP Warning:  Undefined array key "description" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 277
+[14-Apr-2025 22:59:06 Europe/Berlin] PHP Warning:  Undefined array key "description" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 277
+[14-Apr-2025 22:59:06 Europe/Berlin] PHP Warning:  Undefined array key "question" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 493
+[14-Apr-2025 22:59:06 Europe/Berlin] PHP Warning:  Undefined array key "answer" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 503
+[14-Apr-2025 22:59:06 Europe/Berlin] PHP Warning:  Undefined array key "question" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 493
+[14-Apr-2025 22:59:06 Europe/Berlin] PHP Warning:  Undefined array key "answer" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 503
+[14-Apr-2025 22:59:06 Europe/Berlin] PHP Warning:  Undefined array key "question" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 493
+[14-Apr-2025 22:59:06 Europe/Berlin] PHP Warning:  Undefined array key "answer" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 503
+[14-Apr-2025 22:59:06 Europe/Berlin] PHP Warning:  Undefined array key "question" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 493
+[14-Apr-2025 22:59:06 Europe/Berlin] PHP Warning:  Undefined array key "answer" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 503
+[14-Apr-2025 22:59:06 Europe/Berlin] PHP Warning:  Undefined array key "question" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 493
+[14-Apr-2025 22:59:06 Europe/Berlin] PHP Warning:  Undefined array key "answer" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 503
+[14-Apr-2025 23:00:46 Europe/Berlin] PHP Warning:  Undefined array key "description" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 277
+[14-Apr-2025 23:00:46 Europe/Berlin] PHP Warning:  Undefined array key "description" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 277
+[14-Apr-2025 23:00:46 Europe/Berlin] PHP Warning:  Undefined array key "description" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 277
+[14-Apr-2025 23:00:46 Europe/Berlin] PHP Warning:  Undefined array key "description" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 277
+[14-Apr-2025 23:00:46 Europe/Berlin] PHP Warning:  Undefined array key "question" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 493
+[14-Apr-2025 23:00:46 Europe/Berlin] PHP Warning:  Undefined array key "answer" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 503
+[14-Apr-2025 23:00:46 Europe/Berlin] PHP Warning:  Undefined array key "question" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 493
+[14-Apr-2025 23:00:46 Europe/Berlin] PHP Warning:  Undefined array key "answer" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 503
+[14-Apr-2025 23:00:46 Europe/Berlin] PHP Warning:  Undefined array key "question" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 493
+[14-Apr-2025 23:00:46 Europe/Berlin] PHP Warning:  Undefined array key "answer" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 503
+[14-Apr-2025 23:00:46 Europe/Berlin] PHP Warning:  Undefined array key "question" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 493
+[14-Apr-2025 23:00:46 Europe/Berlin] PHP Warning:  Undefined array key "answer" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 503
+[14-Apr-2025 23:00:46 Europe/Berlin] PHP Warning:  Undefined array key "question" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 493
+[14-Apr-2025 23:00:46 Europe/Berlin] PHP Warning:  Undefined array key "answer" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 503
+[14-Apr-2025 23:00:51 Europe/Berlin] PHP Warning:  Undefined array key "description" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 277
+[14-Apr-2025 23:00:51 Europe/Berlin] PHP Warning:  Undefined array key "description" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 277
+[14-Apr-2025 23:00:51 Europe/Berlin] PHP Warning:  Undefined array key "description" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 277
+[14-Apr-2025 23:00:51 Europe/Berlin] PHP Warning:  Undefined array key "description" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 277
+[14-Apr-2025 23:00:51 Europe/Berlin] PHP Warning:  Undefined array key "question" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 493
+[14-Apr-2025 23:00:51 Europe/Berlin] PHP Warning:  Undefined array key "answer" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 503
+[14-Apr-2025 23:00:51 Europe/Berlin] PHP Warning:  Undefined array key "question" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 493
+[14-Apr-2025 23:00:51 Europe/Berlin] PHP Warning:  Undefined array key "answer" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 503
+[14-Apr-2025 23:00:51 Europe/Berlin] PHP Warning:  Undefined array key "question" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 493
+[14-Apr-2025 23:00:51 Europe/Berlin] PHP Warning:  Undefined array key "answer" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 503
+[14-Apr-2025 23:00:51 Europe/Berlin] PHP Warning:  Undefined array key "question" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 493
+[14-Apr-2025 23:00:51 Europe/Berlin] PHP Warning:  Undefined array key "answer" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 503
+[14-Apr-2025 23:00:51 Europe/Berlin] PHP Warning:  Undefined array key "question" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 493
+[14-Apr-2025 23:00:51 Europe/Berlin] PHP Warning:  Undefined array key "answer" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 503
+[14-Apr-2025 23:01:16 Europe/Berlin] Event data: {"id":24,"current_registrations":0,"event_date":"2025-06-13","event_end_time":"19:00:00.000000","event_start_time":"07:00:00.000000","max_registrations":300,"name":"Hutech Khu E - Gi\u1ecdt m\u00e1u s\u1ebb chia","status":1,"donation_unit_id":1,"donation_unit":{"id":1,"email":"hutech@hutech.com","location":"Khu C\u00f4ng ngh\u1ec7 cao TP.HCM (SHTP), Xa l\u1ed9 H\u00e0 N\u1ed9i, P. Hi\u1ec7p Ph\u00fa, TP. Th\u1ee7 \u0110\u1ee9c, TP.HCM","name":"Hutech Khu E","phone":"0981843423","unit_photo_url":"https:\/\/hirot-donation-images.s3.amazonaws.com\/logo-hutech-short.png"}}
+[14-Apr-2025 23:02:42 Europe/Berlin] PHP Warning:  Undefined array key "description" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 277
+[14-Apr-2025 23:02:42 Europe/Berlin] PHP Warning:  Undefined array key "description" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 277
+[14-Apr-2025 23:02:42 Europe/Berlin] PHP Warning:  Undefined array key "description" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 277
+[14-Apr-2025 23:02:42 Europe/Berlin] PHP Warning:  Undefined array key "description" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 277
+[14-Apr-2025 23:02:42 Europe/Berlin] PHP Warning:  Undefined array key "question" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 493
+[14-Apr-2025 23:02:42 Europe/Berlin] PHP Warning:  Undefined array key "answer" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 503
+[14-Apr-2025 23:02:42 Europe/Berlin] PHP Warning:  Undefined array key "question" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 493
+[14-Apr-2025 23:02:42 Europe/Berlin] PHP Warning:  Undefined array key "answer" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 503
+[14-Apr-2025 23:02:42 Europe/Berlin] PHP Warning:  Undefined array key "question" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 493
+[14-Apr-2025 23:02:42 Europe/Berlin] PHP Warning:  Undefined array key "answer" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 503
+[14-Apr-2025 23:02:42 Europe/Berlin] PHP Warning:  Undefined array key "question" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 493
+[14-Apr-2025 23:02:42 Europe/Berlin] PHP Warning:  Undefined array key "answer" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 503
+[14-Apr-2025 23:02:42 Europe/Berlin] PHP Warning:  Undefined array key "question" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 493
+[14-Apr-2025 23:02:42 Europe/Berlin] PHP Warning:  Undefined array key "answer" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 503
+[14-Apr-2025 23:02:48 Europe/Berlin] PHP Warning:  Undefined array key "description" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 277
+[14-Apr-2025 23:02:48 Europe/Berlin] PHP Warning:  Undefined array key "description" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 277
+[14-Apr-2025 23:02:48 Europe/Berlin] PHP Warning:  Undefined array key "description" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 277
+[14-Apr-2025 23:02:48 Europe/Berlin] PHP Warning:  Undefined array key "description" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 277
+[14-Apr-2025 23:02:48 Europe/Berlin] PHP Warning:  Undefined array key "question" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 493
+[14-Apr-2025 23:02:48 Europe/Berlin] PHP Warning:  Undefined array key "answer" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 503
+[14-Apr-2025 23:02:48 Europe/Berlin] PHP Warning:  Undefined array key "question" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 493
+[14-Apr-2025 23:02:48 Europe/Berlin] PHP Warning:  Undefined array key "answer" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 503
+[14-Apr-2025 23:02:48 Europe/Berlin] PHP Warning:  Undefined array key "question" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 493
+[14-Apr-2025 23:02:48 Europe/Berlin] PHP Warning:  Undefined array key "answer" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 503
+[14-Apr-2025 23:02:48 Europe/Berlin] PHP Warning:  Undefined array key "question" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 493
+[14-Apr-2025 23:02:48 Europe/Berlin] PHP Warning:  Undefined array key "answer" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 503
+[14-Apr-2025 23:02:48 Europe/Berlin] PHP Warning:  Undefined array key "question" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 493
+[14-Apr-2025 23:02:48 Europe/Berlin] PHP Warning:  Undefined array key "answer" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 503
+[14-Apr-2025 23:03:00 Europe/Berlin] PHP Warning:  Undefined array key "description" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 277
+[14-Apr-2025 23:03:00 Europe/Berlin] PHP Warning:  Undefined array key "description" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 277
+[14-Apr-2025 23:03:00 Europe/Berlin] PHP Warning:  Undefined array key "description" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 277
+[14-Apr-2025 23:03:00 Europe/Berlin] PHP Warning:  Undefined array key "description" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 277
+[14-Apr-2025 23:03:00 Europe/Berlin] PHP Warning:  Undefined array key "question" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 493
+[14-Apr-2025 23:03:00 Europe/Berlin] PHP Warning:  Undefined array key "answer" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 503
+[14-Apr-2025 23:03:00 Europe/Berlin] PHP Warning:  Undefined array key "question" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 493
+[14-Apr-2025 23:03:00 Europe/Berlin] PHP Warning:  Undefined array key "answer" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 503
+[14-Apr-2025 23:03:00 Europe/Berlin] PHP Warning:  Undefined array key "question" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 493
+[14-Apr-2025 23:03:00 Europe/Berlin] PHP Warning:  Undefined array key "answer" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 503
+[14-Apr-2025 23:03:00 Europe/Berlin] PHP Warning:  Undefined array key "question" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 493
+[14-Apr-2025 23:03:00 Europe/Berlin] PHP Warning:  Undefined array key "answer" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 503
+[14-Apr-2025 23:03:00 Europe/Berlin] PHP Warning:  Undefined array key "question" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 493
+[14-Apr-2025 23:03:00 Europe/Berlin] PHP Warning:  Undefined array key "answer" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 503
+[14-Apr-2025 23:03:41 Europe/Berlin] PHP Warning:  Undefined array key "description" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 277
+[14-Apr-2025 23:03:41 Europe/Berlin] PHP Warning:  Undefined array key "description" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 277
+[14-Apr-2025 23:03:41 Europe/Berlin] PHP Warning:  Undefined array key "description" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 277
+[14-Apr-2025 23:03:41 Europe/Berlin] PHP Warning:  Undefined array key "description" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 277
+[14-Apr-2025 23:03:41 Europe/Berlin] PHP Warning:  Undefined array key "question" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 493
+[14-Apr-2025 23:03:41 Europe/Berlin] PHP Warning:  Undefined array key "answer" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 503
+[14-Apr-2025 23:03:41 Europe/Berlin] PHP Warning:  Undefined array key "question" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 493
+[14-Apr-2025 23:03:41 Europe/Berlin] PHP Warning:  Undefined array key "answer" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 503
+[14-Apr-2025 23:03:41 Europe/Berlin] PHP Warning:  Undefined array key "question" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 493
+[14-Apr-2025 23:03:41 Europe/Berlin] PHP Warning:  Undefined array key "answer" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 503
+[14-Apr-2025 23:03:41 Europe/Berlin] PHP Warning:  Undefined array key "question" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 493
+[14-Apr-2025 23:03:41 Europe/Berlin] PHP Warning:  Undefined array key "answer" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 503
+[14-Apr-2025 23:03:41 Europe/Berlin] PHP Warning:  Undefined array key "question" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 493
+[14-Apr-2025 23:03:41 Europe/Berlin] PHP Warning:  Undefined array key "answer" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 503
+[14-Apr-2025 23:03:45 Europe/Berlin] Event data: {"id":23,"current_registrations":1,"event_date":"2025-04-16","event_end_time":"16:30:00.000000","event_start_time":"12:30:00.000000","max_registrations":101,"name":"Hi\u1ebfn m\u00e1u Hutech Khu AB  k\u1ec9 ni\u1ec7m 50 n\u0103m","status":1,"donation_unit_id":4,"donation_unit":{"id":4,"email":"hutech@hutech.edu.vn","location":"375A \u0110i\u1ec7n Bi\u00ean Ph\u1ee7","name":"Hutech Khu AB","phone":"0282248333","unit_photo_url":"https:\/\/hirot-donation-images.s3.amazonaws.com\/logo-hutech-short.png"}}
+[14-Apr-2025 23:03:50 Europe/Berlin] PHP Warning:  Undefined array key "description" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 277
+[14-Apr-2025 23:03:50 Europe/Berlin] PHP Warning:  Undefined array key "description" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 277
+[14-Apr-2025 23:03:50 Europe/Berlin] PHP Warning:  Undefined array key "description" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 277
+[14-Apr-2025 23:03:50 Europe/Berlin] PHP Warning:  Undefined array key "description" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 277
+[14-Apr-2025 23:03:50 Europe/Berlin] PHP Warning:  Undefined array key "question" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 493
+[14-Apr-2025 23:03:50 Europe/Berlin] PHP Warning:  Undefined array key "answer" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 503
+[14-Apr-2025 23:03:50 Europe/Berlin] PHP Warning:  Undefined array key "question" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 493
+[14-Apr-2025 23:03:50 Europe/Berlin] PHP Warning:  Undefined array key "answer" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 503
+[14-Apr-2025 23:03:50 Europe/Berlin] PHP Warning:  Undefined array key "question" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 493
+[14-Apr-2025 23:03:50 Europe/Berlin] PHP Warning:  Undefined array key "answer" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 503
+[14-Apr-2025 23:03:50 Europe/Berlin] PHP Warning:  Undefined array key "question" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 493
+[14-Apr-2025 23:03:50 Europe/Berlin] PHP Warning:  Undefined array key "answer" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 503
+[14-Apr-2025 23:03:50 Europe/Berlin] PHP Warning:  Undefined array key "question" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 493
+[14-Apr-2025 23:03:50 Europe/Berlin] PHP Warning:  Undefined array key "answer" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 503
+[14-Apr-2025 23:04:00 Europe/Berlin] PHP Warning:  Undefined array key "description" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 277
+[14-Apr-2025 23:04:00 Europe/Berlin] PHP Warning:  Undefined array key "description" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 277
+[14-Apr-2025 23:04:00 Europe/Berlin] PHP Warning:  Undefined array key "description" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 277
+[14-Apr-2025 23:04:00 Europe/Berlin] PHP Warning:  Undefined array key "description" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 277
+[14-Apr-2025 23:04:00 Europe/Berlin] PHP Warning:  Undefined array key "question" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 493
+[14-Apr-2025 23:04:00 Europe/Berlin] PHP Warning:  Undefined array key "answer" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 503
+[14-Apr-2025 23:04:00 Europe/Berlin] PHP Warning:  Undefined array key "question" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 493
+[14-Apr-2025 23:04:00 Europe/Berlin] PHP Warning:  Undefined array key "answer" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 503
+[14-Apr-2025 23:04:00 Europe/Berlin] PHP Warning:  Undefined array key "question" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 493
+[14-Apr-2025 23:04:00 Europe/Berlin] PHP Warning:  Undefined array key "answer" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 503
+[14-Apr-2025 23:04:00 Europe/Berlin] PHP Warning:  Undefined array key "question" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 493
+[14-Apr-2025 23:04:00 Europe/Berlin] PHP Warning:  Undefined array key "answer" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 503
+[14-Apr-2025 23:04:00 Europe/Berlin] PHP Warning:  Undefined array key "question" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 493
+[14-Apr-2025 23:04:00 Europe/Berlin] PHP Warning:  Undefined array key "answer" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 503
+[14-Apr-2025 23:04:06 Europe/Berlin] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function App\Controllers\NewsController::view(), 0 passed in C:\xampp\htdocs\php-blood-donation-system\public\index.php on line 223 and exactly 1 expected in C:\xampp\htdocs\php-blood-donation-system\app\controllers\NewsController.php:188
+Stack trace:
+#0 C:\xampp\htdocs\php-blood-donation-system\public\index.php(223): App\Controllers\NewsController->view()
+#1 {main}
+  thrown in C:\xampp\htdocs\php-blood-donation-system\app\controllers\NewsController.php on line 188
+[14-Apr-2025 23:04:08 Europe/Berlin] PHP Warning:  Undefined array key "description" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 277
+[14-Apr-2025 23:04:08 Europe/Berlin] PHP Warning:  Undefined array key "description" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 277
+[14-Apr-2025 23:04:08 Europe/Berlin] PHP Warning:  Undefined array key "description" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 277
+[14-Apr-2025 23:04:08 Europe/Berlin] PHP Warning:  Undefined array key "description" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 277
+[14-Apr-2025 23:04:08 Europe/Berlin] PHP Warning:  Undefined array key "question" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 493
+[14-Apr-2025 23:04:08 Europe/Berlin] PHP Warning:  Undefined array key "answer" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 503
+[14-Apr-2025 23:04:08 Europe/Berlin] PHP Warning:  Undefined array key "question" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 493
+[14-Apr-2025 23:04:08 Europe/Berlin] PHP Warning:  Undefined array key "answer" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 503
+[14-Apr-2025 23:04:08 Europe/Berlin] PHP Warning:  Undefined array key "question" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 493
+[14-Apr-2025 23:04:08 Europe/Berlin] PHP Warning:  Undefined array key "answer" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 503
+[14-Apr-2025 23:04:08 Europe/Berlin] PHP Warning:  Undefined array key "question" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 493
+[14-Apr-2025 23:04:08 Europe/Berlin] PHP Warning:  Undefined array key "answer" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 503
+[14-Apr-2025 23:04:08 Europe/Berlin] PHP Warning:  Undefined array key "question" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 493
+[14-Apr-2025 23:04:08 Europe/Berlin] PHP Warning:  Undefined array key "answer" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 503
+[14-Apr-2025 23:05:20 Europe/Berlin] PHP Warning:  Undefined array key "description" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 277
+[14-Apr-2025 23:05:20 Europe/Berlin] PHP Warning:  Undefined array key "description" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 277
+[14-Apr-2025 23:05:20 Europe/Berlin] PHP Warning:  Undefined array key "description" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 277
+[14-Apr-2025 23:05:20 Europe/Berlin] PHP Warning:  Undefined array key "description" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 277
+[14-Apr-2025 23:05:20 Europe/Berlin] PHP Warning:  Undefined array key "question" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 493
+[14-Apr-2025 23:05:20 Europe/Berlin] PHP Warning:  Undefined array key "answer" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 503
+[14-Apr-2025 23:05:20 Europe/Berlin] PHP Warning:  Undefined array key "question" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 493
+[14-Apr-2025 23:05:20 Europe/Berlin] PHP Warning:  Undefined array key "answer" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 503
+[14-Apr-2025 23:05:20 Europe/Berlin] PHP Warning:  Undefined array key "question" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 493
+[14-Apr-2025 23:05:20 Europe/Berlin] PHP Warning:  Undefined array key "answer" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 503
+[14-Apr-2025 23:05:20 Europe/Berlin] PHP Warning:  Undefined array key "question" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 493
+[14-Apr-2025 23:05:20 Europe/Berlin] PHP Warning:  Undefined array key "answer" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 503
+[14-Apr-2025 23:05:20 Europe/Berlin] PHP Warning:  Undefined array key "question" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 493
+[14-Apr-2025 23:05:20 Europe/Berlin] PHP Warning:  Undefined array key "answer" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 503
+[14-Apr-2025 23:05:23 Europe/Berlin] PHP Warning:  Undefined array key "description" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 277
+[14-Apr-2025 23:05:23 Europe/Berlin] PHP Warning:  Undefined array key "description" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 277
+[14-Apr-2025 23:05:23 Europe/Berlin] PHP Warning:  Undefined array key "description" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 277
+[14-Apr-2025 23:05:23 Europe/Berlin] PHP Warning:  Undefined array key "description" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 277
+[14-Apr-2025 23:05:23 Europe/Berlin] PHP Warning:  Undefined array key "question" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 493
+[14-Apr-2025 23:05:23 Europe/Berlin] PHP Warning:  Undefined array key "answer" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 503
+[14-Apr-2025 23:05:23 Europe/Berlin] PHP Warning:  Undefined array key "question" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 493
+[14-Apr-2025 23:05:23 Europe/Berlin] PHP Warning:  Undefined array key "answer" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 503
+[14-Apr-2025 23:05:23 Europe/Berlin] PHP Warning:  Undefined array key "question" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 493
+[14-Apr-2025 23:05:23 Europe/Berlin] PHP Warning:  Undefined array key "answer" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 503
+[14-Apr-2025 23:05:23 Europe/Berlin] PHP Warning:  Undefined array key "question" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 493
+[14-Apr-2025 23:05:23 Europe/Berlin] PHP Warning:  Undefined array key "answer" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 503
+[14-Apr-2025 23:05:23 Europe/Berlin] PHP Warning:  Undefined array key "question" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 493
+[14-Apr-2025 23:05:23 Europe/Berlin] PHP Warning:  Undefined array key "answer" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 503
+[14-Apr-2025 23:05:25 Europe/Berlin] PHP Warning:  Undefined array key "description" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 277
+[14-Apr-2025 23:05:25 Europe/Berlin] PHP Warning:  Undefined array key "description" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 277
+[14-Apr-2025 23:05:25 Europe/Berlin] PHP Warning:  Undefined array key "description" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 277
+[14-Apr-2025 23:05:25 Europe/Berlin] PHP Warning:  Undefined array key "description" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 277
+[14-Apr-2025 23:05:25 Europe/Berlin] PHP Warning:  Undefined array key "question" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 493
+[14-Apr-2025 23:05:25 Europe/Berlin] PHP Warning:  Undefined array key "answer" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 503
+[14-Apr-2025 23:05:25 Europe/Berlin] PHP Warning:  Undefined array key "question" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 493
+[14-Apr-2025 23:05:25 Europe/Berlin] PHP Warning:  Undefined array key "answer" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 503
+[14-Apr-2025 23:05:25 Europe/Berlin] PHP Warning:  Undefined array key "question" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 493
+[14-Apr-2025 23:05:25 Europe/Berlin] PHP Warning:  Undefined array key "answer" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 503
+[14-Apr-2025 23:05:25 Europe/Berlin] PHP Warning:  Undefined array key "question" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 493
+[14-Apr-2025 23:05:25 Europe/Berlin] PHP Warning:  Undefined array key "answer" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 503
+[14-Apr-2025 23:05:25 Europe/Berlin] PHP Warning:  Undefined array key "question" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 493
+[14-Apr-2025 23:05:25 Europe/Berlin] PHP Warning:  Undefined array key "answer" in C:\xampp\htdocs\php-blood-donation-system\app\views\home\index.php on line 503
+[14-Apr-2025 23:05:35 Europe/Berlin] Appointment ID from URL: 10
+[14-Apr-2025 23:05:35 Europe/Berlin] User ID from session: 2282401245
+[14-Apr-2025 23:07:21 Europe/Berlin] Appointment ID from URL: 10
+[14-Apr-2025 23:07:21 Europe/Berlin] User ID from session: 2282401245
+[14-Apr-2025 23:07:38 Europe/Berlin] Appointment ID from URL: 10
+[14-Apr-2025 23:07:38 Europe/Berlin] User ID from session: 2282401245
