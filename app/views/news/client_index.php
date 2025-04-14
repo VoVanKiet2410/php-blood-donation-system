@@ -44,7 +44,7 @@ $content = function () use ($news) {
                                         <?= mb_substr(strip_tags($item->content), 0, 120) . (mb_strlen(strip_tags($item->content)) > 120 ? '...' : '') ?>
                                     </p>
                                 </div>
-                                <a href="<?= BASE_URL ?>/public/index.php?controller=News&action=view&id=<?= $item->id ?>"
+                                <a href="<?= BASE_URL ?>/index.php?controller=News&action=view&id=<?= $item->id ?>"
                                     class="btn btn-sm btn-outline-danger mt-auto align-self-start">
                                     Đọc thêm <i class="fas fa-arrow-right ms-1"></i>
                                 </a>

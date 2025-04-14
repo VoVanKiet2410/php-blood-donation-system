@@ -54,12 +54,21 @@ use App\Controllers\PasswordResetController;
 use App\Controllers\BloodDonationHistoryController;
 use App\Controllers\NewsAdmin;
 use App\Controllers\FAQAdmin;
+use App\Controllers\HomeController;
 
 $controller = isset($_GET['controller']) ? $_GET['controller'] : 'Auth';
 $action = isset($_GET['action']) ? $_GET['action'] : 'login';
 
 try {
     switch ($controller) {
+        case 'Home':
+            $homeController = new HomeController($mysqli);
+            if (method_exists($homeController, $action)) {
+                $homeController->$action();
+            } else {
+                $homeController->index();
+            }
+            break;
         case 'Auth':
             $authController = new AuthController($mysqli);
             if (method_exists($authController, $action)) {
@@ -93,7 +102,9 @@ try {
                 'store' => 'clientStore',
                 'clientCreate' => 'clientCreate',
                 'clientStore' => 'clientStore',
-                'userAppointments' => 'userAppointments'
+                'userAppointments' => 'userAppointments',
+                'viewAppointment' => 'viewAppointment',
+                'cancelAppointment' => 'cancelAppointment',
             ];
 
             // Determine if user is admin based on session
@@ -107,7 +118,7 @@ try {
                     $methodToCall = $action;
                 } else {
                     // Redirect non-admin users to client page
-                    header('Location: ' . BASE_URL . '/index.php?controller=Event&action=clientIndex');
+                    header('Location: ' . BASE_URL . '/index.php?controller=Appointment&action=clientIndex');
                     exit;
                 }
             } else {

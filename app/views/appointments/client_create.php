@@ -73,7 +73,7 @@ if (!$user) {
             <!-- Appointment Form -->
             <div class="card shadow-sm">
                 <div class="card-body p-4">
-                    <form action="<?= BASE_URL ?>/public/index.php?controller=Appointment&action=store" method="POST"
+                    <form action="<?= BASE_URL ?>/index.php?controller=Appointment&action=clientStore" method="POST"
                         id="appointmentForm" class="needs-validation" novalidate>
                         <!-- Hidden event ID field -->
                         <input type="hidden" name="event_id" value="<?= $event['id'] ?? '' ?>">
@@ -151,7 +151,7 @@ if (!$user) {
 
                         <!-- Form actions -->
                         <div class="d-flex justify-content-between mt-4">
-                            <a href="<?= BASE_URL ?>/public/index.php?controller=Event&action=clientIndex"
+                            <a href="<?= BASE_URL ?>/index.php?controller=Event&action=clientIndex"
                                 class="btn btn-outline-secondary">
                                 <i class="fas fa-arrow-left me-2"></i>Quay lại
                             </a>

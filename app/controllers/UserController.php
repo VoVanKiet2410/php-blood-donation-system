@@ -18,13 +18,7 @@ class UserController
         $this->db = $db;
     }
 
-    public function index()
-    {
-        AuthController::authorize();
-        $this->dashboard();
-    }
-
-    public function dashboard()
+    public function profile()
     {
         AuthController::authorize();
 
@@ -40,13 +34,27 @@ class UserController
         $stmt->bind_param("s", $userCccd);
         $stmt->execute();
         $result = $stmt->get_result();
-        $user = $result->fetch_object();
+        $user = $result->fetch_assoc();
 
-        // Define the content path for the ClientLayout
-        $content = '../app/views/home/index.php';
+        // Set user data for the view
+        $data = ['user' => $user];
 
-        // Include the ClientLayout which will use the $content variable
-        require_once '../app/views/layouts/ClientLayout/ClientLayout.php';
+        // Determine which layout to use based on user role
+        if (isset($_SESSION['user_role']) && $_SESSION['user_role'] === 'ADMIN') {
+            // For admin users, make the data available to the view
+            $content = function ($data) {
+                extract($data);
+                require_once '../app/views/users/index_content.php';
+            };
+            require_once '../app/views/layouts/AdminLayout/AdminLayout.php';
+        } else {
+            // For regular users, use the client layout
+            $content = function () use ($data) {
+                extract($data);
+                require_once '../app/views/users/index_content.php';
+            };
+            require_once '../app/views/layouts/ClientLayout/ClientLayout.php';
+        }
     }
 
     public function adminDashboard()

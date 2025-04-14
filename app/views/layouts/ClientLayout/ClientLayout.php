@@ -1,4 +1,5 @@
 <?php
+// This file should not produce any output before header() calls
 // Start session if not already started
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
@@ -6,10 +7,12 @@ if (session_status() === PHP_SESSION_NONE) {
 
 // Define BASE_URL constant if not already defined
 if (!defined('BASE_URL')) {
-    define('BASE_URL', '/php-blood-donation-system');
+    define('BASE_URL', '/php-blood-donation-system/public');
 }
-?>
 
+// Output buffering to prevent "headers already sent" errors
+ob_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,8 +30,9 @@ if (!defined('BASE_URL')) {
         rel="stylesheet">
     <!-- AOS - Animate on scroll -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="icon" href="<?= BASE_URL ?>/images/logo-hutech-short.png" type="image/x-icon">
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="<?= BASE_URL ?>/public/css/styles.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>/css/styles.css">
 
     <style>
         :root {
@@ -301,6 +305,34 @@ if (!defined('BASE_URL')) {
     <?php include_once 'ClientHeader.php'; ?>
 
     <main>
+        <?php if (isset($_SESSION['error_message'])): ?>
+            <div class="container mt-3">
+                <div class="alert alert-danger alert-dismissible fade show" role="alert" id="error-message-alert">
+                    <div class="d-flex">
+                        <div class="me-3">
+                            <i class="fas fa-exclamation-circle fa-lg"></i>
+                        </div>
+                        <div>
+                            <?= $_SESSION['error_message'] ?>
+                        </div>
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            </div>
+            <script>
+                // Automatically hide error message after 3 seconds
+                setTimeout(function() {
+                    const errorAlert = document.getElementById('error-message-alert');
+                    if (errorAlert) {
+                        // Create a Bootstrap alert instance and hide it
+                        const bsAlert = new bootstrap.Alert(errorAlert);
+                        bsAlert.close();
+                    }
+                }, 3000);
+            </script>
+            <?php unset($_SESSION['error_message']); ?>
+        <?php endif; ?>
+
         <?php
         // Check if content is a closure/function and execute it, otherwise include it as a file
         if (isset($content) && is_callable($content)) {

@@ -17,46 +17,47 @@ $userName = $isAuthenticated ? $_SESSION['username'] : '';
 // Get current URL for active navigation
 $current_url = $_SERVER['REQUEST_URI'];
 
-function renderNavLink($route, $label, $current_url) {
+function renderNavLink($route, $label, $current_url)
+{
     // Improved active detection logic
     $isActive = false;
-    
+
     // Extract controller and action from the route
     $routeController = '';
     $routeAction = '';
-    
+
     if (strpos($route, 'controller=') !== false) {
         preg_match('/controller=([^&]+)/', $route, $controllerMatches);
         if (!empty($controllerMatches[1])) {
             $routeController = strtolower($controllerMatches[1]);
         }
-        
+
         preg_match('/action=([^&]+)/', $route, $actionMatches);
         if (!empty($actionMatches[1])) {
             $routeAction = strtolower($actionMatches[1]);
         }
     }
-    
+
     // Extract controller and action from current URL
     $currentController = '';
     $currentAction = '';
-    
+
     if (strpos($current_url, 'controller=') !== false) {
         preg_match('/controller=([^&]+)/', $current_url, $currentControllerMatches);
         if (!empty($currentControllerMatches[1])) {
             $currentController = strtolower($currentControllerMatches[1]);
         }
-        
+
         preg_match('/action=([^&]+)/', $current_url, $currentActionMatches);
         if (!empty($currentActionMatches[1])) {
             $currentAction = strtolower($currentActionMatches[1]);
         }
     }
-    
+
     // Check for exact match
     if ($route == $current_url) {
         $isActive = true;
-    } 
+    }
     // Check for home route special case
     else if ($route == HOME_ROUTE && ($current_url == BASE_URL || $current_url == BASE_URL . '/' || $current_url == BASE_URL . '/index.php')) {
         $isActive = true;
@@ -70,9 +71,9 @@ function renderNavLink($route, $label, $current_url) {
             $isActive = true;
         }
     }
-    
+
     $activeClass = $isActive ? 'active' : '';
-    
+
     echo "<li class='nav-item'><a class='nav-link {$activeClass}' href='{$route}'>{$label}</a></li>";
 }
 
@@ -92,37 +93,37 @@ $currentLang = 'vn'; // Default to Vietnamese
             </div>
             <div class="col-md-4 text-center logo-container">
                 <a href="<?= HOME_ROUTE ?>" class="d-block">
-                    <img src="<?= BASE_URL ?>/public/images/logo-hutech.png" alt="Logo" class="img-fluid">
+                    <img src="<?= BASE_URL ?>/images/logo-hutech.png" alt="Logo" class="img-fluid">
                 </a>
             </div>
             <div class="col-md-4 text-end">
                 <?php if ($isAuthenticated): ?>
-                <div class="user-dropdown dropdown">
-                    <button class="dropdown-toggle" type="button" id="userDropdown"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="fas fa-user-circle"></i>
-                        <?= htmlspecialchars($userName) ?>
-                    </button>
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-                        <li><a class="dropdown-item" href="<?= PROFILE_ROUTE ?>">
-                            <i class="fas fa-user me-2"></i>Thông tin cá nhân</a>
-                        </li>
-                        <li><a class="dropdown-item" href="<?= SETTINGS_ROUTE ?>">
-                            <i class="fas fa-cog me-2"></i>Thiết lập cá nhân</a>
-                        </li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="<?= LOGOUT_ROUTE ?>">
-                            <i class="fas fa-sign-out-alt me-2"></i>Đăng xuất tài khoản</a>
-                        </li>
-                    </ul>
-                </div>
+                    <div class="user-dropdown dropdown">
+                        <button class="dropdown-toggle" type="button" id="userDropdown" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <i class="fas fa-user-circle"></i>
+                            <?= htmlspecialchars($userName) ?>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                            <li><a class="dropdown-item" href="<?= PROFILE_ROUTE ?>">
+                                    <i class="fas fa-user me-2"></i>Thông tin cá nhân</a>
+                            </li>
+                            <li><a class="dropdown-item" href="<?= SETTINGS_ROUTE ?>">
+                                    <i class="fas fa-cog me-2"></i>Thiết lập cá nhân</a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="<?= LOGOUT_ROUTE ?>">
+                                    <i class="fas fa-sign-out-alt me-2"></i>Đăng xuất tài khoản</a>
+                            </li>
+                        </ul>
+                    </div>
                 <?php else: ?>
-                <div class="auth-buttons">
-                    <a href="<?= LOGIN_ROUTE ?>" class="btn btn-outline-primary me-2">Đăng nhập</a>
-                    <a href="<?= REGISTER_ROUTE ?>" class="btn btn-outline-success">Đăng ký</a>
-                </div>
+                    <div class="auth-buttons">
+                        <a href="<?= LOGIN_ROUTE ?>" class="btn btn-outline-primary me-2">Đăng nhập</a>
+                        <a href="<?= REGISTER_ROUTE ?>" class="btn btn-outline-success">Đăng ký</a>
+                    </div>
                 <?php endif; ?>
             </div>
         </div>
@@ -142,9 +143,8 @@ $currentLang = 'vn'; // Default to Vietnamese
                 <?php renderNavLink(HOME_ROUTE, 'TRANG CHỦ', $current_url); ?>
                 <?php renderNavLink(CLIENT_EVENT_ROUTE, 'SỰ KIỆN HIẾN MÁU', $current_url); ?>
                 <?php if ($isAuthenticated): ?>
-                <?php renderNavLink(APPOINTMENTS_ROUTE, 'LỊCH HẸN CỦA BẠN', $current_url); ?>
-                <?php renderNavLink(HISTORYAPPOINT_ROUTE, 'LỊCH SỬ ĐẶT HẸN', $current_url); ?>
-                <?php renderNavLink(CERTIFICATE_ROUTE, 'CHỨNG NHẬN', $current_url); ?>
+                    <?php renderNavLink(APPOINTMENTS_ROUTE, 'LỊCH HẸN CỦA BẠN', $current_url); ?>
+                    <?php renderNavLink(CERTIFICATE_ROUTE, 'CHỨNG NHẬN', $current_url); ?>
                 <?php endif; ?>
                 <?php renderNavLink(FAQ_ROUTE, 'HỎI - ĐÁP', $current_url); ?>
                 <?php renderNavLink(NEWS_ROUTE, 'TIN TỨC', $current_url); ?>
@@ -155,79 +155,79 @@ $currentLang = 'vn'; // Default to Vietnamese
 </nav>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-    // Enhanced active nav link with highlighting effect
-    const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
-    
-    navLinks.forEach(link => {
-        // Add hover effect
-        link.addEventListener('mouseover', function() {
-            if (!this.classList.contains('active')) {
-                this.style.transform = 'translateY(-3px)';
-                this.style.textShadow = '0 2px 4px rgba(0, 0, 0, 0.2)';
-            }
-        });
-        
-        link.addEventListener('mouseout', function() {
-            if (!this.classList.contains('active')) {
-                this.style.transform = 'translateY(0)';
-                this.style.textShadow = 'none';
-            }
-        });
-        
-        // Add click ripple effect
-        link.addEventListener('click', function(e) {
-            if (this.classList.contains('active')) return;
-            
-            // Create ripple element
-            const ripple = document.createElement('span');
-            ripple.classList.add('nav-ripple');
-            this.appendChild(ripple);
-            
-            // Position the ripple
-            const rect = this.getBoundingClientRect();
-            const size = Math.max(rect.width, rect.height);
-            const x = e.clientX - rect.left - size / 2;
-            const y = e.clientY - rect.top - size / 2;
-            
-            ripple.style.width = ripple.style.height = `${size}px`;
-            ripple.style.left = `${x}px`;
-            ripple.style.top = `${y}px`;
-            
-            // Remove ripple after animation
-            setTimeout(() => {
-                ripple.remove();
-            }, 600);
+    document.addEventListener('DOMContentLoaded', function() {
+        // Enhanced active nav link with highlighting effect
+        const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+
+        navLinks.forEach(link => {
+            // Add hover effect
+            link.addEventListener('mouseover', function() {
+                if (!this.classList.contains('active')) {
+                    this.style.transform = 'translateY(-3px)';
+                    this.style.textShadow = '0 2px 4px rgba(0, 0, 0, 0.2)';
+                }
+            });
+
+            link.addEventListener('mouseout', function() {
+                if (!this.classList.contains('active')) {
+                    this.style.transform = 'translateY(0)';
+                    this.style.textShadow = 'none';
+                }
+            });
+
+            // Add click ripple effect
+            link.addEventListener('click', function(e) {
+                if (this.classList.contains('active')) return;
+
+                // Create ripple element
+                const ripple = document.createElement('span');
+                ripple.classList.add('nav-ripple');
+                this.appendChild(ripple);
+
+                // Position the ripple
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+
+                ripple.style.width = ripple.style.height = `${size}px`;
+                ripple.style.left = `${x}px`;
+                ripple.style.top = `${y}px`;
+
+                // Remove ripple after animation
+                setTimeout(() => {
+                    ripple.remove();
+                }, 600);
+            });
         });
     });
-});
 </script>
 
 <style>
-/* Ripple effect for nav links */
-.navbar-nav .nav-link {
-    overflow: hidden;
-    position: relative;
-}
-
-.nav-ripple {
-    position: absolute;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.3);
-    transform: scale(0);
-    animation: ripple 0.6s linear;
-    pointer-events: none;
-}
-
-@keyframes ripple {
-    to {
-        transform: scale(4);
-        opacity: 0;
+    /* Ripple effect for nav links */
+    .navbar-nav .nav-link {
+        overflow: hidden;
+        position: relative;
     }
-}
 
-/* Highlight selected nav item with glow */
-.navbar-nav .nav-link.active {
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
-}
+    .nav-ripple {
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.3);
+        transform: scale(0);
+        animation: ripple 0.6s linear;
+        pointer-events: none;
+    }
+
+    @keyframes ripple {
+        to {
+            transform: scale(4);
+            opacity: 0;
+        }
+    }
+
+    /* Highlight selected nav item with glow */
+    .navbar-nav .nav-link.active {
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+    }
 </style>

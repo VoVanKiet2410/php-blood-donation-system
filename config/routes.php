@@ -7,6 +7,8 @@
 if (!defined('BASE_URL')) {
     define('BASE_URL', '/php-blood-donation-system');
 }
+//Home
+define('HOME', BASE_URL . '/index.php?controller=Home&action=index');
 // Authentication routes
 define('HOME_ROUTE', BASE_URL . '/index.php?controller=Home&action=index');
 define('LOGIN_ROUTE', BASE_URL . '/index.php?controller=Auth&action=login');
@@ -28,10 +30,10 @@ define('EVENT_BOOKING_ROUTE', BASE_URL . '/index.php?controller=Event&action=boo
 define('APPOINTMENT_CREATE_ROUTE', BASE_URL . '/index.php?controller=Appointment&action=create');
 
 // Additional client-side routes needed for navigation
-define('APPOINTMENTS_ROUTE', BASE_URL . '/index.php?controller=Appointment&action=clientIndex');
-define('HISTORYAPPOINT_ROUTE', BASE_URL . '/index.php?controller=Appointment&action=history');
+define('APPOINTMENTS_ROUTE', BASE_URL . '/index.php?controller=Appointment&action=userAppointments');
+define('HISTORYAPPOINT_ROUTE', BASE_URL . '/index.php?controller=Appointment&action=viewAppointment');
 define('CERTIFICATE_ROUTE', BASE_URL . '/index.php?controller=Certificate&action=index');
-define('FAQ_ROUTE', BASE_URL . '/index.php?controller=Faq&action=ClinetIndex');
+define('FAQ_ROUTE', BASE_URL . '/index.php?controller=Faq&action=ClientIndex');
 define('NEWS_ROUTE', BASE_URL . '/index.php?controller=News&action=index');
 define('CONTACT_ROUTE', BASE_URL . '/index.php?controller=Contact&action=index');
 define('PROFILE_ROUTE', BASE_URL . '/index.php?controller=User&action=profile');

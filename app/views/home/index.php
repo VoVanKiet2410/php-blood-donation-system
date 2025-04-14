@@ -33,11 +33,10 @@ $donationStats = $data['donationStats'] ?? [
                     </p>
                     <div class="d-grid gap-3 d-md-flex justify-content-md-start mt-5" data-aos="fade-up"
                         data-aos-delay="500">
-                        <a href="/php-blood-donation-system/register"
-                            class="btn btn-primary btn-lg px-4 me-md-2 pulse-btn">
+                        <a href="<?= CLIENT_EVENT_ROUTE ?>" class="btn btn-primary btn-lg px-4 me-md-2 pulse-btn">
                             <i class="fas fa-heart me-2"></i>Đăng ký hiến máu
                         </a>
-                        <a href="/php-blood-donation-system/?controller=events&action=index"
+                        <a href="<?= CLIENT_EVENT_ROUTE ?>"
                             class="btn btn-outline-secondary btn-lg px-4 btn-hover-float">
                             <i class="fas fa-calendar-alt me-2"></i>Sự kiện sắp tới
                         </a>
@@ -91,130 +90,53 @@ $donationStats = $data['donationStats'] ?? [
         </div>
 
         <div class="row justify-content-center">
-            <div class="col-md-3 col-sm-6 mb-4" data-aos="zoom-in" data-aos-delay="100">
-                <?php $levelA = $bloodLevels['A'] ?? 0; ?>
-                <div
-                    class="blood-type-card text-center p-4 rounded-lg shadow-hover <?= $levelA < 30 ? 'low-supply' : ($levelA > 70 ? 'sufficient-supply' : 'adequate-supply') ?>">
-                    <div class="blood-drop-icon"></div>
-                    <h3 class="blood-type">A</h3>
-                    <div class="blood-level-indicator">
-                        <div class="progress rounded-pill">
-                            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
-                                style="width: <?= $levelA ?>%;" aria-valuenow="<?= $levelA ?>" aria-valuemin="0"
-                                aria-valuemax="100">
-                                <span class="progress-value"><?= $levelA ?>%</span>
+            <?php
+            // Define blood types and display order
+            $bloodTypes = [
+                'A+' => 'A+',
+                'A-' => 'A-',
+                'B+' => 'B+',
+                'B-' => 'B-',
+                'O+' => 'O+',
+                'O-' => 'O-',
+                'AB+' => 'AB+',
+                'AB-' => 'AB-'
+            ];
+            $delay = 100;
+            foreach ($bloodTypes as $key => $label):
+                $level = $bloodLevels[$key] ?? 0;
+                $supplyClass = $level < 30 ? 'low-supply' : ($level > 70 ? 'sufficient-supply' : 'adequate-supply');
+            ?>
+                <div class="col-md-3 col-sm-6 mb-4" data-aos="zoom-in" data-aos-delay="<?= $delay ?>">
+                    <div class="blood-type-card text-center p-4 rounded-lg shadow-hover <?= $supplyClass ?>">
+                        <div class="blood-drop-icon"></div>
+                        <h3 class="blood-type"><?= $label ?></h3>
+                        <div class="blood-level-indicator">
+                            <div class="progress rounded-pill">
+                                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+                                    style="width: <?= $level ?>%;" aria-valuenow="<?= $level ?>" aria-valuemin="0"
+                                    aria-valuemax="100">
+                                    <span class="progress-value"><?= $level ?>%</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <p class="status-text mt-3">
-                        <?php if ($levelA < 30): ?>
-                            <span class="badge bg-danger animate-pulse"><i class="fas fa-exclamation-triangle me-1"></i> Cần
-                                hiến gấp</span>
-                        <?php elseif ($levelA < 70): ?>
-                            <span class="badge bg-warning"><i class="fas fa-info-circle me-1"></i> Cần bổ sung</span>
-                        <?php else: ?>
-                            <span class="badge bg-success"><i class="fas fa-check-circle me-1"></i> Đủ dự trữ</span>
+                        <p class="status-text mt-3">
+                            <?php if ($level < 30): ?>
+                                <span class="badge bg-danger animate-pulse"><i class="fas fa-exclamation-triangle me-1"></i> Cần
+                                    hiến gấp</span>
+                            <?php elseif ($level < 70): ?>
+                                <span class="badge bg-warning"><i class="fas fa-info-circle me-1"></i> Cần bổ sung</span>
+                            <?php else: ?>
+                                <span class="badge bg-success"><i class="fas fa-check-circle me-1"></i> Đủ dự trữ</span>
+                            <?php endif; ?>
+                        </p>
+                        <?php if ($level < 50): ?>
+                            <a href="<?= CLIENT_EVENT_ROUTE ?>" class="btn btn-sm btn-outline-primary mt-2">Hiến ngay</a>
                         <?php endif; ?>
-                    </p>
-                    <?php if ($levelA < 50): ?>
-                        <a href="/php-blood-donation-system/?controller=appointments&action=create"
-                            class="btn btn-sm btn-outline-primary mt-2">Hiến ngay</a>
-                    <?php endif; ?>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6 mb-4" data-aos="zoom-in" data-aos-delay="200">
-                <?php $levelB = $bloodLevels['B'] ?? 0; ?>
-                <div
-                    class="blood-type-card text-center p-4 rounded-lg shadow-hover <?= $levelB < 30 ? 'low-supply' : ($levelB > 70 ? 'sufficient-supply' : 'adequate-supply') ?>">
-                    <div class="blood-drop-icon"></div>
-                    <h3 class="blood-type">B</h3>
-                    <div class="blood-level-indicator">
-                        <div class="progress rounded-pill">
-                            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
-                                style="width: <?= $levelB ?>%;" aria-valuenow="<?= $levelB ?>" aria-valuemin="0"
-                                aria-valuemax="100">
-                                <span class="progress-value"><?= $levelB ?>%</span>
-                            </div>
-                        </div>
                     </div>
-                    <p class="status-text mt-3">
-                        <?php if ($levelB < 30): ?>
-                            <span class="badge bg-danger animate-pulse"><i class="fas fa-exclamation-triangle me-1"></i> Cần
-                                hiến gấp</span>
-                        <?php elseif ($levelB < 70): ?>
-                            <span class="badge bg-warning"><i class="fas fa-info-circle me-1"></i> Cần bổ sung</span>
-                        <?php else: ?>
-                            <span class="badge bg-success"><i class="fas fa-check-circle me-1"></i> Đủ dự trữ</span>
-                        <?php endif; ?>
-                    </p>
-                    <?php if ($levelB < 50): ?>
-                        <a href="/php-blood-donation-system/?controller=appointments&action=create"
-                            class="btn btn-sm btn-outline-primary mt-2">Hiến ngay</a>
-                    <?php endif; ?>
                 </div>
-            </div>
-            <div class="col-md-3 col-sm-6 mb-4" data-aos="zoom-in" data-aos-delay="300">
-                <?php $levelO = $bloodLevels['O'] ?? 0; ?>
-                <div
-                    class="blood-type-card text-center p-4 rounded-lg shadow-hover <?= $levelO < 30 ? 'low-supply' : ($levelO > 70 ? 'sufficient-supply' : 'adequate-supply') ?>">
-                    <div class="blood-drop-icon"></div>
-                    <h3 class="blood-type">O</h3>
-                    <div class="blood-level-indicator">
-                        <div class="progress rounded-pill">
-                            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
-                                style="width: <?= $levelO ?>%;" aria-valuenow="<?= $levelO ?>" aria-valuemin="0"
-                                aria-valuemax="100">
-                                <span class="progress-value"><?= $levelO ?>%</span>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="status-text mt-3">
-                        <?php if ($levelO < 30): ?>
-                            <span class="badge bg-danger animate-pulse"><i class="fas fa-exclamation-triangle me-1"></i> Cần
-                                hiến gấp</span>
-                        <?php elseif ($levelO < 70): ?>
-                            <span class="badge bg-warning"><i class="fas fa-info-circle me-1"></i> Cần bổ sung</span>
-                        <?php else: ?>
-                            <span class="badge bg-success"><i class="fas fa-check-circle me-1"></i> Đủ dự trữ</span>
-                        <?php endif; ?>
-                    </p>
-                    <?php if ($levelO < 50): ?>
-                        <a href="/php-blood-donation-system/?controller=appointments&action=create"
-                            class="btn btn-sm btn-outline-primary mt-2">Hiến ngay</a>
-                    <?php endif; ?>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6 mb-4" data-aos="zoom-in" data-aos-delay="400">
-                <?php $levelAB = $bloodLevels['AB'] ?? 0; ?>
-                <div
-                    class="blood-type-card text-center p-4 rounded-lg shadow-hover <?= $levelAB < 30 ? 'low-supply' : ($levelAB > 70 ? 'sufficient-supply' : 'adequate-supply') ?>">
-                    <div class="blood-drop-icon"></div>
-                    <h3 class="blood-type">AB</h3>
-                    <div class="blood-level-indicator">
-                        <div class="progress rounded-pill">
-                            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
-                                style="width: <?= $levelAB ?>%;" aria-valuenow="<?= $levelAB ?>" aria-valuemin="0"
-                                aria-valuemax="100">
-                                <span class="progress-value"><?= $levelAB ?>%</span>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="status-text mt-3">
-                        <?php if ($levelAB < 30): ?>
-                            <span class="badge bg-danger animate-pulse"><i class="fas fa-exclamation-triangle me-1"></i> Cần
-                                hiến gấp</span>
-                        <?php elseif ($levelAB < 70): ?>
-                            <span class="badge bg-warning"><i class="fas fa-info-circle me-1"></i> Cần bổ sung</span>
-                        <?php else: ?>
-                            <span class="badge bg-success"><i class="fas fa-check-circle me-1"></i> Đủ dự trữ</span>
-                        <?php endif; ?>
-                    </p>
-                    <?php if ($levelAB < 50): ?>
-                        <a href="/php-blood-donation-system/?controller=appointments&action=create"
-                            class="btn btn-sm btn-outline-primary mt-2">Hiến ngay</a>
-                    <?php endif; ?>
-                </div>
-            </div>
+            <?php $delay += 100;
+            endforeach; ?>
         </div>
 
         <div class="info-box mt-4 p-4 rounded-lg bg-light shadow-sm" data-aos="fade-up">
@@ -227,7 +149,7 @@ $donationStats = $data['donationStats'] ?? [
                         cần truyền máu. Chỉ 1 đơn vị máu có thể cứu sống tới 3 người!</p>
                 </div>
                 <div class="col-md-4 text-md-end mt-3 mt-md-0">
-                    <a href="/php-blood-donation-system/?controller=blood_inventory&action=compatibility"
+                    <a href="<?= BASE_URL ?>/index.php?controller=blood_inventory&action=compatibility"
                         class="btn btn-outline-primary rounded-pill">
                         <i class="fas fa-chart-pie me-2"></i>Bảng tương thích nhóm máu
                     </a>
@@ -291,7 +213,7 @@ $donationStats = $data['donationStats'] ?? [
                     </div>
 
                     <div class="mt-4 text-center text-md-start">
-                        <a href="/php-blood-donation-system/?controller=faqs&action=index#impact"
+                        <a href="<?= BASE_URL ?>/index.php?controller=faqs&action=index#impact"
                             class="btn btn-outline-primary rounded-pill">
                             <i class="fas fa-info-circle me-2"></i>Tìm hiểu thêm
                         </a>
@@ -324,8 +246,7 @@ $donationStats = $data['donationStats'] ?? [
                         </div>
                         <h4 class="mt-3">Chưa có sự kiện nào sắp diễn ra</h4>
                         <p class="text-muted">Vui lòng quay lại sau để cập nhật các sự kiện mới nhất</p>
-                        <a href="/php-blood-donation-system/?controller=appointments&action=create"
-                            class="btn btn-primary rounded-pill mt-3">
+                        <a href="<? CLIENT_EVENT_ROUTE ?>" class="btn btn-primary rounded-pill mt-3">
                             <i class="fas fa-calendar-plus me-2"></i>Đặt lịch hẹn cá nhân
                         </a>
                     </div>
@@ -352,16 +273,16 @@ $donationStats = $data['donationStats'] ?? [
                                         <span><?= htmlspecialchars($event['location']) ?></span>
                                     </div>
                                 </div>
-                                <div class="event-description">
+                                <!-- <div class="event-description">
                                     <p><?= strlen($event['description']) > 100 ? htmlspecialchars(substr($event['description'], 0, 100)) . '...' : htmlspecialchars($event['description']) ?>
                                     </p>
-                                </div>
+                                </div> -->
                                 <div class="event-actions">
-                                    <a href="/php-blood-donation-system/?controller=events&action=view&id=<?= $event['id'] ?>"
+                                    <a href="<?= BASE_URL ?>/index.php?controller=Event&action=bookAppointment&id=<?= $event['id'] ?>"
                                         class="btn btn-link text-primary">
                                         <i class="fas fa-info-circle"></i> Chi tiết
                                     </a>
-                                    <a href="/php-blood-donation-system/?controller=events&action=register&id=<?= $event['id'] ?>"
+                                    <a href="<?= BASE_URL ?>/index.php?controller=events&action=register&id=<?= $event['id'] ?>"
                                         class="btn btn-primary btn-sm rounded-pill">
                                         <i class="fas fa-hand-holding-heart"></i> Đăng ký tham gia
                                     </a>
@@ -374,7 +295,7 @@ $donationStats = $data['donationStats'] ?? [
         </div>
 
         <div class="text-center mt-5" data-aos="fade-up">
-            <a href="/php-blood-donation-system/?controller=events&action=index"
+            <a href="<?= BASE_URL ?>/index.php?controller=events&action=index"
                 class="btn btn-outline-primary btn-lg rounded-pill">
                 <i class="fas fa-calendar-week me-2"></i>Xem tất cả sự kiện
             </a>
@@ -430,7 +351,7 @@ $donationStats = $data['donationStats'] ?? [
                                 <div class="news-excerpt">
                                     <p><?= htmlspecialchars($news['summary']) ?></p>
                                 </div>
-                                <a href="/php-blood-donation-system/?controller=news&action=view&id=<?= $news['id'] ?>"
+                                <a href="<?= BASE_URL ?>/index.php?controller=news&action=view&id=<?= $news['id'] ?>"
                                     class="news-read-more">
                                     Đọc thêm <i class="fas fa-arrow-right ms-2"></i>
                                 </a>
@@ -442,7 +363,7 @@ $donationStats = $data['donationStats'] ?? [
         </div>
 
         <div class="text-center mt-5" data-aos="fade-up">
-            <a href="/php-blood-donation-system/?controller=news&action=index"
+            <a href="<?= BASE_URL ?>/index.php?controller=news&action=index"
                 class="btn btn-outline-primary btn-lg rounded-pill">
                 <i class="fas fa-newspaper me-2"></i>Xem tất cả tin tức
             </a>
@@ -477,7 +398,7 @@ $donationStats = $data['donationStats'] ?? [
                         </div>
                         <div class="testimonial-author">
                             <div class="author-avatar">
-                                <img src="<?= BASE_URL ?>/images/testimonials/user1.jpg" alt="Nguyễn Văn A">
+                                <img src="<?= BASE_URL ?>/images/testimonials/user3.png" alt="Nguyễn Văn A">
                             </div>
                             <div class="author-info">
                                 <h5>Nguyễn Văn A</h5>
@@ -499,7 +420,7 @@ $donationStats = $data['donationStats'] ?? [
                         </div>
                         <div class="testimonial-author">
                             <div class="author-avatar">
-                                <img src="<?= BASE_URL ?>/images/testimonials/user2.jpg" alt="Trần Thị B">
+                                <img src="<?= BASE_URL ?>/images/testimonials/user2.png" alt="Trần Thị B">
                             </div>
                             <div class="author-info">
                                 <h5>Trần Thị B</h5>
@@ -521,7 +442,7 @@ $donationStats = $data['donationStats'] ?? [
                         </div>
                         <div class="testimonial-author">
                             <div class="author-avatar">
-                                <img src="<?= BASE_URL ?>/images/testimonials/user3.jpg" alt="Bs. Lê Văn C">
+                                <img src="<?= BASE_URL ?>/images/testimonials/user1.png" alt="Bs. Lê Văn C">
                             </div>
                             <div class="author-info">
                                 <h5>Bs. Lê Văn C</h5>
@@ -591,7 +512,7 @@ $donationStats = $data['donationStats'] ?? [
                 </div>
 
                 <div class="text-center mt-5" data-aos="fade-up">
-                    <a href="/php-blood-donation-system/?controller=faqs&action=index"
+                    <a href="<?= BASE_URL ?>/index.php?controller=faqs&action=index"
                         class="btn btn-outline-primary btn-lg rounded-pill">
                         <i class="fas fa-question-circle me-2"></i>Xem tất cả câu hỏi
                     </a>
@@ -646,11 +567,11 @@ $donationStats = $data['donationStats'] ?? [
                     </div>
 
                     <div class="cta-buttons">
-                        <a href="/php-blood-donation-system/register"
+                        <a href="<?= BASE_URL ?>/index.phpregister"
                             class="btn btn-light btn-lg px-4 py-3 me-md-3 mb-3 mb-md-0 rounded-pill pulse-btn-white">
                             <i class="fas fa-user-plus me-2"></i>Đăng ký hiến máu
                         </a>
-                        <a href="/php-blood-donation-system/?controller=appointments&action=create"
+                        <a href="<?= BASE_URL ?>/index.php?controller=appointments&action=create"
                             class="btn btn-outline-light btn-lg px-4 py-3 rounded-pill">
                             <i class="fas fa-calendar-plus me-2"></i>Đặt lịch hẹn ngay
                         </a>

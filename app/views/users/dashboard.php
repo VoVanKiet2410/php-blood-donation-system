@@ -117,5 +117,5 @@ $content = function () {
     </script>
 <?php
 };
-include_once __DIR__ . '/../layouts/MainLayout.php';
+include_once __DIR__ . '/../layouts/AdminLayout.php';
 ?>

@@ -259,6 +259,15 @@ class AppointmentController
     {
         AuthController::authorize(['ADMIN']); // Chỉ ADMIN được xóa
 
+        // Xóa tất cả healthcheck liên quan trước
+        $queryHealth = "DELETE FROM healthcheck WHERE appointment_id = ?";
+        $stmtHealth = $this->db->prepare($queryHealth);
+        $stmtHealth->bind_param("i", $id);
+        if (!$stmtHealth->execute()) {
+            die("Lỗi xóa healthcheck: " . $stmtHealth->error);
+        }
+
+        // Sau đó mới xóa appointment
         $query = "DELETE FROM appointment WHERE id = ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("i", $id);
