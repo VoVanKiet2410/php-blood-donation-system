@@ -219,16 +219,6 @@ $content = function () {
                                 </div>
                             </div>
 
-                            <!-- Notes -->
-                            <div class="ant-form-item">
-                                <div class="ant-form-item-label">
-                                    <label for="notes" class="form-label"><i class="fas fa-sticky-note me-2"></i>Ghi
-                                        Chú</label>
-                                </div>
-                                <textarea id="notes" name="notes" class="form-control custom-input" rows="3"
-                                    placeholder="Nhập ghi chú về kho máu này nếu cần"></textarea>
-                            </div>
-
                             <!-- Submit Button -->
                             <div class="d-flex justify-content-end mt-4">
                                 <a href="<?= BASE_URL ?>/index.php?controller=BloodInventory&action=index"

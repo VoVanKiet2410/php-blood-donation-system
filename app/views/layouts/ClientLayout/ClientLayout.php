@@ -305,33 +305,42 @@ ob_start();
     <?php include_once 'ClientHeader.php'; ?>
 
     <main>
-        <?php if (isset($_SESSION['error_message'])): ?>
-            <div class="container mt-3">
-                <div class="alert alert-danger alert-dismissible fade show" role="alert" id="error-message-alert">
-                    <div class="d-flex">
-                        <div class="me-3">
-                            <i class="fas fa-exclamation-circle fa-lg"></i>
+        <?php
+        $alertTypes = [
+            'error_message' => ['class' => 'danger', 'icon' => 'fa-exclamation-circle'],
+            'success_message' => ['class' => 'success', 'icon' => 'fa-check-circle'],
+            'warning_message' => ['class' => 'warning', 'icon' => 'fa-exclamation-triangle'],
+            'info_message' => ['class' => 'info', 'icon' => 'fa-info-circle'],
+        ];
+        foreach ($alertTypes as $key => $meta) {
+            if (isset($_SESSION[$key])): ?>
+                <div class="container mt-3">
+                    <div class="alert alert-<?= $meta['class'] ?> alert-dismissible fade show" role="alert"
+                        id="<?= $key ?>-alert">
+                        <div class="d-flex">
+                            <div class="me-3">
+                                <i class="fas <?= $meta['icon'] ?> fa-lg"></i>
+                            </div>
+                            <div>
+                                <?= $_SESSION[$key] ?>
+                            </div>
                         </div>
-                        <div>
-                            <?= $_SESSION['error_message'] ?>
-                        </div>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
-            </div>
-            <script>
-                // Automatically hide error message after 3 seconds
-                setTimeout(function() {
-                    const errorAlert = document.getElementById('error-message-alert');
-                    if (errorAlert) {
-                        // Create a Bootstrap alert instance and hide it
-                        const bsAlert = new bootstrap.Alert(errorAlert);
-                        bsAlert.close();
-                    }
-                }, 3000);
-            </script>
-            <?php unset($_SESSION['error_message']); ?>
-        <?php endif; ?>
+                <script>
+                    setTimeout(function() {
+                        const alertBox = document.getElementById('<?= $key ?>-alert');
+                        if (alertBox) {
+                            const bsAlert = new bootstrap.Alert(alertBox);
+                            bsAlert.close();
+                        }
+                    }, 6000);
+                </script>
+                <?php unset($_SESSION[$key]); ?>
+        <?php endif;
+        }
+        ?>
 
         <?php
         // Check if content is a closure/function and execute it, otherwise include it as a file
@@ -348,7 +357,7 @@ ob_start();
     <?php include_once 'ClientFooter.php'; ?>
 
     <!-- Bootstrap 5 JS Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <!-- AOS - Animate on scroll -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>

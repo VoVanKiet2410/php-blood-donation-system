@@ -169,9 +169,9 @@ class HealthcheckController
                     'event.donationUnit',
                     'bloodDonationHistory'
                 ])
-                    ->where('status', 2) // Active appointments 
+                    ->where('status', [1, 2]) // Active appointments 
                     ->whereNull('blood_inventory_id') // Not yet processed appointments
-                    // ->whereDoesntHave('healthcheck') // Only appointments that don't have a health check yet
+                    ->whereDoesntHave('healthcheck') // Only appointments that don't have a health check yet
                     ->get();
 
                 $secondAppointments = Appointment::all();

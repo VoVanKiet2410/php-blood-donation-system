@@ -45,11 +45,6 @@ class BloodInventoryController
             $bloodInventory->last_updated = date('Y-m-d H:i:s');
             $bloodInventory->expiration_date = $_POST['expirationDate'];
 
-            // Add notes if provided
-            if (isset($_POST['notes']) && !empty($_POST['notes'])) {
-                $bloodInventory->notes = $_POST['notes'];
-            }
-
             try {
                 $bloodInventory->save();
                 header('Location: ' . BASE_URL . '/index.php?controller=BloodInventory&action=index');
@@ -113,7 +108,7 @@ class BloodInventoryController
 
             try {
                 $bloodInventory->save();
-                header('Location: /blood-inventory');
+                header('Location: ' . BASE_URL . '/index.php?controller=BloodInventory&action=index');
             } catch (Exception $e) {
                 // Handle error
                 echo 'Error: ' . $e->getMessage();

@@ -369,6 +369,33 @@ class EventController
                 exit;
             }
 
+            // Kiểm tra ràng buộc đặt lịch hiến máu cho user
+            $userId = $_SESSION['user_id'];
+            $user = \App\Models\User::find($userId);
+            if ($user) {
+                $activeAppointment = \App\Models\Appointment::where('user_cccd', $user->cccd)
+                    ->whereIn('status', [0, 1])
+                    ->first();
+                $lastCompleted = \App\Models\Appointment::where('user_cccd', $user->cccd)
+                    ->where('status', 3)
+                    ->orderBy('appointment_date_time', 'desc')
+                    ->first();
+                if ($activeAppointment) {
+                    $_SESSION['error_message'] = "Bạn chỉ có thể đặt một lịch hẹn hiến máu tại một thời điểm. Vui lòng hủy hoặc hoàn thành lịch hẹn hiện tại trước khi đặt lịch mới.";
+                    header('Location: ' . BASE_URL . '/index.php?controller=Appointment&action=userAppointments');
+                    exit;
+                }
+                // Nếu có lịch hoàn thành và chưa đủ thời gian chờ thì không cho phép đặt mới
+                if ($lastCompleted && $lastCompleted->next_donation_eligible_date) {
+                    $now = date('Y-m-d');
+                    if ($now < $lastCompleted->next_donation_eligible_date) {
+                        $_SESSION['error_message'] = "Bạn cần chờ đến ngày " . date('d/m/Y', strtotime($lastCompleted->next_donation_eligible_date)) . " mới có thể đặt lịch hiến máu tiếp theo.";
+                        header('Location: ' . BASE_URL . '/index.php?controller=Appointment&action=userAppointments');
+                        exit;
+                    }
+                }
+            }
+
             $event = Event::with('donationUnit')->find($eventId);
 
             if (!$event) {
@@ -422,6 +449,40 @@ class EventController
                 $_SESSION['redirect_after_login'] = BASE_URL . '/index.php?controller=Event&action=validatePreScreening&id=' . $eventId;
                 header('Location: ' . LOGIN_ROUTE);
                 exit;
+            }
+
+            // Kiểm tra ràng buộc đặt lịch hiến máu cho user
+            $userId = $_SESSION['user_id'];
+            $user = \App\Models\User::find($userId);
+            if ($user) {
+                $activeAppointment = \App\Models\Appointment::where('user_cccd', $user->cccd)
+                    ->whereIn('status', [0, 1])
+                    ->first();
+                $lastCompleted = \App\Models\Appointment::where('user_cccd', $user->cccd)
+                    ->where('status', 3) // Đúng: chỉ lấy lịch hoàn thành (status = 3)
+                    ->orderBy('appointment_date_time', 'desc')
+                    ->first();
+                if ($activeAppointment) {
+                    $_SESSION['error_message'] = "Bạn chỉ có thể đặt một lịch hẹn hiến máu tại một thời điểm. Vui lòng hủy hoặc hoàn thành lịch hẹn hiện tại trước khi đặt lịch mới.";
+                    header('Location: ' . BASE_URL . '/index.php?controller=Appointment&action=userAppointments');
+                    exit;
+                }
+                // Nếu có lịch hoàn thành và chưa đủ thời gian chờ thì không cho phép đặt mới
+                if ($lastCompleted && $lastCompleted->next_donation_eligible_date) {
+                    $now = date('Y-m-d');
+                    if ($now < $lastCompleted->next_donation_eligible_date) {
+                        $_SESSION['error_message'] = "Bạn cần chờ đến ngày " . date('d/m/Y', strtotime($lastCompleted->next_donation_eligible_date)) . " mới có thể đặt lịch hiến máu tiếp theo.";
+                        header('Location: ' . BASE_URL . '/index.php?controller=Appointment&action=userAppointments');
+                        exit;
+                    }
+
+                    //log for debugging
+                    error_log("User ID: " . $user->cccd);
+                    error_log("Last completed appointment date: " . $lastCompleted->appointment_date_time);
+                    error_log("Next donation eligible date: " . $lastCompleted->next_donation_eligible_date);
+                    error_log("Current date: " . $now);
+                    error_log("Eligible for next donation: " . ($now < $lastCompleted->next_donation_eligible_date ? "No" : "Yes"));
+                }
             }
 
             // Validate form submission
@@ -518,7 +579,7 @@ class EventController
             // Redirect to login page with return URL
             $_SESSION['redirect_after_login'] = BASE_URL . '/index.php?controller=Event&action=bookAppointment&id=' . $eventId;
             header('Location: ' . LOGIN_ROUTE);
-            exit;
+            exit();
         }
 
         try {
@@ -528,6 +589,33 @@ class EventController
 
             if (!$eventId) {
                 throw new Exception("No event ID provided");
+            }
+
+            // Kiểm tra ràng buộc đặt lịch hiến máu cho user
+            $userId = $_SESSION['user_id'];
+            $user = \App\Models\User::find($userId);
+            if ($user) {
+                $activeAppointment = \App\Models\Appointment::where('user_cccd', $user->cccd)
+                    ->whereIn('status', [0, 1])
+                    ->first();
+                $lastCompleted = \App\Models\Appointment::where('user_cccd', $user->cccd)
+                    ->where('status', 3) // Đúng: chỉ lấy lịch hoàn thành (status = 3)
+                    ->orderBy('appointment_date_time', 'desc')
+                    ->first();
+                if ($activeAppointment) {
+                    $_SESSION['error_message'] = "Bạn chỉ có thể đặt một lịch hẹn hiến máu tại một thời điểm. Vui lòng hủy hoặc hoàn thành lịch hẹn hiện tại trước khi đặt lịch mới.";
+                    header('Location: ' . BASE_URL . '/index.php?controller=Appointment&action=userAppointments');
+                    exit;
+                }
+                // Nếu có lịch hoàn thành và chưa đủ thời gian chờ thì không cho phép đặt mới
+                if ($lastCompleted && $lastCompleted->next_donation_eligible_date) {
+                    $now = date('Y-m-d');
+                    if ($now < $lastCompleted->next_donation_eligible_date) {
+                        $_SESSION['error_message'] = "Bạn cần chờ đến ngày " . date('d/m/Y', strtotime($lastCompleted->next_donation_eligible_date)) . " mới có thể đặt lịch hiến máu tiếp theo.";
+                        header('Location: ' . BASE_URL . '/index.php?controller=Appointment&action=userAppointments');
+                        exit;
+                    }
+                }
             }
 
             $event = Event::with('donationUnit')->find($eventId);

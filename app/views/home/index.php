@@ -490,7 +490,7 @@ $donationStats = $data['donationStats'] ?? [
                                             aria-expanded="<?= $index === 0 ? 'true' : 'false' ?>"
                                             aria-controls="collapse<?= $index ?>">
                                             <i class="fas fa-question-circle me-2 text-primary"></i>
-                                            <?= htmlspecialchars($faq['question']) ?>
+                                            <?= htmlspecialchars($faq['title']) ?>
                                         </button>
                                     </h2>
                                     <div id="collapse<?= $index ?>"
@@ -500,7 +500,7 @@ $donationStats = $data['donationStats'] ?? [
                                             <div class="faq-answer">
                                                 <i class="fas fa-info-circle me-2 text-primary align-self-start mt-1"></i>
                                                 <div class="faq-answer-text">
-                                                    <?= htmlspecialchars($faq['answer']) ?>
+                                                    <?= htmlspecialchars($faq['description']) ?>
                                                 </div>
                                             </div>
                                         </div>

@@ -61,6 +61,30 @@ class AppointmentController
                 throw new Exception("Không tìm thấy thông tin người dùng.");
             }
 
+            // Kiểm tra ràng buộc: Nếu user còn lịch hẹn đang chờ/xác nhận hoặc chưa đủ thời gian giữa 2 lần hiến máu thì không cho phép đặt mới
+            $activeAppointment = Appointment::where('user_cccd', $user->cccd)
+                ->whereIn('status', [0, 1])
+                ->orderBy('appointment_date_time', 'desc')
+                ->first();
+            if ($activeAppointment) {
+                $_SESSION['error_message'] = "Bạn chỉ có thể đặt một lịch hẹn hiến máu tại một thời điểm. Vui lòng hủy hoặc hoàn thành lịch hẹn hiện tại trước khi đặt lịch mới.";
+                header('Location: ' . BASE_URL . '/index.php?controller=Appointment&action=userAppointments');
+                exit;
+            }
+            // Kiểm tra thời gian chờ giữa 2 lần hiến máu
+            $lastCompleted = Appointment::where('user_cccd', $user->cccd)
+                ->where('status', 2)
+                ->orderBy('appointment_date_time', 'desc')
+                ->first();
+            if ($lastCompleted && $lastCompleted->next_donation_eligible_date) {
+                $now = date('Y-m-d');
+                if ($now < $lastCompleted->next_donation_eligible_date) {
+                    $_SESSION['error_message'] = "Bạn cần chờ đến ngày " . date('d/m/Y', strtotime($lastCompleted->next_donation_eligible_date)) . " mới có thể đặt lịch hiến máu tiếp theo.";
+                    header('Location: ' . BASE_URL . '/index.php?controller=Appointment&action=userAppointments');
+                    exit;
+                }
+            }
+
             $errors = $_SESSION['appointment_errors'] ?? [];
             unset($_SESSION['appointment_errors']);
 
@@ -162,6 +186,28 @@ class AppointmentController
             $errors[] = "Vui lòng nhập lượng máu dự kiến hiến.";
         } else if (!is_numeric($bloodAmount) || $bloodAmount < 250 || $bloodAmount > 450) {
             $errors[] = "Lượng máu phải từ 250ml đến 450ml.";
+        }
+
+        // Kiểm tra ràng buộc trước khi lưu: Nếu user còn lịch hẹn đang chờ/xác nhận hoặc chưa đủ thời gian giữa 2 lần hiến máu thì không cho phép đặt mới
+        $user = User::find($_SESSION['user_id']);
+        if ($user) {
+            $activeAppointment = Appointment::where('user_cccd', $user->cccd)
+                ->whereIn('status', [0, 1])
+                ->orderBy('appointment_date_time', 'desc')
+                ->first();
+            if ($activeAppointment) {
+                $errors[] = "Bạn chỉ có thể đặt một lịch hẹn hiến máu tại một thời điểm. Vui lòng hủy hoặc hoàn thành lịch hẹn hiện tại trước khi đặt lịch mới.";
+            }
+            $lastCompleted = Appointment::where('user_cccd', $user->cccd)
+                ->where('status', 2)
+                ->orderBy('appointment_date_time', 'desc')
+                ->first();
+            if ($lastCompleted && $lastCompleted->next_donation_eligible_date) {
+                $now = date('Y-m-d');
+                if ($now < $lastCompleted->next_donation_eligible_date) {
+                    $errors[] = "Bạn cần chờ đến ngày " . date('d/m/Y', strtotime($lastCompleted->next_donation_eligible_date)) . " mới có thể đặt lịch hiến máu tiếp theo.";
+                }
+            }
         }
 
         // If there are validation errors, redirect back to form

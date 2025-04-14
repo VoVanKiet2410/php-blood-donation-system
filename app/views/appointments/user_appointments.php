@@ -85,7 +85,7 @@ if (!isset($appointments)) {
                                     <?php
                                     $completedCount = 0;
                                     foreach ($appointments as $appointment) {
-                                        if ($appointment->status === 2) { // Assuming status 2 is completed
+                                        if ($appointment->status === 3) {
                                             $completedCount++;
                                         }
                                     }
